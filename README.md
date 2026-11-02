@@ -1,15 +1,15 @@
 # Avond4Daagse
 
 ## Joy:
-• landingspagina.html
-• homeDeelnemers.html
-• nieuwsEnUpdatesDeelnemers.html
-• updateLezenDeelnemers.hmtl
-• contactpaginaDeelnemers.html
-• inschrijvenDeelnemers.html
-• inlogpaginaMedewerkers.html
-• inlogpaginaScholen.html
-• aanmeldingpaginaScholen.html
+• landingspagina.html \
+• homeDeelnemers.html \
+• nieuwsEnUpdatesDeelnemers.html \
+• updateLezenDeelnemers.hmtl \
+• contactpaginaDeelnemers.html \
+• inschrijvenDeelnemers.html \
+• inlogpaginaMedewerkers.html \
+• inlogpaginaScholen.html \ 
+• aanmeldingpaginaScholen.html \
 
 ## Jelle:
 • aanmeldingenOverzichtIndividueel.html
