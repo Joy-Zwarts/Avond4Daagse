@@ -1,28 +1,198 @@
-<!-- Joy -->
-
 <!DOCTYPE html>
-
 <html lang="nl">
     <head>
         <meta charset="UTF-8">
-        <title>Home</title>
-        <meta name="description" content="De home pagina voor de Avond4Daagse van de regio Den Haag">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="De homepagina voor deelnemers van de Avond4Daagse Den Haag."
+        >
+        <title>Avond4Daagse Den Haag</title>
+        <link rel="stylesheet" href="homeDeelnemers.css">
     </head>
 
     <body>
         <header>
-            <nav>
-                
+            <nav class="navbar" aria-label="Hoofdnavigatie">
+                <a class="brand" href="homeDeelnemers.html" aria-label="Avond4Daagse Den Haag home">
+                    <img src="../../Images/avond4daagseLogo.png"alt="Avond4Daagse logo">
+                </a>
+
+                <div class="event-name">
+                    <span class="pin" aria-hidden="true">⌖</span>
+                    Avond4Daagse Den Haag
+                </div>
+
+                <div class="nav-actions">
+                    <a class="active" href="homeDeelnemers.html">Home</a>
+                    <a href="routesDeelnemers.html">Routes</a>
+                    <a href="Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html">
+                        Nieuws &amp; updates
+                    </a>
+                    <a href="contactpaginaDeelnemers.html">Contact</a>
+                    <a class="small-button" href="inschrijvenDeelnemers.html">
+                        Inschrijven
+                    </a>
+                </div>
             </nav>
         </header>
 
         <main>
-          
+            <section class="cover" aria-labelledby="cover-title">
+                <img class="cover-image" src="../../Images/homeCover.png" alt="Kinderen wandelen tijdens de Avond4Daagse">
+                <h1 id="cover-title">Avond4Daagse Den Haag</h1>
+            </section>
+
+            <section class="event-details" aria-label="Evenementgegevens">
+                <article class="detail-card">
+                    <span>Datum</span>
+                    <strong>Datum evenement</strong>
+                    <b>Nog te bevestigen</b>
+                </article>
+
+                <article class="detail-card">
+                    <span>Start</span>
+                    <strong>Start: te bevestigen</strong>
+                </article>
+
+                <article class="detail-card">
+                    <span>Eind</span>
+                    <strong>Eind: te bevestigen</strong>
+                </article>
+            </section>
+
+            <section class="content-card information" aria-labelledby="info-title">
+                <h2 id="info-title">Belangrijke informatie</h2>
+
+                <div class="info-grid">
+                    <article class="info-item">
+                        <span class="icon" aria-hidden="true">✓</span>
+                        <div>
+                            <small>Afstanden</small>
+                            <strong>Beschikbaar: 2,5 km en 5 km</strong>
+                        </div>
+                    </article>
+
+                    <article class="info-item">
+                        <span class="icon" aria-hidden="true">i</span>
+                        <div>
+                            <small>Tijden</small>
+                            <strong>
+                                Datum en starttijd volgen.<br>
+                                Bekijk voor vertrek de route-updates.
+                            </strong>
+                        </div>
+                    </article>
+
+                    <article class="info-item">
+                        <span class="icon" aria-hidden="true">i</span>
+                        <div>
+                            <small>Voorzieningen</small>
+                            <strong>
+                                Voorzieningen volgen.<br>
+                                Bekijk voor vertrek de route-updates.
+                            </strong>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="signup-card" id="inschrijven" aria-labelledby="signup-title">
+                <div>
+                    <h2 id="signup-title">Meld je aan!</h2>
+                    <p> Scholen en individuele deelnemers kunnen zich aanmelden. Afstanden: 2,5 km en 5 km. Inschrijven is ook mogelijk zonder school.
+                    </p>
+                </div>
+
+                <a class="inschrijf-button" href="inschrijvenDeelnemers.html">
+                    Inschrijven
+                </a>
+            </section>
+
+            <section class="content-card news" id="nieuws" aria-labelledby="news-title">
+                <h2 id="news-title">Laatste nieuws &amp; updates</h2>
+                <div class="news-grid">
+                    <a class="news-card" href="Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html">
+                        <img src="../../Images/wandelschoenen.png" alt="Wandelschoenen op een bospad">
+                        <span class="tag">02 / 04 / 2023</span>
+                        <h3>Goed voorbereid op pad</h3>
+                        <p>
+                            Comfortabele schoenen, voldoende water en een fijne wandelregio: lees handige tips voor een geslaagde wandeling.
+                        </p>
+                    </a>
+
+                    <a class="news-card" href="Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html" >
+                        <img src="../../Images/wandelingBergen.png" alt="Een groep wandelaars in de bergen">
+                        <span class="tag">09 / 04 / 2024</span>
+                        <h3>Samen meedoen, ook zonder school</h3>
+                        <p>
+                            Bekijk hoe je je kunt aanmelden wanneer je niet meteen school meeloopt.
+                        </p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="content-card sponsors" aria-labelledby="sponsors-title">
+                <h2 id="sponsors-title">Sponsoren</h2>
+                <div class="sponsor-grid">
+                    <article class="sponsor-card">
+                        <span class="sponsor-logo">
+                            <img src="../../Images/asrLogo.png" alt="ASR logo">
+                        </span>
+                        <h3>Hoofdsponsor ASR</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+
+                    <article class="sponsor-card">
+                        <span class="sponsor-logo">
+                            <img src="../../Images/plusLogo.png" alt="Plus logo">
+                        </span>
+                        <h3>Evenementensponsor Plus</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+
+                    <article class="sponsor-card">
+                        <span class="sponsor-logo">
+                            <img src="../../Images/jantjeBetonLogo.jpg" alt="Jantje Beton logo">
+                        </span>
+                        <h3>Evenementensponsor Jantje Beton</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </article>
+                </div>
+            </section>
         </main>
 
         <footer>
-            
+            <div class="footer-inner">
+                <div>
+                    <strong>⌖ Avond4Daagse Den Haag</strong>
+                    <p>
+                        Vier avonden samen wandelen, plezier maken, genieten en elkaar ontmoeten.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>Snelkoppelingen</strong>
+                    <a href="inschrijvenDeelnemers.html">Inschrijven</a>
+                    <a href="routesDeelnemers.html">Routepagina</a>
+                    <a href="Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html">
+                        Nieuws
+                    </a>
+                    <a href="contactpaginaDeelnemers.html">Contact opnemen</a>
+                </div>
+
+                <div>
+                    <strong>Neem contact op</strong>
+                    <span>✉ Nog te bevestigen</span>
+                    <span>☎ Nog te bevestigen</span>
+                    <span>⌕ Nog te bevestigen</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 Avond4Daagse Den Haag. Alle rechten voorbehouden.</span>
+                <span>Privacyverklaring &nbsp; Cookies</span>
+            </div>
         </footer>
     </body>
 </html>

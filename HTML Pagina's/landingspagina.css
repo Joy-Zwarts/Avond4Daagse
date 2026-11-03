@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --DarkBlueText: #444647;
+    --DarkGreenText: #39481F;
+    --LightGreenHighlight: #A8BB33;
+    --NormalGreenHighlight: #5E751C;
+    --BorderGreen: #999F78;
+    --CoolBackground: #D2D3B4;
+    --GreyText: #4B5563;
+    --LightGreyBorder: #E5E7EB;
+    --LightGreyBackground: #F8FAFC;
+    --HighlightedPageGreen: #738F20;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("../Images/treeBackground.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Inter, Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 0;
+    pointer-events: none;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(90%, 862px);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+p,
+.search-container,
+#results,
+#message,
+#deelnemerButton,
+.dubbelButtonContainer {
+    width: 100%;
+}
+
+h1 {
+    margin: 10px 0;
+    padding-top: 20px;
+    color: var(--DarkBlueText);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+h2 {
+    margin: 30px 0 10px;
+    color: var(--DarkBlueText);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+h3 {
+    margin: 0;
+    color: var(--DarkBlueText);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+p {
+    margin: 10px 0;
+    color: var(--GreyText);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin: 30px auto 0;
+}
+
+#searchInput {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 15px 18px;
+    border: 1px solid var(--LightGreyBorder);
+    border-radius: 8px;
+    background: white;
+    font-size: 16px;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+#searchButton,
+#deelnemerButton,
+#schoolButton,
+#organisatorButton {
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#searchButton {
+    flex: 0 0 auto;
+    padding: 15px 24px;
+    background: rgba(94, 117, 28, 0.8);
+}
+
+#searchButton:hover,
+#deelnemerButton:hover {
+    background: rgba(57, 72, 31, 0.8);
+}
+
+#results {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+#results li {
+    width: auto;
+    margin: 0;
+}
+
+.location-button {
+    display: inline-block;
+    width: auto;
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(94, 117, 28, 0.8);
+    color: var(--LightGreyBackground);
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.location-button:hover,
+.location-button.selected {
+    background: rgba(57, 72, 31, 0.8);
+    transform: translateY(-1px);
+}
+
+.location-button.selected {
+    outline: 2px solid var(--NormalGreenHighlight);
+    outline-offset: 2px;
+}
+
+#message {
+    margin-top: 15px;
+}
+
+#deelnemerButton {
+    display: block;
+    margin: 30px auto 0;
+    padding: 15px 24px;
+    background: rgba(94, 117, 28, 0.8);
+    text-align: center;
+}
+
+.dubbelButtonContainer {
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin: 10px 0 0;
+}
+
+#schoolButton,
+#organisatorButton {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    background-color: rgba(153, 159, 120, 0.8);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#schoolButton:hover,
+#organisatorButton:hover {
+    background: rgba(94, 117, 28, 0.8);
+}
+
+button{
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+}
+

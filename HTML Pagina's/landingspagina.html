@@ -6,23 +6,46 @@
     <head>
         <meta charset="UTF-8">
         <title>Landingspagina Avond4Daagse</title>
+
         <meta name="description" content="De landingspagina voor de Avond4Daagse, met doorstuurfunctie naar de juiste site voor de regio.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="landingspagina.css">
     </head>
 
     <body>
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
-
         <main>
-          
-        </main>
-
-        <footer>
+            <h1>Start hier bij de Avond4daagse van jouw regio</h1>
+            <p>
+                Vier avonden samen wandelen, plezier maken en toewerken naar een mooie medaille. Vind de Avond4daagse in jouw regio en selecteer als wat je door wilt gaan. Dit platform brengt meerdere organisaties samen, jij selecteert waar je bijhoort.
+            </p>
+            <h2>Zoek een Avond4daagse</h2>
+            <p>
+                Gebruik de zoekbalk om een regio, organisatie of locatie te vinden. Selecteer jouw locatie en daarna als wat je door wilt gaan. Je zal dan doorgestuurd worden naar de juiste pagina voor jou.
+            </p>       
             
-        </footer>
+            <div class="search-container">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Zoek op plaats of regio..."
+                    autocomplete="on"
+                >
+                <button id="searchButton" type="button">Zoeken</button>
+            </div>
+
+            <ul id="results"></ul>
+            <p id="message" role="status"></p>
+
+            <h3>Selecteer als wat u door wilt gaan</h3>
+
+            <button id="deelnemerButton">Deelnemer</button>
+
+            <div class="dubbelButtonContainer">
+                <button id="schoolButton" type="button">School</button>
+                <button id="organisatorButton" type="button">Organisator</button>
+            </div>
+        </main>
     </body>
+    <script src="landingspagina.js"></script>
 </html>

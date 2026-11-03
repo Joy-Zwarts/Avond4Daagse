@@ -9,7 +9,7 @@
 • inschrijvenDeelnemers.html \
 • inlogpaginaMedewerkers.html \
 • inlogpaginaScholen.html \
-• aanmeldingpaginaScholen.html \
+• aanmeldingpaginaScholen.html 
 
 ## Jelle:
 • aanmeldingenOverzichtIndividueel.html \
@@ -17,7 +17,7 @@
 • homepaginaScholen.html \
 • klassenbeheerScholen.html \
 • stempelkaartAanvraagScholen.html \
-• persoonlijkeAccountpaginaScholen.html \
+• persoonlijkeAccountpaginaScholen.html 
 
 ## Colin:
 • financieelDashboardFacturen.html \
@@ -27,7 +27,7 @@
 • gebruikersbeheerDeletionPopup.html \
 • gebruikersbeheerViewPopup.html \
 • gebruikersbeheerEditPopup.html \
-• persoonlijkAccountpaginaMedewerkers.html \
+• persoonlijkAccountpaginaMedewerkers.html 
 
 ## Stan:
 • bestuurdersdashboard.html \
@@ -37,4 +37,4 @@
 • roostersMedewerkers.html \
 • contactAfhanderlingMedewerkers.html \
 • communicatiebeheerMedewerkers.hmtl \
-• communicatiebeheerNieuwePost.html \
+• communicatiebeheerNieuwePost.html 
