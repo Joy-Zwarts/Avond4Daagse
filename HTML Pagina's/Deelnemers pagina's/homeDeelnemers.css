@@ -352,6 +352,17 @@ h2 {
     font-size: 13px;
 }
 
+.iconTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px;
+}
+
+.iconTitle h3 {
+    margin: 0;
+}
+
 footer {
     padding: 45px 64px 25px;
     color: #eef3e7;
