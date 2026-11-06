@@ -41,7 +41,184 @@
         </header>
 
         <main>
-          
+            <div id="titel">
+                <h1>Inschrijven voor de Avond4daagse</h1>
+                <p>Schrijf jezelf of meerdere kinderen tegelijk in. School, klas en schooljaar zijn per kind optioneel; meedoen zonder school is ook mogelijk. Vul gezamenlijke contactgegevens één keer in.</p>
+            </div>
+            <div id="contactCard">
+                <section class="contactCardTop">
+                    <div>
+                        <h2>Contactpersoon</h2>
+                    </div>
+                </section>
+                <form>
+                    <section class="formTop">
+                        <div>
+                            <label for="contactNaam">Naam</label>
+                            <input id="contactNaam" name="naam" type="text" required minlength="2" placeholder="Naam contactpersoon">
+                        </div>
+
+                        <div>
+                            <label for="contactAchternaam">Achternaam</label>
+                            <input id="contactAchternaam" name="achternaam" type="text" required minlength="2" placeholder="Achternaam contactpersoon">
+                        </div>
+                    </section>
+
+                    <label for="naam">E-mailadres</label>
+                    <input type="email" id="email" required minlength="2" placeholder="naam@voorbeeld.nl">
+
+                    <label for="onderwerp">Telefoonnummer</label>
+                    <input id="onderwerp" type="number" required minlength="10" placeholder="06 12345678">
+
+                    <label for="onderwerp">Postcode</label>
+                    <input id="onderwerp" name="onderwerp" minlength="10" placeholder="Optioneel">
+
+                    <input type="checkbox" id="nieuwsbrief" name="nieuwsbrief" value="deelnemen">
+                    <label for="nieuwsbrief">Meedoen met onze nieuwsbrief</label>
+                    <small>Als u dit aanvinkt krijgt u zo nu en dan updates in uw email over nieuws en andere belangrijke berichten over deze lokale Avond4Daagse</small>
+
+                    <hr> 
+
+                    <div id="participantsContainer">
+                        <section class="participantForm">
+                            <section class="contactCardTop">
+                                <div>
+                                    <h2>Deelnemers</h2>
+                                    <small class="participantNumber">Kind 1</small>
+                                </div>
+                            </section>
+
+                            <section class="formTop">
+                                <div>
+                                    <label for="deelnemerNaam1">Naam</label>
+                                    <input
+                                        id="deelnemerNaam1"
+                                        name="deelnemerNaam[]"
+                                        type="text"
+                                        required
+                                        minlength="2"
+                                        placeholder="Naam deelnemer"
+                                    >
+                                </div>
+
+                                <div>
+                                    <label for="deelnemerAchternaam1">Achternaam</label>
+                                    <input
+                                        id="deelnemerAchternaam1"
+                                        name="deelnemerAchternaam[]"
+                                        type="text"
+                                        required
+                                        minlength="2"
+                                        placeholder="Achternaam deelnemer"
+                                    >
+                                </div>
+                            </section>
+
+                            <label for="afstand1">Afstand</label>
+                            <select id="afstand1" name="afstand[]">
+                                <option value="km2_5">2,5 Kilometer</option>
+                                <option value="km5">5 Kilometer</option>
+                            </select>
+
+                            <label for="deelname1">Eerdere deelname</label>
+
+                            <div class="eerdereDeelname">
+                                <p>Dit is mijn</p>
+
+                                <select id="deelname1" name="eerdereDeelname[]">
+                                    <option value="1">Eerste</option>
+                                    <option value="2">Tweede</option>
+                                    <option value="3">Derde</option>
+                                    <option value="4">Vierde</option>
+                                    <option value="5">Vijfde</option>
+                                    <option value="6">Zesde</option>
+                                    <option value="7">Zevende</option>
+                                    <option value="8">Achtste</option>
+                                    <option value="9">Negende</option>
+                                    <option value="10">Tiende</option>
+                                </select>
+
+                                <p>keer deelnemen</p>
+                            </div>
+
+                            <label for="accessability1">
+                                Toegankelijkheid/ondersteuning
+                            </label>
+
+                            <textarea
+                                id="accessability1"
+                                name="accessability[]"
+                                class="accessability"
+                                placeholder="Vertel ons optionele ondersteuningseisen zodat uw kind deel kan nemen"
+                            ></textarea>
+
+                            <label for="schooldeelname1">
+                                Meedoen via school
+                            </label>
+
+                            <small>
+                                Schuif de slider naar “aan” als uw kind meedoet via school.
+                            </small>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="schooldeelname1"
+                                    class="schooldeelname-toggle"
+                                    name="schooldeelname[]"
+                                    value="viaschool"
+                                >
+                                <span class="slider round"></span>
+                            </label>
+
+                            <section class="schooldeelname" hidden>
+                                <label for="school1">School</label>
+                                <input
+                                    id="school1"
+                                    name="school[]"
+                                    placeholder="Naam school"
+                                >
+
+                                <label for="klas1">Klas</label>
+                                <input
+                                    id="klas1"
+                                    name="klas[]"
+                                    placeholder="Bijv. 1a"
+                                >
+
+                                <label for="leerjaar1">Leerjaar</label>
+                                <input
+                                    id="leerjaar1"
+                                    name="leerjaar[]"
+                                    placeholder="Bijv. groep 2"
+                                >
+                            </section>
+                        </section>
+                    </div>
+
+                    <div class="participantButtons">
+                        <button id="kindVerwijderen" type="button" hidden>
+                            <i class="fa-solid fa-minus"></i>
+                            Kind weghalen
+                        </button>
+
+                        <button id="kindToevoegen" type="button">
+                            <i class="fa-solid fa-plus"></i>
+                            Kind toevoegen
+                        </button>
+                    </div>
+
+                    <button id="sumbitbutton" type="submit">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        Inschrijving versturen
+                    </button>
+                </form>
+                <div id="smallprint">
+                    <small>
+                        Door te klikken op verzenden ga je akkoord met onze privacyverklaring.
+                    </small>
+                </div>    
+            </div> 
         </main>
 
         <footer>
@@ -77,4 +254,5 @@
             </div>
         </footer>
     </body>
+    <script src="inschrijvenDeelnemers.js"></script>
 </html>

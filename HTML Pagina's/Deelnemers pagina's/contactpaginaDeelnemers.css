@@ -163,6 +163,218 @@ main {
     line-height: 1;
 }
 
+#contactCard {
+    margin-top: 14px;
+    padding: 16px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: 0 3px 12px rgba(38, 60, 37, 0.06);
+    width: 60%;
+}
+
+.contactCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contactCardTop h2 {
+    margin-bottom: 4px;
+}
+
+.contactCardTop p {
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+form {
+    width: 100%;
+}
+
+form label {
+    display: block;
+    margin: 14px 0 6px;
+    color: var(--dark-blue-text);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+form input,
+form .bericht {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 12px;
+    outline: none;
+    color: var(--text);
+    background: var(--light-grey-background);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 10px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+form input {
+    height: 38px;
+}
+
+form .bericht {
+    height: 125px;
+    resize: vertical;
+}
+
+form input::placeholder,
+form .bericht::placeholder {
+    color: #7a8795;
+    opacity: 1;
+}
+
+form input:focus,
+form .bericht:focus {
+    border-color: var(--normal-green-highlight);
+    box-shadow: 0 0 0 3px rgba(94, 117, 28, 0.12);
+}
+
+form button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 12px;
+    color: var(--white);
+    background: var(--normal-green-highlight);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+form button:hover {
+    background: var(--dark-green);
+    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+button{
+    margin-top: 18px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--white);
+    background-color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+
+button:hover{
+    color: var(--white);
+    background: var(--dark-green-text);
+    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+#contactDiv {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+}
+
+#contactCard {
+    width: 60%;
+    margin-top: 14px;
+    padding: 16px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: 0 3px 12px rgba(38, 60, 37, 0.06);
+}
+
+#contactInfoCard {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    width: 40%;
+    min-height: 325px;
+    margin-top: 14px;
+    padding: 20px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: 0 3px 12px rgba(38, 60, 37, 0.06);
+}
+
+.infocardLeft {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: 10px;
+    width: 40%;
+}
+
+#infocardRight {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: 10px;
+    width: 60%;
+}
+
+.infoItem {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 12px;
+    min-height: 0;
+    padding: 14px;
+    border: 1px solid rgba(94, 117, 28, 0.25);
+    border-radius: 14px;
+    color: var(--dark-green-text);
+    background: var(--cool-background);
+}
+
+.infoItem div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.infoItem strong {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.infoItem small {
+    color: var(--text);
+    font-size: 11px;
+}
+
+.icon {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 14px;
+}
+
 .iconTitle {
     display: flex;
     align-items: center;
