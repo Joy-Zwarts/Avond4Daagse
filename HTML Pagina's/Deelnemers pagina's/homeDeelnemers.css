@@ -49,7 +49,7 @@ header {
     border-bottom: 1px solid var(--line);
 }
 
-.navbar {
+nav {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -58,17 +58,17 @@ header {
     margin: 0 auto;
 }
 
-.brand {
+.logo {
     flex: 0 0 auto;
 }
 
-.brand img {
+.logo img {
     display: block;
     width: 78px;
     height: auto;
 }
 
-.event-name {
+.regioLabel {
     flex: 1;
     color: var(--dark-green-text);
     font-size: 11px;
@@ -87,7 +87,7 @@ header {
     font-size: 12px;
 }
 
-.nav-actions {
+.paginas {
     display: flex;
     align-items: center;
     gap: 19px;
@@ -96,17 +96,16 @@ header {
     font-weight: 600;
 }
 
-.nav-actions a {
+.paginas a {
     transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.nav-actions a:hover,
-.nav-actions a.active:not(.small-button) {
+.paginas a:hover,
+.paginas a.active:not(.inschrijfButton) {
     color: var(--highlighted-page-green);
 }
 
-.small-button,
-.inschrijf-button {
+.inschrijfButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -117,11 +116,9 @@ header {
     background: var(--normal-green-highlight);
     font-weight: 800;
     box-shadow: var(--shadow);
-    transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.small-button:hover,
-.inschrijf-button:hover {
+.inschrijfButton:hover {
     color: var(--white);
     background: var(--dark-green);
     box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
@@ -140,7 +137,7 @@ main {
     overflow: hidden;
 }
 
-.cover-image {
+.coverImage {
     display: block;
     width: 100%;
     height: 100%;
@@ -166,14 +163,14 @@ main {
     line-height: 1;
 }
 
-.event-details {
+.detailCards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 55px;
     padding: 20px 15px;
 }
 
-.detail-card {
+.detail {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,19 +182,19 @@ main {
     background: var(--cool-background);
 }
 
-.detail-card span,
-.info-item small,
-.sponsor-card small {
+.detail span,
+.infoItem small,
+.sponsorCard small {
     font-size: 11px;
 }
 
-.detail-card strong,
-.detail-card b {
+.detail strong,
+.detail b {
     font-size: 12px;
 }
 
-.content-card,
-.signup-card {
+.informationCards,
+.aanmeldCard {
     margin-top: 14px;
     padding: 16px;
     border: 1px solid var(--light-grey-border);
@@ -212,15 +209,15 @@ h2 {
     font-size: 17px;
 }
 
-.info-grid,
-.sponsor-grid {
+.informationGrid,
+.sponsorGrid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 55px;
 }
 
-.info-item,
-.sponsor-card {
+.infoItem,
+.sponsorCard {
     display: flex;
     align-items: flex-start;
     gap: 8px;
@@ -231,19 +228,19 @@ h2 {
     background: var(--cool-background);
 }
 
-.info-item div {
+.infoItem div {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.info-item strong {
+.infoItem strong {
     font-size: 12px;
     line-height: 1.25;
 }
 
 .icon,
-.sponsor-logo {
+.sponsorLogo {
     flex: 0 0 auto;
     display: grid;
     place-items: center;
@@ -256,43 +253,43 @@ h2 {
     font-weight: 800;
 }
 
-.sponsor-logo {
+.sponsorLogo {
     overflow: hidden;
     background: var(--white);
 }
 
-.sponsor-logo img {
+.sponsorLogo img {
     display: block;
     width: 100%;
     height: 28px;
     object-fit: contain;
 }
 
-.signup-card {
+.aanmeldCard {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
 }
 
-.signup-card h2 {
+.aanmeldCard h2 {
     margin-bottom: 4px;
 }
 
-.signup-card p,
-.news-card p,
-.sponsor-card p {
+.aanmeldCard p,
+.newsGrid p,
+.sponsorCard p {
     margin: 0;
     color: var(--muted);
     font-size: 9px;
     line-height: 1.35;
 }
 
-.inschrijf-button {
-    flex: 0 0 125px;
+.newsCards{
+    margin-top: 20px;
 }
 
-.news-grid {
+.newsGrid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
@@ -300,7 +297,7 @@ h2 {
     margin: 0 auto;
 }
 
-.news-card {
+.newsCard {
     overflow: hidden;
     padding-bottom: 13px;
     border-radius: 10px;
@@ -309,26 +306,26 @@ h2 {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.news-card:hover {
+.newsCard:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
 }
 
-.news-card img {
+.newsCard img {
     display: block;
     width: 100%;
     height: 112px;
     object-fit: cover;
 }
 
-.news-card h3,
-.news-card p,
-.news-card .tag {
+.newsCard h3,
+.newsCard p,
+.newsCard .tag {
     margin-right: 12px;
     margin-left: 12px;
 }
 
-.news-card h3 {
+.newsCard h3 {
     margin-top: 7px;
     margin-bottom: 4px;
     font-size: 13px;
@@ -345,12 +342,12 @@ h2 {
     font-weight: 800;
 }
 
-.sponsor-card {
+.sponsorCard {
     display: block;
     min-height: 100px;
 }
 
-.sponsor-card h3 {
+.sponsorCard h3 {
     margin: 8px 0 5px;
     font-size: 13px;
 }
@@ -365,21 +362,21 @@ footer {
     background-repeat: no-repeat;
 }
 
-.footer-inner {
+.footer {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 90px;
 }
 
-.footer-inner strong {
+.footer strong {
     display: block;
     margin-bottom: 12px;
     font-size: 11px;
 }
 
-.footer-inner p,
-.footer-inner a,
-.footer-inner span {
+.footer p,
+.footer a,
+.footer span {
     display: block;
     margin: 7px 0;
     color: #c4d0be;
@@ -387,11 +384,11 @@ footer {
     line-height: 1.4;
 }
 
-.footer-inner a:hover {
+.footer a:hover {
     color: var(--white);
 }
 
-.footer-bottom {
+.footerBottom {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -399,4 +396,3 @@ footer {
     color: #839282;
     font-size: 8px;
 }
-

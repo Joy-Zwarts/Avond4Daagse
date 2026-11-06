@@ -18,6 +18,8 @@
     --text: #27302a;
     --muted: #69716a;
     --line: #edf0e8;
+    --white: #ffffff;
+    --shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
 }
 
 html {
@@ -37,13 +39,17 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 header {
     padding: 0 64px;
-    background: #fff;
+    background: var(--white);
     border-bottom: 1px solid var(--line);
 }
 
-.navbar {
+nav {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -52,13 +58,17 @@ header {
     margin: 0 auto;
 }
 
-.brand img {
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo img {
     display: block;
     width: 78px;
     height: auto;
 }
 
-.event-name {
+.regioLabel {
     flex: 1;
     color: var(--dark-green-text);
     font-size: 11px;
@@ -72,12 +82,12 @@ header {
     height: 20px;
     margin-right: 5px;
     border-radius: 6px;
-    color: #fff;
+    color: var(--white);
     background: var(--normal-green-highlight);
     font-size: 12px;
 }
 
-.nav-actions {
+.paginas {
     display: flex;
     align-items: center;
     gap: 19px;
@@ -86,55 +96,33 @@ header {
     font-weight: 600;
 }
 
-.nav-actions a:hover,
-.nav-actions .active {
+.paginas a {
+    transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paginas a:hover,
+.paginas a.active:not(.inschrijfButton) {
     color: var(--highlighted-page-green);
 }
 
-.nav-actions a {
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
-}
-
-.nav-actions a:hover,
-.nav-actions a.active:not(.small-button) {
-    color: var(--highlighted-page-green);
-}
-
-.small-button,
-.inschrijf-button {
+.inschrijfButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 40px;
     padding: 10px 14px;
-    border: 0;
     border-radius: 8px;
-    color: var(--white, #ffffff);
+    color: var(--white);
     background: var(--normal-green-highlight);
     font-weight: 800;
-    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+    box-shadow: var(--shadow);
 }
 
-.small-button:hover,
-.inschrijf-button:hover {
-    color: var(--white, #ffffff);
+.inschrijfButton:hover {
+    color: var(--white);
     background: var(--dark-green);
     box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
-}
-
-.nav-actions a.active.small-button:hover {
-    color: #fff;
-    background: var(--normal-green-highlight);
 }
 
 main {
@@ -149,7 +137,7 @@ main {
     overflow: hidden;
 }
 
-.cover-image {
+.coverImage {
     display: block;
     width: 100%;
     height: 100%;
@@ -175,6 +163,161 @@ main {
     line-height: 1;
 }
 
+#cards {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+#routecard {
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--cool-background);
+    margin: 32px 0 0;
+}
+
+#route5km #routecard{
+    max-width: 100%;
+}
+
+#route2_5km #routecard{
+    max-width: 100%;
+}
+
+.cardTop {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 16px 24px 14px;
+    background: var(--cool-background);
+    border-radius: 24px 24px 0 0;
+}
+
+.cardTop h3 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.cardTop p {
+    max-width: 760px;
+    margin: 0;
+    color: #27302a;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+#cardMiddle {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    width: 100%;
+    min-height: 372px;
+    background: #fff;
+}
+
+#informatieBlok {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: #fff;
+}
+
+#informatieBlok section {
+    flex: 1;
+    min-height: 78px;
+    padding: 12px 10px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--light-grey-background);
+}
+
+#informatieBlok h4 {
+    margin: 0 0 6px;
+    color: #27302a;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+#informatieBlok p {
+    margin: 0;
+    color: #27302a;
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    min-height: 372px;
+    margin: 0;
+}
+
+.cardBottom {
+    padding: 14px 24px 16px;
+    background: var(--cool-background);
+    border-radius: 0 0 24px 24px;
+}
+
+.cardBottom p {
+    margin: 0 0 8px;
+    color: #39481f;
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.cardBottom p:last-child {
+    margin-bottom: 0;
+}
+
+button{
+    margin-top: 18px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--dark-blue-text);
+    background-color: var(--light-grey-background);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+
+.aanmeldCard {
+    margin-top: 14px;
+    padding: 16px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: 0 3px 12px rgba(38, 60, 37, 0.06);
+}
+
+.aanmeldCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.aanmeldCard h2 {
+    margin-bottom: 4px;
+}
+
+.aanmeldCard p,
+.newsGrid p,
+.sponsorCard p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.35;
+}
+
 footer {
     padding: 45px 64px 25px;
     color: #eef3e7;
@@ -185,21 +328,21 @@ footer {
     background-repeat: no-repeat;
 }
 
-.footer-inner {
+.footer {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 90px;
 }
 
-.footer-inner strong {
+.footer strong {
     display: block;
     margin-bottom: 12px;
     font-size: 11px;
 }
 
-.footer-inner p,
-.footer-inner a,
-.footer-inner span {
+.footer p,
+.footer a,
+.footer span {
     display: block;
     margin: 7px 0;
     color: #c4d0be;
@@ -207,11 +350,11 @@ footer {
     line-height: 1.4;
 }
 
-.footer-inner a:hover {
-    color: #fff;
+.footer a:hover {
+    color: var(--white);
 }
 
-.footer-bottom {
+.footerBottom {
     display: flex;
     justify-content: space-between;
     gap: 20px;
