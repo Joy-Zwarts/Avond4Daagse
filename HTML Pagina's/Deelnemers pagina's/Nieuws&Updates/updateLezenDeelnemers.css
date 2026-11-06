@@ -163,6 +163,82 @@ main {
     line-height: 1;
 }
 
+.newscard {
+    width: 100%;
+    margin: 32px 0 0;
+    padding: 14px;
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: 0 3px 14px rgba(38, 60, 37, 0.08);
+}
+
+#newsDate {
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 4px 7px;
+    border-radius: 4px;
+    color: var(--dark-green-text);
+    background: var(--cool-background);
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.newsImage {
+    position: relative;
+    width: 100%;
+    height: clamp(220px, 36vw, 476px);
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.newsCover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.newscard h2 {
+    margin: 12px 0 8px;
+    color: var(--dark-blue-text);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.newscard h3 {
+    margin: 24px 0 8px;
+    color: var(--dark-blue-text);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.newscard p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.newscard a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin-top: 12px;
+    color: var(--dark-green-text);
+    font-size: 9px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.newscard a i {
+    font-size: 8px;
+}
+
 .iconTitle {
     display: flex;
     align-items: center;
