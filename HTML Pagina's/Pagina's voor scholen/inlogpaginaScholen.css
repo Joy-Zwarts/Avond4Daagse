@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --DarkBlueText: #444647;
+    --DarkGreenText: #39481f;
+    --LightGreenHighlight: #a8bb33;
+    --NormalGreenHighlight: #5e751c;
+    --CoolBackground: #d2d3b4;
+    --GreyText: #4b5563;
+    --LightGreyBorder: #e5e7eb;
+    --LightGreyBackground: #f8fafc;
+    --HighlightedPageGreen: #738f20;
+    --White: #ffffff;
+    --Shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--DarkBlueText);
+    background-color: #aeb693;
+    background-image: url("../../Images/treeBackground.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Inter, Arial, sans-serif;
+}
+
+body::before {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    background: rgba(255, 255, 255, 0.48);
+    pointer-events: none;
+}
+
+header,
+main {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    padding: 0 64px;
+    background: var(--White);
+    border-bottom: 1px solid var(--LightGreyBorder);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 400px;
+    width: 100%;
+    min-height: 76px;
+    margin: 0 auto;
+}
+
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo img {
+    display: block;
+    width: 78px;
+    height: auto;
+}
+
+.regioLabel {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    color: var(--DarkGreenText);
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.pin {
+    display: inline-grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+    border-radius: 7px;
+    color: var(--White);
+    background: var(--NormalGreenHighlight);
+    font-size: 12px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 76px);
+    padding: 70px 24px;
+}
+
+#loginCard {
+    width: 80%;
+    padding: 28px 32px 26px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 12px 28px rgba(38, 60, 37, 0.16);
+    backdrop-filter: blur(2px);
+}
+
+.loginCardTop h1 {
+    margin: 0;
+    color: var(--DarkBlueText);
+    font-size: clamp(26px, 4vw, 34px);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.loginCardTop p {
+    margin: 8px 0 24px;
+    color: var(--GreyText);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+#loginForm {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+#loginForm label {
+    display: block;
+    margin: 14px 0 6px;
+    color: var(--DarkBlueText);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+    display: block;
+    width: 100%;
+    height: 38px;
+    padding: 10px 12px;
+    border: 1px solid rgba(68, 70, 71, 0.2);
+    border-radius: 10px;
+    outline: none;
+    color: var(--DarkBlueText);
+    background: rgba(248, 250, 252, 0.42);
+    font-family: inherit;
+    font-size: 10px;
+}
+
+#loginForm input::placeholder {
+    color: #87909a;
+}
+
+#loginForm input[type="email"]:focus,
+#loginForm input[type="password"]:focus {
+    border-color: var(--NormalGreenHighlight);
+    box-shadow: 0 0 0 3px rgba(94, 117, 28, 0.14);
+}
+
+#onthoudMij {
+    width: auto;
+    margin: 14px 6px 0 0;
+    accent-color: var(--NormalGreenHighlight);
+}
+
+#onthoudMijDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+#loginBottom a {
+    width: auto;
+    margin: 14px 6px 0 0;
+    display: inline-block;
+    color: var(--dark-green-text);
+    font-size: 9px;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+#loginBottom a:hover {
+    color: var(--NormalGreenHighlight);
+}
+
+#loginBottom{
+    display: flex;
+    flex-direction: row;
+    gap: 910px;
+}
+
+#loginForm label[for="nieuwsbrief"] {
+    display: inline;
+    margin: 0;
+    color: var(--GreyText);
+    font-size: 9px;
+    font-weight: 400;
+}
+
+#loginButton {
+    display: block;
+    width: 100%;
+    margin: 16px 0 0;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 11px;
+    color: var(--White);
+    background:#5d751cc4;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--Shadow);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#loginButton:hover {
+    background: var(--DarkGreenText);
+    transform: translateY(-1px);
+}
+
+#geenAccount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+#geenAccount a {
+    display: inline-block;
+    width: auto;
+    margin: 14px 0 0;
+    color: var(--NormalGreenHighlight);
+    font-size: 9px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+#geenAccount a:hover {
+    color: var(--DarkGreenText);
+}

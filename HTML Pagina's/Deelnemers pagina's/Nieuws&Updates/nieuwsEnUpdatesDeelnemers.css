@@ -239,7 +239,7 @@ main {
 
 .newscard a {
     display: inline-block;
-    color: var(--dark-green-text);
+    color: var(--normal-green-highlight);
     font-size: 9px;
 }
 

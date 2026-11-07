@@ -8,21 +8,66 @@
         <title>Aanmeldpagina Scholen</title>
         <meta name="description" content="De aanmeldpagina voor scholen in de regio Den Haag">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="aanmeldpaginaScholen.css">
+
+        <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
         <header>
             <nav>
-                
+                <a class="logo" href="homeDeelnemers.html">
+                    <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+                </a>
+
+                <div class="regioLabel">
+                    <span class="pin"><i class="fa-solid fa-users"></i></span>
+                    Avond4Daagse Den Haag schoolportaal
+                </div>
             </nav>
         </header>
-
         <main>
-          
-        </main>
+            <div id="loginCard">
+                    <section class="loginCardTop">
+                        <div>
+                            <h1>Aanmelden als school</h1>
+                            <p>
+                                Doe een aanmeldverzoek als school die ons bestuur zal beoordelen
+                            </p>
+                        </div>
+                    </section>
+                    <form id="loginForm" action="homepaginaScholen.html" method="get">
+                        <label for="naam">Naam contactpersoon</label>
+                        <input type="naam" name="naam" required minlength="2" placeholder="Uw naam..">
 
-        <footer>
-            
-        </footer>
+                        <label for="school">Naam school</label>
+                        <input type="school" name="school" required minlength="2" placeholder="De naam van de school..">
+
+                        <label for="onderwerp">Telefoonnummer</label>
+                        <input id="onderwerp" type="number" required minlength="10" placeholder="06 12345678">
+
+                        <label for="email">E-mailadres</label>
+                        <input type="email" id="email" required minlength="2" placeholder="naam@voorbeeld.nl">
+
+                        <label for="onderwerp">Wachtwoord</label>
+                        <input id="onderwerp" type="password" required minlength="8" placeholder="Uw wachtwoord...">
+
+                        <div id="loginBottom">
+                            <div id="onthoudMijDiv">
+                                <input type="checkbox" id="onthoudMij" name="onthoudMij" value="false">
+                                <label for="onthoudMij">Onthoud mij</label>
+                            </div>    
+                        </div>
+
+                        <button id="loginButton" type="submit">Doe aanmeldverzoek</button>
+                    </form>
+                    <div id="geenAccount">
+                        <a href="inlogpaginaScholen.html">
+                            <strong>Al een account?</strong>
+                        </a>
+                    </div>    
+                </div> 
+        </main>
     </body>
 </html>

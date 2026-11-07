@@ -8,21 +8,61 @@
         <title>Inlogpagina Scholen</title>
         <meta name="description" content="De inlogpagina voor scholen in de regio Den Haag">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="inlogpaginaScholen.css">
+
+        <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
         <header>
             <nav>
-                
+                <a class="logo" href="homeDeelnemers.html">
+                    <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+                </a>
+
+                <div class="regioLabel">
+                    <span class="pin"><i class="fa-solid fa-users"></i></span>
+                    Avond4Daagse Den Haag schoolportaal
+                </div>
             </nav>
         </header>
-
         <main>
-          
-        </main>
+            <div id="loginCard">
+                    <section class="loginCardTop">
+                        <div>
+                            <h1>Log in als school</h1>
+                            <p>
+                                Log in om verder te gaan met uw schoolaccount.
+                            </p>
+                        </div>
+                    </section>
+                    <form id="loginForm" action="homepaginaScholen.html" method="get">
+                        <label for="email">E-mailadres</label>
+                        <input type="email" id="email" required minlength="2" placeholder="naam@voorbeeld.nl">
 
-        <footer>
-            
-        </footer>
+                        <label for="onderwerp">Wachtwoord</label>
+                        <input id="onderwerp" type="password" required minlength="8" placeholder="Uw wachtwoord...">
+
+                        <div id="loginBottom">
+                            <div id="onthoudMijDiv">
+                                <input type="checkbox" id="onthoudMij" name="onthoudMij" value="false">
+                                <label for="onthoudMij">Onthoud mij</label>
+                            </div>    
+
+                            <a href="">
+                                <strong>Wachtwoord vergeten?</strong>
+                            </a>
+                        </div>
+
+                        <button id="loginButton" type="submit">Log in</button>
+                    </form>
+                    <div id="geenAccount">
+                        <a href="aanmeldpaginaScholen.html">
+                            <strong>Nog geen account?</strong>
+                        </a>
+                    </div>    
+                </div> 
+        </main>
     </body>
 </html>

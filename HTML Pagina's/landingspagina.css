@@ -52,7 +52,7 @@ h1,
 h2,
 h3,
 p,
-.search-container,
+.regioSearch,
 #results,
 #message,
 #deelnemerButton,
@@ -91,7 +91,7 @@ p {
     line-height: 1.5;
 }
 
-.search-container {
+.regioSearch {
     display: flex;
     gap: 10px;
     margin: 30px auto 0;
