@@ -221,3 +221,17 @@ main {
     gap: 12px;
   }
 }
+
+/* Browserbreed zonder zwarte zijbalken */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--cream, #f5f6f8);
+}
+
+.page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}

@@ -298,3 +298,17 @@ td:nth-child(7) { width: 26%; }
     font-size: 18px;
   }
 }
+
+/* Browserbreed zonder zwarte zijbalken */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--background, #f5f6f8);
+}
+
+.page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}

@@ -403,3 +403,17 @@ th:nth-child(7), td:nth-child(7) { width: 9%; text-align: right; }
     gap: 12px;
   }
 }
+
+/* Browserbreed zonder zwarte zijbalken */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--cream, #f5f6f8);
+}
+
+.page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
