@@ -1,28 +1,59 @@
 <!-- Jelle -->
-
 <!DOCTYPE html>
-
 <html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <title>Aanmeldingen Overzicht</title>
-        <meta name="description" content="De aanmeldingen overzichtpagina van scholen in de regio Den Haag">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Aanmeldingen overzicht scholen</title>
+  <meta name="description" content="De aanmeldingen overzichtpagina van scholen in de regio Den Haag">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="aanmeldingenOverzichtScholen.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-title">Aanmeldingen overzicht scholen</div>
 
-    <body>
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
+    <header>
+      <div class="topbar">
+        <img class="logo" src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
 
-        <main>
-          
-        </main>
+        <div class="portal">
+          <span class="portal-icon">♟</span>
+          Avond4daagse Den Haag Medewerkersportaal
+        </div>
 
-        <footer>
-            
-        </footer>
-    </body>
+        <div class="account">
+          <span class="account-icon">♙</span>
+          <span>Account</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#">Bestuurdersdashboard</a>
+        <a class="active" href="#">Aanmeldingen overzicht</a>
+        <a href="#">Draaiboek</a>
+        <a href="#">Routebeheer</a>
+        <a href="#">Roosters</a>
+        <a href="#">Financieel dashboard</a>
+        <a href="#">Communicatiebeheer</a>
+        <a href="#">Contact</a>
+        <a href="#">Gebruikersbeheer</a>
+        <a href="#">Mijn Schema</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1 id="page-title">Aanmeldingen overzicht</h1>
+      <p id="page-subtitle" class="intro"></p>
+
+      <div class="switch">
+        <button>Individuele aanmeldingen</button>
+        <button class="active">Aanmeldingen via scholen</button>
+      </div>
+
+      <section id="schools"></section>
+    </main>
+  </div>
+
+  <script src="aanmeldingenOverzichtScholen.js"></script>
+</body>
 </html>

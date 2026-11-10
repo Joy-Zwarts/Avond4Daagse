@@ -1,0 +1,37 @@
+{
+  "paginaTitel": "Aanmeldingen overzicht",
+  "subtitel": "Hier kan je alle aanmeldingen zien die gedaan zijn voor de geselecteerde Avond4Daagse",
+  "scholen": [
+    {
+      "naam": "Het Kristal",
+      "contactpersoon": "James McGill",
+      "email": "James.McG@gmail.com",
+      "telefoon": "06 59873201",
+      "leerlingen": [
+        { "naam": "Paul Brood", "klas": "2", "groep": "Groep 2", "afstand": "2,5km", "deelname": "1e keer", "opmerkingen": "Paul heeft astma dus zorg ervoor dat iemand die meeloopt zijn puffer mee heeft." },
+        { "naam": "Lisbeth Gris", "klas": "8a", "groep": "Groep 8", "afstand": "5km", "deelname": "5e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Thomas Vigers", "klas": "1a", "groep": "Groep 1", "afstand": "2,5km", "deelname": "1e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Julian Lopez", "klas": "5", "groep": "Groep 5", "afstand": "5km", "deelname": "4e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Bart Plinko", "klas": "5", "groep": "Groep 5", "afstand": "5km", "deelname": "1e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Geert Pots", "klas": "6", "groep": "Groep 6", "afstand": "5km", "deelname": "3e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Hilda Nike", "klas": "8b", "groep": "Groep 8", "afstand": "5km", "deelname": "3e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Nikkie Freeman", "klas": "3", "groep": "Groep 3", "afstand": "2,5km", "deelname": "1e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Quent Nomad", "klas": "2", "groep": "Groep 2", "afstand": "2,5km", "deelname": "1e keer", "opmerkingen": "Quent heeft een gebroken voet maar wil wel nog meelopen met krukken." },
+        { "naam": "Tein Loop", "klas": "4", "groep": "Groep 4", "afstand": "5km", "deelname": "2e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Alexa Amazon", "klas": "1c", "groep": "Groep 1", "afstand": "2,5km", "deelname": "1e keer", "opmerkingen": "n.v.t." }
+      ]
+    },
+    {
+      "naam": "De Paradijsvogel",
+      "contactpersoon": "Kim Wexler",
+      "email": "WexK@gmail.com",
+      "telefoon": "06 49230100",
+      "leerlingen": [
+        { "naam": "Sam Evil", "klas": "6", "groep": "Groep 6", "afstand": "5km", "deelname": "3e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Daniel Xang", "klas": "6", "groep": "Groep 6", "afstand": "5km", "deelname": "3e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Matthijs Struijk", "klas": "1b", "groep": "Groep 1", "afstand": "5km", "deelname": "1e keer", "opmerkingen": "n.v.t." },
+        { "naam": "Max van Bladeren", "klas": "2b", "groep": "Groep 2", "afstand": "2,5km", "deelname": "1e keer", "opmerkingen": "n.v.t." }
+      ]
+    }
+  ]
+}

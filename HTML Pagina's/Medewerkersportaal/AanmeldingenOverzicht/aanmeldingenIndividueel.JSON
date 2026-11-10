@@ -1,0 +1,32 @@
+{
+  "paginaTitel": "Aanmeldingen overzicht",
+  "subtitel": "Hier kan je alle aanmeldingen zien die gedaan zijn voor de geselecteerde Avond4Daagse",
+  "aanmeldingen": [
+    {
+      "contactpersoon": "Noah de boer",
+      "email": "Noah.dB@gmail.com",
+      "telefoonnummer": "06 30987342",
+      "postcode": "2098 HB",
+      "kinderen": [
+        {
+          "naam": "Lisa de Boer",
+          "school": "De Paradijsvogel",
+          "klas": "5a",
+          "schooljaar": "Groep 5",
+          "afstand": "5km",
+          "deelname": "3e keer",
+          "opmerkingen": "n.v.t."
+        },
+        {
+          "naam": "Thijs de Boer",
+          "school": "De Paradijsvogel",
+          "klas": "3c",
+          "schooljaar": "Groep 3",
+          "afstand": "2,5km",
+          "deelname": "1e keer",
+          "opmerkingen": "Thijs heeft een knieblessure dus heeft soms wat extra rustpauzes tussendoor nodig"
+        }
+      ]
+    }
+  ]
+}
