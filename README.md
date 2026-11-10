@@ -12,12 +12,12 @@
 • aanmeldingpaginaScholen.html ✓
 
 ## Jelle:
-• aanmeldingenOverzichtIndividueel.html \
-• aanmeldingenOverzichtScholen.html \
-• homepaginaScholen.html \
-• klassenbeheerScholen.html \
-• stempelkaartAanvraagScholen.html \
-• persoonlijkeAccountpaginaScholen.html 
+• aanmeldingenOverzichtIndividueel.html ✓ \
+• aanmeldingenOverzichtScholen.html ✓ \
+• homepaginaScholen.html ✓ \
+• klassenbeheerScholen.html ✓ \
+• stempelkaartAanvraagScholen.html ✓ \
+• persoonlijkeAccountpaginaScholen.html ✓ 
 
 ## Colin:
 • financieelDashboardFacturen.html \
