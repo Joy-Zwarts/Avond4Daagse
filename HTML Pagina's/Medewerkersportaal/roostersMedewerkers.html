@@ -1,28 +1,86 @@
-<!-- Stan -->
-
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <title>Roosters</title>
-        <meta name="description" content="Beheer van de roosters voor de medewerkers van de Avond4Daagse van de regio Den Haag">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>draaiboekMedewerkers</title>
+    <link rel="stylesheet" href="css/roostersMedewerkers.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">avond<span>4daagse</span></div>
+      <div class="brand"><b>♟</b>Avond4daagse Den Haag Medewerkersportaal</div>
+      <div class="account"><i class="avatar">●</i>Account</div>
+    </div>
+    <nav>
+      <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
+      <a href="aanmeldingen.html">Aanmeldingen overzicht</a>
+      <a href="draaiboekMedewerkers.html">draaiboekMedewerkers</a>
+      <a href="routebestuurMedewerkers.html">Routebeheer</a>
+      <a class="active" href="roostersMedewerkers.html">Roosters</a>
+      <a href="financieel.html">Financieel dashboard</a>
+      <a href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+      <a href="contactAfhanderlingMedewerkers.html">Contact</a>
+      <a href="gebruikersbeheer.html">Gebruikersbeheer</a>
+      <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
+    </nav>
+  </header>
 
-    <body>
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
+  <section class="page-head">
+    <h1>draaiboekMedewerkers</h1>
+    <p>Medewerkersportaal Avond4daagse</p>
+  </section>
 
-        <main>
-          
-        </main>
+  <main class="container">
+    <div class="toolbar">
+      <button class="button">＋ Activiteit toevoegen</button>
+    </div>
 
-        <footer>
-            
-        </footer>
-    </body>
+    <section class="card calendar-box">
+      <h2 class="panel-title">‹ &nbsp; Mei 2027 &nbsp; ›</h2>
+
+      <div class="calendar-layout">
+        <div>
+          <h2 class="panel-title">Agenda Mei</h2>
+          <div class="month-grid">
+            <span>Ma<b>26</b></span><span>Di<b>27</b></span><span>Wo<b>28</b></span><span>Do<b>29</b></span><span>Vr<b>30</b></span><span>Za<b>1</b></span><span>Zo<b>2</b></span>
+            <span><b>3</b></span><span><b>4</b></span><span><b>5</b></span><span><b>6</b></span><span><b>7</b></span><span><b>8</b></span><span><b>9</b></span>
+            <span><b>10</b></span><span><b>11</b></span><span><b>12</b></span><span><b>13</b></span><span><b>14</b></span><span><b>15</b></span><span><b>16</b></span>
+            <span><b>17</b></span><span><b>18</b></span><span><b>19</b></span><span><b>20</b></span><span><b>21</b></span><span><b>22</b></span><span><b>23</b></span>
+            <span><b>24</b></span><span><b>25</b></span><span><b>26</b></span><span><b>27</b></span><span><b>28</b></span><span><b>29</b></span><span><b>30</b></span>
+            <span><b>31</b></span>
+          </div>
+          <div class="event">
+            <b>12 mei 2027</b><br>
+            <span class="muted">Bijeenkomst bestuur</span>
+          </div>
+          <div class="event">
+            <b>13 mei 2027</b><br>
+            <span class="muted">Vergaderen over financiën</span>
+          </div>
+        </div>
+
+        <aside class="side-stack">
+          <article class="card small-panel">
+            <h2 class="panel-title">12 mei 2027</h2>
+            <div class="event"><b>09:00</b><br>Startlocatie check 5 km route</div>
+            <div class="event"><b>16:00</b><br>Deadline vrijwilligersrooster</div>
+          </article>
+
+          <article class="card form-card">
+            <h2 class="panel-title">Activiteit toevoegen</h2>
+            <label>Titel</label>
+            <input class="input" placeholder="Bijv. EHBO-check eindlocatie">
+            <label>Tijd</label>
+            <input class="input" placeholder="09:00">
+            <label>Notitie</label>
+            <textarea placeholder="Voeg extra informatie toe..."></textarea>
+            <button class="button full">Activiteit opslaan</button>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
