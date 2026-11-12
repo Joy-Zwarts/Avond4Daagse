@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Persoonlijke accountpagina | Avond4daagse Den Haag</title>
+        <!-- Opmaak van deze pagina. -->
+        <link rel="stylesheet" href="css/persoonlijkAccountpaginaMedewerkers.css">
+    </head>
+    <body>
+        <!-- Herbruikbare pictogrammen voor gebruikers en profielen. -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-definitions">
+            <symbol id="person" viewBox="0 0 48 48">
+                <circle cx="24" cy="13" r="7"/>
+                <path d="M8 42v-6c0-10 32-10 32 0v6Z"/>
+            </symbol>
+            <symbol id="avatar" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="43" fill="none" stroke-width="7"/>
+                <circle cx="50" cy="40" r="16" fill="currentColor" stroke="none"/>
+                <path d="M17 78c4-27 62-27 66 0A43 43 0 0 1 17 78" fill="currentColor" stroke="none"/>
+            </symbol>
+        </svg>
+        <!-- Kop met logo, accountlink en hoofdnavigatie. -->
+        <header>
+            <div class="brand">
+                <img class="logo" src="Images/avond4daagse-logo.png" alt="Avond4daagse Den Haag">
+                <strong><span class="team" aria-hidden="true">♧</span>Avond4daagse Den Haag Medewerkersportaal</strong>
+                <a class="account" href="persoonlijkAccountpaginaMedewerkers.html">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#avatar"/>
+                    </svg>
+                    <span>Account</span>
+                </a>
+            </div>
+            <nav aria-label="Hoofdnavigatie">
+                <a href="#niet-beschikbaar" data-unavailable>Bestuurdersdashboard</a>
+                <a href="#niet-beschikbaar" data-unavailable>Aanmeldingen overzicht</a>
+                <a href="#niet-beschikbaar" data-unavailable>Draaiboek</a>
+                <a href="#niet-beschikbaar" data-unavailable>Routebeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Roosters</a>
+                <a href="financieelDashboardOverzicht.html" >Financieel dashboard</a>
+                <a href="#niet-beschikbaar" data-unavailable>Communicatiebeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Contact</a>
+                <a href="gebruikersbeheer.html" >Gebruikersbeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Mijn Schema</a>
+            </nav>
+        </header>
+        <!-- Inhoud van deze pagina. -->
+        <main>
+            <form id="profile-form" class="card shadow profile account-profile">
+                <div class="profile-body">
+                    <div>
+                        <svg class="icon avatar" aria-hidden="true">
+                            <use href="#avatar"/>
+                        </svg>
+                        <label>
+                            Profielfoto
+                            <input type="file" id="photo" accept="image/*">
+                        </label>
+                    </div>
+                    <div>
+                        <h1 data-user-title>User 1</h1>
+                        <div class="form-grid">
+                            <div>
+                                <label>
+                                    Naam
+                                    <input type="text" value="Jane Doe" name="fullname" >
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Geboortedatum
+                                </label>
+                                <div class="date-parts">
+                                    <input aria-label="Dag" name="Dag" type="number" min="1" max="31" value="29" >
+                                    <input aria-label="Maand" name="Maand" type="number" min="1" max="12" value="2" >
+                                    <input aria-label="Jaar" name="Jaar" type="number" min="1900" max="2100" value="1992" >
+                                </div>
+                            </div>
+                            <div>
+                                <label>
+                                    Woonplaats
+                                    <input type="text" value="Theresiastraat 84" name="address" >
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    Telefoonnummer
+                                    <input type="tel" value="06 66666666" name="phone">
+                                </label>
+                            </div>
+                            <div class="span-2">
+                                <div>
+                                    <label>
+                                        Nieuw wachtwoord
+                                        <input type="password" value="" name="password" placeholder="••••••••" autocomplete="new-password" minlength="8">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certificates">
+                            <div class="certificate">
+                                <span>Certificaat 1</span>
+                                <span class="badge ">✓ &nbsp; Goedgekeurd</span>
+                                <button type="button" data-replace="0">Aanpassen</button>
+                                <button type="button" data-certificate="0">Bekijken</button>
+                            </div>
+                            <div class="certificate">
+                                <span>Certificaat 2</span>
+                                <span class="badge pending">? &nbsp; Geen oordeel</span>
+                                <button type="button" data-replace="1">Aanpassen</button>
+                                <button type="button" data-certificate="1">Bekijken</button>
+                            </div>
+                            <div class="certificate">
+                                <span>Certificaat 3</span>
+                                <span class="badge rejected">⚠ &nbsp; Fout gekeurd</span>
+                                <button type="button" data-replace="2">Aanpassen</button>
+                                <button type="button" data-certificate="2">Bekijken</button>
+                            </div>
+                        </div>
+                        <label class="button primary wide upload-label" for="certificate-upload">
+                            Certificaat uploaden ↑
+                        </label>
+                        <input type="file" id="certificate-upload" accept=".pdf,image/*">
+                        <button class="primary wide" type="submit">Account opslaan</button>
+                    </div>
+                </div>
+                <p id="message" class="status-message" role="status"></p>
+            </form>
+        </main>
+        <!-- Gedeeld dialoogvenster voor meldingen en certificaten. -->
+        <dialog id="dialog" aria-labelledby="dialog-title">
+            <h2 id="dialog-title"></h2>
+            <div id="dialog-text"></div>
+            <form method="dialog">
+                <button class="dialog-close">Sluiten</button>
+            </form>
+        </dialog>
+        <!-- Interactie van deze pagina; laden na de HTML-inhoud. -->
+        <script src="js/persoonlijkAccountpaginaMedewerkers.js"></script>
+    </body>
+</html>

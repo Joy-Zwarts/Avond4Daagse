@@ -31,10 +31,10 @@
 
 ## Stan:
 • bestuurdersdashboard.html ✓\
-• draaiboekMedewerkers.html \
+• draaiboekMedewerkers.html ✓\
 • routebestuurMedewerkers.html ✓\
 • mijnSchemaMedewerkers.html ✓\
 • roostersMedewerkers.html ✓\
-• contactAfhanderlingMedewerkers.html ✓\
+• contactAfhandelingMedewerkers.html ✓\
 • communicatiebeheerMedewerkers.hmtl ✓\
 • communicatiebeheerNieuwePost.html ✓

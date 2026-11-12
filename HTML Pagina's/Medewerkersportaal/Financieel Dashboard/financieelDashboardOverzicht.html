@@ -1,28 +1,161 @@
-<!-- Colin -->
-
 <!DOCTYPE html>
-
 <html lang="nl">
     <head>
         <meta charset="UTF-8">
-        <title>Financieel Dashboard</title>
-        <meta name="description" content="Beheer voor financiële informatie van de Avond4Daagse.">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Financieel dashboard — Overzicht | Avond4daagse Den Haag</title>
+        <!-- Opmaak van deze pagina. -->
+        <link rel="stylesheet" href="css/financieelDashboardOverzicht.css">
     </head>
-
     <body>
+        <!-- Herbruikbare pictogrammen voor gebruikers en profielen. -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-definitions">
+            <symbol id="person" viewBox="0 0 48 48">
+                <circle cx="24" cy="13" r="7"/>
+                <path d="M8 42v-6c0-10 32-10 32 0v6Z"/>
+            </symbol>
+            <symbol id="avatar" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="43" fill="none" stroke-width="7"/>
+                <circle cx="50" cy="40" r="16" fill="currentColor" stroke="none"/>
+                <path d="M17 78c4-27 62-27 66 0A43 43 0 0 1 17 78" fill="currentColor" stroke="none"/>
+            </symbol>
+        </svg>
+        <!-- Kop met logo, accountlink en hoofdnavigatie. -->
         <header>
-            <nav>
-                
+            <div class="brand">
+                <img class="logo" src="Images/avond4daagse-logo.png" alt="Avond4daagse Den Haag">
+                <strong><span class="team" aria-hidden="true">♧</span>Avond4daagse Den Haag Medewerkersportaal</strong>
+                <a class="account" href="persoonlijkAccountpaginaMedewerkers.html">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#avatar"/>
+                    </svg>
+                    <span>Account</span>
+                </a>
+            </div>
+            <nav aria-label="Hoofdnavigatie">
+                <a href="#niet-beschikbaar" data-unavailable>Bestuurdersdashboard</a>
+                <a href="#niet-beschikbaar" data-unavailable>Aanmeldingen overzicht</a>
+                <a href="#niet-beschikbaar" data-unavailable>Draaiboek</a>
+                <a href="#niet-beschikbaar" data-unavailable>Routebeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Roosters</a>
+                <a href="financieelDashboardOverzicht.html" aria-current="page">Financieel dashboard</a>
+                <a href="#niet-beschikbaar" data-unavailable>Communicatiebeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Contact</a>
+                <a href="gebruikersbeheer.html" >Gebruikersbeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Mijn Schema</a>
             </nav>
         </header>
-
-        <main>
-          
+        <!-- Inhoud van deze pagina. -->
+        <main class="finance">
+            <div class="heading">
+                <div>
+                    <h1>Financieel dashboard</h1>
+                    <p class="muted">Overzicht van de rekening, facturen en uitgaven</p>
+                </div>
+                <span id="period" class="badge pending">Nog geen beginsaldo</span>
+            </div>
+            <div class="tabs">
+                <a class="button primary" href="financieelDashboardOverzicht.html">Overzicht</a>
+                <a class="button" href="financieelDashboardFacturen.html">Facturen</a>
+            </div>
+            <p class="note">Registreer hier ontvangen en uitgegeven geld. Gegevens worden alleen in deze browser opgeslagen; er is geen bankkoppeling en er worden geen betalingen uitgevoerd.</p>
+            <p id="message" class="status-message" role="status" aria-live="polite"></p>
+            <section class="stats" aria-label="Financiële samenvatting" aria-live="polite">
+                <article class="card stat">
+                    <small><b>Huidig saldo</b></small>
+                    <strong id="balance">—</strong>
+                    <small id="as-of">Stel eerst het beginsaldo in</small>
+                </article>
+                <article class="card stat">
+                    <small><b>Inkomsten</b></small>
+                    <strong id="income">—</strong>
+                    <small class="period-label"></small>
+                </article>
+                <article class="card stat">
+                    <small><b>Uitgaven</b></small>
+                    <strong id="expense">—</strong>
+                    <small class="period-label"></small>
+                </article>
+            </section>
+            <details class="card finance-section" id="opening-panel" open>
+                <summary>Beginsaldo instellen of aanpassen</summary>
+                <p class="muted">Het saldo aan het begin van de gekozen dag. Voeg daarna alleen ontvangsten en uitgaven vanaf die dag toe.</p>
+                <form id="opening-form" class="entry-grid">
+                    <label>
+                        Beginsaldo (€)
+                        <input name="amount" type="number" step="0.01" required placeholder="0,00">
+                    </label>
+                    <label>
+                        Startdatum
+                        <input name="date" type="date" required>
+                    </label>
+                    <button class="primary" type="submit">Beginsaldo opslaan</button>
+                </form>
+            </details>
+            <section class="card chart">
+                <div class="heading">
+                    <div>
+                        <h2>Saldogeschiedenis</h2>
+                        <small id="chart-period"></small>
+                    </div>
+                    <span id="net" class="badge positive">—</span>
+                </div>
+                <svg id="balance-chart" viewBox="0 0 1000 220" role="img" aria-label="Saldogeschiedenis"></svg>
+                <div class="chart-footer">
+                    <span id="opening-label">Geen beginsaldo ingesteld</span>
+                    <span id="equation"></span>
+                </div>
+            </section>
+            <section class="card finance-section">
+                <h2 id="entry-title">Transactie toevoegen</h2>
+                <form id="transaction-form" class="entry-grid">
+                    <label>
+                        Soort
+                        <select name="type">
+                            <option value="income">Geld ontvangen</option>
+                            <option value="expense">Geld uitgegeven</option>
+                        </select>
+                    </label>
+                    <label>
+                        Bedrag (€)
+                        <input name="amount" type="number" min="0.01" step="0.01" required>
+                    </label>
+                    <label>
+                        Datum
+                        <input name="date" type="date" required>
+                    </label>
+                    <label>
+                        Omschrijving
+                        <input name="description" maxlength="160" required>
+                    </label>
+                    <label>
+                        Categorie
+                        <input name="category" maxlength="80" required>
+                    </label>
+                    <div class="entry-actions">
+                        <button class="primary" type="submit">Transactie opslaan</button>
+                        <button id="cancel-edit" type="button" hidden>Annuleren</button>
+                    </div>
+                </form>
+            </section>
+            <section class="card">
+                <div class="heading">
+                    <h2>Alle transacties</h2>
+                    <span id="transaction-count" class="muted"></span>
+                </div>
+                <div id="transactions"></div>
+            </section>
+            <dialog id="delete-dialog">
+                <h2>Transactie verwijderen?</h2>
+                <p>Het saldo en de totalen worden opnieuw berekend.</p>
+                <form method="dialog" class="entry-actions">
+                    <button value="cancel">Annuleren</button>
+                    <button id="confirm-delete" value="delete" class="danger">Verwijderen</button>
+                </form>
+            </dialog>
         </main>
-
-        <footer>
-            
-        </footer>
+        <!-- Financiële gegevens worden lokaal in deze browser bewaard. -->
+        <!-- Interactie van deze pagina; laden na de HTML-inhoud. -->
+        <script src="js/financieelDashboardOverzicht.js"></script>
     </body>
 </html>
