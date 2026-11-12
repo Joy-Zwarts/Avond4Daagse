@@ -111,15 +111,15 @@ header {
     min-height: 40px;
     padding: 10px 14px;
     border-radius: 8px;
-    color: var(--white);
-    background: var(--normal-green-highlight);
+    color: var(--dark-green-text);
+    background: var(--white);
     font-weight: 800;
     box-shadow: var(--shadow);
 }
 
 .accountButton:hover {
-    color: var(--white);
-    background: var(--dark-green);
+    color: #ffffff !important;
+    background: var(--normal-green-highlight);
     transform: translateY(-1px);
 }
 

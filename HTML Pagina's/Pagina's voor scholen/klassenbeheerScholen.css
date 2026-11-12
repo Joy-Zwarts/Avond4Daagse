@@ -48,7 +48,7 @@ header {
     border-bottom: 1px solid var(--line);
 }
 
-.navbar {
+nav {
     display: flex;
     align-items: center;
     gap: 310px;
@@ -110,15 +110,15 @@ header {
     min-height: 40px;
     padding: 10px 14px;
     border-radius: 8px;
-    color: var(--white);
-    background: var(--normal-green-highlight);
+    color: var(--dark-green-text);
+    background: var(--white);
     font-weight: 800;
     box-shadow: var(--shadow);
 }
 
 .accountButton:hover {
-    color: var(--white) !important;
-    background: var(--dark-green);
+    color: #ffffff !important;
+    background: var(--normal-green-highlight);
     transform: translateY(-1px);
 }
 
@@ -398,7 +398,7 @@ footer {
         padding: 0 24px;
     }
 
-    .navbar {
+    nav {
         flex-wrap: wrap;
         gap: 14px 20px;
         padding: 12px 0;

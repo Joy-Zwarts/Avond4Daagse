@@ -1,69 +1,112 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accountgegevens | Avond4daagse voor scholen</title>
-  <link rel="stylesheet" href="persoonlijkeAccountpaginaScholen.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accountgegevens | Avond4daagse voor scholen</title>
+    <link rel="stylesheet" href="persoonlijkeAccountpaginaScholen.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="page">
-    <header class="site-header">
-      <a class="brand" href="homepaginaScholen.html" aria-label="Avond4daagse home">
-        <span class="brand-line brand-pink">avond</span>
-        <span class="brand-line brand-blue"><b>4</b>daagse</span>
-        <small>wandelen met plezier</small>
-      </a>
+    <header>
+        <nav>
+            <a class="logo" href="homepaginaScholen.html" aria-label="Naar homepagina">
+                <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
 
-      <a class="portal-title" href="homepaginaScholen.html">
-        <span class="portal-icon">⌖</span>
-        <strong>Avond4daagse Den Haag voor scholen</strong>
-      </a>
+            <div class="regioLabel">
+                <span class="pin">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                </span>
+                Avond4Daagse Den Haag voor scholen
+            </div>
 
-      <nav class="main-nav" aria-label="Hoofdnavigatie">
-        <a href="homepaginaScholen.html">Home</a>
-        <a href="klassenbeheerScholen.html">Klassen beheren</a>
-        <a href="stempelkaartAanvraagScholen.html">Stempelkaarten</a>
-        <a class="account-button active" href="persoonlijkeAccountpaginaScholen.html">Accountgegevens</a>
-      </nav>
+            <div class="paginas">
+                <a href="homepaginaScholen.html">Home</a>
+                <a href="klassenbeheerScholen.html">Klassen beheren</a>
+                <a href="stempelkaartAanvraagScholen.html">Stempelkaarten</a>
+                <a class="accountButton active" href="persoonlijkeAccountpaginaScholen.html">
+                    Accountgegevens
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <main aria-label="Persoonlijke accountpagina"></main>
+    <main>
+        <section class="account-panel">
+            <h1>Username</h1>
 
-    <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <h3>
-            <span class="footer-icon">⌖</span>
-            Avond4daagse Den Haag voor scholen
-          </h3>
-          <p>Meld je leerlingen aan voor de Avond4daagse en zorg voor wandelplezier voor allen!</p>
+            <form class="account-form">
+                <label for="name">Naam</label>
+                <input id="name" name="name" type="text" placeholder="Jane Doe">
+
+                <label>Geboortedatum</label>
+                <div class="birthdate-fields">
+                    <input id="birth-day" name="birth-day" type="number" min="1" max="31" placeholder="29" aria-label="Geboortedag">
+                    <input id="birth-month" name="birth-month" type="number" min="1" max="12" placeholder="02" aria-label="Geboortemaand">
+                    <input id="birth-year" name="birth-year" type="number" min="1900" max="2100" placeholder="1992" aria-label="Geboortejaar">
+                </div>
+
+                <label for="phone">Telefoonnummer</label>
+                <input id="phone" name="phone" type="tel" placeholder="06 66666666">
+
+                <label for="address">Woonplaats</label>
+                <input id="address" name="address" type="text" placeholder="Theresiastraat 84">
+
+                <label for="password">Wachtwoord</label>
+                <input id="password" name="password" type="password" placeholder="••••••••">
+
+                <button class="delete-account" type="button">
+                    <span class="delete-icon">
+                        <i class="fa-solid fa-user-xmark" aria-hidden="true"></i>
+                    </span>
+                    Verwijder account
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div>
+                <strong>
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    Avond4Daagse Den Haag voor scholen
+                </strong>
+                <p>
+                    Meld je leerlingen aan voor de Avond4Daagse en zorg voor wandelplezier voor allen!
+                </p>
+            </div>
+
+            <div>
+                <strong>Snelkoppelingen</strong>
+                <a href="klassenbeheerScholen.html">Leerlingen inschrijven</a>
+                <a href="persoonlijkeAccountpaginaScholen.html">Mijn account</a>
+                <a href="../landingspagina.html">Terug naar landingspagina</a>
+                <a href="../Medewerkersportaal/inlogpaginaMedewerkers.html">Organisatorsportaal</a>
+            </div>
+
+            <div>
+                <strong>Neem contact op</strong>
+                <span>
+                    <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+                <span>
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+                <span>
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+            </div>
         </div>
 
-        <div>
-          <h4>Snelkoppelingen</h4>
-          <a href="aanmeldingpaginaScholen.html">Inschrijven</a>
-          <a href="homepaginaScholen.html">Landingspagina</a>
-          <a href="#">Organisators portaal</a>
-          <a href="#">Contact opnemen</a>
+        <div class="footerBottom">
+            <span>© 2026 Avond4Daagse Den Haag. Alle rechten voorbehouden.</span>
+            <span>Privacyverklaring &nbsp; Cookies</span>
         </div>
-
-        <div>
-          <h4>Neem contact op</h4>
-          <a href="#">✉ Nog te bevestigen</a>
-          <a href="#">☎ Nog te bevestigen</a>
-          <a href="#">◉ Nog te bevestigen</a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Avond4daagse Den Haag. Alle rechten voorbehouden.</span>
-        <span>
-          <a href="#">Privacyverklaring</a>
-          <a href="#">Cookies</a>
-        </span>
-      </div>
     </footer>
-  </div>
 </body>
 </html>
