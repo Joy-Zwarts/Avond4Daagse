@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #3d5423;
+  --dark: #19291d;
+  --cream: #fcfbf8;
+  --muted: #7f8990;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: #202020;
+  color: #26313d;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: min(1320px, calc(100% - 10px));
+  min-height: 100vh;
+  margin: auto;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.site-header {
+  display: grid;
+  grid-template-columns: 105px 1fr auto;
+  align-items: center;
+  min-height: 70px;
+  padding: 0 16px;
+  border-bottom: 1px solid #dededb;
+  background: #fff;
+}
+
+.brand {
+  display: block;
+  width: 83px;
+  height: 54px;
+  color: var(--green);
+  font-weight: 800;
+  line-height: 0.78;
+  text-decoration: none;
+}
+
+.brand-line {
+  display: block;
+  font-size: 17px;
+  letter-spacing: -1px;
+}
+
+.brand-pink {
+  margin-left: 9px;
+  color: #df155f;
+}
+
+.brand-blue {
+  color: #0798c7;
+  font-size: 20px;
+}
+
+.brand-blue b {
+  font-size: 31px;
+}
+
+.brand small {
+  display: block;
+  margin-top: 3px;
+  color: #777;
+  font-size: 5px;
+  text-align: center;
+}
+
+.portal-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: max-content;
+  color: var(--green);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.portal-icon,
+.footer-icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--green);
+  color: #fff;
+  font-size: 15px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.main-nav a {
+  color: #626b72;
+  font-size: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.main-nav a.active {
+  color: #71813a;
+  font-weight: 700;
+}
+
+.main-nav .account-button {
+  padding: 11px 18px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 3px 12px #0002;
+  color: #5d741e;
+  font-weight: 700;
+}
+
+main {
+  flex: 1;
+  min-height: 395px;
+  background: var(--cream);
+}
+
+.site-footer {
+  min-height: 275px;
+  padding: 38px 40px 22px;
+  background: linear-gradient(#122619f2, #122619f7), url("footer-bos.png") center / cover;
+  color: #fffc;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  gap: 70px;
+}
+
+.site-footer h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.site-footer h4 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 10px;
+}
+
+.site-footer p,
+.site-footer a {
+  display: block;
+  color: #ffffff88;
+  font-size: 9px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 45px;
+  padding-top: 17px;
+  border-top: 1px solid #ffffff14;
+  color: #ffffff6b;
+  font-size: 8px;
+}
+
+.footer-bottom a {
+  display: inline;
+  margin-left: 24px;
+}
+
+@media (max-width: 850px) {
+  .site-header {
+    grid-template-columns: 75px 1fr;
+    gap: 12px;
+  }
+
+  .main-nav {
+    grid-column: 1 / -1;
+    justify-content: center;
+    padding-bottom: 12px;
+    overflow-x: auto;
+  }
+
+  .portal-title {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    padding: 10px 14px;
+  }
+
+  main {
+    min-height: 300px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Browserbreed zonder zwarte zijbalken */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--cream, #f5f6f8);
+}
+
+.page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}

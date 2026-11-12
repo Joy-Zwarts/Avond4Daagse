@@ -1,28 +1,118 @@
-<!-- Jelle -->
-
 <!DOCTYPE html>
-
 <html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <title>Stempelkaartaanvraag Scholen</title>
-        <meta name="description" content="De pagina voor het aanvragen van stempelkaarten voor scholen in de regio Den Haag">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stempelkaarten</title>
+  <link rel="stylesheet" href="stempelkaartAanvraagScholen.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="homepaginaScholen.html" aria-label="Naar homepagina">
+        <img src="avond4daagseLogo.png" alt="Avond4Daagse logo">
+      </a>
 
-    <body>
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
+      <a class="portal-title" href="homepaginaScholen.html">
+        <span class="portal-icon">⌖</span>
+        <strong>Avond4daagse Den Haag voor scholen</strong>
+      </a>
 
-        <main>
-          
-        </main>
+      <nav class="main-nav" aria-label="Hoofdnavigatie">
+        <a href="homepaginaScholen.html">Home</a>
+        <a href="klassenbeheerScholen.html">Klassen beheren</a>
+        <a class="active" href="stempelkaartAanvraagScholen.html">Stempelkaarten</a>
+        <a class="account-button" href="accountgegevensScholen.html">Accountgegevens</a>
+      </nav>
+    </header>
 
-        <footer>
-            
-        </footer>
-    </body>
+    <main>
+      <section class="page-intro">
+        <h1>Stempelkaarten</h1>
+        <p>Vraag hier stempelkaarten aan voor je klas.</p>
+      </section>
+
+      <section class="stamp-card-panel">
+        <h2>Overzicht &amp; Stempelkaarten</h2>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="summary-icon">●</span>
+            <div>
+              <span>Totaal aangemeld</span>
+              <strong id="total-enrolled">0 leerlingen</strong>
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-icon">▣</span>
+            <div>
+              <span>Totaal klassen</span>
+              <strong id="total-classes">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <h3>Breakdown per klas</h3>
+        <div id="class-breakdown" class="class-breakdown"></div>
+
+        <div class="stamp-form">
+          <label for="stamp-count">Stempelkaarten</label>
+          <div class="stamp-input-row">
+            <span>Ik heb</span>
+            <input id="stamp-count" type="number" min="0" value="0">
+            <span>stempelkaarten nodig</span>
+          </div>
+
+          <label class="terms-label">
+            <input id="terms" type="checkbox">
+            <span>Wij gaan akkoord met de <a href="#">algemene voorwaarden</a> en richtlijnen van de Avond4daagse.</span>
+          </label>
+
+          <button id="submit-request" class="submit-button" type="button">
+            Aanmelden &amp; Verzenden
+          </button>
+          <p id="form-message" class="form-message" role="status"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-heading">
+            <span class="footer-icon">⌖</span>
+            <strong>Avond4daagse Den Haag voor scholen</strong>
+          </div>
+          <p>Meld je leerlingen aan voor de Avond4daagse en zorg<br>voor wandelplezier voor allen!</p>
+        </div>
+
+        <div>
+          <h4>Snelkoppelingen</h4>
+          <a href="aanmeldingpaginaScholen.html">Inschrijven</a>
+          <a href="homepaginaScholen.html">Landingspagina</a>
+          <a href="#">Organisators portaal</a>
+          <a href="#">Contact opnemen</a>
+        </div>
+
+        <div>
+          <h4>Neem contact op</h4>
+          <span>✉&nbsp; Nog te bevestigen</span>
+          <span>◔&nbsp; Nog te bevestigen</span>
+          <span>ⓘ&nbsp; Nog te bevestigen</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Avond4daagse Den Haag. Alle rechten voorbehouden.</span>
+        <div>
+          <a href="#">Privacyverklaring</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="stempelkaartAanvraagScholen.js"></script>
+</body>
 </html>

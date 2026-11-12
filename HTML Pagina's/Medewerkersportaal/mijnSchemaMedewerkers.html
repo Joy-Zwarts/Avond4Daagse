@@ -1,28 +1,95 @@
-<!-- Stan -->
-
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mijn schema</title>
-        <meta name="description" content="Jouw persoonlijke schema en to-do's voor de Avond4Daagse van de regio Den Haag">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mijn Schema</title>
+  <link rel="stylesheet" href="mijnSchemaMedewerkers.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo">avond<span>4daagse</span></div>
+      <div class="brand"><b>♟</b>Avond4daagse Den Haag Medewerkersportaal</div>
+      <div class="account"><i class="avatar">●</i>Account</div>
+    </div>
 
-    <body>
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
+    <nav>
+      <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
+      <a href="aanmeldingen.html">Aanmeldingen overzicht</a>
+      <a href="draaiboekMedewerkers.html">draaiboekMedewerkers</a>
+      <a href="routebestuurMedewerkers.html">Routebeheer</a>
+      <a href="roostersMedewerkers.html">Roosters</a>
+      <a href="financieel.html">Financieel dashboard</a>
+      <a href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+      <a href="contactAfhanderlingMedewerkers.html">Contact</a>
+      <a href="gebruikersbeheer.html">Gebruikersbeheer</a>
+      <a class="active" href="mijnSchemaMedewerkers.html">Mijn Schema</a>
+    </nav>
+  </header>
 
-        <main>
-          
-        </main>
+  <section class="page-head">
+    <h1>Mijn Schema</h1>
+    <p>Hier kan je je schema zien en je to-do list zodat je altijd op de hoogte bent van wat er gaat gebeuren.</p>
+  </section>
 
-        <footer>
-            
-        </footer>
-    </body>
+  <main class="container schedule-layout">
+    <section class="card agenda">
+      <h2>Agenda 26 April - 2 Mei</h2>
+
+      <div class="daybar">Maandag</div>
+      <div class="agenda-day"><b>26</b><span class="muted">Geen activiteiten</span></div>
+
+      <div class="daybar">Dinsdag</div>
+      <div class="agenda-day"><b>27</b><span class="muted">Geen activiteiten</span></div>
+
+      <div class="daybar">Woensdag</div>
+      <div class="agenda-day"><b>28</b><span class="muted">Geen activiteiten</span></div>
+
+      <div class="daybar">Donderdag</div>
+      <div class="agenda-day">
+        <b>29</b>
+        Verken regelaar Avond4daagse<br>
+        <span class="muted">Tesselsestraat 84 kruispunt · 18:30 - 18:45</span>
+      </div>
+
+      <div class="daybar">Vrijdag</div>
+      <div class="agenda-day"><b>30</b><span class="muted">Geen activiteiten</span></div>
+
+      <div class="daybar">Zaterdag</div>
+      <div class="agenda-day"><b>1</b><span class="muted">Geen activiteiten</span></div>
+
+      <div class="daybar">Zondag</div>
+      <div class="agenda-day"><b>2</b><span class="muted">Geen activiteiten</span></div>
+    </section>
+
+    <aside class="card todo">
+      <h2>To Do List</h2>
+
+      <div class="todo-item">
+        <span class="check">☑</span>
+        <div>
+          <b>Certificaat</b>
+          <span class="muted">Voeg je certificaat toe op de “mijn account” pagina</span>
+        </div>
+      </div>
+
+      <div class="todo-item">
+        <span>☐</span>
+        <div>
+          <b>Profielfoto</b>
+          <span class="muted">Voeg een profielfoto toe op de “mijn account” pagina</span>
+        </div>
+      </div>
+
+      <div class="todo-item">
+        <span class="check">☑</span>
+        <div>
+          <b>Wachtwoord</b>
+          <span class="muted">Verander je OTP met je eigen wachtwoord</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+</body>
 </html>

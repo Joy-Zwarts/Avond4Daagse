@@ -1,28 +1,225 @@
-<!-- Jelle -->
-
 <!DOCTYPE html>
-
 <html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <title>Home</title>
-        <meta name="description" content="De Homepagina voor scholen in de regio Den Haag">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avond4daagse voor scholen</title>
+    <link rel="stylesheet" href="homepaginaScholen.css">
 
-    <body>
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar" aria-label="Hoofdnavigatie">
+            <a class="logo" href="homeDeelnemers.html">
+                <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>    
+            <div class="regioLabel">
+                <span class="pin">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                </span>
+                Avond4Daagse Den Haag voor scholen
+            </div>
+            <div class="paginas">
+                <a class="active" href="homepaginaScholen.html">Home</a>
+                <a href="klassenbeheerScholen.html">Klassen beheren</a>
+                <a href="stempelkaartAanvraagScholen.html">Stempelkaarten</a>
+                <a class="accountButton" href="persoonlijkeAccountpaginaScholen.html">
+                    Accountgegevens
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="schoolHeader">
+            <h1>Avond4daagse voor scholen</h1>
+            <p>Schrijf meerdere leerlingen tegelijk in per klas.</p>
+        </section>
+        <section class="route-card">
+            <h2>Afstand 5 km</h2>
+            <div class="route-layout">
+                <div class="route-fields">
+                    <article class="route-field">
+                        <span class="iconTitle">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <strong>Startlocatie</strong>
+                        </span>
+                        <small>*startlocatie*</small>
+                    </article>
+                    <article class="route-field">
+                        <span class="iconTitle">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <strong>Eindlocatie</strong>
+                        </span>
+                        <small>*eindlocatie*</small>
+                    </article>
+                    <article class="route-field full">
+                        <span class="iconTitle">
+                            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                            <strong>Beschrijving</strong>
+                        </span>
+                        <small>Een langer parcours door parken en rustige woonwijken.</small>
+                    </article>
+                    <button id="routeButton1" type="button">
+                        Bekijk route in Google Maps
+                    </button>
+                </div>
+                <div id="map1Div">
 
-        <main>
-          
-        </main>
+                </div>
+            </div>
+        </section>
+        <section class="route-card">
+            <h2>Afstand 2,5 km</h2>
+            <div class="route-layout">
+                <div class="route-fields">
+                    <article class="route-field">
+                        <span class="iconTitle">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <strong>Startlocatie</strong>
+                        </span>
+                        <small>*startlocatie*</small>
+                    </article>
+                    <article class="route-field">
+                        <span class="iconTitle">
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <strong>Eindlocatie</strong>
+                        </span>
+                        <small>*eindlocatie*</small>
+                    </article>
+                    <article class="route-field full">
+                        <span class="iconTitle">
+                            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                            <strong>Beschrijving</strong>
+                        </span>
+                        <small>Een korter parcours door parken en rustige woonwijken.</small>
+                    </article>
+                    <button id="routeButton2" type="button">
+                        Bekijk route in Google Maps
+                    </button>
+                </div>
+                <div id="map2Div">
 
-        <footer>
-            
-        </footer>
-    </body>
+                </div>
+            </div>
+        </section>
+        <section class="informationCards">
+            <span class="iconTitle">
+                <i class="fa-solid fa-location-arrow" aria-hidden="true"></i>
+                <h2>Routes &amp; veiligheid</h2>
+            </span>
+            <div class="informationGrid">
+                <article class="infoItem">
+                    <span class="icon"><i class="fa-solid fa-heart-circle-bolt"></i></span>
+                    <div>
+                        <strong>AED</strong>
+                        <small>
+                            AED aanwezig on route
+                        </small>
+                    </div>                    
+                </article>
+                <article class="infoItem">
+                    <span class="icon"><i class="fa-solid fa-staff-snake"></i></span>
+                    <div>
+                        <strong>EHBO</strong>
+                        <small>
+                            EHBO vrijwilligers lopen mee
+                        </small>                        
+                    </div>
+                </article>
+                <article class="infoItem">
+                    <span class="icon"><i class="fa-solid fa-dog"></i></span>
+                    <div>
+                        <strong>Hulphond</strong>
+                        <small>
+                            Hulphonden zijn toegestaan op route
+                        </small>                        
+                    </div>
+                </article>
+                <article class="infoItem">
+                    <span class="icon"><i class="fa-brands fa-accessible-icon"></i></span>
+                    <div>
+                        <strong>Rolstoel</strong>
+                        <small>
+                            Route is rolstoel vriendelijk
+                        </small>                        
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="registration-section">
+            <div>
+                <h2>Meld je leerlingen aan!</h2>
+                <p>Je kunt per groep je leerlingen aanmelden.</p>
+            </div>
+            <a class="primary-button" href="aanmeldpaginaScholen.html">Aanmelden</a>
+        </section>
+        <section class="sponsorCards">
+            <h2>Sponsoren</h2>
+            <div class="sponsorGrid">
+                <article class="sponsorCard">
+                    <span class="sponsorLogo">
+                        <img src="../../Images/asrLogo.png" alt="ASR logo">
+                    </span>
+                    <h3>Hoofdsponsor ASR</h3>                        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </article>
+
+                <article class="sponsorCard">
+                    <span class="sponsorLogo">
+                        <img src="../../Images/plusLogo.png" alt="Plus logo">
+                    </span>
+                    <h3>Evenementensponsor Plus</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </article>
+
+                <article class="sponsorCard">
+                    <span class="sponsorLogo">
+                        <img src="../../Images/jantjeBetonLogo.jpg" alt="Jantje Beton logo">
+                    </span>
+                    <h3>Evenementensponsor Jantje Beton</h3>                        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div>
+                <strong>
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    Avond4Daagse Den Haag voor scholen
+                </strong>
+                <p>Meld je leerlingen aan voor de Avond4Daagse en zorg voor wandelplezier voor allen!</p>
+            </div>
+            <div>
+                <strong>Snelkoppelingen</strong>
+                <a href="klassenbeheerScholen.html">Leerlingen inschrijven</a>
+                <a href="persoonlijkeAccountpaginaScholen.html">Mijn Account</a>
+                <a href="../landingspagina.html">Terug naar landingspagina</a>
+                <a href="../Medewerkersportaal/inlogpaginaMedewerkers.html">Organisatorsportaal</a>
+            </div>
+            <div>
+                <strong>Neem contact op</strong>
+                <span>
+                    <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+                <span>
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+                <span>
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <span>© 2026 Avond4Daagse Den Haag. Alle rechten voorbehouden.</span>
+            <span>Privacyverklaring &nbsp; Cookies</span>
+        </div>
+    </footer>
+</body>
+<script src="homepaginaScholen.js"></script>
 </html>

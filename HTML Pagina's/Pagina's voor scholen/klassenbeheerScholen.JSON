@@ -1,0 +1,177 @@
+{
+  "klassen": [
+    {
+      "nummer": 1,
+      "leerlingen": [
+        {
+          "naam": "Paul Brood",
+          "contactpersoon": "James McGill",
+          "klas": "1a",
+          "afstand": "2,5km",
+          "eerdereDeelname": "1e keer",
+          "opmerkingen": "Paul heeft astma dus zorg ervoor dat iemand die meeloopt zijn puffer mee heeft.",
+          "aangemeld": true
+        },
+        {
+          "naam": "Lisbeth Gris",
+          "contactpersoon": "James McGill",
+          "klas": "1a",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        },
+        {
+          "naam": "Hilda Nike",
+          "contactpersoon": "James McGill",
+          "klas": "1b",
+          "afstand": "2,5km",
+          "eerdereDeelname": "1e keer",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": true
+        },
+        {
+          "naam": "Geert Pots",
+          "contactpersoon": "James McGill",
+          "klas": "1c",
+          "afstand": "2,5km",
+          "eerdereDeelname": "1e keer",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": true
+        }
+      ]
+    },
+    {
+      "nummer": 2,
+      "leerlingen": [
+        {
+          "naam": "Kenny McKormic",
+          "contactpersoon": "James McGill",
+          "klas": "2a",
+          "afstand": "2,5km",
+          "eerdereDeelname": "2e keer",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": true
+        },
+        {
+          "naam": "Reneigh Thomas",
+          "contactpersoon": "James McGill",
+          "klas": "2a",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        },
+        {
+          "naam": "Mike Nike",
+          "contactpersoon": "James McGill",
+          "klas": "2c",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        }
+      ]
+    },
+    {
+      "nummer": 3,
+      "leerlingen": []
+    },
+    {
+      "nummer": 4,
+      "leerlingen": [
+        {
+          "naam": "Kenny McKormic",
+          "contactpersoon": "James McGill",
+          "klas": "4",
+          "afstand": "5km",
+          "eerdereDeelname": "2e keer",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": true
+        },
+        {
+          "naam": "Reneigh Thomas",
+          "contactpersoon": "James McGill",
+          "klas": "4",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        },
+        {
+          "naam": "Mike Nike",
+          "contactpersoon": "James McGill",
+          "klas": "4",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        }
+      ]
+    },
+    {
+      "nummer": 5,
+      "leerlingen": [
+        {
+          "naam": "Brody Nonsense",
+          "contactpersoon": "James McGill",
+          "klas": "5",
+          "afstand": "5km",
+          "eerdereDeelname": "4e keer",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": true
+        }
+      ]
+    },
+    {
+      "nummer": 6,
+      "leerlingen": [
+        {
+          "naam": "Jamie Kiko",
+          "contactpersoon": "James McGill",
+          "klas": "6",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        }
+      ]
+    },
+    {
+      "nummer": 7,
+      "leerlingen": []
+    },
+    {
+      "nummer": 8,
+      "leerlingen": [
+        {
+          "naam": "Emmie Ivis",
+          "contactpersoon": "James McGill",
+          "klas": "8",
+          "afstand": "5km",
+          "eerdereDeelname": "5e keer",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": true
+        },
+        {
+          "naam": "Toby Tobias",
+          "contactpersoon": "James McGill",
+          "klas": "8",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        },
+        {
+          "naam": "Randice Pet",
+          "contactpersoon": "James McGill",
+          "klas": "8",
+          "afstand": "n.v.t.",
+          "eerdereDeelname": "n.v.t.",
+          "opmerkingen": "n.v.t.",
+          "aangemeld": false
+        }
+      ]
+    }
+  ]
+}

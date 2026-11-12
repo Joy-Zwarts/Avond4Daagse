@@ -1,0 +1,407 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #3d5423;
+  --green-dark: #172719;
+  --green-light: #d5d9b8;
+  --cream: #fcfbf8;
+  --text: #4c5968;
+  --muted: #7f8992;
+  --line: #e8e9e7;
+  --white: #ffffff;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #202020;
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.page {
+  width: min(1320px, calc(100% - 10px));
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.site-header {
+  display: grid;
+  grid-template-columns: 125px 1fr auto;
+  align-items: center;
+  min-height: 70px;
+  padding: 0 42px;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: block;
+  width: 88px;
+}
+
+.brand img {
+  display: block;
+  width: 88px;
+  height: auto;
+}
+
+.portal-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: max-content;
+  color: var(--green);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.portal-icon,
+.footer-icon,
+.summary-icon {
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--green);
+  color: var(--white);
+}
+
+.portal-icon {
+  width: 26px;
+  height: 26px;
+  font-size: 15px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.main-nav a {
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.main-nav a.active {
+  color: #819228;
+}
+
+.account-button {
+  padding: 12px 20px;
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+  font-weight: 700;
+}
+
+main {
+  padding: 0 62px 78px;
+}
+
+.page-intro {
+  padding: 4px 0 28px;
+  text-align: center;
+}
+
+.page-intro h1 {
+  margin: 0;
+  color: #1d2a3a;
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.1;
+}
+
+.page-intro p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.stamp-card-panel {
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 30px 28px 24px;
+  border: 1px solid #e6e8e4;
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 7px 20px rgba(31, 43, 51, 0.08);
+}
+
+.stamp-card-panel h2 {
+  margin: 0 0 14px;
+  color: #263342;
+  font-size: 15px;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background: var(--green-light);
+  color: var(--green);
+}
+
+.summary-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  font-size: 10px;
+}
+
+.summary-item div {
+  display: grid;
+  gap: 1px;
+}
+
+.summary-item span:not(.summary-icon) {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.summary-item strong {
+  font-size: 10px;
+}
+
+.stamp-card-panel h3 {
+  margin: 16px 0 8px;
+  color: #263342;
+  font-size: 11px;
+}
+
+.class-breakdown {
+  display: grid;
+  gap: 7px;
+  padding: 0 0 8px;
+}
+
+.class-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 27px;
+  padding: 0 13px;
+  border-radius: 9px;
+  background: #f0f1f3;
+  color: #43505d;
+  font-weight: 700;
+}
+
+.class-row strong {
+  color: #263342;
+}
+
+.stamp-form {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.stamp-form > label:first-child {
+  color: #263342;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.stamp-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.stamp-input-row input {
+  width: 80px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  font: inherit;
+}
+
+.terms-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.terms-label a {
+  color: #8d9f22;
+}
+
+.submit-button {
+  width: 100%;
+  min-height: 30px;
+  margin-top: 7px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  color: var(--white);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.submit-button:hover {
+  background: #30451b;
+}
+
+.form-message {
+  min-height: 14px;
+  margin: 0;
+  color: var(--green);
+  font-size: 10px;
+}
+
+.site-footer {
+  min-height: 300px;
+  padding: 48px 52px 20px;
+  background:
+    linear-gradient(rgba(18, 38, 23, 0.94), rgba(18, 38, 23, 0.96)),
+    url("footer-bos.png") center / cover;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 80px;
+  padding-bottom: 44px;
+}
+
+.footer-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.footer-icon {
+  width: 26px;
+  height: 26px;
+  background: #769322;
+}
+
+.footer-brand p {
+  margin: 17px 0 0;
+  line-height: 1.7;
+}
+
+.site-footer h4 {
+  margin: 0 0 14px;
+  color: var(--white);
+  font-size: 11px;
+}
+
+.site-footer a,
+.site-footer span {
+  display: block;
+  margin-bottom: 9px;
+  color: rgba(255, 255, 255, 0.53);
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: 9px;
+}
+
+.footer-bottom div {
+  display: flex;
+  gap: 22px;
+}
+
+@media (max-width: 850px) {
+  .site-header {
+    grid-template-columns: 90px 1fr;
+    gap: 18px;
+    padding: 15px 24px;
+  }
+
+  .main-nav {
+    grid-column: 1 / -1;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  main {
+    padding: 0 24px 50px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .portal-title {
+    width: 100%;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
+
+  .stamp-card-panel {
+    padding: 22px 16px;
+  }
+
+  .stamp-input-row {
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+/* Browserbreed zonder zwarte zijbalken */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--cream, #f5f6f8);
+}
+
+.page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
