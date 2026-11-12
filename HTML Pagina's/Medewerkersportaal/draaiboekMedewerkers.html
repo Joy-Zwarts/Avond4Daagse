@@ -1,28 +1,100 @@
-<!-- Stan -->
-
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <title>Draaiboek</title>
-        <meta name="description" content="Het draaiboek voor de medewerkers van de Avond4Daagse van de regio Den Haag">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draaiboek | Avond4daagse Den Haag</title>
+  <link rel="stylesheet" href="draaiboekMedewerkers.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">Avond<span>4daagse</span></div>
+    <div class="brand"><b>♟</b> Avond4daagse Den Haag Medewerkersportaal</div>
+    <div class="account"><span class="avatar">●</span> Account</div>
+  </header>
+  <nav aria-label="Hoofdnavigatie">
+    <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
+    <a href="#">Aanmeldingen overzicht</a>
+    <a class="active" href="draaiboekMedewerkers_v3.html">Draaiboek</a>
+    <a href="routebestuurMedewerkers.html">Routebeheer</a>
+    <a href="roostersMedewerkers.html">Roosters</a>
+    <a href="#">Financieel dashboard</a>
+    <a href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+    <a href="contactAfhanderlingMedewerkers.html">Contact</a>
+    <a href="#">Gebruikersbeheer</a>
+    <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
+  </nav>
 
-    <body>
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
+  <main>
+    <section class="page-head"><h1>Draaiboek</h1></section>
+    <div class="container">
+      <div class="draaiboek-toolbar"><span></span><button class="button">＋ Activiteit toevoegen</button></div>
 
-        <main>
-          
-        </main>
+      <section class="card month-card">
+        <div class="month-switcher">
+          <button class="month-arrow" aria-label="Vorige maand">‹</button>
+          <div><div class="month-name">Mei 2027</div><div class="month-subtitle">Medewerkersportaal Avond4daagse</div></div>
+          <button class="month-arrow" aria-label="Volgende maand">›</button>
+        </div>
+        <div class="view-toggle"><button>▣ Maand</button><button>▦ Week</button></div>
+      </section>
 
-        <footer>
-            
-        </footer>
-    </body>
+      <div class="draaiboek-layout">
+        <div>
+          <section class="card calendar-box">
+            <div class="calendar-heading"><h2>Agenda Mei</h2><div class="calendar-legend"><span><i class="legend-dot"></i>Actief</span><span><i class="legend-dot deadline"></i>Deadline</span></div></div>
+            <div class="weekdays"><span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span></div>
+            <div class="month-grid">
+              <span class="muted-day">26</span><span class="muted-day">27</span><span class="muted-day">28</span><span class="muted-day">29</span><span class="muted-day">30</span><span class="has-event">1</span><span class="has-event">2</span>
+              <span class="has-event">3</span><span class="has-event">4</span><span class="has-event">5</span><span class="has-event">6</span><span class="has-event">7</span><span class="has-event">8</span><span class="has-event">9</span>
+              <span class="has-event">10</span><span class="has-event">11</span><span class="has-event">12</span><span class="has-event">13</span><span class="has-event">14</span><span class="has-event">15</span><span class="has-event">16</span>
+              <span class="has-event">17</span><span class="has-event">18</span><span class="has-event">19</span><span class="has-event">20</span><span class="has-event">21</span><span class="has-event">22</span><span class="has-event">23</span>
+              <span class="has-event">24</span><span class="has-event">25</span><span class="has-event">26</span><span class="has-event">27</span><span class="has-event">28</span><span class="has-event">29</span><span class="has-event">30</span>
+              <span class="has-event">31</span><span class="muted-day">1</span><span class="muted-day">2</span><span class="muted-day">3</span><span class="muted-day">4</span><span class="muted-day">5</span><span class="muted-day">6</span>
+            </div>
+            <div class="calendar-events">
+              <div class="upcoming-event"><span class="event-date">12</span><div><b>12 mei 2027</b><small>Bijeenkomst bestuur</small></div></div>
+              <div class="upcoming-event"><span class="event-date">13</span><div><b>13 mei 2027</b><small>Vergaderen over financiën</small></div></div>
+            </div>
+          </section>
+
+          <section class="card task-card">
+            <h2>Taak toevoegen</h2>
+            <form class="task-form">
+              <div><label for="task-title">Titel</label><input class="input" id="task-title" placeholder="Typ hier de titel van de taak..."></div>
+              <div><label for="task-person">Persoon</label><select id="task-person"><option>Kies hier persoon waar de taak voor is</option></select></div>
+              <div class="wide"><label for="task-description">Beschrijving</label><textarea id="task-description" placeholder="Typ hier de beschrijving van de taak..."></textarea></div>
+              <div class="wide"><button class="button full" type="button">Taak versturen</button></div>
+            </form>
+          </section>
+        </div>
+
+        <aside class="side-stack">
+          <section class="card day-details">
+            <h2>12 mei 2027</h2><div class="date-line">Geselecteerde dag</div>
+            <article class="activity"><div class="activity-time"><span>● &nbsp;09:00</span><span class="badge">◉ Actief</span></div><b>Startlocatie check 5 km route</b><p>Controle van startlocatie, routeborden en EHBO-post.</p></article>
+            <article class="activity"><div class="activity-time"><span>● &nbsp;16:00</span><span class="badge">◷ Deadline</span></div><b>Deadline vrijwilligersrooster</b><p>Definitieve roosters vrijwilligers en EHBO-vrijwilligers.</p></article>
+          </section>
+
+          <section class="card form-card">
+            <h2>Activiteit toevoegen</h2>
+            <form>
+              <label for="activity-title">Titel</label><input class="input" id="activity-title" placeholder="Bijv. EHBO-check eindlocatie">
+              <label for="activity-time">Tijd</label><input class="input" id="activity-time" placeholder="◷ 09:00">
+              <label for="activity-location">Tijd</label><input class="input" id="activity-location" placeholder="⌖ Typ hier het adres">
+              <label for="activity-note">Notitie</label><textarea id="activity-note" placeholder="Voeg extra informatie toe voor de organisatie..."></textarea>
+              <div class="people-picker">
+                <div class="people-picker-header"><span>← &nbsp; Zoek voor personen voor dit event</span><span>×</span></div>
+                <label class="person"><input type="checkbox" checked><span class="initial">JD</span> Jan de Vries</label>
+                <label class="person"><input type="checkbox" checked><span class="initial">SM</span> Sarah Meijer</label>
+                <label class="person"><input type="checkbox" checked><span class="initial">PK</span> Peter Klaassen</label>
+              </div>
+              <button class="button full" type="button">▣ &nbsp; Activiteit opslaan</button>
+            </form>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+</body>
 </html>

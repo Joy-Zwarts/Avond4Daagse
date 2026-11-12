@@ -35,6 +35,6 @@
 • routebestuurMedewerkers.html ✓\
 • mijnSchemaMedewerkers.html ✓\
 • roostersMedewerkers.html ✓\
-• contactAfhanderlingMedewerkers.html ✓\
+• contactAfhandelingMedewerkers.html ✓\
 • communicatiebeheerMedewerkers.hmtl ✓\
 • communicatiebeheerNieuwePost.html ✓
