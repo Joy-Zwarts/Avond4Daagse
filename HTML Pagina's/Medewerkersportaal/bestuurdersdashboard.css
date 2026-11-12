@@ -1,0 +1,300 @@
+/* Basisstijl (voorheen common.css) */
+:root {
+  --green: #3d531f;
+  --lime: #6a871d;
+  --ink: #172033;
+  --muted: #667085;
+  --line: #e4e7eb;
+  --page: #f6f7f9;
+  --white: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  font: 11px Arial, Helvetica, sans-serif;
+  color: var(--ink);
+}
+
+.topbar {
+  position: relative;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 8px 28px;
+  background: #fff;
+}
+
+.logo {
+  width: 78px;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 13px;
+  color: #f22b61;
+}
+
+.logo span {
+  display: block;
+  padding-left: 9px;
+  color: #18a998;
+}
+
+.brand {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  transform: translateX(-50%);
+  color: var(--green);
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.brand b {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+}
+
+.account {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.avatar {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 3px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+  font-size: 13px;
+}
+
+nav {
+  display: flex;
+  gap: 4px;
+  height: 38px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+nav a {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 9px 6px;
+  border-radius: 7px 7px 0 0;
+  background: #f8f9fb;
+  color: #384152;
+  font-size: 10px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav a.active {
+  background: #eef0f3;
+  color: var(--green);
+  font-weight: bold;
+}
+
+.page-head {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 26px 16px 12px;
+}
+
+.page-head h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.page-head p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 8px auto 34px;
+  padding: 0 16px;
+}
+
+.card {
+  border: 1px solid #e8ebef;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 2px 3px #0002;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.button {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--green);
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.full { width: 100%; }
+
+.input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #dde1e6;
+  border-radius: 5px;
+  outline: none;
+  background: #fff;
+  font: inherit;
+}
+
+textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+@media (max-width: 760px) {
+  .brand {
+    margin-left: 15px;
+    font-size: 11px;
+  }
+
+  .topbar { padding: 4px 10px; }
+
+  .account { font-size: 0; }
+}
+
+/* Pagina-specifieke stijl */
+.grid { display: grid; gap: 9px; }
+
+.stats { grid-template-columns: repeat(4, 1fr); }
+
+.stat {
+  min-height: 62px;
+  padding: 11px;
+}
+
+.stat b {
+  display: block;
+  margin-top: 4px;
+  font-size: 22px;
+}
+
+.panel-title {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.table-card {
+  margin-top: 9px;
+  padding: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8px;
+}
+
+.table th {
+  color: var(--muted);
+  font-weight: normal;
+  text-align: left;
+}
+
+.table td,
+.table th {
+  padding: 6px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.triple {
+  grid-template-columns: 1fr 1.15fr 1.2fr;
+  margin-top: 9px;
+}
+
+.small-panel {
+  min-height: 130px;
+  padding: 11px;
+}
+
+.person-row {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin: 9px 0;
+}
+
+.initial {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8eafe;
+  color: #415bd2;
+  font-size: 7px;
+}
+
+.check {
+  color: var(--lime);
+  font-size: 15px;
+}
+
+.task {
+  margin: 8px 0;
+  padding: 7px 8px;
+  border: 1px solid #ccd2b9;
+  border-radius: 4px;
+  background: #fafbf6;
+}
+
+.money {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+@media (max-width: 760px) {
+  .stats,
+  .triple { grid-template-columns: 1fr; }
+}

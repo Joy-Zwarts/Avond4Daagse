@@ -30,11 +30,11 @@
 • persoonlijkAccountpaginaMedewerkers.html 
 
 ## Stan:
-• bestuurdersdashboard.html \
+• bestuurdersdashboard.html ✓\
 • draaiboekMedewerkers.html \
-• routebestuurMedewerkers.html \
-• mijnSchemaMedewerkers.html \
-• roostersMedewerkers.html \
-• contactAfhanderlingMedewerkers.html \
-• communicatiebeheerMedewerkers.hmtl \
-• communicatiebeheerNieuwePost.html 
+• routebestuurMedewerkers.html ✓\
+• mijnSchemaMedewerkers.html ✓\
+• roostersMedewerkers.html ✓\
+• contactAfhanderlingMedewerkers.html ✓\
+• communicatiebeheerMedewerkers.hmtl ✓\
+• communicatiebeheerNieuwePost.html ✓
