@@ -1,70 +1,89 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klassenbeheer</title>
-  <link rel="stylesheet" href="klassenbeheerScholen.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klassenbeheer</title>
+    <link rel="stylesheet" href="klassenbeheerScholen.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="page">
-    <header class="site-header">
-      <a class="brand" href="homepaginaScholen.html" aria-label="Avond4daagse home">
-        <img src="../../../Images/avond4daagseLogo.png" alt="Avond4daagse logo">
-      </a>
+    <header>
+        <nav class="navbar" aria-label="Hoofdnavigatie">
+            <a class="logo" href="homepaginaScholen.html">
+                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
 
-      <div class="portal-title">
-        <span class="portal-icon">⌖</span>
-        <strong>Avond4daagse Den Haag voor scholen</strong>
-      </div>
+            <div class="regioLabel">
+                <span class="pin">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                </span>
+                Avond4Daagse Den Haag voor scholen
+            </div>
 
-      <nav class="main-nav" aria-label="Hoofdnavigatie">
-        <a href="homepaginaScholen.html">Home</a>
-        <a class="active" href="klassenbeheerScholen.html">Klassen beheren</a>
-        <a href="stempelkaartAanvraagScholen.html">Stempelkaarten</a>
-        <a class="account-button" href="accountgegevensScholen.html">Accountgegevens</a>
-      </nav>
+            <div class="paginas">
+                <a href="homepaginaScholen.html">Home</a>
+                <a class="active" href="klassenbeheerScholen.html">Klassen beheren</a>
+                <a href="stempelkaartAanvraagScholen.html">Stempelkaarten</a>
+                <a class="accountButton" href="accountgegevensScholen.html">
+                    Accountgegevens
+                </a>
+            </div>
+        </nav>
     </header>
 
     <main>
-      <section class="page-intro">
-        <h1>Klassenbeheer</h1>
-        <p>Beheer je klassen en meld leerlingen aan</p>
-      </section>
+        <section class="page-intro">
+            <h1>Klassenbeheer</h1>
+            <p>Beheer je klassen en meld leerlingen aan</p>
+        </section>
 
-      <section class="classes" id="classes" aria-live="polite"></section>
+        <section class="classes" id="classes" aria-live="polite"></section>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <h2><span class="footer-icon">⌖</span>Avond4daagse Den Haag voor scholen</h2>
-          <p>Meld je leerlingen aan voor de Avond4daagse en zorg voor wandelplezier voor allen!</p>
+    <footer>
+        <div class="footer">
+            <div>
+                <strong>
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    Avond4Daagse Den Haag voor scholen
+                </strong>
+                <p>
+                    Meld je leerlingen aan voor de Avond4Daagse en zorg voor wandelplezier voor allen!
+                </p>
+            </div>
+
+            <div>
+                <strong>Snelkoppelingen</strong>
+                <a href="klassenbeheerScholen.html">Leerlingen inschrijven</a>
+                <a href="persoonlijkeAccountpaginaScholen.html">Mijn Account</a>
+                <a href="../landingspagina.html">Terug naar landingspagina</a>
+                <a href="../Medewerkersportaal/inlogpaginaMedewerkers.html">Organisatorsportaal</a>
+            </div>
+
+            <div>
+                <strong>Neem contact op</strong>
+                <span>
+                    <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+                <span>
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+                <span>
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    Nog te bevestigen
+                </span>
+            </div>
         </div>
 
-        <div>
-          <h3>Snelkoppelingen</h3>
-          <a href="aanmeldingpaginaScholen.html">Inschrijven</a>
-          <a href="homepaginaScholen.html">Landingspagina</a>
-          <a href="#organisator">Organisators portaal</a>
-          <a href="#contact">Contact opnemen</a>
+        <div class="footerBottom">
+            <span>© 2026 Avond4Daagse Den Haag. Alle rechten voorbehouden.</span>
+            <span>Privacyverklaring &nbsp; Cookies</span>
         </div>
-
-        <div>
-          <h3>Neem contact op</h3>
-          <a href="#mail">✉ Nog te bepalen</a>
-          <a href="#phone">⌕ Nog te bevestigen</a>
-          <a href="#whatsapp">◉ Nog te bevestigen</a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Avond4daagse Den Haag. Alle rechten voorbehouden.</span>
-        <span><a href="#privacy">Privacyverklaring</a><a href="#cookies">Cookies</a></span>
-      </div>
     </footer>
-  </div>
 
-  <script src="klassenbeheerScholen.js"></script>
+    <script src="klassenbeheerScholen.js"></script>
 </body>
 </html>

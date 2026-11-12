@@ -57,7 +57,7 @@ function renderClasses() {
     <article class="class-card" data-class="${group.nummer}">
       <div class="class-header" role="button" tabindex="0" aria-expanded="true">
         <div class="class-title">
-          <span class="class-icon">▱</span>
+          <span class="class-icon"><i class="fa-solid fa-school"></i></span>
           <span>Groep ${escapeHtml(group.nummer)}</span>
         </div>
         <span class="chevron">⌄</span>

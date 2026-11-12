@@ -52,7 +52,7 @@ header {
 .navbar {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 310px;
     width: 100%;
     min-height: 76px;
     margin: 0 auto;
