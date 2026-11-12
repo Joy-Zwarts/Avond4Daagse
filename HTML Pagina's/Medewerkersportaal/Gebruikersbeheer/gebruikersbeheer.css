@@ -1,0 +1,325 @@
+/*
+ * gebruikersbeheer.css
+ * Alleen de stijlen voor gebruikersbeheer.html.
+ * Inclusief mobiele weergave, interacties en onderdelen die JavaScript toevoegt.
+ */
+
+/* Kleuren */
+:root {
+    --green: #3c4c21;
+    --bg: #f6f7f9;
+    --line: #e3e5e9;
+    --muted: #707988;
+}
+
+/* Basisopmaak, knoppen en links */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: Arial, sans-serif;
+    color: #242832;
+    font-size: 14px;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+.button {
+    cursor: pointer;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 16px;
+    background: white;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover,
+.button:hover {
+    filter: brightness(.95);
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
+.primary {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+/* Kop en navigatie */
+header {
+    background: white;
+    padding: 16px 12px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 18px 16px;
+    color: var(--green);
+}
+
+.logo {
+    width: 65px;
+    height: auto;
+}
+
+.brand strong {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.team {
+    background: var(--green);
+    color: white;
+    border-radius: 8px;
+    padding: 9px;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.icon {
+    width: 38px;
+    height: 38px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 3px;
+    overflow: auto;
+}
+
+nav a {
+    white-space: nowrap;
+    padding: 12px 10px;
+    background: var(--bg);
+    border-radius: 14px 14px 0 0;
+    font-size: 11px;
+    flex: 1;
+    text-align: center;
+}
+
+nav a[aria-current] {
+    color: var(--green);
+    font-weight: bold;
+    background: #e9eddf;
+}
+
+/* Pagina-inhoud en kaarten */
+main {
+    max-width: 1160px;
+    margin: auto;
+    padding: 36px 32px;
+}
+
+h1 {
+    margin: 0 0 5px;
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+p {
+    margin: 5px 0 16px;
+}
+
+.muted,
+small {
+    color: var(--muted);
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.shadow {
+    box-shadow: 1px 3px 6px #0003;
+}
+
+/* Zoekveld en gebruikerslijst */
+.search {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin: 20px 0 16px;
+    background: white;
+}
+
+.users {
+    display: grid;
+    gap: 16px;
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    padding: 15px 30px;
+    min-height: 76px;
+}
+
+.user-row .icon {
+    width: 48px;
+    height: 48px;
+    color: #242428;
+}
+
+.user-name {
+    font-size: 21px;
+    min-width: 70px;
+}
+
+.role {
+    background: #e5e7eb;
+    color: #586272;
+    border-radius: 11px;
+    padding: 5px 14px;
+    min-width: 125px;
+    text-align: center;
+}
+
+.view {
+    margin-left: auto;
+    background: #2c2c2c;
+    color: white;
+    min-width: 125px;
+    padding: 7px 16px;
+    border-radius: 5px;
+}
+
+.wide {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: white;
+    color: #333;
+    min-width: 0;
+}
+
+/* Dialoogvenster */
+dialog {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    max-width: 480px;
+    padding: 28px;
+}
+
+dialog::backdrop {
+    background: #0005;
+}
+
+.empty {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Kleine schermen: maximaal 760 pixels breed. */
+@media (max-width: 760px) {
+    .brand {
+        padding: 0 0 12px;
+    }
+
+    .brand strong {
+        font-size: 13px;
+    }
+
+    .account span {
+        display: none;
+    }
+
+    main {
+        padding: 24px 16px;
+    }
+
+    .user-row {
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .user-name {
+        font-size: 17px;
+        min-width: 50px;
+    }
+
+    .role {
+        min-width: 0;
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .view {
+        min-width: 60px;
+    }
+
+    .brand .team {
+        display: none;
+    }
+}
+
+/* Verborgen onderdelen */
+[hidden] {
+    display: none !important;
+}
+
+/* Pictogrammen en kleine hulpopmaak */
+.icon-definitions {
+    display: none;
+}
+
+.dialog-close {
+    margin-top: 20px;
+}

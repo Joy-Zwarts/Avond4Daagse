@@ -1,28 +1,120 @@
-<!-- Colin -->
-
 <!DOCTYPE html>
-
 <html lang="nl">
     <head>
         <meta charset="UTF-8">
-        <title>Gebruikersbeheer</title>
-        <meta name="description" content="Beheer voor gebruikersaccounts van medewerkers van de Avond4Daagse.">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Gebruikersbeheer | Avond4daagse Den Haag</title>
+        <!-- Opmaak van deze pagina. -->
+        <link rel="stylesheet" href="css/gebruikersbeheer.css">
     </head>
-
     <body>
+        <!-- Herbruikbare pictogrammen voor gebruikers en profielen. -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon-definitions">
+            <symbol id="person" viewBox="0 0 48 48">
+                <circle cx="24" cy="13" r="7"/>
+                <path d="M8 42v-6c0-10 32-10 32 0v6Z"/>
+            </symbol>
+            <symbol id="avatar" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="43" fill="none" stroke-width="7"/>
+                <circle cx="50" cy="40" r="16" fill="currentColor" stroke="none"/>
+                <path d="M17 78c4-27 62-27 66 0A43 43 0 0 1 17 78" fill="currentColor" stroke="none"/>
+            </symbol>
+        </svg>
+        <!-- Kop met logo, accountlink en hoofdnavigatie. -->
         <header>
-            <nav>
-                
+            <div class="brand">
+                <img class="logo" src="Images/avond4daagse-logo.png" alt="Avond4daagse Den Haag">
+                <strong><span class="team" aria-hidden="true">♧</span>Avond4daagse Den Haag Medewerkersportaal</strong>
+                <a class="account" href="persoonlijkAccountpaginaMedewerkers.html">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#avatar"/>
+                    </svg>
+                    <span>Account</span>
+                </a>
+            </div>
+            <nav aria-label="Hoofdnavigatie">
+                <a href="#niet-beschikbaar" data-unavailable>Bestuurdersdashboard</a>
+                <a href="#niet-beschikbaar" data-unavailable>Aanmeldingen overzicht</a>
+                <a href="#niet-beschikbaar" data-unavailable>Draaiboek</a>
+                <a href="#niet-beschikbaar" data-unavailable>Routebeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Roosters</a>
+                <a href="financieelDashboardOverzicht.html" >Financieel dashboard</a>
+                <a href="#niet-beschikbaar" data-unavailable>Communicatiebeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Contact</a>
+                <a href="gebruikersbeheer.html" aria-current="page">Gebruikersbeheer</a>
+                <a href="#niet-beschikbaar" data-unavailable>Mijn Schema</a>
             </nav>
         </header>
-
+        <!-- Inhoud van deze pagina. -->
         <main>
-          
+            <h1>Gebruikersbeheer</h1>
+            <p class="muted"><small>Hier zie je een overzicht van alle bestuursleden. Klik op View voor meer informatie, aanpassingen of verwijderen.</small></p>
+            <label>
+                <span hidden>Zoek een persoon</span>
+                <input class="search" id="search" type="search" placeholder="Zoek een persoon..." aria-label="Zoek een persoon">
+            </label>
+            <div class="users" id="users">
+                <article class="card shadow user-row" data-user-row data-name="User 1 Vrijwilliger">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#person"/>
+                    </svg>
+                    <span class="user-name">User 1</span>
+                    <span class="role">Vrijwilliger</span>
+                    <a class="button view" href="gebruikersbeheerViewPopup.html?user=1">View<span class="sr-only" hidden> User 1</span></a>
+                </article>
+                <article class="card shadow user-row" data-user-row data-name="User 2 Roostermaker">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#person"/>
+                    </svg>
+                    <span class="user-name">User 2</span>
+                    <span class="role">Roostermaker</span>
+                    <a class="button view" href="gebruikersbeheerViewPopup.html?user=2">View<span class="sr-only" hidden> User 2</span></a>
+                </article>
+                <article class="card shadow user-row" data-user-row data-name="User 3 Penningmeester">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#person"/>
+                    </svg>
+                    <span class="user-name">User 3</span>
+                    <span class="role">Penningmeester</span>
+                    <a class="button view" href="gebruikersbeheerViewPopup.html?user=3">View<span class="sr-only" hidden> User 3</span></a>
+                </article>
+                <article class="card shadow user-row" data-user-row data-name="User 4 Vrijwilliger">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#person"/>
+                    </svg>
+                    <span class="user-name">User 4</span>
+                    <span class="role">Vrijwilliger</span>
+                    <a class="button view" href="gebruikersbeheerViewPopup.html?user=4">View<span class="sr-only" hidden> User 4</span></a>
+                </article>
+                <article class="card shadow user-row" data-user-row data-name="User 5 Secretaris">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#person"/>
+                    </svg>
+                    <span class="user-name">User 5</span>
+                    <span class="role">Secretaris</span>
+                    <a class="button view" href="gebruikersbeheerViewPopup.html?user=5">View<span class="sr-only" hidden> User 5</span></a>
+                </article>
+                <article class="card shadow user-row" data-user-row data-name="User 6 Routebeheerder">
+                    <svg class="icon " aria-hidden="true">
+                        <use href="#person"/>
+                    </svg>
+                    <span class="user-name">User 6</span>
+                    <span class="role">Routebeheerder</span>
+                    <a class="button view" href="gebruikersbeheerViewPopup.html?user=6">View<span class="sr-only" hidden> User 6</span></a>
+                </article>
+            </div>
+            <p class="empty" id="empty" hidden>Geen gebruikers gevonden.</p>
+            <a class="button primary wide" href="gebruikersbeheerNieuweGebruiker.html">♧ &nbsp; Maak nieuwe gebruiker aan</a>
         </main>
-
-        <footer>
-            
-        </footer>
+        <!-- Gedeeld dialoogvenster voor meldingen en certificaten. -->
+        <dialog id="dialog" aria-labelledby="dialog-title">
+            <h2 id="dialog-title"></h2>
+            <div id="dialog-text"></div>
+            <form method="dialog">
+                <button class="dialog-close">Sluiten</button>
+            </form>
+        </dialog>
+        <!-- Interactie van deze pagina; laden na de HTML-inhoud. -->
+        <script src="js/gebruikersbeheer.js"></script>
     </body>
 </html>

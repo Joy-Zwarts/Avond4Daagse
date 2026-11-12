@@ -1,0 +1,378 @@
+/*
+ * gebruikersbeheerViewPopup.css
+ * Alleen de stijlen voor gebruikersbeheerViewPopup.html.
+ * Inclusief mobiele weergave, interacties en onderdelen die JavaScript toevoegt.
+ */
+
+/* Kleuren */
+:root {
+    --green: #3c4c21;
+    --bg: #f6f7f9;
+    --line: #e3e5e9;
+    --muted: #707988;
+}
+
+/* Basisopmaak, knoppen en links */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: Arial, sans-serif;
+    color: #242832;
+    font-size: 14px;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+.button {
+    cursor: pointer;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 16px;
+    background: white;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover,
+.button:hover {
+    filter: brightness(.95);
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
+.primary {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+/* Kop en navigatie */
+header {
+    background: white;
+    padding: 16px 12px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 18px 16px;
+    color: var(--green);
+}
+
+.logo {
+    width: 65px;
+    height: auto;
+}
+
+.brand strong {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.team {
+    background: var(--green);
+    color: white;
+    border-radius: 8px;
+    padding: 9px;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.icon {
+    width: 38px;
+    height: 38px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    gap: 3px;
+    overflow: auto;
+}
+
+nav a {
+    white-space: nowrap;
+    padding: 12px 10px;
+    background: var(--bg);
+    border-radius: 14px 14px 0 0;
+    font-size: 11px;
+    flex: 1;
+    text-align: center;
+}
+
+nav a[aria-current] {
+    color: var(--green);
+    font-weight: bold;
+    background: #e9eddf;
+}
+
+/* Pagina-inhoud en kaarten */
+main {
+    max-width: 1160px;
+    margin: auto;
+    padding: 36px 32px;
+}
+
+h1 {
+    margin: 0 0 5px;
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+p {
+    margin: 5px 0 16px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.shadow {
+    box-shadow: 1px 3px 6px #0003;
+}
+
+/* Statuslabels */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 18px;
+    padding: 6px 12px;
+    font-size: 12px;
+    background: #e6ecdf;
+    color: #454b40;
+}
+
+.pending {
+    background: #eee;
+    color: #555;
+}
+
+.rejected {
+    background: #f1e1e1;
+    color: #654848;
+}
+
+.wide {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 16px;
+}
+
+/* Formulieren */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px 30px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: white;
+    color: #333;
+    min-width: 0;
+}
+
+input:disabled,
+select:disabled {
+    background: #d9d9d9;
+    color: #777;
+    opacity: 1;
+}
+
+.date-parts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+}
+
+/* Profiel en certificaten */
+.profile {
+    margin: 10px auto 0;
+    max-width: 1000px;
+    padding: 36px 28px 24px;
+}
+
+.profile-body {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 30px;
+}
+
+.avatar {
+    width: 155px;
+    height: 155px;
+    color: #494b48;
+}
+
+.profile h1 {
+    font-weight: 400;
+    color: #111;
+    margin: 8px 0 22px;
+}
+
+.certificates {
+    margin-top: 34px;
+}
+
+.certificate {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid #d5d1dc;
+    padding: 24px 0;
+    min-height: 86px;
+}
+
+.certificate button {
+    margin-left: auto;
+    background: #d9d9d9;
+    padding: 4px 22px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+/* Actieknoppen */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    margin-top: 48px;
+}
+
+.actions > * {
+    flex: 1;
+    background: #f8f9fa;
+    border-radius: 25px;
+}
+
+.back {
+    max-width: 1000px;
+    margin: 20px auto;
+    display: flex;
+}
+
+/* Statusmelding */
+.status-message {
+    min-height: 20px;
+    color: var(--green);
+    margin-top: 12px;
+}
+
+/* Dialoogvenster */
+dialog {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    max-width: 480px;
+    padding: 28px;
+}
+
+dialog::backdrop {
+    background: #0005;
+}
+
+/* Kleine schermen: maximaal 760 pixels breed. */
+@media (max-width: 760px) {
+    .brand {
+        padding: 0 0 12px;
+    }
+
+    .brand strong {
+        font-size: 13px;
+    }
+
+    .account span {
+        display: none;
+    }
+
+    main {
+        padding: 24px 16px;
+    }
+
+    .profile-body {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar {
+        width: 90px !important;
+        height: 90px !important;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .actions {
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .brand .team {
+        display: none;
+    }
+}
+
+/* Pictogrammen en kleine hulpopmaak */
+.icon-definitions {
+    display: none;
+}
+
+.dialog-close {
+    margin-top: 20px;
+}
