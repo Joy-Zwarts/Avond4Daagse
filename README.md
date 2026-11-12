@@ -31,7 +31,7 @@
 
 ## Stan:
 • bestuurdersdashboard.html ✓\
-• draaiboekMedewerkers.html \
+• draaiboekMedewerkers.html ✓\
 • routebestuurMedewerkers.html ✓\
 • mijnSchemaMedewerkers.html ✓\
 • roostersMedewerkers.html ✓\
