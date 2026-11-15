@@ -1,59 +1,61 @@
-<!-- Jelle -->
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>Aanmeldingen overzicht scholen</title>
-  <meta name="description" content="De aanmeldingen overzichtpagina van scholen in de regio Den Haag">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="aanmeldingenOverzichtScholen.css">
+    <meta charset="UTF-8">
+    <title>Aanmeldingen overzicht scholen</title>
+    <meta name="description" content="De aanmeldingen overzichtpagina van scholen in de regio Den Haag">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aanmeldingenOverzichtScholen.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="page">
-    <div class="top-title">Aanmeldingen overzicht scholen</div>
-
     <header>
-      <div class="topbar">
-        <img class="logo" src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+        <div class="topbar">
+            <a class="logo" href="homeDeelnemers.html" aria-label="Naar homepagina">
+                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
 
-        <div class="portal">
-          <span class="portal-icon">♟</span>
-          Avond4daagse Den Haag Medewerkersportaal
+            <div class="regioLabel">
+                <span class="icon">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                </span>
+                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+            </div>
+
+            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html">
+                <span class="accountButton">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </span>
+                <strong>Account</strong>
+            </a>
         </div>
 
-        <div class="account">
-          <span class="account-icon">♙</span>
-          <span>Account</span>
-        </div>
-      </div>
-
-      <nav class="nav">
-        <a href="#">Bestuurdersdashboard</a>
-        <a class="active" href="#">Aanmeldingen overzicht</a>
-        <a href="#">Draaiboek</a>
-        <a href="#">Routebeheer</a>
-        <a href="#">Roosters</a>
-        <a href="#">Financieel dashboard</a>
-        <a href="#">Communicatiebeheer</a>
-        <a href="#">Contact</a>
-        <a href="#">Gebruikersbeheer</a>
-        <a href="#">Mijn Schema</a>
-      </nav>
+        <nav aria-label="Hoofdnavigatie">
+            <a href="../bestuurdersdashboard.html">Bestuurdersdashboard</a>
+            <a class="active" href="aanmeldingenOverzichtScholen.html">Aanmeldingen overzicht</a>
+            <a href="../draaiboekMedewerkers.html">Draaiboek</a>
+            <a href="../routebestuurMedewerkers.html">Routebeheer</a>
+            <a href="../roostersMedewerkers.html">Roosters</a>
+            <a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+            <a href="../Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+            <a href="../contactAfhandelingMedewerkers.html">Contact</a>
+            <a href="../Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
+            <a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
+        </nav>
     </header>
 
     <main>
-      <h1 id="page-title">Aanmeldingen overzicht</h1>
-      <p id="page-subtitle" class="intro"></p>
+        <h1 id="title">Aanmeldingen overzicht</h1>
+        <p class="intro"></p>
 
-      <div class="switch">
-        <button>Individuele aanmeldingen</button>
-        <button class="active">Aanmeldingen via scholen</button>
-      </div>
+        <div class="switch">
+            <button type="button" onclick="window.location.href='aanmeldingenOverzichtIndividueel.html'">Individuele aanmeldingen</button>
+				  <button class="active" type="button" onclick="window.location.href='aanmeldingenOverzichtScholen.html'">Aanmeldingen via scholen</button>
+        </div>
 
-      <section id="schools"></section>
+        <section id="schools"></section>
     </main>
-  </div>
 
-  <script src="aanmeldingenOverzichtScholen.js"></script>
+    <script src="aanmeldingenOverzichtScholen.js"></script>
 </body>
 </html>

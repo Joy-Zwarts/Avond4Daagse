@@ -1,79 +1,90 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Gebruiker verwijderen | Avond4daagse Den Haag</title>
-        <!-- Opmaak van deze pagina. -->
-        <link rel="stylesheet" href="css/gebruikersbeheerDeletionPopup.css">
-    </head>
-    <body>
-        <!-- Herbruikbare pictogrammen voor gebruikers en profielen. -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon-definitions">
-            <symbol id="person" viewBox="0 0 48 48">
-                <circle cx="24" cy="13" r="7"/>
-                <path d="M8 42v-6c0-10 32-10 32 0v6Z"/>
-            </symbol>
-            <symbol id="avatar" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="43" fill="none" stroke-width="7"/>
-                <circle cx="50" cy="40" r="16" fill="currentColor" stroke="none"/>
-                <path d="M17 78c4-27 62-27 66 0A43 43 0 0 1 17 78" fill="currentColor" stroke="none"/>
-            </symbol>
-        </svg>
-        <!-- Kop met logo, accountlink en hoofdnavigatie. -->
-        <header>
-            <div class="brand">
-                <img class="logo" src="Images/avond4daagse-logo.png" alt="Avond4daagse Den Haag">
-                <strong><span class="team" aria-hidden="true">♧</span>Avond4daagse Den Haag Medewerkersportaal</strong>
-                <a class="account" href="persoonlijkAccountpaginaMedewerkers.html">
-                    <svg class="icon " aria-hidden="true">
-                        <use href="#avatar"/>
-                    </svg>
-                    <span>Account</span>
-                </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebruiker verwijderen | Avond4daagse Den Haag</title>
+    <link rel="stylesheet" href="gebruikersbeheerDeletionPopup.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <a class="logo" href="../bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
+
+            <div class="regioLabel">
+                <span class="icon">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                </span>
+                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
             </div>
-            <nav aria-label="Hoofdnavigatie">
-                <a href="#niet-beschikbaar" data-unavailable>Bestuurdersdashboard</a>
-                <a href="#niet-beschikbaar" data-unavailable>Aanmeldingen overzicht</a>
-                <a href="#niet-beschikbaar" data-unavailable>Draaiboek</a>
-                <a href="#niet-beschikbaar" data-unavailable>Routebeheer</a>
-                <a href="#niet-beschikbaar" data-unavailable>Roosters</a>
-                <a href="financieelDashboardOverzicht.html" >Financieel dashboard</a>
-                <a href="#niet-beschikbaar" data-unavailable>Communicatiebeheer</a>
-                <a href="#niet-beschikbaar" data-unavailable>Contact</a>
-                <a href="gebruikersbeheer.html" aria-current="page">Gebruikersbeheer</a>
-                <a href="#niet-beschikbaar" data-unavailable>Mijn Schema</a>
-            </nav>
-        </header>
-        <!-- Inhoud van deze pagina. -->
-        <main>
-            <section class="card shadow delete-card" aria-labelledby="delete-title">
-                <h1 id="delete-title">Weet je zeker dat je de volgende gebruiker wilt verwijderen:</h1>
-                <div class="delete-person shadow">
-                    <svg class="icon " aria-hidden="true">
-                        <use href="#avatar"/>
-                    </svg>
-                    <div>
-                        <strong data-user-title>User 1</strong>
-                        <p data-fullname>Jane Doe</p>
-                    </div>
+
+            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html">
+                <span class="accountButton">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </span>
+                <strong>Account</strong>
+            </a>
+        </div>
+
+        <nav aria-label="Hoofdnavigatie">
+            <a href="../bestuurdersdashboard.html">Bestuurdersdashboard</a>
+            <a href="../AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+            <a href="../draaiboekMedewerkers.html">Draaiboek</a>
+            <a href="../routebestuurMedewerkers.html">Routebeheer</a>
+            <a href="../roostersMedewerkers.html">Roosters</a>
+            <a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+            <a href="../Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+            <a href="../contactAfhandelingMedewerkers.html">Contact</a>
+            <a class="active" href="gebruikersbeheer.html">Gebruikersbeheer</a>
+            <a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card shadow delete-card" aria-labelledby="delete-title">
+            <h1 id="delete-title">
+                Weet je zeker dat je de volgende gebruiker wilt verwijderen:
+            </h1>
+
+            <div class="delete-person shadow">
+                <span class="person-icon">
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </span>
+
+                <div>
+                    <strong data-user-title>User 1</strong>
+                    <p data-fullname>Jane Doe</p>
                 </div>
-                <div class="actions">
-                    <a class="button keep" data-user-link href="gebruikersbeheerViewPopup.html">♧ &nbsp; Behoud gebruiker</a>
-                    <button class="danger" id="delete-user">♧ &nbsp; Verwijder gebruiker</button>
-                </div>
-                <p id="message" class="status-message" role="status"></p>
-            </section>
-        </main>
-        <!-- Gedeeld dialoogvenster voor meldingen en certificaten. -->
-        <dialog id="dialog" aria-labelledby="dialog-title">
-            <h2 id="dialog-title"></h2>
-            <div id="dialog-text"></div>
-            <form method="dialog">
-                <button class="dialog-close">Sluiten</button>
-            </form>
-        </dialog>
-        <!-- Interactie van deze pagina; laden na de HTML-inhoud. -->
-        <script src="js/gebruikersbeheerDeletionPopup.js"></script>
-    </body>
+            </div>
+
+            <div class="actions">
+                <a class="button keep" data-user-link href="gebruikersbeheerViewPopup.html">
+                    <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+                    Behoud gebruiker
+                </a>
+
+                <button class="button danger" id="delete-user" type="button">
+                    <i class="fa-solid fa-user-xmark" aria-hidden="true"></i>
+                    Verwijder gebruiker
+                </button>
+            </div>
+
+            <p id="message" class="status-message" role="status"></p>
+        </section>
+    </main>
+
+    <dialog id="dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-text"></div>
+
+        <form method="dialog">
+            <button class="dialog-close" type="submit">Sluiten</button>
+        </form>
+    </dialog>
+
+    <script src="js/gebruikersbeheerDeletionPopup.js"></script>
+</body>
 </html>

@@ -73,8 +73,8 @@ async function loadSchools() {
 
     const data = await response.json();
 
-    document.getElementById('page-title').textContent = data.paginaTitel;
-    document.getElementById('page-subtitle').textContent = data.subtitel;
+    document.getElementById('title').textContent = data.paginaTitel;
+    document.getElementsByClassName('intro').textContent = data.subtitel;
     container.innerHTML = data.scholen.map(createSchoolCard).join('');
   } catch (error) {
     container.innerHTML = `

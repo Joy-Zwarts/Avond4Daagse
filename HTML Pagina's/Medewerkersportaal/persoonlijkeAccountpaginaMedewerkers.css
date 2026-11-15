@@ -1,0 +1,490 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark: #3f4447;
+    --green: #405624;
+    --background: #f5f6f8;
+    --line: #e5e8eb;
+    --muted: #7b838c;
+    --white: #ffffff;
+    --tab-background: #f4f6f8;
+    --CoolBackground: #d2d3b4;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--background);
+}
+
+body {
+    color: var(--dark);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+header {
+    width: 100%;
+    padding: 10px 38px 0;
+    background: var(--white);
+}
+
+.topbar {
+    display: grid;
+    grid-template-columns: 230px 1fr auto;
+    align-items: center;
+    min-height: 58px;
+    gap: 30px;
+}
+
+.logo {
+    display: block;
+    width: 73px;
+}
+
+.logo img {
+    display: block;
+    width: 73px;
+    height: auto;
+}
+
+.regioLabel {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    gap: 9px;
+    color: var(--green);
+    font-size: 14px;
+}
+
+.portalIcon {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 13px;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.accountButton {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--green);
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+nav {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    min-height: 36px;
+    overflow-x: auto;
+    padding: 0 0 0 4px;
+}
+
+nav a {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    width: auto;
+    height: 25px;
+    min-height: 25px;
+    padding: 7px 11px 6px;
+    border: 1px solid transparent;
+    border-bottom: 4px solid var(--white);
+    border-radius: 9px 9px 0 0;
+    color: #707981;
+    background: var(--tab-background);
+    font-size: 9px;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: var(--green);
+    background: var(--tab-background);
+}
+
+nav a.active {
+    z-index: 2;
+    height: 32px;
+    min-height: 32px;
+    border: 1px solid #e5e8eb;
+    border-bottom: 4px solid var(--background);
+    color: var(--dark);
+    background: var(--tab-background);
+    font-weight: 700;
+}
+
+.accountButton {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--CoolBackground);
+    border: 3px solid var(--green);
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+main {
+    width: 100%;
+    min-height: calc(100vh - 99px);
+    margin: 0;
+    padding: 29px 42px 45px;
+    background: var(--background);
+}
+
+.card {
+    border: 1px solid #e8ebef;
+    border-radius: 16px;
+    background: var(--white);
+}
+
+.shadow {
+    box-shadow: 1px 3px 6px #0003;
+}
+
+.account-profile {
+    width: min(850px, 100%);
+    margin: 0 auto;
+    padding: 36px 28px 24px;
+}
+
+.profile-body {
+    display: grid;
+    grid-template-columns: 135px minmax(0, 1fr);
+    gap: 20px;
+}
+
+.profile-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    color: #494b48;
+    background: #edeef0;
+    font-size: 58px;
+}
+
+.upload-label {
+    margin-top: 14px;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    width: 100%;
+    margin-top: 7px;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+    font-size: 10px;
+}
+
+.profile-content h1 {
+    margin: 8px 0 22px;
+    color: #111111;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px 30px;
+}
+
+.span-2 {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--dark);
+    font-size: 12px;
+}
+
+input:not([type="file"]) {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: #333333;
+    background: var(--white);
+}
+
+input:focus {
+    border-color: var(--green);
+    outline: none;
+}
+
+.date-parts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+
+.certificates {
+    margin-top: 34px;
+}
+
+.certificate {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 72px;
+    padding: 18px 0;
+    border-top: 1px solid #d5d1dc;
+    font-size: 11px;
+}
+
+.certificate button {
+    padding: 5px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--dark);
+    background: #d9d9d9;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.certificate button:first-of-type {
+    margin-left: auto;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border-radius: 18px;
+    font-size: 10px;
+}
+
+.approved {
+    color: #454b40;
+    background: #e6ecdf;
+}
+
+.pending {
+    color: #555555;
+    background: #eeeeee;
+}
+
+.rejected {
+    color: #654848;
+    background: #f1e1e1;
+}
+
+.upload-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 18px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--green);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#certificate-upload {
+    display: none;
+}
+
+.save-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 12px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--green);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.save-button:hover,
+.upload-button:hover {
+    background: #30451b;
+}
+
+.status-message {
+    min-height: 20px;
+    margin: 12px 0 0;
+    color: var(--green);
+    text-align: center;
+}
+
+dialog {
+    max-width: 480px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+dialog::backdrop {
+    background: #0005;
+}
+
+.dialog-close {
+    margin-top: 20px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--dark);
+    background: var(--white);
+    cursor: pointer;
+}
+
+@media (max-width: 760px) {
+    header {
+        padding: 10px 18px 0;
+    }
+
+    .topbar {
+        grid-template-columns: 70px 1fr;
+        min-height: 58px;
+        gap: 16px;
+    }
+
+    .logo,
+    .logo img {
+        width: 58px;
+    }
+
+    .regioLabel {
+        font-size: 11px;
+    }
+
+    .account {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    nav {
+        margin: 0 -18px;
+        padding-left: 18px;
+    }
+
+    main {
+        padding: 22px 14px 35px;
+    }
+
+    .account-profile {
+        padding: 24px 18px 20px;
+    }
+
+    .profile-body {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar {
+        width: 90px;
+        height: 90px;
+        font-size: 42px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .span-2 {
+        grid-column: auto;
+    }
+
+    .certificate {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .certificate button:first-of-type {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .regioLabel {
+        font-size: 10px;
+    }
+
+    .portalIcon {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .account {
+        display: none;
+    }
+
+    .certificate {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .certificate button {
+        margin-left: 0;
+    }
+
+    .profile-content h1 {
+        font-size: 22px;
+    }
+}

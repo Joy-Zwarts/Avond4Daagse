@@ -64,8 +64,8 @@ async function loadIndividualSignups() {
     }
 
     const data = await response.json();
-    document.getElementById('page-title').textContent = data.paginaTitel || 'Aanmeldingen overzicht';
-    document.getElementById('page-subtitle').textContent = data.subtitel || '';
+    document.getElementById('title').textContent = data.paginaTitel || 'Aanmeldingen overzicht';
+    document.getElementsByClassName('page-subtitle').textContent = data.subtitel || '';
     container.innerHTML = data.aanmeldingen.map(createSignupCard).join('');
   } catch (error) {
     container.innerHTML = `

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persoonlijke accountpagina | Avond4daagse Den Haag</title>
+    <link rel="stylesheet" href="persoonlijkeAccountpaginaMedewerkers.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
+
+            <div class="regioLabel">
+                <span class="portalIcon">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                </span>
+                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+            </div>
+
+            <a class="account" href="persoonlijkeAccountpaginaMedewerkers.html">
+                <span class="accountButton">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </span>
+                <strong>Account</strong>
+            </a>
+        </div>
+
+        <nav aria-label="Hoofdnavigatie">
+            <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
+            <a href="AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+            <a href="draaiboekMedewerkers.html">Draaiboek</a>
+            <a href="routebestuurMedewerkers.html">Routebeheer</a>
+            <a href="roostersMedewerkers.html">Roosters</a>
+            <a href="Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+            <a href="Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+            <a href="contactAfhandelingMedewerkers.html">Contact</a>
+            <a href="Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
+            <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="profile-form" class="card shadow account-profile">
+            <div class="profile-body">
+                <div class="profile-photo">
+                    <span class="avatar">
+                        <i class="fa-solid fa-user" aria-hidden="true"></i>
+                    </span>
+
+                    <label class="upload-label" for="photo">
+                        Profielfoto
+                    </label>
+
+                    <input id="photo" type="file" accept="image/*">
+                </div>
+
+                <div class="profile-content">
+                    <h1>User 1</h1>
+
+                    <div class="form-grid">
+                        <label>
+                            Naam
+                            <input type="text" name="fullname" value="Jane Doe">
+                        </label>
+
+                        <div>
+                            <label>Geboortedatum</label>
+
+                            <div class="date-parts">
+                                <input aria-label="Dag" name="day" type="number" min="1" max="31" value="29">
+                                <input aria-label="Maand" name="month" type="number" min="1" max="12" value="2">
+                                <input aria-label="Jaar" name="year" type="number" min="1900" max="2100" value="1992">
+                            </div>
+                        </div>
+
+                        <label>
+                            Woonplaats
+                            <input type="text" name="address" value="Theresiastraat 84">
+                        </label>
+
+                        <label>
+                            Telefoonnummer
+                            <input type="tel" name="phone" value="06 66666666">
+                        </label>
+
+                        <label class="span-2">
+                            Nieuw wachtwoord
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Nieuw wachtwoord"
+                                autocomplete="new-password"
+                                minlength="8"
+                            >
+                        </label>
+                    </div>
+
+                    <div class="certificates">
+                        <div class="certificate">
+                            <span>Certificaat 1</span>
+                            <span class="badge approved">
+                                ✓   Goedgekeurd
+                            </span>
+                            <button type="button" data-replace="0">
+                                Aanpassen
+                            </button>
+                            <button type="button" data-certificate="0">
+                                Bekijken
+                            </button>
+                        </div>
+
+                        <div class="certificate">
+                            <span>Certificaat 2</span>
+                            <span class="badge pending">
+                                ?   Geen oordeel
+                            </span>
+                            <button type="button" data-replace="1">
+                                Aanpassen
+                            </button>
+                            <button type="button" data-certificate="1">
+                                Bekijken
+                            </button>
+                        </div>
+
+                        <div class="certificate">
+                            <span>Certificaat 3</span>
+                            <span class="badge rejected">
+                                ⚠   Fout gekeurd
+                            </span>
+                            <button type="button" data-replace="2">
+                                Aanpassen
+                            </button>
+                            <button type="button" data-certificate="2">
+                                Bekijken
+                            </button>
+                        </div>
+                    </div>
+
+                    <label class="upload-button" for="certificate-upload">
+                        Certificaat uploaden
+                        <i class="fa-solid fa-upload" aria-hidden="true"></i>
+                    </label>
+
+                    <input id="certificate-upload" type="file" accept=".pdf,image/*">
+
+                    <button class="save-button" type="submit">
+                        <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+                        Account opslaan
+                    </button>
+                </div>
+            </div>
+
+            <p id="message" class="status-message" role="status"></p>
+        </form>
+    </main>
+
+    <dialog id="dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-text"></div>
+
+        <form method="dialog">
+            <button class="dialog-close" type="submit">
+                Sluiten
+            </button>
+        </form>
+    </dialog>
+
+    <script src="js/persoonlijkAccountpaginaMedewerkers.js"></script>
+</body>
+</html>

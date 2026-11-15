@@ -1,72 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nieuws</title>
-  <link rel="stylesheet" href="communicatiebeheerMedewerkers.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Communicatiebeheer | Avond4daagse Den Haag</title>
+    <link rel="stylesheet" href="communicatiebeheerMedewerkers.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <div class="topbar">
-      <div class="logo">avond<span>4daagse</span></div>
-      <div class="brand"><b>♟</b>Avond4daagse Den Haag Medewerkersportaal</div>
-      <div class="account"><i class="avatar">●</i>Account</div>
-    </div>
+    <header>
+        <div class="topbar">
+            <a class="logo" href="../bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
 
-    <nav>
-      <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
-      <a href="aanmeldingen.html">Aanmeldingen overzicht</a>
-      <a href="draaiboekMedewerkers.html">draaiboekMedewerkers</a>
-      <a href="routebestuurMedewerkers.html">Routebeheer</a>
-      <a href="roostersMedewerkers.html">Roosters</a>
-      <a href="financieel.html">Financieel dashboard</a>
-      <a class="active" href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
-      <a href="contactAfhanderlingMedewerkers.html">Contact</a>
-      <a href="gebruikersbeheer.html">Gebruikersbeheer</a>
-      <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
-    </nav>
-  </header>
+            <div class="regioLabel">
+                <span class="icon">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                </span>
+                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+            </div>
 
-  <section class="page-head">
-    <h1>Communicatiebeheer</h1>
-    <p>Hier kunnen bestuursleden nieuws en updates schrijven voor de deelnemers op de site</p>
-  </section>
+            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html">
+                <span class="accountButton">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </span>
+                <strong>Account</strong>
+            </a>
+        </div>
 
-  <main class="container">
-    <div class="toolbar">
-      <a class="button full" href="communicatiebeheerMedewerkers.html">▣ &nbsp; Schrijf een nieuwe Post</a>
-    </div>
+        <nav aria-label="Hoofdnavigatie">
+            <a href="../bestuurdersdashboard.html">Bestuurdersdashboard</a>
+            <a href="../AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+            <a href="../draaiboekMedewerkers.html">Draaiboek</a>
+            <a href="../routebestuurMedewerkers.html">Routebeheer</a>
+            <a href="../roostersMedewerkers.html">Roosters</a>
+            <a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+            <a class="active" href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+            <a href="../contactAfhandelingMedewerkers.html">Contact</a>
+            <a href="../Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
+            <a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
+        </nav>
+    </header>
 
-    <section class="post-list">
-      <article class="card post">
-        <div class="post-image"></div>
-        <h2>Goed voorbereid op pad</h2>
-        <p>Comfortabele schoenen, voldoende water en een fijne wandelgroep: ontdek handige tips voor een gezellige wandelavond.</p>
-        <b>Lees meer →</b>
-      </article>
-
-      <article class="card post">
-        <div class="post-image"></div>
-        <h2>Samen wandelen met je school</h2>
-        <p>Een Avond4daagse loop je samen. Lees tips voor het organiseren van een wandelgroep en het begeleiden van deelnemers.</p>
-        <b>Lees meer →</b>
-      </article>
-
-      <article class="card post">
-        <div class="post-image"></div>
-        <h2>Nieuwe routes en startpunten</h2>
-        <p>Bekijk alvast de updates over routes, startpunten en praktische aankondigingen voor de komende wandelavonden.</p>
-        <b>Lees meer →</b>
-      </article>
-
-      <article class="card post">
-        <div class="post-image"></div>
-        <h2>Zo bereid je je voor op de route</h2>
-        <p>Check de handige spullen, routekaarten en praktische tips om met een goed gevoel van start te gaan.</p>
-        <b>Lees meer →</b>
-      </article>
+    <section class="page-head">
+        <h1>Communicatiebeheer</h1>
+        <p>Hier kunnen bestuursleden nieuws en updates schrijven voor de deelnemers op de site.</p>
     </section>
-  </main>
+
+    <main class="container">
+        <div class="toolbar">
+            <a class="button full" href="communicatiebeheerNieuwePost.html">
+                <i class="fa-solid fa-square-pen" aria-hidden="true"></i>
+                Schrijf een nieuwe post
+            </a>
+        </div>
+
+        <section class="post-list">
+            <article class="card post">
+                <div class="post-image post-image-one"></div>
+                <h2>Goed voorbereid op pad</h2>
+                <p>Comfortabele schoenen, voldoende water en een fijne wandelgroep: ontdek handige tips voor een gezellige wandelavond.</p>
+                <a class="read-more" href="#goed-voorbereid">Lees meer <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="card post">
+                <div class="post-image post-image-two"></div>
+                <h2>Samen wandelen met je school</h2>
+                <p>Een Avond4daagse loop je samen. Lees tips voor het organiseren van een wandelgroep en het begeleiden van deelnemers.</p>
+                <a class="read-more" href="#samen-wandelen">Lees meer <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="card post">
+                <div class="post-image post-image-three"></div>
+                <h2>Nieuwe routes en startpunten</h2>
+                <p>Bekijk alvast de updates over routes, startpunten en praktische aankondigingen voor de komende wandelavonden.</p>
+                <a class="read-more" href="#nieuwe-routes">Lees meer <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="card post">
+                <div class="post-image post-image-four"></div>
+                <h2>Zo bereid je je voor op de route</h2>
+                <p>Check de handige spullen, routekaarten en praktische tips om met een goed gevoel van start te gaan.</p>
+                <a class="read-more" href="#voorbereiden-route">Lees meer <span aria-hidden="true">→</span></a>
+            </article>
+        </section>
+    </main>
 </body>
 </html>

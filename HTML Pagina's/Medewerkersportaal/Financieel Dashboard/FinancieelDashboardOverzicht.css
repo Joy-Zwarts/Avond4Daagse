@@ -1,34 +1,33 @@
-/*
- * financieelDashboardOverzicht.css
- * Alleen de stijlen voor financieelDashboardOverzicht.html.
- * Inclusief mobiele weergave, interacties en onderdelen die JavaScript toevoegt.
- */
-
-/* Kleuren */
-:root {
-    --green: #3c4c21;
-    --bg: #f6f7f9;
-    --line: #e3e5e9;
-    --muted: #707988;
-}
-
-/* Basisopmaak, knoppen en links */
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    background: var(--bg);
-    font-family: Arial, sans-serif;
-    color: #242832;
-    font-size: 14px;
+:root {
+    --dark: #3f4447;
+    --green: #405624;
+    --green-light: #dce2bd;
+    --background: #f5f6f8;
+    --line: #e5e8eb;
+    --muted: #7b838c;
+    --white: #ffffff;
+    --tab-background: #f4f6f8;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
 }
 
-button,
-input,
-select {
-    font: inherit;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--background);
+}
+
+body {
+    color: var(--dark);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
 }
 
 a {
@@ -37,22 +36,28 @@ a {
 }
 
 button,
+input,
+select {
+    font: inherit;
+}
+
+button,
 .button {
-    cursor: pointer;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 10px 16px;
-    background: white;
-    color: inherit;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: inherit;
+    background: var(--white);
+    cursor: pointer;
 }
 
 button:hover,
 .button:hover {
-    filter: brightness(.95);
+    filter: brightness(0.95);
 }
 
 :focus-visible {
@@ -61,90 +66,137 @@ button:hover,
 }
 
 .primary {
-    background: var(--green);
-    color: white;
     border-color: var(--green);
+    color: var(--white);
+    background: var(--green);
 }
 
-/* Kop en navigatie */
 header {
-    background: white;
-    padding: 16px 12px 0;
+    padding: 10px 38px 0;
+    background: var(--white);
 }
 
-.brand {
-    display: flex;
+.topbar {
+    display: grid;
+    grid-template-columns: 230px 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 0 18px 16px;
-    color: var(--green);
+    min-height: 58px;
+    gap: 30px;
 }
 
 .logo {
-    width: 65px;
+    display: block;
+    width: 73px;
+}
+
+.logo img {
+    display: block;
+    width: 73px;
     height: auto;
 }
 
-.brand strong {
-    font-size: 18px;
+.regioLabel {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-self: start;
+    gap: 9px;
+    color: var(--green);
+    font-size: 14px;
 }
 
-.team {
+.icon {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    color: var(--white);
     background: var(--green);
-    color: white;
-    border-radius: 8px;
-    padding: 9px;
+    font-size: 13px;
 }
 
 .account {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: bold;
+    gap: 8px;
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 700;
 }
 
-.icon {
-    width: 38px;
-    height: 38px;
+.accountButton {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--green);
+    border-radius: 50%;
+}
+
+.accountIcon {
+    width: 22px;
+    height: 22px;
     fill: none;
     stroke: currentColor;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    flex-shrink: 0;
 }
 
 nav {
     display: flex;
-    gap: 3px;
-    overflow: auto;
+    align-items: flex-end;
+    gap: 4px;
+    min-height: 36px;
+    overflow-x: auto;
+    padding: 0 0 0 4px;
 }
 
 nav a {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    width: auto;
+    height: 25px;
+    min-height: 25px;
+    padding: 7px 11px 6px;
+    border: 1px solid transparent;
+    border-bottom: 4px solid var(--white);
+    border-radius: 9px 9px 0 0;
+    color: #707981;
+    background: var(--tab-background);
+    font-size: 9px;
+    line-height: normal;
     white-space: nowrap;
-    padding: 12px 10px;
-    background: var(--bg);
-    border-radius: 14px 14px 0 0;
-    font-size: 11px;
-    flex: 1;
-    text-align: center;
 }
 
-nav a[aria-current] {
+nav a:hover {
     color: var(--green);
-    font-weight: bold;
-    background: #e9eddf;
+    background: var(--tab-background);
 }
 
-/* Pagina-inhoud en kaarten */
-main {
-    max-width: 1160px;
-    margin: auto;
-    padding: 36px 32px;
+nav a.active {
+    z-index: 2;
+    height: 32px;
+    min-height: 32px;
+    border-color: var(--line);
+    border-bottom-color: var(--background);
+    color: var(--dark);
+    background: var(--tab-background);
+    font-weight: 700;
+}
+
+main.finance {
+    width: min(1160px, calc(100% - 84px));
+    margin: 0 auto;
+    padding: 29px 0 45px;
+}
+
+h1,
+h2 {
+    color: var(--green);
 }
 
 h1 {
@@ -153,8 +205,8 @@ h1 {
 }
 
 h2 {
-    font-size: 18px;
     margin: 0 0 8px;
+    font-size: 18px;
 }
 
 p {
@@ -166,15 +218,10 @@ small {
     color: var(--muted);
 }
 
-.finance h1,
-.finance h2 {
-    color: var(--green);
-}
-
 .heading {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
 }
 
@@ -190,13 +237,13 @@ small {
 }
 
 .card {
-    background: white;
+    padding: 22px;
     border: 1px solid var(--line);
     border-radius: 16px;
-    padding: 22px;
+    background: var(--white);
+    box-shadow: var(--shadow);
 }
 
-/* Financiële samenvatting en grafiek */
 .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -206,9 +253,9 @@ small {
 
 .stat strong {
     display: block;
-    font-size: 30px;
-    color: var(--green);
     margin: 14px 0;
+    color: var(--green);
+    font-size: 30px;
 }
 
 .chart {
@@ -221,57 +268,64 @@ small {
     height: 180px;
 }
 
+.chart #balance-chart {
+    width: 100%;
+    min-height: 160px;
+    height: auto;
+}
+
 .chart-footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    border-top: 1px solid var(--line);
+    gap: 12px;
     padding-top: 14px;
+    border-top: 1px solid var(--line);
     font-size: 11px;
 }
 
-/* Statuslabels */
 .badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border-radius: 18px;
     padding: 6px 12px;
-    font-size: 12px;
-    background: #e6ecdf;
+    border-radius: 18px;
     color: #454b40;
+    background: #e6ecdf;
+    font-size: 12px;
 }
 
 .pending {
-    background: #eee;
     color: #555;
+    background: #eeeeee;
 }
 
 .positive {
-    background: #eaf2d8;
     color: var(--green);
+    background: #eaf2d8;
 }
 
 label {
     display: block;
-    font-size: 12px;
     margin-bottom: 7px;
+    font-size: 12px;
 }
 
 input,
 select {
     width: 100%;
+    min-width: 0;
     padding: 10px;
     border: 1px solid var(--line);
     border-radius: 6px;
-    background: white;
     color: #333;
-    min-width: 0;
+    background: var(--white);
 }
 
 input:disabled,
 select:disabled {
-    background: #d9d9d9;
     color: #777;
+    background: #d9d9d9;
     opacity: 1;
 }
 
@@ -279,95 +333,35 @@ select:disabled {
     background: #e3aaad !important;
 }
 
-/* Meldingen */
 .note {
-    background: var(--bg);
     padding: 12px;
     border-radius: 8px;
     color: var(--muted);
+    background: var(--background);
     font-size: 12px;
 }
 
-/* Statusmelding */
 .status-message {
     min-height: 20px;
-    color: var(--green);
     margin-top: 12px;
+    color: var(--green);
 }
 
-/* Dialoogvenster */
-dialog {
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    max-width: 480px;
-    padding: 28px;
-}
-
-dialog::backdrop {
-    background: #0005;
-}
-
-.empty {
-    padding: 20px;
-    text-align: center;
-}
-
-/* Kleine schermen: maximaal 760 pixels breed. */
-@media (max-width: 760px) {
-    .brand {
-        padding: 0 0 12px;
-    }
-
-    .brand strong {
-        font-size: 13px;
-    }
-
-    .account span {
-        display: none;
-    }
-
-    main {
-        padding: 24px 16px;
-    }
-
-    .stats {
-        grid-template-columns: 1fr;
-    }
-
-    .heading {
-        align-items: flex-start;
-    }
-
-    .chart-footer {
-        gap: 12px;
-    }
-
-    .brand .team {
-        display: none;
-    }
-}
-
-/* Verborgen onderdelen */
-[hidden] {
-    display: none !important;
-}
-
-/* Financiële formulieren en transacties */
 .finance-section {
     margin-bottom: 20px;
 }
 
 summary {
-    cursor: pointer;
-    font-weight: bold;
     margin-bottom: 12px;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .entry-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
     align-items: end;
+    gap: 16px;
 }
 
 .entry-grid label {
@@ -376,24 +370,24 @@ summary {
 
 .entry-actions {
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .ledger-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto auto;
-    gap: 18px;
     align-items: center;
-    border-top: 1px solid var(--line);
+    gap: 18px;
     padding: 16px 0;
+    border-top: 1px solid var(--line);
     overflow-wrap: anywhere;
 }
 
 .ledger-row .muted {
-    font-size: 12px;
     margin-top: 6px;
+    font-size: 12px;
 }
 
 .ledger-row strong {
@@ -408,20 +402,75 @@ summary {
     display: none;
 }
 
-.chart #balance-chart {
-    height: auto;
-    width: 100%;
-    min-height: 160px;
+dialog {
+    max-width: 480px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
 }
 
-.chart-footer {
-    flex-wrap: wrap;
+dialog::backdrop {
+    background: #0005;
 }
 
-/* Kleine schermen: maximaal 760 pixels breed. */
+.empty {
+    padding: 20px;
+    text-align: center;
+}
+
+.icon-definitions {
+    display: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
 @media (max-width: 760px) {
+    header {
+        padding: 10px 18px 0;
+    }
+
+    .topbar {
+        grid-template-columns: 70px 1fr;
+        min-height: 58px;
+        gap: 16px;
+    }
+
+    .logo,
+    .logo img {
+        width: 58px;
+    }
+
+    .regioLabel {
+        font-size: 11px;
+    }
+
+    .account {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    nav {
+        margin: 0 -18px;
+        padding-left: 18px;
+    }
+
+    main.finance {
+        width: auto;
+        margin: 0;
+        padding: 22px 14px 35px;
+    }
+
+    .stats,
     .entry-grid {
         grid-template-columns: 1fr;
+    }
+
+    .heading {
+        align-items: flex-start;
     }
 
     .ledger-row {
@@ -430,7 +479,7 @@ summary {
     }
 
     .ledger-row .entry-actions {
-        grid-column: 1/-1;
+        grid-column: 1 / -1;
     }
 
     .chart #balance-chart {
@@ -442,7 +491,18 @@ summary {
     }
 }
 
-/* Pictogrammen en kleine hulpopmaak */
-.icon-definitions {
-    display: none;
+@media (max-width: 450px) {
+    .regioLabel {
+        font-size: 10px;
+    }
+
+    .icon {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .account {
+        display: none;
+    }
 }

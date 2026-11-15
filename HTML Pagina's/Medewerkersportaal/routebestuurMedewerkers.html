@@ -1,99 +1,115 @@
+<!DOCTYPE html>
 <html lang="nl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Routebeheer</title>
-  <link rel="stylesheet" href="routebestuurMedewerkers.css">
-</head>
-<body>
-  <header>
-    <div class="topbar">
-      <div class="logo">avond<span>4daagse</span></div>
-      <div class="brand"><b>♟</b>Avond4daagse Den Haag Medewerkersportaal</div>
-      <div class="account"><i class="avatar">●</i>Account</div>
-    </div>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Routebeheer</title>
+      <link rel="stylesheet" href="routebestuurMedewerkers.css">
+      <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+      <header>
+          <div class="topbar">
+              <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                  <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+              </a>
 
-    <nav>
-      <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
-      <a href="aanmeldingen.html">Aanmeldingen overzicht</a>
-      <a href="draaiboekMedewerkers.html">draaiboekMedewerkers</a>
-      <a class="active" href="routebestuurMedewerkers.html">Routebeheer</a>
-      <a href="roostersMedewerkers.html">Roosters</a>
-      <a href="financieel.html">Financieel dashboard</a>
-      <a href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
-      <a href="contactAfhanderlingMedewerkers.html">Contact</a>
-      <a href="gebruikersbeheer.html">Gebruikersbeheer</a>
-      <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
-    </nav>
-  </header>
+              <div class="regioLabel">
+                  <span class="icon">
+                      <i class="fa-solid fa-users" aria-hidden="true"></i>
+                  </span>
+                  <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+              </div>
 
-  <section class="page-head">
-    <h1>Routebeheer</h1>
-    <p>Hier kan je de route het huidig jaar aanpassen of toevoegen</p>
-  </section>
-
-  <main class="container">
-    <section class="route-grid">
-      <article class="card route">
-        <h2>Route 5 km</h2>
-        <p>Korte beschrijving</p>
-        <textarea placeholder="Typ hier een korte beschrijving van de route..."></textarea>
-
-        <div class="route-body">
-          <div>
-            <label>Datum &amp; tijd</label>
-            <input class="input" placeholder="Start datum en tijd">
-            <input class="input" placeholder="Eind datum en tijd">
-
-            <label>Info</label>
-            <select>
-              <option>5km</option>
-            </select>
-
-            <label>Start Locatie:</label>
-            <input class="input" placeholder="Typ hier de startlocatie...">
-
-            <label>Eind:</label>
-            <input class="input" placeholder="Typ hier de eindlocatie...">
+              <a class="account" href="persoonlijkeAccountpaginaMedewerkers.html">
+                  <span class="accountButton">
+                      <i class="fa-regular fa-user" aria-hidden="true"></i>
+                  </span>
+                  <strong>Account</strong>
+              </a>
           </div>
-          <div class="map"></div>
-        </div>
 
-        <label>Verdere toelichting</label>
-        <textarea placeholder="Typ hier verdere toelichting en extra informatie van de route..."></textarea>
-        <button class="button full">Open in Google maps</button>
-      </article>
+          <nav aria-label="Hoofdnavigatie">
+              <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
+              <a href="AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+              <a href="draaiboekMedewerkers.html">Draaiboek</a>
+              <a class="active" href="routebestuurMedewerkers.html">Routebeheer</a>
+              <a href="roostersMedewerkers.html">Roosters</a>
+              <a href="Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+              <a href="Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+              <a href="contactAfhanderlingMedewerkers.html">Contact</a>
+              <a href="Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
+              <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
+          </nav>
+      </header>
 
-      <article class="card route">
-        <h2>Route 2,5 km</h2>
-        <p>Korte beschrijving</p>
-        <textarea placeholder="Typ hier een korte beschrijving van de route..."></textarea>
+      <section class="page-head">
+          <h1>Routebeheer</h1>
+          <p>Hier kan je de route van het huidige jaar aanpassen of toevoegen.</p>
+      </section>
 
-        <div class="route-body">
-          <div>
-            <label>Datum &amp; tijd</label>
-            <input class="input" placeholder="Start datum en tijd">
-            <input class="input" placeholder="Eind datum en tijd">
+      <main class="container">
+          <section class="route-grid">
+              <article class="card route">
+                  <h2>Route 5 km</h2>
+                  <p>Korte beschrijving</p>
+                  <textarea placeholder="Typ hier een korte beschrijving van de route..."></textarea>
 
-            <label>Info</label>
-            <select>
-              <option>2.5km</option>
-            </select>
+                  <div class="route-body">
+                      <div>
+                          <label for="start-date-5">Datum &amp; tijd</label>
+                          <input class="input" id="start-date-5" placeholder="Start datum en tijd">
+                          <input class="input" placeholder="Eind datum en tijd">
 
-            <label>Start Locatie:</label>
-            <input class="input" placeholder="Typ hier de startlocatie...">
+                          <label for="distance-5">Info</label>
+                          <select id="distance-5">
+                              <option>5 km</option>
+                          </select>
 
-            <label>Eind:</label>
-            <input class="input" placeholder="Typ hier de eindlocatie...">
-          </div>
-          <div class="map"></div>
-        </div>
+                          <label for="start-location-5">Startlocatie</label>
+                          <input class="input" id="start-location-5" placeholder="Typ hier de startlocatie...">
 
-        <label>Verdere toelichting</label>
-        <textarea placeholder="Typ hier verdere toelichting en extra informatie van de route..."></textarea>
-        <button class="button full">Open in Google maps</button>
-      </article>
-    </section>
-  </main>
-</body>
+                          <label for="end-location-5">Eindlocatie</label>
+                          <input class="input" id="end-location-5" placeholder="Typ hier de eindlocatie...">
+                      </div>
+                      <div class="map" aria-label="Kaart van de route van 5 kilometer"></div>
+                  </div>
+
+                  <label for="notes-5">Verdere toelichting</label>
+                  <textarea id="notes-5" placeholder="Typ hier verdere toelichting en extra informatie van de route..."></textarea>
+                  <button class="button full" type="button">Open in Google Maps</button>
+              </article>
+
+              <article class="card route">
+                  <h2>Route 2,5 km</h2>
+                  <p>Korte beschrijving</p>
+                  <textarea placeholder="Typ hier een korte beschrijving van de route..."></textarea>
+
+                  <div class="route-body">
+                      <div>
+                          <label for="start-date-25">Datum &amp; tijd</label>
+                          <input class="input" id="start-date-25" placeholder="Start datum en tijd">
+                          <input class="input" placeholder="Eind datum en tijd">
+
+                          <label for="distance-25">Info</label>
+                          <select id="distance-25">
+                              <option>2,5 km</option>
+                          </select>
+
+                          <label for="start-location-25">Startlocatie</label>
+                          <input class="input" id="start-location-25" placeholder="Typ hier de startlocatie...">
+
+                          <label for="end-location-25">Eindlocatie</label>
+                          <input class="input" id="end-location-25" placeholder="Typ hier de eindlocatie...">
+                      </div>
+                      <div class="map" aria-label="Kaart van de route van 2,5 kilometer"></div>
+                  </div>
+
+                  <label for="notes-25">Verdere toelichting</label>
+                  <textarea id="notes-25" placeholder="Typ hier verdere toelichting en extra informatie van de route..."></textarea>
+                  <button class="button full" type="button">Open in Google Maps</button>
+              </article>
+          </section>
+      </main>
+  </body>
 </html>

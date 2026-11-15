@@ -1,32 +1,33 @@
-/*
- * gebruikersbeheerDeletionPopup.css
- * Alleen de stijlen voor gebruikersbeheerDeletionPopup.html.
- * Inclusief mobiele weergave, interacties en onderdelen die JavaScript toevoegt.
- */
-
-/* Kleuren */
-:root {
-    --green: #3c4c21;
-    --bg: #f6f7f9;
-    --line: #e3e5e9;
-    --muted: #707988;
-}
-
-/* Basisopmaak, knoppen en links */
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    background: var(--bg);
-    font-family: Arial, sans-serif;
-    color: #242832;
-    font-size: 14px;
+:root {
+    --dark: #3f4447;
+    --green: #405624;
+    --background: #f5f6f8;
+    --line: #e5e8eb;
+    --muted: #7b838c;
+    --white: #ffffff;
+    --tab-background: #f4f6f8;
+    --keep: #e1e8cd;
+    --danger: #e3aaad;
 }
 
-button {
-    font: inherit;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--background);
+}
+
+body {
+    color: var(--dark);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
 }
 
 a {
@@ -34,151 +35,124 @@ a {
     text-decoration: none;
 }
 
-button,
-.button {
-    cursor: pointer;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 10px 16px;
-    background: white;
-    color: inherit;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+button {
+    font: inherit;
 }
 
-button:hover,
-.button:hover {
-    filter: brightness(.95);
-}
-
-:focus-visible {
-    outline: 3px solid #8ba64f;
-    outline-offset: 3px;
-}
-
-/* Kop en navigatie */
 header {
-    background: white;
-    padding: 16px 12px 0;
+    padding: 10px 38px 0;
+    background: var(--white);
 }
 
-.brand {
-    display: flex;
+.topbar {
+    display: grid;
+    grid-template-columns: 230px 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 0 18px 16px;
-    color: var(--green);
+    min-height: 58px;
+    gap: 30px;
 }
 
 .logo {
-    width: 65px;
+    display: block;
+    width: 73px;
+}
+
+.logo img {
+    display: block;
+    width: 73px;
     height: auto;
 }
 
-.brand strong {
-    font-size: 18px;
+.regioLabel {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-self: start;
+    gap: 9px;
+    color: var(--green);
+    font-size: 14px;
 }
 
-.team {
+.icon {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    color: var(--white);
     background: var(--green);
-    color: white;
-    border-radius: 8px;
-    padding: 9px;
+    font-size: 13px;
 }
 
 .account {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: bold;
+    gap: 8px;
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 700;
 }
 
-.icon {
-    width: 38px;
-    height: 38px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    flex-shrink: 0;
+.accountButton {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--green);
+    border-radius: 50%;
+    font-size: 16px;
 }
 
 nav {
     display: flex;
-    gap: 3px;
-    overflow: auto;
+    align-items: flex-end;
+    gap: 4px;
+    min-height: 36px;
+    overflow-x: auto;
+    padding: 0 0 0 4px;
 }
 
 nav a {
-    white-space: nowrap;
-    padding: 12px 10px;
-    background: var(--bg);
-    border-radius: 14px 14px 0 0;
-    font-size: 11px;
-    flex: 1;
-    text-align: center;
-}
-
-nav a[aria-current] {
-    color: var(--green);
-    font-weight: bold;
-    background: #e9eddf;
-}
-
-/* Pagina-inhoud en kaarten */
-main {
-    max-width: 1160px;
-    margin: auto;
-    padding: 36px 32px;
-}
-
-h1 {
-    margin: 0 0 5px;
-    font-size: 26px;
-}
-
-h2 {
-    font-size: 18px;
-    margin: 0 0 8px;
-}
-
-p {
-    margin: 5px 0 16px;
-}
-
-.card {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 22px;
-}
-
-.shadow {
-    box-shadow: 1px 3px 6px #0003;
-}
-
-/* Actieknoppen */
-.actions {
+    position: relative;
+    z-index: 1;
     display: flex;
-    justify-content: space-between;
-    gap: 28px;
-    margin-top: 48px;
+    align-items: center;
+    flex: 0 0 auto;
+    width: auto;
+    height: 25px;
+    min-height: 25px;
+    padding: 7px 11px 6px;
+    border: 1px solid transparent;
+    border-bottom: 4px solid var(--white);
+    border-radius: 9px 9px 0 0;
+    color: #707981;
+    background: var(--tab-background);
+    font-size: 9px;
+    line-height: normal;
+    white-space: nowrap;
 }
 
-.actions > * {
-    flex: 1;
-    background: #f8f9fa;
-    border-radius: 25px;
+nav a:hover {
+    color: var(--green);
+    background: var(--tab-background);
 }
 
-/* Verwijderbevestiging */
+nav a.active {
+    z-index: 2;
+    height: 32px;
+    min-height: 32px;
+    border: 1px solid var(--line);
+    border-bottom: 4px solid var(--background);
+    color: var(--dark);
+    background: var(--tab-background);
+    font-weight: 700;
+}
+
+main {
+    min-height: calc(100vh - 99px);
+    padding: 29px 42px 45px;
+    background: var(--background);
+}
+
 .delete-card {
     max-width: 850px;
     margin: 95px auto;
@@ -186,87 +160,156 @@ p {
     text-align: center;
 }
 
+.card {
+    border: 1px solid #e8ebef;
+    border-radius: 16px;
+    background: var(--white);
+}
+
+.shadow {
+    box-shadow: 1px 3px 6px #0003;
+}
+
 .delete-card h1 {
+    margin: 0;
+    color: #15191d;
     font-size: 30px;
-    color: black;
+    line-height: 1.25;
 }
 
 .delete-person {
     display: flex;
     align-items: center;
     gap: 45px;
-    text-align: left;
-    background: #edeef0;
-    border-radius: 20px;
-    padding: 25px;
-    margin: 30px auto 65px;
     max-width: 560px;
+    margin: 30px auto 65px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #edeef0;
+    text-align: left;
 }
 
-.delete-person .icon {
+.person-icon {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
     width: 86px;
     height: 86px;
+    border-radius: 50%;
     color: #494b48;
+    background: #dadddf;
+    font-size: 42px;
 }
 
 .delete-person strong {
+    display: block;
+    color: #303438;
     font-size: 25px;
     font-weight: 400;
 }
 
-.delete-card .actions {
-    margin-top: 0;
+.delete-person p {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
     gap: 45px;
+    justify-content: space-between;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .keep {
-    background: #e1e8cd !important;
+    color: #40532c;
+    background: var(--keep);
 }
 
 .danger {
-    background: #e3aaad !important;
+    color: #51383a;
+    background: var(--danger);
 }
 
-/* Statusmelding */
+.button:hover {
+    filter: brightness(0.95);
+}
+
 .status-message {
     min-height: 20px;
+    margin: 12px 0 0;
     color: var(--green);
-    margin-top: 12px;
 }
 
-/* Dialoogvenster */
 dialog {
-    border: 1px solid var(--line);
-    border-radius: 16px;
     max-width: 480px;
     padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
 }
 
 dialog::backdrop {
     background: #0005;
 }
 
-/* Kleine schermen: maximaal 760 pixels breed. */
+.dialog-close {
+    margin-top: 20px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--dark);
+    background: var(--white);
+    cursor: pointer;
+}
+
 @media (max-width: 760px) {
-    .brand {
-        padding: 0 0 12px;
+    header {
+        padding: 10px 18px 0;
     }
 
-    .brand strong {
-        font-size: 13px;
+    .topbar {
+        grid-template-columns: 70px 1fr;
+        min-height: 58px;
+        gap: 16px;
     }
 
-    .account span {
-        display: none;
+    .logo,
+    .logo img {
+        width: 58px;
+    }
+
+    .regioLabel {
+        font-size: 11px;
+    }
+
+    .account {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+        margin-bottom: 8px;
+    }
+
+    nav {
+        margin: 0 -18px;
+        padding-left: 18px;
     }
 
     main {
-        padding: 24px 16px;
-    }
-
-    .actions {
-        gap: 12px;
-        margin-top: 24px;
+        padding: 22px 14px 35px;
     }
 
     .delete-card {
@@ -278,25 +321,40 @@ dialog::backdrop {
         font-size: 24px;
     }
 
-    .delete-card .actions {
-        gap: 12px;
-    }
-
     .delete-person {
         gap: 20px;
         margin-bottom: 30px;
+        padding: 18px;
     }
 
-    .brand .team {
+    .person-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 30px;
+    }
+
+    .delete-person strong {
+        font-size: 20px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 450px) {
+    .regioLabel {
+        font-size: 10px;
+    }
+
+    .icon {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .account {
         display: none;
     }
-}
-
-/* Pictogrammen en kleine hulpopmaak */
-.icon-definitions {
-    display: none;
-}
-
-.dialog-close {
-    margin-top: 20px;
 }
