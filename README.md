@@ -1,5 +1,7 @@
 # Avond4Daagse
 
+Voor Joy's additions kijk op de commits pagina want na de eerste 2 commits werd haar profielfoto gesnatched en worden haar commits niet meer opgeteld in de insights pagina.
+
 ## Joy:
 • landingspagina.html ✓ \
 • homeDeelnemers.html ✓ \
