@@ -68,7 +68,7 @@ function renderClasses() {
         <div class="add-form-container"></div>
         <button class="add-student" type="button">
           <span>♙</span>
-          Voeg een leerling toe
+          Leerling toevoegen
         </button>
       </div>
     </article>
@@ -125,8 +125,8 @@ function renderForm(groupNumber) {
               <input name="klas" type="text" value="${escapeHtml(groupNumber)}" readonly>
             </td>
             <td>
-              <strong>Afstand</strong>
-              <select name="afstand">
+              <strong>Gekozen afstand</strong>
+              <select name="afstand" required>
                 <option value="">Kies afstand</option>
                 <option value="2,5km">2,5km</option>
                 <option value="5km">5km</option>
@@ -134,7 +134,8 @@ function renderForm(groupNumber) {
             </td>
             <td>
               <strong>Eerdere deelname</strong>
-              <select name="eerdereDeelname">
+              <select name="eerdereDeelname" required>
+                <option value="">Kies eerdere deelname</option>
                 <option value="n.v.t.">n.v.t.</option>
                 <option value="1e keer">1e keer</option>
                 <option value="2e keer">2e keer</option>
@@ -143,7 +144,7 @@ function renderForm(groupNumber) {
             </td>
             <td>
               <strong>Opmerkingen</strong>
-              <input name="opmerkingen" type="text" placeholder="Opmerking">
+              <input name="opmerkingen" type="text" placeholder="Opmerking" required>
             </td>
             <td>
               <button class="save-button" type="button">Opslaan</button>
@@ -206,9 +207,11 @@ function bindSaveEvent(formContainer, groupNumber) {
   formContainer.querySelector('.save-button').addEventListener('click', () => {
     const getValue = (name) => formContainer.querySelector(`[name="${name}"]`).value.trim();
     const name = getValue('naam');
+    const distance = getValue('afstand');
+    const previousParticipation = getValue('eerdereDeelname');
+    const comments = getValue('opmerkingen');
 
-    if (!name) {
-      formContainer.querySelector('[name="naam"]').focus();
+    if (!name || !distance || !previousParticipation || !comments) {
       return;
     }
 
@@ -218,9 +221,9 @@ function bindSaveEvent(formContainer, groupNumber) {
       naam: name,
       contactpersoon: getValue('contactpersoon') || 'James McGill',
       klas: getValue('klas'),
-      afstand: getValue('afstand') || 'n.v.t.',
-      eerdereDeelname: getValue('eerdereDeelname') || 'n.v.t.',
-      opmerkingen: getValue('opmerkingen') || 'n.v.t.',
+      afstand: distance,
+      eerdereDeelname: previousParticipation,
+      opmerkingen: comments,
       aangemeld: false
     });
 
