@@ -396,7 +396,7 @@ button {
 footer {
     padding: 45px 64px 25px;
     color: #eef3e7;
-    background: var(--dark-green) url("../../Images/footerBackground.png") center / cover no-repeat;
+    background: var(--dark-green) url("../Images/footerBackground.png") center / cover no-repeat;
 }
 
 .footer {

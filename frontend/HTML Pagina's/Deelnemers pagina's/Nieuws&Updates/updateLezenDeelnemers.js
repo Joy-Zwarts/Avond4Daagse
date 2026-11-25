@@ -2,7 +2,7 @@ const articles = {
     "goed-voorbereid-op-pad": {
         date: "30 december 2026",
         title: "Goed voorbereid op pad",
-        image: "../../../Images/schoolkids.png",
+        image: "../../Images/schoolkids.png",
         imageAlt: "Kinderen wandelen vanuit school",
         content: `
             <p>
@@ -28,7 +28,7 @@ const articles = {
     "samen-wandelen-met-school": {
         date: "21 juli 2027",
         title: "Samen wandelen met school",
-        image: "../../../Images/schoolStaff.png",
+        image: "../../Images/schoolStaff.png",
         imageAlt: "School leraren bezig met papieren",
         content: `
             <p>
@@ -54,7 +54,7 @@ const articles = {
     "nieuwe-routes-en-startpunten": {
         date: "4 mei 2027",
         title: "Samen meedoen, ook zonder school",
-        image: "../../../Images/classOutside.png",
+        image: "../../Images/classOutside.png",
         imageAlt: "Een schoolklas buiten",
         content: `
             <p>
@@ -80,7 +80,7 @@ const articles = {
     "zo-bereid-je-je-goed-voor-op-de-route": {
         date: "9 maart 2027",
         title: "Samen meedoen, ook zonder school",
-        image: "../../../Images/backpack.png",
+        image: "../../Images/backpack.png",
         imageAlt: "Een kind met een grote rugzak op wandeling",
         content: `
             <p>

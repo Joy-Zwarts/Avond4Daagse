@@ -27,7 +27,7 @@ body {
     margin: 0;
     color: var(--DarkBlueText);
     background-color: #aeb693;
-    background-image: url("../../Images/treeBackground.png");
+    background-image: url("../Images/treeBackground.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

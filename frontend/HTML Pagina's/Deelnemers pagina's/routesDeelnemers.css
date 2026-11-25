@@ -392,7 +392,7 @@ footer {
     padding: 45px 64px 25px;
     color: #eef3e7;
     background-color: var(--dark-green);
-    background-image: url("../../Images/footerBackground.png");
+    background-image: url("../Images/footerBackground.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

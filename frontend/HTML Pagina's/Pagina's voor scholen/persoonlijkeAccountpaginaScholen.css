@@ -31,6 +31,10 @@ body {
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     color: var(--text);
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
@@ -129,9 +133,9 @@ nav {
 
 main {
     display: flex;
+    flex: 1;
     justify-content: center;
     width: 100%;
-    min-height: 395px;
     margin: 0 auto;
     padding: 60px 64px 70px;
     background: var(--cream);
@@ -225,10 +229,12 @@ main {
 }
 
 footer {
+    flex-shrink: 0;
+    margin-top: auto;
     padding: 45px 64px 25px;
     color: #eef3e7;
     background-color: var(--dark-green);
-    background-image: url("../../Images/footerBackground.png");
+    background-image: url("../Images/footerBackground.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
