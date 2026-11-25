@@ -57,7 +57,7 @@
             <a class="button primary" href="financieelDashboardFacturen.html">Facturen</a>
         </div>
 
-        <p class="note">Een betaalde factuur wordt één keer als uitgave opgenomen op de betaaldatum. Openstaande facturen veranderen het saldo niet. Dit registreert een betaling; het voert geen betaling uit. Gegevens blijven alleen in deze browser bewaard.</p>
+        <p class="note">Een betaalde factuur wordt één keer als uitgave opgenomen op de betaaldatum. Openstaande facturen veranderen het saldo niet. Bij het openen of vernieuwen van deze pagina worden de voorbeeldgegevens opnieuw geladen.</p>
         <p id="message" class="status-message" role="status" aria-live="polite"></p>
 
         <div class="heading invoice-toolbar">
@@ -74,7 +74,7 @@
         <div class="invoice-layout">
             <section class="card">
                 <h2>Voorbeeld op basis van je invoer</h2>
-                <p class="muted">Dit is een samenvatting, geen geüpload factuurdocument.</p>
+                <p class="muted"><a id="invoice-download" hidden>Download factuurbestand</a></p>
 
                 <div class="invoice-sheet" id="invoice-preview" aria-live="polite">
                     <h2 id="preview-supplier">Leverancier</h2>
@@ -151,6 +151,10 @@
                         Betaald op
                         <input name="paid" type="date" disabled>
                     </label>
+                    <label>
+                        Factuurbestand (PDF, PNG of JPG, maximaal 4 MB)
+                        <input name="attachment" type="file" accept="application/pdf,image/png,image/jpeg">
+                    </label>
                 </div>
 
                 <div class="entry-actions">
@@ -170,6 +174,6 @@
         </dialog>
     </main>
 
-    <script src="js/financieelDashboardFacturen.js"></script>
+    <script type="module" src="financieelDashboardFacturen.js"></script>
 </body>
 </html>

@@ -1,0 +1,99 @@
+[
+  {
+    "id": "1",
+    "revision": 0,
+    "username": "jane",
+    "fullname": "Jane Doe",
+    "email": "jane@voorbeeld.nl",
+    "role": "Vrijwilliger",
+    "birthdate": "1992-02-29",
+    "address": "Den Haag",
+    "phone": "06 00000001",
+    "photo": null,
+    "certificates": [
+      {
+        "id": "cert-1",
+        "title": "Certificaat 1",
+        "status": "Goedgekeurd",
+        "file": null
+      },
+      {
+        "id": "cert-2",
+        "title": "Certificaat 2",
+        "status": "Geen oordeel",
+        "file": null
+      },
+      {
+        "id": "cert-3",
+        "title": "Certificaat 3",
+        "status": "Afgekeurd",
+        "file": null
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "revision": 0,
+    "username": "sarah",
+    "fullname": "Sarah Meijer",
+    "email": "sarah@voorbeeld.nl",
+    "role": "Roostermaker",
+    "birthdate": "",
+    "address": "Den Haag",
+    "phone": "",
+    "photo": null,
+    "certificates": []
+  },
+  {
+    "id": "3",
+    "revision": 0,
+    "username": "pieter",
+    "fullname": "Pieter Kok",
+    "email": "pieter@voorbeeld.nl",
+    "role": "Penningmeester",
+    "birthdate": "",
+    "address": "Den Haag",
+    "phone": "",
+    "photo": null,
+    "certificates": []
+  },
+  {
+    "id": "4",
+    "revision": 0,
+    "username": "lina",
+    "fullname": "Lina Bakker",
+    "email": "lina@voorbeeld.nl",
+    "role": "Vrijwilliger",
+    "birthdate": "",
+    "address": "Den Haag",
+    "phone": "",
+    "photo": null,
+    "certificates": []
+  },
+  {
+    "id": "5",
+    "revision": 0,
+    "username": "noor",
+    "fullname": "Noor Jansen",
+    "email": "noor@voorbeeld.nl",
+    "role": "Secretaris",
+    "birthdate": "",
+    "address": "Den Haag",
+    "phone": "",
+    "photo": null,
+    "certificates": []
+  },
+  {
+    "id": "6",
+    "revision": 0,
+    "username": "sem",
+    "fullname": "Sem de Wit",
+    "email": "sem@voorbeeld.nl",
+    "role": "Routebeheerder",
+    "birthdate": "",
+    "address": "Den Haag",
+    "phone": "",
+    "photo": null,
+    "certificates": []
+  }
+]

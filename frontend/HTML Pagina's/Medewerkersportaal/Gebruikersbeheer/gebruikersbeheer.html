@@ -45,73 +45,41 @@
 
     <main>
         <h1>Gebruikersbeheer</h1>
-        <p class="muted">Hier zie je een overzicht van alle bestuursleden. Klik op View voor meer informatie, aanpassingen of verwijderen.</p>
-
-        <label class="search-label" for="search">
-            <span class="visually-hidden">Zoek een persoon</span>
-            <input class="search" id="search" type="search" placeholder="Zoek een persoon..." aria-label="Zoek een persoon">
-        </label>
-
-        <div class="users" id="users">
-            <article class="card shadow user-row" data-user-row data-name="User 1 Vrijwilliger">
-                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-                <span class="user-name">User 1</span>
-                <span class="role">Vrijwilliger</span>
-                <a class="button view" href="gebruikersbeheerViewPopup.html?user=1">View</a>
-            </article>
-
-            <article class="card shadow user-row" data-user-row data-name="User 2 Roostermaker">
-                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-                <span class="user-name">User 2</span>
-                <span class="role">Roostermaker</span>
-                <a class="button view" href="gebruikersbeheerViewPopup.html?user=2">View</a>
-            </article>
-
-            <article class="card shadow user-row" data-user-row data-name="User 3 Penningmeester">
-                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-                <span class="user-name">User 3</span>
-                <span class="role">Penningmeester</span>
-                <a class="button view" href="gebruikersbeheerViewPopup.html?user=3">View</a>
-            </article>
-
-            <article class="card shadow user-row" data-user-row data-name="User 4 Vrijwilliger">
-                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-                <span class="user-name">User 4</span>
-                <span class="role">Vrijwilliger</span>
-                <a class="button view" href="gebruikersbeheerViewPopup.html?user=4">View</a>
-            </article>
-
-            <article class="card shadow user-row" data-user-row data-name="User 5 Secretaris">
-                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-                <span class="user-name">User 5</span>
-                <span class="role">Secretaris</span>
-                <a class="button view" href="gebruikersbeheerViewPopup.html?user=5">View</a>
-            </article>
-
-            <article class="card shadow user-row" data-user-row data-name="User 6 Routebeheerder">
-                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-                <span class="user-name">User 6</span>
-                <span class="role">Routebeheerder</span>
-                <a class="button view" href="gebruikersbeheerViewPopup.html?user=6">View</a>
-            </article>
+        <p class="muted">Zoek een medewerker op naam, gebruikersnaam, e-mailadres of functie. Vernieuw de pagina om de voorbeeldgegevens te herstellen.</p>
+        <div id="search-area">
+            <label class="visually-hidden" for="search">Zoek een persoon</label>
+            <input class="search" id="search" type="search" autocomplete="off" placeholder="Zoek een persoon..."
+                   role="combobox" aria-autocomplete="list" aria-controls="suggestions" aria-expanded="false">
+            <ul id="suggestions" role="listbox" aria-label="Gevonden personen" hidden></ul>
         </div>
-
+        <div class="users" id="users"></div>
         <p class="empty" id="empty" hidden>Geen gebruikers gevonden.</p>
-
-        <a class="button primary wide" href="gebruikersbeheerNieuweGebruiker.html">
-            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+        <button class="button primary wide" id="add-user" type="button" aria-expanded="false" aria-controls="new-user">
             Maak nieuwe gebruiker aan
-        </a>
+        </button>
+        <form class="card shadow" id="new-user" hidden>
+            <h2>Nieuwe gebruiker</h2>
+            <div class="new-fields">
+                <label>Gebruikersnaam <input name="username" required maxlength="80"></label>
+                <label>Volledige naam <input name="fullname" required maxlength="160"></label>
+                <label>E-mailadres <input name="email" type="email" required></label>
+                <label>Functie
+                    <select name="role">
+                        <option>Vrijwilliger</option><option>Roostermaker</option><option>Penningmeester</option>
+                        <option>Secretaris</option><option>Routebeheerder</option>
+                    </select>
+                </label>
+            </div>
+            <button class="primary" type="submit">Gebruiker opslaan</button>
+            <button id="cancel-user" type="button">Annuleren</button>
+        </form>
+        <p id="message" role="status"></p>
     </main>
 
-    <dialog id="dialog" aria-labelledby="dialog-title">
-        <h2 id="dialog-title"></h2>
-        <div id="dialog-text"></div>
-        <form method="dialog">
-            <button class="dialog-close">Sluiten</button>
-        </form>
+    <dialog id="person-dialog" aria-label="Gebruikersgegevens">
+        <form method="dialog"><button>Sluiten</button></form>
+        <iframe id="person-page" title="Gebruiker bekijken of aanpassen"></iframe>
     </dialog>
-
-    <script src="js/gebruikersbeheer.js"></script>
+    <script type="module" src="gebruikersbeheer.js"></script>
 </body>
 </html>

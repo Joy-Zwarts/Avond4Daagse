@@ -1,122 +1,172 @@
-/*
- * persoonlijkAccountpaginaMedewerkers.js
- * Het eigen profiel opslaan, certificaten selecteren en een profielfoto tonen.
- * Zelfstandig script voor persoonlijkAccountpaginaMedewerkers.html; geen andere .js-bestanden nodig.
- * Laden onderaan de bijbehorende HTML, vlak voor </body>.
- */
+import { bestandsUrl, demoAccountId, readUpload, showMessage } from '../voorbeeldgegevens.js';
+import { controleerPersoon, laadPersonen, vindPersoon } from './gebruikersgegevens.js';
 
-// 1. Startgegevens: huidige gebruiker en lokale browseropslag.
-const $ = s => document.querySelector(s);
-const userId = new URLSearchParams(location.search).get('user') || '1';
-const storageKey = 'avond4daagse-project-demo-v1';
-let data = {
-    users: {},
-    deleted: [],
-    certificates: {}
-};
-try {
-    data = Object.assign(data, JSON.parse(localStorage.getItem(storageKey) || '{}'));
-} catch (e) {}
+const form = document.querySelector('#profile-form');
+const mode = form.dataset.mode;
+const own = mode === 'account';
+const id = own ? demoAccountId : new URLSearchParams(location.search).get('user');
+const certificateList = document.querySelector('#certificates');
+const upload = document.querySelector('#certificate-upload');
+const dialog = document.querySelector('#dialog');
+let people;
+let person;
+let replaceId = null;
 
-// 2. Hulpfuncties voor meldingen, opslaan en dialoogvensters.
-function message(t) {
-    if ($('#message')) $('#message').textContent = t;
-}
-function save() {
-    try {
-        localStorage.setItem(storageKey, JSON.stringify(data));
-        return true;
-    } catch (e) {
-        message('Opslaan is niet beschikbaar in deze browser.');
-        return false;
-    }
-}
-function show(title, text) {
-    $('#dialog-title').textContent = title;
-    $('#dialog-text').textContent = text;
-    $('#dialog').showModal();
+function button(label, action) {
+    const element = document.createElement('button');
+    element.type = 'button';
+    element.textContent = label;
+    element.addEventListener('click', action);
+    return element;
 }
 
-// 3. Navigatie en gebruikersgegevens in het scherm zetten.
-document.querySelectorAll('[data-unavailable]').forEach(a => a.addEventListener('click', e => {
-    e.preventDefault();
-    show('Pagina niet beschikbaar', 'Deze pagina valt buiten de acht uitgewerkte pagina’s.');
-}));
-const current = data.users[userId] || {};
-document.querySelectorAll('[data-user-title]').forEach(e => e.textContent = current.username || 'User ' + userId);
-
-// 4. Profiel laden en wijzigingen opslaan. Het wachtwoord wordt niet bewaard.
-const form = $('#profile-form');
-if (form) {
-    for (const [key, value] of Object.entries(current)) {
-        const el = form.elements.namedItem(key);
-        if (el) {
-            if (el.type === 'checkbox') el.checked = !!value;else el.value = value;
-        }
-    }
-    if (!current.role &&
-        form.elements.role) form.elements.role.value = ['Vrijwilliger', 'Roostermaker', 'Penningmeester', 'Vrijwilliger', 'Secretaris', 'Routebeheerder'][Number(userId) - 1] ||
-        'Vrijwilliger';
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const values = Object.fromEntries(new FormData(form));
-        delete values.password;
-        form.querySelectorAll('input[type=checkbox]').forEach(el => values[el.name] = el.checked);
-        data.users[userId] = Object.assign(current, values);
-        if (save()) message('Aanpassingen lokaal opgeslagen. Wachtwoorden vereisen een backend en worden niet opgeslagen.');
-    });
-}
-
-// 5. Certificaten bekijken, selecteren en vervangen.
-document.querySelectorAll('[data-certificate]').forEach(b => b.addEventListener('click', () => {
-    const key = userId + '-' + b.dataset.certificate;
-    const file = data.certificates[key];
-    if (!file) {
-        show('Certificaat ' + (Number(b.dataset.certificate) + 1), 'Er is nog geen document gekoppeld. De getoonde beoordelingen zijn voorbeeldgegevens.');
-        return;
-    }
-    show('Certificaat', 'Gekoppeld bestand: ' + file + ' . De bestandsinhoud wordt alleen tijdens deze sessie beschikbaar gehouden.');
-    if (window.sessionFiles?.[key]) {
+function viewCertificate(cert) {
+    document.querySelector('#dialog-title').textContent = cert.title;
+    const content = document.querySelector('#dialog-text');
+    content.replaceChildren();
+    if (cert.file) {
         const link = document.createElement('a');
-        link.className = 'button primary';
-        link.href = URL.createObjectURL(window.sessionFiles[key]);
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.textContent = 'Open document';
-        $('#dialog-text').append(document.createElement('br'), link);
-        link.addEventListener('click', () => setTimeout(() => URL.revokeObjectURL(link.href), 60000));
+        link.download = cert.file.name;
+        link.href = bestandsUrl(cert.file);
+        link.textContent = 'Download ' + cert.file.name;
+        content.append(link);
+    } else {
+        content.textContent = 'Er is nog geen document gekoppeld.';
     }
-}));
-let replaceIndex = null;
-document.querySelectorAll('[data-replace]').forEach(b => b.addEventListener('click', () => {
-    replaceIndex = b.dataset.replace;
-    $('#certificate-upload').click();
-}));
-$('#certificate-upload')?.addEventListener('change', e => {
-    const f = e.target.files[0];
-    if (!f) return;
-    const index = replaceIndex ?? String(Object.keys(data.certificates).filter(k => k.startsWith(userId + '-')).length);
-    replaceIndex = null;
-    const key = userId + '-' + index;
-    data.certificates[key] = f.name;
-    window.sessionFiles = window.sessionFiles || {};
-    window.sessionFiles[key] = f;
-    if (save()) message('Bestand geselecteerd: ' + f.name + '. Alleen de bestandsnaam wordt lokaal bewaard. Voor blijvende uploads is een backend nodig.');
-    if (Number(index) > 2) show('Certificaat toegevoegd', f.name + ' is voor deze sessie geselecteerd.');
+    dialog.showModal();
+}
+
+function renderFiles() {
+    const avatar = form.querySelector('.avatar, .profile-avatar');
+    if (person.photo) {
+        const photo = document.createElement('img');
+        photo.src = bestandsUrl(person.photo);
+        photo.alt = 'Profielfoto van ' + person.fullname;
+        photo.className = avatar.className;
+        photo.style.objectFit = 'cover';
+        avatar.replaceWith(photo);
+    }
+    certificateList.replaceChildren();
+    if (!person.certificates.length) certificateList.textContent = 'Geen certificaten toegevoegd.';
+    for (const cert of person.certificates) {
+        const row = document.createElement('div');
+        row.className = 'certificate';
+        const title = document.createElement('span');
+        title.textContent = cert.title;
+        row.append(title);
+        if (mode === 'edit') {
+            const select = document.createElement('select');
+            select.setAttribute('aria-label', 'Beoordeling ' + cert.title);
+            for (const status of ['Geen oordeel', 'Goedgekeurd', 'Afgekeurd']) select.add(new Option(status, status));
+            select.value = cert.status;
+            select.addEventListener('change', () => { cert.status = select.value; });
+            row.append(select);
+        } else {
+            const badge = document.createElement('span');
+            badge.className = 'badge ' + ({ Goedgekeurd: 'approved', Afgekeurd: 'rejected' }[cert.status] ?? 'pending');
+            badge.textContent = cert.status;
+            row.append(badge);
+        }
+        if (own) row.append(button('Aanpassen', () => {
+            replaceId = cert.id;
+            upload.click();
+        }));
+        row.append(button('Bekijken', () => viewCertificate(cert)));
+        certificateList.append(row);
+    }
+}
+
+function fillForm() {
+    form.querySelector('[data-user-title]').textContent = person.username;
+    for (const key of ['username', 'fullname', 'email', 'role', 'address', 'birthdate', 'phone']) {
+        form.elements[key].value = person[key];
+    }
+    renderFiles();
+}
+
+async function load() {
+    form.hidden = true;
+    try {
+        if (!own && !id) throw Error('Kies eerst een gebruiker in het overzicht.');
+        people = await laadPersonen();
+        person = structuredClone(vindPersoon(people, id));
+        for (const link of form.querySelectorAll('[data-user-link]')) {
+            const url = new URL(link.href);
+            url.searchParams.set('user', person.id);
+            link.href = url.href;
+        }
+        fillForm();
+        form.hidden = false;
+    } catch (error) {
+        showMessage(error.message, true);
+    }
+}
+
+form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!person || mode === 'view' || form.inert) return;
+    form.inert = true;
+    try {
+        const updated = { ...person };
+        for (const [key, value] of new FormData(form)) updated[key] = value.trim();
+        controleerPersoon(people, updated);
+        people[people.indexOf(vindPersoon(people, id))] = structuredClone(updated);
+        person = updated;
+        fillForm();
+        showMessage('Gegevens tijdelijk bijgewerkt. Vernieuw het overzicht of de accountpagina om de voorbeelden te herstellen.');
+    } catch (error) {
+        showMessage(error.message, true);
+    } finally {
+        form.inert = false;
+    }
 });
 
-// 6. Een geselecteerde profielfoto tijdelijk in het scherm tonen.
-$('#photo')?.addEventListener('change', e => {
-    const f = e.target.files[0];
-    if (!f || !f.type.startsWith('image/')) return;
-    const old = $('.avatar');
-    const img = document.createElement('img');
-    img.className = 'avatar';
-    img.style.objectFit = 'cover';
-    img.style.borderRadius = '50%';
-    img.alt = 'Geselecteerde profielfoto';
-    img.src = URL.createObjectURL(f);
-    img.onload = () => URL.revokeObjectURL(img.src);
-    old.replaceWith(img);
-    message('Profielfoto wordt alleen tijdens deze sessie getoond.');
-});
+if (own) {
+    document.querySelector('#add-certificate').addEventListener('click', () => {
+        replaceId = null;
+        upload.click();
+    });
+    upload.addEventListener('cancel', () => { replaceId = null; });
+    for (const input of [document.querySelector('#photo'), upload]) {
+        input.addEventListener('change', async () => {
+            const file = input.files[0];
+            if (!file) return;
+            form.inert = true;
+            try {
+                const photo = input.id === 'photo';
+                const attachment = await readUpload(file, photo);
+                if (photo) person.photo = attachment;
+                else {
+                    const cert = person.certificates.find(item => item.id === replaceId);
+                    if (cert) {
+                        cert.file = attachment;
+                        cert.status = 'Geen oordeel';
+                    } else {
+                        person.certificates.push({ id: crypto.randomUUID(), title: file.name, status: 'Geen oordeel', file: attachment });
+                    }
+                }
+                renderFiles();
+                showMessage('Bestand geselecteerd. Kies Account opslaan om het aan het voorbeeldprofiel toe te voegen.');
+            } catch (error) {
+                showMessage(error.message, true);
+            } finally {
+                input.value = '';
+                replaceId = null;
+                form.inert = false;
+            }
+        });
+    }
+    const confirmation = document.querySelector('#delete-dialog');
+    document.querySelector('#delete-account').addEventListener('click', () => {
+        confirmation.returnValue = '';
+        confirmation.showModal();
+    });
+    confirmation.addEventListener('close', () => {
+        if (confirmation.returnValue !== 'delete') return;
+        people.splice(people.indexOf(vindPersoon(people, id)), 1);
+        form.hidden = true;
+        showMessage('Account tijdelijk verwijderd. Vernieuw deze pagina om het demoaccount te herstellen.');
+    });
+    document.querySelector('#logout').addEventListener('click', () => location.assign('inlogpaginaMedewerkers.html'));
+}
+load();

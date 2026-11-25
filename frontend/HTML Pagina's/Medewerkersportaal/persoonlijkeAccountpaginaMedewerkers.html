@@ -44,7 +44,7 @@
     </header>
 
     <main>
-        <form id="profile-form" class="card shadow account-profile">
+        <form id="profile-form" data-mode="account" hidden class="card shadow account-profile">
             <div class="profile-body">
                 <div class="profile-photo">
                     <span class="avatar">
@@ -55,109 +55,57 @@
                         Profielfoto
                     </label>
 
-                    <input id="photo" type="file" accept="image/*">
+                    <input id="photo" type="file" accept="image/png,image/jpeg">
                 </div>
 
                 <div class="profile-content">
-                    <h1>User 1</h1>
+                    <h1 data-user-title></h1>
 
                     <div class="form-grid">
-                        <label>
-                            Naam
-                            <input type="text" name="fullname" value="Jane Doe">
-                        </label>
-
-                        <div>
-                            <label>Geboortedatum</label>
-
-                            <div class="date-parts">
-                                <input aria-label="Dag" name="day" type="number" min="1" max="31" value="29">
-                                <input aria-label="Maand" name="month" type="number" min="1" max="12" value="2">
-                                <input aria-label="Jaar" name="year" type="number" min="1900" max="2100" value="1992">
-                            </div>
-                        </div>
-
-                        <label>
-                            Woonplaats
-                            <input type="text" name="address" value="Theresiastraat 84">
-                        </label>
-
-                        <label>
-                            Telefoonnummer
-                            <input type="tel" name="phone" value="06 66666666">
-                        </label>
-
-                        <label class="span-2">
-                            Nieuw wachtwoord
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Nieuw wachtwoord"
-                                autocomplete="new-password"
-                                minlength="8"
-                            >
-                        </label>
+                        <label>Gebruikersnaam<input type="text" name="username" required></label>
+                        <label>Naam<input type="text" name="fullname" required></label>
+                        <label>E-mailadres<input type="email" name="email" required></label>
+                        <label>Geboortedatum<input type="date" name="birthdate"></label>
+                        <label>Woonplaats<input type="text" name="address"></label>
+                        <label>Telefoonnummer<input type="tel" name="phone"></label>
+                        <label>Functie<select name="role" disabled>
+                            <option>Vrijwilliger</option>
+                            <option>Roostermaker</option>
+                            <option>Penningmeester</option>
+                            <option>Secretaris</option>
+                            <option>Routebeheerder</option>
+                        </select></label>
                     </div>
 
-                    <div class="certificates">
-                        <div class="certificate">
-                            <span>Certificaat 1</span>
-                            <span class="badge approved">
-                                ✓   Goedgekeurd
-                            </span>
-                            <button type="button" data-replace="0">
-                                Aanpassen
-                            </button>
-                            <button type="button" data-certificate="0">
-                                Bekijken
-                            </button>
-                        </div>
+                    <div class="certificates" id="certificates"></div>
 
-                        <div class="certificate">
-                            <span>Certificaat 2</span>
-                            <span class="badge pending">
-                                ?   Geen oordeel
-                            </span>
-                            <button type="button" data-replace="1">
-                                Aanpassen
-                            </button>
-                            <button type="button" data-certificate="1">
-                                Bekijken
-                            </button>
-                        </div>
-
-                        <div class="certificate">
-                            <span>Certificaat 3</span>
-                            <span class="badge rejected">
-                                ⚠   Fout gekeurd
-                            </span>
-                            <button type="button" data-replace="2">
-                                Aanpassen
-                            </button>
-                            <button type="button" data-certificate="2">
-                                Bekijken
-                            </button>
-                        </div>
-                    </div>
-
-                    <label class="upload-button" for="certificate-upload">
+                    <button type="button" class="upload-button" id="add-certificate">
                         Certificaat uploaden
                         <i class="fa-solid fa-upload" aria-hidden="true"></i>
-                    </label>
+                    </button>
 
-                    <input id="certificate-upload" type="file" accept=".pdf,image/*">
+                    <input id="certificate-upload" type="file" accept="application/pdf,image/png,image/jpeg">
 
                     <button class="save-button" type="submit">
                         <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
                         Account opslaan
                     </button>
+                    <div class="account-actions">
+                        <button id="logout" type="button">Uitloggen</button>
+                        <button id="delete-account" type="button">Mijn account verwijderen</button>
+                    </div>
                 </div>
             </div>
 
-            <p id="message" class="status-message" role="status"></p>
         </form>
+        <p id="message" class="status-message" role="status"></p>
     </main>
 
+    <dialog id="delete-dialog" aria-labelledby="delete-title">
+        <h2 id="delete-title">Mijn account verwijderen?</h2>
+        <p>Je profiel en certificaten worden tijdelijk uit deze weergave verwijderd. Vernieuw de pagina om ze terug te zien.</p>
+        <form method="dialog"><button value="cancel" autofocus>Annuleren</button> <button value="delete">Verwijderen</button></form>
+    </dialog>
     <dialog id="dialog" aria-labelledby="dialog-title">
         <h2 id="dialog-title"></h2>
         <div id="dialog-text"></div>
@@ -169,6 +117,6 @@
         </form>
     </dialog>
 
-    <script src="js/persoonlijkAccountpaginaMedewerkers.js"></script>
+    <script type="module" src="Gebruikersbeheer/persoonAccountpaginaMedewerkers.js"></script>
 </body>
 </html>

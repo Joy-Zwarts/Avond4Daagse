@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Financieel dashboard — Overzicht | Avond4daagse Den Haag</title>
-        <link rel="stylesheet" href="financieelDashboardOverzicht.css">
+        <link rel="stylesheet" href="FinancieelDashboardOverzicht.css">
         <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
             <div class="topbar">
-                <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                <a class="logo" href="../bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
                     <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
                 </a>
 
@@ -57,7 +57,7 @@
                 <a class="button" href="financieelDashboardFacturen.html">Facturen</a>
             </div>
 
-            <p class="note">Registreer hier ontvangen en uitgegeven geld. Gegevens worden alleen in deze browser opgeslagen; er is geen bankkoppeling en er worden geen betalingen uitgevoerd.</p>
+            <p class="note">Registreer hier ontvangen en uitgegeven geld. Het saldo en de grafiek worden berekend uit het beginsaldo en de opgeslagen transacties. Bij het openen of vernieuwen van deze pagina worden de voorbeeldgegevens opnieuw geladen.</p>
             <p id="message" class="status-message" role="status" aria-live="polite"></p>
 
             <section class="stats" aria-label="Financiële samenvatting" aria-live="polite">
@@ -160,6 +160,6 @@
             </dialog>
         </main>
 
-        <script src="js/financieelDashboardOverzicht.js"></script>
+        <script type="module" src="FinancieelDashboardOverzicht.js"></script>
     </body>
 </html>

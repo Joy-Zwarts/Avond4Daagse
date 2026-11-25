@@ -35,10 +35,10 @@
               <a href="draaiboekMedewerkers.html">Draaiboek</a>
               <a href="routebestuurMedewerkers.html">Routebeheer</a>
               <a href="roostersMedewerkers.html">Roosters</a>
-              <a href="financieel.html">Financieel dashboard</a>
+              <a href="Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
               <a href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
               <a href="contactAfhandelingMedewerkers.html">Contact</a>
-              <a href="gebruikersbeheer.html">Gebruikersbeheer</a>
+              <a href="Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
               <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
           </nav>
       </header>
@@ -142,15 +142,12 @@
 
               <article class="card small-panel">
                   <h2 class="panel-title">Open facturen</h2>
-                  <b class="money">€2.450</b>
+                  <b class="money" id="open-total">—</b>
                   <div class="muted">Totaal openstaand</div>
-                  <p>
-                      Factuur 1024 €850<br>
-                      Factuur 1045 €900<br>
-                      Factuur 1048 €700
-                  </p>
+                  <p id="open-invoices" role="status"></p>
               </article>
           </section>
       </main>
+      <script type="module" src="openFacturen.js"></script>
   </body>
 </html>

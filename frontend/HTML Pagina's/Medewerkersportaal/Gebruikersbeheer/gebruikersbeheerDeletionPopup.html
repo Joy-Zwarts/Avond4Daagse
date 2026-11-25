@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gebruiker verwijderen | Avond4daagse Den Haag</title>
-    <link rel="stylesheet" href="gebruikersbeheerDeletionPopup.css">
+    <link rel="stylesheet" href="gebruikersbeheerdeletionPopup.css">
     <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -55,8 +55,8 @@
                 </span>
 
                 <div>
-                    <strong data-user-title>User 1</strong>
-                    <p data-fullname>Jane Doe</p>
+                    <strong data-user-title></strong>
+                    <p data-fullname></p>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
                     Behoud gebruiker
                 </a>
 
-                <button class="button danger" id="delete-user" type="button">
+                <button class="button danger" id="delete-user" type="button" disabled>
                     <i class="fa-solid fa-user-xmark" aria-hidden="true"></i>
                     Verwijder gebruiker
                 </button>
@@ -85,6 +85,6 @@
         </form>
     </dialog>
 
-    <script src="js/gebruikersbeheerDeletionPopup.js"></script>
+    <script type="module" src="gebruikersbeheerdeletionPopup.js"></script>
 </body>
 </html>
