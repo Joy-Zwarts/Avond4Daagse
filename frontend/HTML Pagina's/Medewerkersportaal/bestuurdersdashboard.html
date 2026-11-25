@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bestuurdersdashboard</title>
+      <link rel="stylesheet" href="bestuurdersdashboard.css">
+      <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+      <header>
+          <div class="topbar">
+              <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                  <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+              </a>
+
+              <div class="regioLabel">
+                  <span class="icon">
+                      <i class="fa-solid fa-users" aria-hidden="true"></i>
+                  </span>
+                  <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+              </div>
+
+              <a class="account" href="persoonlijkeAccountpaginaMedewerkers.html">
+                  <span class="accountButton">
+                      <i class="fa-regular fa-user" aria-hidden="true"></i>
+                  </span>
+                  <strong>Account</strong>
+              </a>
+          </div>
+
+          <nav aria-label="Hoofdnavigatie">
+              <a class="active" href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
+              <a href="AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+              <a href="draaiboekMedewerkers.html">Draaiboek</a>
+              <a href="routebestuurMedewerkers.html">Routebeheer</a>
+              <a href="roostersMedewerkers.html">Roosters</a>
+              <a href="financieel.html">Financieel dashboard</a>
+              <a href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+              <a href="contactAfhandelingMedewerkers.html">Contact</a>
+              <a href="gebruikersbeheer.html">Gebruikersbeheer</a>
+              <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
+          </nav>
+      </header>
+
+      <section class="page-head">
+          <h1>Dashboard</h1>
+          <p>Overzicht van inschrijvingen, scholen, vrijwilligers en open taken.</p>
+      </section>
+
+      <main class="container">
+          <section class="grid stats">
+              <article class="card stat">
+                  <b>43</b>
+                  Inschrijvingen
+                  <div class="muted">Totaal inschrijvingen</div>
+              </article>
+
+              <article class="card stat">
+                  <b>7</b>
+                  Scholen
+                  <div class="muted">Aangesloten scholen</div>
+              </article>
+
+              <article class="card stat">
+                  <b>18</b>
+                  Vrijwilligers
+                  <div class="muted">Beschikbare vrijwilligers</div>
+              </article>
+
+              <article class="card stat">
+                  <b>3</b>
+                  Open taken
+                  <div class="muted">Actieve taken</div>
+              </article>
+          </section>
+
+          <section class="card table-card">
+              <h2 class="panel-title">Recente inschrijvingen</h2>
+
+              <table class="table">
+                  <tr>
+                      <th>Naam contactpersoon</th>
+                      <th>Aantal kinderen</th>
+                      <th>School</th>
+                  </tr>
+                  <tr>
+                      <td>Noah de Boer</td>
+                      <td>2</td>
+                      <td>De Paradijsvogel</td>
+                  </tr>
+                  <tr>
+                      <td>Lisa van Dijk</td>
+                      <td>1</td>
+                      <td>CBS Molenwiek</td>
+                  </tr>
+                  <tr>
+                      <td>Yassir El Amrani</td>
+                      <td>3</td>
+                      <td>De Piramide</td>
+                  </tr>
+                  <tr>
+                      <td>Emma Jansen</td>
+                      <td>1</td>
+                      <td>Het Kristal</td>
+                  </tr>
+              </table>
+          </section>
+
+          <section class="grid triple">
+              <article class="card small-panel">
+                  <h2 class="panel-title">Vrijwilligers om in te delen</h2>
+                  <div class="person-row">
+                      <i class="initial">JD</i>
+                      Jan de Vries
+                  </div>
+                  <div class="person-row">
+                      <i class="initial">SM</i>
+                      Sarah Meijer
+                  </div>
+                  <div class="person-row">
+                      <i class="initial">PK</i>
+                      Peter Klaassen
+                  </div>
+              </article>
+
+              <article class="card small-panel">
+                  <h2 class="panel-title">Open taken</h2>
+                  <div class="task">
+                      <span class="check">☑</span>
+                      Werk contactregelaars uit
+                  </div>
+                  <div class="task">
+                      <span class="check">☑</span>
+                      Zorg dat wervers en deelnemers worden doorgegeven
+                  </div>
+                  <div class="task">
+                      <span class="check">☑</span>
+                      Plan vrijwilligers in
+                  </div>
+              </article>
+
+              <article class="card small-panel">
+                  <h2 class="panel-title">Open facturen</h2>
+                  <b class="money">€2.450</b>
+                  <div class="muted">Totaal openstaand</div>
+                  <p>
+                      Factuur 1024 €850<br>
+                      Factuur 1045 €900<br>
+                      Factuur 1048 €700
+                  </p>
+              </article>
+          </section>
+      </main>
+  </body>
+</html>

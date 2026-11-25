@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y1cd+oQ2dpU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\joyzw\\SE3Project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\joyzw\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.15\\microsoft.aspnetcore.openapi.10.0.15.nupkg.sha512",
+    "C:\\Users\\joyzw\\.nuget\\packages\\microsoft.openapi\\2.13.0\\microsoft.openapi.2.13.0.nupkg.sha512"
+  ],
+  "logs": []
+}

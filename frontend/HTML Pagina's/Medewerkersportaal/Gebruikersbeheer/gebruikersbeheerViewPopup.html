@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebruiker bekijken | Avond4daagse Den Haag</title>
+    <link rel="stylesheet" href="gebruikersbeheerViewPopup.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <a class="logo" href="../bestuurdersdashboard.html">
+                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
+
+            <div class="regioLabel">
+                <span class="icon">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                </span>
+                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+            </div>
+
+            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html">
+                <span class="accountButton">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </span>
+                <strong>Account</strong>
+            </a>
+        </div>
+
+        <nav aria-label="Hoofdnavigatie">
+            <a href="../bestuurdersdashboard.html">Bestuurdersdashboard</a>
+            <a href="../AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+            <a href="../draaiboekMedewerkers.html">Draaiboek</a>
+            <a href="../routebestuurMedewerkers.html">Routebeheer</a>
+            <a href="../roostersMedewerkers.html">Roosters</a>
+            <a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+            <a href="../Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+            <a href="../contactAfhandelingMedewerkers.html">Contact</a>
+            <a class="active" href="gebruikersbeheer.html">Gebruikersbeheer</a>
+            <a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="profile-form" class="card shadow profile">
+            <div class="profile-body">
+                <div>
+                    <span class="profile-avatar">
+                        <i class="fa-solid fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div>
+                    <h1 data-user-title>User 1</h1>
+
+                    <div class="form-grid">
+                        <label>
+                            Naam
+                            <input type="text" value="Jane Doe" name="fullname" disabled>
+                        </label>
+
+                        <div>
+                            <label>Geboortedatum</label>
+
+                            <div class="date-parts">
+                                <input aria-label="Dag" name="Dag" type="number" value="29" disabled>
+                                <input aria-label="Maand" name="Maand" type="number" value="2" disabled>
+                                <input aria-label="Jaar" name="Jaar" type="number" value="1992" disabled>
+                            </div>
+                        </div>
+
+                        <label>
+                            Woonplaats
+                            <input type="text" value="Theresiastraat 84" name="address" disabled>
+                        </label>
+
+                        <label>
+                            Functie
+                            <select name="role" disabled>
+                                <option>Vrijwilliger</option>
+                                <option>Roostermaker</option>
+                                <option>Penningmeester</option>
+                                <option>Secretaris</option>
+                                <option>Routebeheerder</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="certificates">
+                        <div class="certificate">
+                            <span>Certificaat 1</span>
+                            <span class="badge approved">✓   Goedgekeurd</span>
+                            <button type="button" data-certificate="0">Bekijken</button>
+                        </div>
+
+                        <div class="certificate">
+                            <span>Certificaat 2</span>
+                            <span class="badge pending">?   Geen oordeel</span>
+                            <button type="button" data-certificate="1">Bekijken</button>
+                        </div>
+
+                        <div class="certificate">
+                            <span>Certificaat 3</span>
+                            <span class="badge rejected">⚠   Fout gekeurd</span>
+                            <button type="button" data-certificate="2">Bekijken</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a class="button edit-button" href="gebruikersbeheerEditPopup.html">
+                    <i class="fa-solid fa-user-pen" aria-hidden="true"></i>
+                    Edit gebruiker
+                </a>
+
+                <a class="button delete-button" href="gebruikersbeheerDeletionPopup.html">
+                    <i class="fa-solid fa-user-xmark" aria-hidden="true"></i>
+                    Verwijder gebruiker
+                </a>
+            </div>
+
+            <p id="message" class="status-message" role="status"></p>
+        </form>
+
+        <a class="back-button" href="gebruikersbeheer.html">
+            Terug naar overzicht
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </a>
+    </main>
+
+    <dialog id="dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-text"></div>
+
+        <form method="dialog">
+            <button class="dialog-close" type="submit">Sluiten</button>
+        </form>
+    </dialog>
+
+    <script src="js/gebruikersbeheerViewPopup.js"></script>
+</body>
+</html>

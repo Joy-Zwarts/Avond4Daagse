@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebruikersbeheer | Avond4daagse Den Haag</title>
+    <link rel="stylesheet" href="gebruikersbeheer.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <a class="logo" href="../bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
+
+            <div class="regioLabel">
+                <span class="icon">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                </span>
+                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+            </div>
+
+            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html">
+                <span class="accountButton">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </span>
+                <strong>Account</strong>
+            </a>
+        </div>
+
+        <nav aria-label="Hoofdnavigatie">
+            <a href="../bestuurdersdashboard.html">Bestuurdersdashboard</a>
+            <a href="../AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+            <a href="../draaiboekMedewerkers.html">Draaiboek</a>
+            <a href="../routebestuurMedewerkers.html">Routebeheer</a>
+            <a href="../roostersMedewerkers.html">Roosters</a>
+            <a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+            <a href="../Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+            <a href="../contactAfhandelingMedewerkers.html">Contact</a>
+            <a class="active" href="gebruikersbeheer.html">Gebruikersbeheer</a>
+            <a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Gebruikersbeheer</h1>
+        <p class="muted">Hier zie je een overzicht van alle bestuursleden. Klik op View voor meer informatie, aanpassingen of verwijderen.</p>
+
+        <label class="search-label" for="search">
+            <span class="visually-hidden">Zoek een persoon</span>
+            <input class="search" id="search" type="search" placeholder="Zoek een persoon..." aria-label="Zoek een persoon">
+        </label>
+
+        <div class="users" id="users">
+            <article class="card shadow user-row" data-user-row data-name="User 1 Vrijwilliger">
+                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                <span class="user-name">User 1</span>
+                <span class="role">Vrijwilliger</span>
+                <a class="button view" href="gebruikersbeheerViewPopup.html?user=1">View</a>
+            </article>
+
+            <article class="card shadow user-row" data-user-row data-name="User 2 Roostermaker">
+                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                <span class="user-name">User 2</span>
+                <span class="role">Roostermaker</span>
+                <a class="button view" href="gebruikersbeheerViewPopup.html?user=2">View</a>
+            </article>
+
+            <article class="card shadow user-row" data-user-row data-name="User 3 Penningmeester">
+                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                <span class="user-name">User 3</span>
+                <span class="role">Penningmeester</span>
+                <a class="button view" href="gebruikersbeheerViewPopup.html?user=3">View</a>
+            </article>
+
+            <article class="card shadow user-row" data-user-row data-name="User 4 Vrijwilliger">
+                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                <span class="user-name">User 4</span>
+                <span class="role">Vrijwilliger</span>
+                <a class="button view" href="gebruikersbeheerViewPopup.html?user=4">View</a>
+            </article>
+
+            <article class="card shadow user-row" data-user-row data-name="User 5 Secretaris">
+                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                <span class="user-name">User 5</span>
+                <span class="role">Secretaris</span>
+                <a class="button view" href="gebruikersbeheerViewPopup.html?user=5">View</a>
+            </article>
+
+            <article class="card shadow user-row" data-user-row data-name="User 6 Routebeheerder">
+                <span class="user-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
+                <span class="user-name">User 6</span>
+                <span class="role">Routebeheerder</span>
+                <a class="button view" href="gebruikersbeheerViewPopup.html?user=6">View</a>
+            </article>
+        </div>
+
+        <p class="empty" id="empty" hidden>Geen gebruikers gevonden.</p>
+
+        <a class="button primary wide" href="gebruikersbeheerNieuweGebruiker.html">
+            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+            Maak nieuwe gebruiker aan
+        </a>
+    </main>
+
+    <dialog id="dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-text"></div>
+        <form method="dialog">
+            <button class="dialog-close">Sluiten</button>
+        </form>
+    </dialog>
+
+    <script src="js/gebruikersbeheer.js"></script>
+</body>
+</html>

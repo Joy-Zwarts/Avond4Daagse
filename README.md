@@ -1,5 +1,7 @@
 # Avond4Daagse
 
+Voor Joy's additions kijk op de commits pagina want na de eerste 2 commits werd haar profielfoto gesnatched en worden haar commits niet meer opgeteld in de insights pagina.
+
 ## Joy:
 • landingspagina.html ✓ \
 • homeDeelnemers.html ✓ \
@@ -30,11 +32,11 @@
 • persoonlijkAccountpaginaMedewerkers.html 
 
 ## Stan:
-• bestuurdersdashboard.html \
-• draaiboekMedewerkers.html \
-• routebestuurMedewerkers.html \
-• mijnSchemaMedewerkers.html \
-• roostersMedewerkers.html \
-• contactAfhanderlingMedewerkers.html \
-• communicatiebeheerMedewerkers.hmtl \
-• communicatiebeheerNieuwePost.html 
+• bestuurdersdashboard.html ✓\
+• draaiboekMedewerkers.html ✓\
+• routebestuurMedewerkers.html ✓\
+• mijnSchemaMedewerkers.html ✓\
+• roostersMedewerkers.html ✓\
+• contactAfhandelingMedewerkers.html ✓\
+• communicatiebeheerMedewerkers.hmtl ✓\
+• communicatiebeheerNieuwePost.html ✓

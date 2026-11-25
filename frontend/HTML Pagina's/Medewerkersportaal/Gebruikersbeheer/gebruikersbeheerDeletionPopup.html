@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebruiker verwijderen | Avond4daagse Den Haag</title>
+    <link rel="stylesheet" href="gebruikersbeheerDeletionPopup.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <a class="logo" href="../bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
+
+            <div class="regioLabel">
+                <span class="icon">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                </span>
+                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
+            </div>
+
+            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html">
+                <span class="accountButton">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                </span>
+                <strong>Account</strong>
+            </a>
+        </div>
+
+        <nav aria-label="Hoofdnavigatie">
+            <a href="../bestuurdersdashboard.html">Bestuurdersdashboard</a>
+            <a href="../AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+            <a href="../draaiboekMedewerkers.html">Draaiboek</a>
+            <a href="../routebestuurMedewerkers.html">Routebeheer</a>
+            <a href="../roostersMedewerkers.html">Roosters</a>
+            <a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+            <a href="../Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+            <a href="../contactAfhandelingMedewerkers.html">Contact</a>
+            <a class="active" href="gebruikersbeheer.html">Gebruikersbeheer</a>
+            <a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card shadow delete-card" aria-labelledby="delete-title">
+            <h1 id="delete-title">
+                Weet je zeker dat je de volgende gebruiker wilt verwijderen:
+            </h1>
+
+            <div class="delete-person shadow">
+                <span class="person-icon">
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </span>
+
+                <div>
+                    <strong data-user-title>User 1</strong>
+                    <p data-fullname>Jane Doe</p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a class="button keep" data-user-link href="gebruikersbeheerViewPopup.html">
+                    <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+                    Behoud gebruiker
+                </a>
+
+                <button class="button danger" id="delete-user" type="button">
+                    <i class="fa-solid fa-user-xmark" aria-hidden="true"></i>
+                    Verwijder gebruiker
+                </button>
+            </div>
+
+            <p id="message" class="status-message" role="status"></p>
+        </section>
+    </main>
+
+    <dialog id="dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title"></h2>
+        <div id="dialog-text"></div>
+
+        <form method="dialog">
+            <button class="dialog-close" type="submit">Sluiten</button>
+        </form>
+    </dialog>
+
+    <script src="js/gebruikersbeheerDeletionPopup.js"></script>
+</body>
+</html>
