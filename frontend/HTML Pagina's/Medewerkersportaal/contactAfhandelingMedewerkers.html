@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Avond4daagse Den Haag</title>
+
     <link rel="stylesheet" href="contactAfhandelingMedewerkers.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@talkjs/web-components@0.3.15/default.css">
     <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "@talkjs/web-components": "https://cdn.jsdelivr.net/npm/@talkjs/web-components@0.3.15",
+            "@talkjs/core": "https://cdn.jsdelivr.net/npm/@talkjs/core@1.13.0"
+        }
+    }
+    </script>
+
+    <script type="module" src="contactAfhandelingMedewerkers.js"></script>
 </head>
 <body>
     <header>
@@ -50,45 +63,21 @@
 
     <main class="container">
         <section class="card contact">
-            <aside class="threads">
-                <div class="thread">
-                    ● <b>Aanmelding 4-daagse</b>
-                    <br>
-                    <span class="muted">Jan de Vries</span>
-                </div>
+            <div class="talk-layout">
+                <t-conversation-list
+                    id="conversationList"
+                    app-id="t8qqea2Z"
+                    user-id="medewerker-joy"
+                    selected-conversation-id="aanmelding-4-daagse">
+                </t-conversation-list>
 
-                <div class="thread">
-                    ● <b>Vrijwilligersoproep</b>
-                    <br>
-                    <span class="muted">Sanne Jansen</span>
-                </div>
-
-                <div class="thread">
-                    ● <b>Sponsoring</b>
-                    <br>
-                    <span class="muted">Peter van Dijk</span>
-                </div>
-
-                <div class="thread">
-                    ● <b>Draaiboek vragen</b>
-                    <br>
-                    <span class="muted">Linda Vermeer</span>
-                </div>
-            </aside>
-
-            <section class="chat">
-                <div class="message">
-                    <b>Naam</b>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-
-                <div class="reply">
-                    <input class="input" type="text" placeholder="Typ hier uw reactie...">
-                    <button class="reply-button" type="button" aria-label="Reactie versturen">
-                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </section>
+                <t-chatbox
+                    id="conversationChatbox"
+                    app-id="t8qqea2Z"
+                    user-id="medewerker-joy"
+                    conversation-id="aanmelding-4-daagse">
+                </t-chatbox>
+            </div>
         </section>
     </main>
 </body>

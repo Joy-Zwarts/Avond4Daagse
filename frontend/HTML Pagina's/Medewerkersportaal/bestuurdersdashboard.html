@@ -127,17 +127,42 @@
               <article class="card small-panel">
                   <h2 class="panel-title">Open taken</h2>
                   <div class="task">
-                      <span class="check">☑</span>
-                      Werk contactregelaars uit
-                  </div>
-                  <div class="task">
-                      <span class="check">☑</span>
-                      Zorg dat wervers en deelnemers worden doorgegeven
-                  </div>
-                  <div class="task">
-                      <span class="check">☑</span>
-                      Plan vrijwilligers in
-                  </div>
+                    <input
+                        class="task-checkbox"
+                        type="checkbox"
+                        id="task-contactregelaars"
+                        data-task-id="contactregelaars"
+                        checked>
+
+                    <label for="task-contactregelaars">
+                        Werk contactregelaars uit
+                    </label>
+                </div>
+
+                <div class="task">
+                    <input
+                        class="task-checkbox"
+                        type="checkbox"
+                        id="task-wervers"
+                        data-task-id="wervers">
+
+                    <label for="task-wervers">
+                        Zorg dat wervers en deelnemers worden doorgegeven
+                    </label>
+                </div>
+
+                <div class="task">
+                    <input
+                        class="task-checkbox"
+                        type="checkbox"
+                        id="task-vrijwilligers"
+                        data-task-id="vrijwilligers"
+                        checked>
+
+                    <label for="task-vrijwilligers">
+                        Plan vrijwilligers in
+                    </label>
+                </div>
               </article>
 
               <article class="card small-panel">
@@ -148,6 +173,6 @@
               </article>
           </section>
       </main>
-      <script type="module" src="openFacturen.js"></script>
+      <script type="module" src="bestuurdersdashboard.js"></script>
   </body>
 </html>

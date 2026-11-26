@@ -11,16 +11,14 @@
 <body>
   <header>
     <div class="topbar">
-      <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
-        <img src="../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
-      </a>
+      <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard"><img src="../Images/avond4daagseLogo.png" alt="Avond4Daagse logo"></a>
       <div class="regioLabel"><span class="icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><strong>Avond4daagse Den Haag Medewerkersportaal</strong></div>
       <a class="account" href="persoonlijkeAccountpaginaMedewerkers.html"><span class="accountButton"><i class="fa-regular fa-user" aria-hidden="true"></i></span><strong>Account</strong></a>
     </div>
     <nav aria-label="Hoofdnavigatie">
       <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
       <a href="AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
-      <a class="active" href="draaiboekMedewerkers_consistent_v2.html">Draaiboek</a>
+      <a class="active" href="draaiboekMedewerkers.html">Draaiboek</a>
       <a href="routebestuurMedewerkers.html">Routebeheer</a>
       <a href="roostersMedewerkers.html">Roosters</a>
       <a href="Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
@@ -35,64 +33,30 @@
     <section class="page-head"><h1>Draaiboek</h1></section>
     <div class="container">
       <div class="draaiboek-toolbar"><span></span><button class="button" type="button">＋ Activiteit toevoegen</button></div>
-
       <section class="card month-card">
         <div class="month-switcher">
-          <button class="month-arrow" id="previous-period" type="button" aria-label="Vorige maand">‹</button>
+          <button class="month-arrow" id="previous-period" type="button" aria-label="Vorige periode">‹</button>
           <div><div class="month-name" id="period-name"></div><div class="month-subtitle">Medewerkersportaal Avond4daagse</div></div>
-          <button class="month-arrow" id="next-period" type="button" aria-label="Volgende maand">›</button>
+          <button class="month-arrow" id="next-period" type="button" aria-label="Volgende periode">›</button>
         </div>
         <div class="view-toggle" role="group" aria-label="Agendaweergave">
           <button id="month-view-button" type="button" aria-pressed="true">▣ Maand</button>
           <button id="week-view-button" type="button" aria-pressed="false">▦ Week</button>
         </div>
       </section>
-
       <div class="draaiboek-layout">
         <div>
           <section class="card calendar-box">
-            <div class="calendar-heading">
-              <h2 id="calendar-title">Agenda</h2>
-              <div class="calendar-legend"><span><i class="legend-dot"></i>Actief</span><span><i class="legend-dot deadline"></i>Deadline</span></div>
-            </div>
+            <div class="calendar-heading"><h2 id="calendar-title">Agenda</h2><div class="calendar-legend"><span><i class="legend-dot"></i>Actief</span><span><i class="legend-dot deadline"></i>Deadline</span></div></div>
             <div class="weekdays" aria-hidden="true"><span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span></div>
             <div class="month-grid" id="calendar-grid" aria-label="Kalender"></div>
             <div class="calendar-events" id="calendar-events"></div>
           </section>
-
-          <section class="card task-card">
-            <h2>Taak toevoegen</h2>
-            <form class="task-form">
-              <div><label for="task-title">Titel</label><input class="input" id="task-title" placeholder="Typ hier de titel van de taak..."></div>
-              <div><label for="task-person">Persoon</label><select id="task-person"><option>Kies hier persoon waar de taak voor is</option><option>Jan de Vries</option><option>Sarah Meijer</option><option>Peter Klaassen</option></select></div>
-              <div class="wide"><label for="task-description">Beschrijving</label><textarea id="task-description" placeholder="Typ hier de beschrijving van de taak..."></textarea></div>
-              <div class="wide"><button class="button full" type="button">Taak versturen</button></div>
-            </form>
-          </section>
+          <section class="card task-card"><h2>Taak toevoegen</h2><form class="task-form"><div><label for="task-title">Titel</label><input class="input" id="task-title" placeholder="Typ hier de titel van de taak..."></div><div><label for="task-person">Persoon</label><select id="task-person"><option>Kies hier persoon waar de taak voor is</option><option>Jan de Vries</option><option>Sarah Meijer</option><option>Peter Klaassen</option></select></div><div class="wide"><label for="task-description">Beschrijving</label><textarea id="task-description" placeholder="Typ hier de beschrijving van de taak..."></textarea></div><div class="wide"><button class="button full" type="button">Taak versturen</button></div></form></section>
         </div>
-
         <aside class="side-stack">
-          <section class="card day-details">
-            <h2 id="selected-date-title"></h2>
-            <div class="date-line">Geselecteerde dag</div>
-            <div id="day-activities"></div>
-          </section>
-          <section class="card form-card">
-            <h2>Activiteit toevoegen</h2>
-            <form>
-              <label for="activity-title">Titel</label><input class="input" id="activity-title" placeholder="Bijv. EHBO-check eindlocatie">
-              <label for="activity-time">Tijd</label><input class="input" id="activity-time" placeholder="◷ 09:00">
-              <label for="activity-location">Locatie</label><input class="input" id="activity-location" placeholder="⌖ Typ hier het adres">
-              <label for="activity-note">Notitie</label><textarea id="activity-note" placeholder="Voeg extra informatie toe voor de organisatie..."></textarea>
-              <div class="people-picker">
-                <div class="people-picker-header"><span>← &nbsp; Zoek personen voor dit event</span><span>×</span></div>
-                <label class="person"><input type="checkbox" checked><span class="initial">JD</span>Jan de Vries</label>
-                <label class="person"><input type="checkbox" checked><span class="initial">SM</span>Sarah Meijer</label>
-                <label class="person"><input type="checkbox" checked><span class="initial">PK</span>Peter Klaassen</label>
-              </div>
-              <button class="button full" type="button">▣ &nbsp; Activiteit opslaan</button>
-            </form>
-          </section>
+          <section class="card day-details"><h2 id="selected-date-title"></h2><div class="date-line">Geselecteerde dag</div><div id="day-activities"></div></section>
+          <section class="card form-card"><h2>Activiteit toevoegen</h2><form><label for="activity-title">Titel</label><input class="input" id="activity-title" placeholder="Bijv. EHBO-check eindlocatie"><label for="activity-time">Tijd</label><input class="input" id="activity-time" placeholder="◷ 09:00"><label for="activity-location">Locatie</label><input class="input" id="activity-location" placeholder="⌖ Typ hier het adres"><label for="activity-note">Notitie</label><textarea id="activity-note" placeholder="Voeg extra informatie toe voor de organisatie..."></textarea><div class="people-picker"><div class="people-picker-header"><span>← &nbsp; Zoek personen voor dit event</span><span>×</span></div><label class="person"><input type="checkbox" checked><span class="initial">JD</span>Jan de Vries</label><label class="person"><input type="checkbox" checked><span class="initial">SM</span>Sarah Meijer</label><label class="person"><input type="checkbox" checked><span class="initial">PK</span>Peter Klaassen</label></div><button class="button full" type="button">▣ &nbsp; Activiteit opslaan</button></form></section>
         </aside>
       </div>
     </div>

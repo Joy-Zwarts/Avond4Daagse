@@ -180,10 +180,29 @@ nav a.active {
 }
 
 .contact {
+    height: 460px;
+    min-height: 460px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.talk-layout {
     display: grid;
-    grid-template-columns: 190px minmax(0, 1fr);
-    min-height: 390px;
-    background: var(--white);
+    grid-template-columns: 285px minmax(0, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+#conversationList,
+#conversationChatbox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+}
+
+#conversationList {
+    border-right: 1px solid var(--line);
 }
 
 .threads {
@@ -322,6 +341,14 @@ nav a.active {
         bottom: 14px;
         left: 15px;
         width: auto;
+    }
+
+    .talk-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #conversationChatbox {
+        display: none;
     }
 }
 

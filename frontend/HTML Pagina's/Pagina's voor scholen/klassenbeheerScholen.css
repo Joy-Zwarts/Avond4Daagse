@@ -298,9 +298,15 @@ td:nth-child(7) {
     background: #e4e7eb;
 }
 
-.add-student,
-.save-button {
+.add-student {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.save-button {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -391,6 +397,37 @@ footer {
     color: var(--muted);
     background: var(--white);
     text-align: center;
+}
+
+.add-row td:last-child {
+    width: 9%;
+    padding-right: 5px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.add-row .save-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    min-width: 84px;
+    height: 30px;
+    margin: 0;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 6px;
+    color: var(--white);
+    background: var(--green);
+    font: inherit;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.add-row .save-button:hover {
+    background: var(--normal-green-highlight);
 }
 
 @media (max-width: 850px) {
