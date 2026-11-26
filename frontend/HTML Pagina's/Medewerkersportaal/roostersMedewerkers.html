@@ -1,54 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Roosters | Avond4daagse Den Haag</title>
-      <link rel="stylesheet" href="roostersMedewerkers.css">
-      <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-      <header>
-          <div class="topbar">
-              <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
-                  <img src="../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
-              </a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rooster | Avond4daagse Den Haag</title>
+  <link rel="stylesheet" href="draaiboekMedewerkers.css">
+  <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+  <script src="roostersMedewerkers.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
+        <img src="../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+      </a>
+      <div class="regioLabel"><span class="icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><strong>Avond4daagse Den Haag Medewerkersportaal</strong></div>
+      <a class="account" href="persoonlijkeAccountpaginaMedewerkers.html"><span class="accountButton"><i class="fa-regular fa-user" aria-hidden="true"></i></span><strong>Account</strong></a>
+    </div>
+    <nav aria-label="Hoofdnavigatie">
+      <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
+      <a href="AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+      <a href="draaiboekMedewerkers_consistent_v2.html">Draaiboek</a>
+      <a href="routebestuurMedewerkers.html">Routebeheer</a>
+      <a class="active" href="roostersMedewerkers.html">Roosters</a>
+      <a href="Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+      <a href="Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
+      <a href="contactAfhandelingMedewerkers.html">Contact</a>
+      <a href="Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
+      <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
+    </nav>
+  </header>
 
-              <div class="regioLabel">
-                  <span class="icon">
-                      <i class="fa-solid fa-users" aria-hidden="true"></i>
-                  </span>
-                  <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
-              </div>
-
-              <a class="account" href="persoonlijkeAccountpaginaMedewerkers.html">
-                  <span class="accountButton">
-                      <i class="fa-regular fa-user" aria-hidden="true"></i>
-                  </span>
-                  <strong>Account</strong>
-              </a>
+  <main>
+    <section class="page-head"><h1>Rooster</h1></section>
+    <div class="container">
+      <section class="card month-card">
+        <div class="month-switcher">
+          <button class="month-arrow" id="previous-period" type="button" aria-label="Vorige periode">‹</button>
+          <div>
+            <div class="month-name" id="period-name"></div>
+            <div class="month-subtitle">Planning en gekoppelde taken</div>
           </div>
+          <button class="month-arrow" id="next-period" type="button" aria-label="Volgende periode">›</button>
+        </div>
+        <div class="view-toggle" role="group" aria-label="Roosterweergave">
+          <button id="month-view-button" type="button" aria-pressed="true">▣ Maand</button>
+          <button id="week-view-button" type="button" aria-pressed="false">▦ Week</button>
+        </div>
+      </section>
 
-          <nav aria-label="Hoofdnavigatie">
-              <a href="bestuurdersdashboard.html">Bestuurdersdashboard</a>
-              <a href="AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
-              <a href="draaiboekMedewerkers.html">Draaiboek</a>
-              <a href="routebestuurMedewerkers.html">Routebeheer</a>
-              <a class="active" href="roostersMedewerkers.html">Roosters</a>
-              <a href="Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
-              <a href="Communicatiebeheer/communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
-              <a href="contactAfhandelingMedewerkers.html">Contact</a>
-              <a href="Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
-              <a href="mijnSchemaMedewerkers.html">Mijn Schema</a>
-          </nav>
-      </header>
-      <main>
-        <section class="page-head">
-            <h1>Roosters</h1>
-            <p>Medewerkersportaal Avond4daagse</p>
+      <div class="draaiboek-layout">
+        <section class="card calendar-box">
+          <div class="calendar-heading">
+            <h2 id="calendar-title">Agenda</h2>
+            <div class="calendar-legend"><span><i class="legend-dot"></i>Taak gepland</span><span><i class="legend-dot deadline"></i>Deadline</span></div>
+          </div>
+          <div class="weekdays" aria-hidden="true"><span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span></div>
+          <div class="month-grid" id="calendar-grid" aria-label="Roosterkalender"></div>
+          <h2 class="upcoming-activities-title">Aankomende activiteiten</h2>
+          <div class="calendar-events" id="calendar-events"></div>
         </section>
 
-        <!-- Deze was niet goed -->
-      </main>
-  </body>
+        <aside class="side-stack">
+          <section class="card day-details">
+            <h2 id="selected-date-title"></h2>
+            <div class="date-line">Taken op de geselecteerde dag</div>
+            <div id="day-activities"></div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+</body>
 </html>
