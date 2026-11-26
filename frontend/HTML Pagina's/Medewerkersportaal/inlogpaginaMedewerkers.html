@@ -17,7 +17,7 @@
     <body>
         <header>
             <nav>
-                <a class="logo" href="../landingspagina.html">
+                <a class="logo" href="homeDeelnemers.html">
                     <img src="../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
                 </a>
 
@@ -33,23 +33,31 @@
                         <div>
                             <h1>Log in als medewerker</h1>
                             <p>
-                                Demoaccount <strong>jane@voorbeeld.nl</strong><br>
-                                Startwachtwoord <code>Avond4daagse!</code>
+                                Log in om verder te gaan met uw medewerker account.
                             </p>
                         </div>
                     </section>
-                    <form id="loginForm">
+                    <form id="loginForm" action="bestuurdersdashboard.html" method="get">
                         <label for="email">E-mailadres</label>
-                        <input type="email" id="email" name="email" autocomplete="username" required minlength="2" placeholder="naam@voorbeeld.nl">
+                        <input type="email" id="email" required minlength="2" placeholder="naam@voorbeeld.nl">
 
                         <label for="onderwerp">Wachtwoord</label>
-                        <input id="onderwerp" type="password" name="password" autocomplete="current-password" required minlength="8" placeholder="Uw wachtwoord...">
+                        <input id="onderwerp" type="password" required minlength="8" placeholder="Uw wachtwoord...">
 
-                        <button id="loginButton" type="submit" disabled>Log in</button>
+                        <div id="loginBottom">
+                            <div id="onthoudMijDiv">
+                                <input type="checkbox" id="onthoudMij" name="onthoudMij" value="false">
+                                <label for="onthoudMij">Onthoud mij</label>
+                            </div>    
+
+                            <a href="">
+                                <strong>Wachtwoord vergeten?</strong>
+                            </a>
+                        </div>
+
+                        <button id="loginButton" type="submit">Log in</button>
                     </form>
-                    <p id="login-message" role="status"></p>
                 </div> 
         </main>
-        <script type="module" src="inloggen.js"></script>
     </body>
 </html>
