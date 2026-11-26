@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rooster | Avond4daagse Den Haag</title>
   <link rel="stylesheet" href="draaiboekMedewerkers.css">
+  <style>    
+    .volunteer-panel { margin-top: 1.5rem; padding: 1rem; background: #9da57a; border-radius: 14px; box-shadow: 0 4px 10px rgba(0,0,0,.16); }
+    .volunteer-panel h2 { display: inline-block; margin: -2rem 0 1rem; padding: .35rem .85rem; border-radius: 5px; background: #435b1f; color: #fff; font-size: 1rem; }
+    .volunteer-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 1rem; }
+    .volunteer-card { min-height: 115px; padding: .9rem; background: #fff; border-radius: 12px; box-shadow: 0 2px 7px rgba(0,0,0,.22); cursor: grab; font-size: .82rem; color: #17210e; }
+    .volunteer-card:active { cursor: grabbing; }
+    .volunteer-card.dragging { opacity: .5; }
+    .volunteer-card strong { display: block; margin-bottom: .45rem; font-size: .95rem; }
+    .assignment-zone { display: flex; flex-wrap: wrap; gap: .4rem; min-height: 28px; margin-top: .55rem; padding: .35rem; border: 2px dashed #c5cbd2; border-radius: 7px; }
+    .assignment-zone.drag-over { border-color: #5d8615; background: #eef5e1; }
+    .assignment-zone:empty::before { content: 'Sleep medewerkers hierheen'; color: #68737d; font-size: .78rem; }
+    .assigned-volunteer { display: inline-flex; align-items: center; gap: .3rem; padding: .3rem .5rem; border-radius: 999px; background: #e6efd5; color: #314b10; font-size: .76rem; font-weight: 700; }
+    .remove-assignment { border: 0; background: transparent; color: inherit; cursor: pointer; font-size: 1rem; line-height: 1; }
+  </style>
   <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
   <script src="roostersMedewerkers.js" defer></script>
 </head>
@@ -61,13 +75,11 @@
           <div class="calendar-events" id="calendar-events"></div>
         </section>
 
-        <aside class="side-stack">
-          <section class="card day-details">
-            <h2 id="selected-date-title"></h2>
-            <div class="date-line">Taken op de geselecteerde dag</div>
-            <div id="day-activities"></div>
+          <section class="volunteer-panel" aria-labelledby="volunteer-title">
+            <h2 id="volunteer-title">Beschikbare vrijwilligers</h2>
+            <div class="volunteer-list" id="volunteer-list"></div>
           </section>
-        </aside>
+
       </div>
     </div>
   </main>
