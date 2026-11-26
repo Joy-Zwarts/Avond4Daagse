@@ -1,0 +1,38 @@
+[
+  {
+    "id": "goed-voorbereid",
+    "titel": "Goed voorbereid op pad",
+    "beschrijving": "Comfortabele schoenen, voldoende water en een fijne wandelgroep: ontdek handige tips voor een gezellige wandelavond.",
+    "inhoud": "Met een goede voorbereiding wordt iedere wandelavond een succes.",
+    "afbeelding": "../../Images/schoolkids.png",
+    "alt": "Kinderen wandelen vanuit school",
+    "datum": "2026-05-01"
+  },
+  {
+    "id": "samen-wandelen",
+    "titel": "Samen wandelen met je school",
+    "beschrijving": "Een Avond4daagse loop je samen. Lees tips voor het organiseren van een wandelgroep en het begeleiden van deelnemers.",
+    "inhoud": "Spreek vooraf duidelijke verzamelpunten en begeleiders af.",
+    "afbeelding": "../../Images/schoolStaff.png",
+    "alt": "Wandelgroep met begeleiding",
+    "datum": "2026-05-03"
+  },
+  {
+    "id": "nieuwe-routes",
+    "titel": "Nieuwe routes en startpunten",
+    "beschrijving": "Bekijk alvast de updates over routes, startpunten en praktische aankondigingen voor de komende wandelavonden.",
+    "inhoud": "De definitieve routekaarten worden vlak voor het evenement gepubliceerd.",
+    "afbeelding": "../../Images/classOutside.png",
+    "alt": "Groep kinderen buiten",
+    "datum": "2026-05-05"
+  },
+  {
+    "id": "voorbereiden-route",
+    "titel": "Zo bereid je je voor op de route",
+    "beschrijving": "Check de handige spullen, routekaarten en praktische tips om met een goed gevoel van start te gaan.",
+    "inhoud": "Neem altijd een fles water, een kleine snack en kleding passend bij het weer mee.",
+    "afbeelding": "../../Images/backpack.png",
+    "alt": "Rugzak voor de wandeling",
+    "datum": "2026-05-07"
+  }
+]

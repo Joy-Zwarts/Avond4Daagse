@@ -3,77 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Communicatiebeheer</title>
+    <title>Nieuwe post | Communicatiebeheer</title>
     <link rel="stylesheet" href="communicatiebeheerNieuwePost.css">
     <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+    <script src="communicatiebeheerNieuwePost.js" defer></script>
 </head>
 <body>
     <header>
         <div class="topbar">
-            <a class="logo" href="bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard">
-                <img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
-            </a>
-
-            <div class="regioLabel">
-                <span class="icon">
-                    <i class="fa-solid fa-users" aria-hidden="true"></i>
-                </span>
-                <strong>Avond4daagse Den Haag Medewerkersportaal</strong>
-            </div>
-
-            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html">
-                <span class="accountButton">
-                    <i class="fa-regular fa-user" aria-hidden="true"></i>
-                </span>
-                <strong>Account</strong>
-            </a>
+            <a class="logo" href="../bestuurdersdashboard.html" aria-label="Naar bestuurdersdashboard"><img src="../../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo"></a>
+            <div class="regioLabel"><span class="icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><strong>Avond4daagse Den Haag Medewerkersportaal</strong></div>
+            <a class="account" href="../persoonlijkeAccountpaginaMedewerkers.html"><span class="accountButton"><i class="fa-regular fa-user" aria-hidden="true"></i></span><strong>Account</strong></a>
         </div>
-
         <nav aria-label="Hoofdnavigatie">
             <a href="../bestuurdersdashboard.html">Bestuurdersdashboard</a>
-            <a href="../AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
-            <a href="../draaiboekMedewerkers.html">Draaiboek</a>
-            <a href="../routebestuurMedewerkers.html">Routebeheer</a>
-            <a href="../roostersMedewerkers.html">Roosters</a>
-            <a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
-            <a class="active" href="communicatiebeheerMedewerkers.html">Communicatiebeheer</a>
-            <a href="../contactAfhandelingMedewerkers.html">Contact</a>
-            <a href="../Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
-            <a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
+			<a href="../AanmeldingenOverzicht/aanmeldingenOverzichtIndividueel.html">Aanmeldingen overzicht</a>
+			<a href="../draaiboekMedewerkers.html">Draaiboek</a>
+			<a href="../routebestuurMedewerkers.html">Routebeheer</a>
+			<a href="../roostersMedewerkers.html">Roosters</a>
+			<a href="../Financieel Dashboard/financieelDashboardOverzicht.html">Financieel dashboard</a>
+			<a class="active" href="communicatiebeheerMedewerkers_v2.html">Communicatiebeheer</a>
+			<a href="../contactAfhandelingMedewerkers.html">Contact</a>
+			<a href="../Gebruikersbeheer/gebruikersbeheer.html">Gebruikersbeheer</a>
+			<a href="../mijnSchemaMedewerkers.html">Mijn Schema</a>
         </nav>
     </header>
-
-    <section class="page-head">
-        <h1>Communicatiebeheer</h1>
-        <p>Hier kunnen bestuursleden nieuws en updates schrijven voor de deelnemers op de site.</p>
-    </section>
-
+    <section class="page-head"><h1>Nieuwe post</h1><p>Publiceer een nieuwsbericht voor deelnemers.</p></section>
     <main class="container">
-        <section class="card post-form">
+        <form class="card post-form" id="new-post-form">
             <h2 class="panel-title">Coverfoto uploaden</h2>
-
-            <div class="upload">
-                <b>⇧</b>
-                <span>Sleep bestanden hierheen of klik om te bladeren</span>
-                <small>PDF, JPG of PNG tot 10 MB</small>
-            </div>
-
+            <label class="upload" for="post-image"><b>⇧</b><span>Sleep bestanden hierheen of klik om te bladeren</span><small id="image-name">JPG of PNG tot 10 MB</small></label>
+            <input id="post-image" type="file" accept="image/png,image/jpeg" hidden>
             <label for="post-title">Titel</label>
-            <input class="input" id="post-title" type="text" placeholder="Typ hier de titel van je post...">
-
+            <input class="input" id="post-title" type="text" placeholder="Typ hier de titel van je post..." required>
             <label for="post-description">Beschrijving</label>
-            <input class="input" id="post-description" type="text" placeholder="Typ hier de beschrijving van je post...">
-
+            <input class="input" id="post-description" type="text" placeholder="Typ hier de beschrijving van je post..." required>
             <label for="post-content">Inhoud</label>
-            <textarea id="post-content" placeholder="Typ hier de inhoud van je post..."></textarea>
-
-            <label class="checkbox-label">
-                <input type="checkbox">
-                <span>Stuur een update naar de mensen in de nieuwsbrief</span>
-            </label>
-
-            <button class="button full" type="button">➤ Publiceer post</button>
-        </section>
+            <textarea id="post-content" placeholder="Typ hier de inhoud van je post..." required></textarea>
+            <label class="checkbox-label"><input id="newsletter" type="checkbox"><span>Stuur een update naar de mensen in de nieuwsbrief</span></label>
+            <button class="button full" type="submit">➤ Publiceer post</button>
+        </form>
     </main>
 </body>
 </html>
