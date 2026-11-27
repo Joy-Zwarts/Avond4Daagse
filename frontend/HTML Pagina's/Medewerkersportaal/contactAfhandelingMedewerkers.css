@@ -5,12 +5,17 @@
 :root {
     --dark: #3f4447;
     --green: #405624;
+    --green-dark: #30451b;
     --green-light: #dce2bd;
     --background: #f5f6f8;
     --line: #e5e8eb;
     --muted: #7b838c;
     --white: #ffffff;
     --tab-background: #f4f6f8;
+    --ink: #172033;
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    --shadow-hover: 0 7px 18px rgba(0, 0, 0, 0.14);
+    --transition: 0.2s ease;
 }
 
 html,
@@ -34,9 +39,26 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
 header {
     padding: 10px 38px 0;
     background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .topbar {
@@ -50,6 +72,12 @@ header {
 .logo {
     display: block;
     width: 73px;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: brightness(0.96);
 }
 
 .logo img {
@@ -76,6 +104,7 @@ header {
     color: var(--white);
     background: var(--green);
     font-size: 13px;
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.25);
 }
 
 .account {
@@ -85,6 +114,12 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.account:hover {
+    color: var(--green-dark);
+    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -95,6 +130,13 @@ header {
     border: 3px solid var(--green);
     border-radius: 50%;
     font-size: 16px;
+    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.account:hover .accountButton {
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
 }
 
 nav {
@@ -124,73 +166,82 @@ nav a {
     font-size: 9px;
     line-height: normal;
     white-space: nowrap;
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 nav a:hover {
+    z-index: 3;
     color: var(--green);
     background: var(--tab-background);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
 }
 
 nav a.active {
     z-index: 2;
     height: 32px;
     min-height: 32px;
-    border: 1px solid var(--line);
-    border-bottom: 4px solid var(--background);
+    border-color: var(--line);
+    border-bottom-color: var(--background);
     color: var(--dark);
     background: var(--tab-background);
     font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.page-head,
+.container {
+    width: min(1160px, calc(100% - 84px));
+    margin: 0 auto;
 }
 
 .page-head {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 29px 16px 12px;
+    padding: 29px 0 12px;
 }
 
 .page-head h1 {
-    margin: 0;
-    color: #28323e;
-    font-size: 25px;
+    margin: 0 0 5px;
+    color: var(--green);
+    font-size: 26px;
     line-height: 1.15;
 }
 
 .page-head p {
-    margin: 7px 0 0;
+    margin: 0;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .container {
-    max-width: 1080px;
-    margin: 8px auto 34px;
-    padding: 0 16px;
+    margin-bottom: 45px;
 }
 
 .card {
-    border: 1px solid #e8ebef;
-    border-radius: 9px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
     background: var(--white);
-    box-shadow: 0 2px 3px #0002;
+    box-shadow: var(--shadow);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
-.muted {
-    color: var(--muted);
-    font-size: 8px;
+.card:hover {
+    border-color: #d8dde1;
+    box-shadow: var(--shadow-hover);
 }
 
 .contact {
-    height: 460px;
-    min-height: 460px;
+    height: 620px;
+    min-height: 620px;
     padding: 0;
     overflow: hidden;
 }
 
 .talk-layout {
     display: grid;
-    grid-template-columns: 285px minmax(0, 1fr);
+    grid-template-columns: 320px minmax(0, 1fr);
     width: 100%;
     height: 100%;
+    min-height: 0;
 }
 
 #conversationList,
@@ -198,43 +249,64 @@ nav a.active {
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 460px;
+    min-height: 0;
 }
 
 #conversationList {
+    overflow: hidden;
     border-right: 1px solid var(--line);
+    background: #fbfcfd;
 }
 
+#conversationChatbox {
+    min-width: 0;
+    background: var(--white);
+}
+
+/* Fallback-styling voor eventuele eigen TalkJS-wrapper-elementen */
 .threads {
-    padding: 8px;
+    height: 100%;
+    padding: 12px;
     border-right: 1px solid var(--line);
+    background: #fbfcfd;
 }
 
 .thread {
-    padding: 8px 3px;
-    border-bottom: 1px solid var(--line);
+    padding: 12px;
+    border: 1px solid transparent;
+    border-bottom-color: var(--line);
     color: var(--dark);
-    font-size: 10px;
+    font-size: 11px;
+    transition: background-color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.thread:hover {
+    border-color: #d8dde1;
+    background: var(--white);
+    transform: translateX(2px);
 }
 
 .thread b {
-    color: #4c555d;
+    color: var(--green);
 }
 
 .chat {
     position: relative;
     min-width: 0;
-    padding: 15px;
+    height: 100%;
+    padding: 20px;
+    background: var(--white);
 }
 
 .message {
-    width: min(310px, 100%);
+    width: min(360px, 100%);
     min-height: 76px;
-    padding: 12px;
+    padding: 14px;
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: 12px;
     background: var(--white);
-    line-height: 1.4;
+    box-shadow: var(--shadow);
+    line-height: 1.5;
 }
 
 .message p {
@@ -244,47 +316,68 @@ nav a.active {
 
 .reply {
     position: absolute;
-    right: 15%;
-    bottom: 14px;
-    left: 15%;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: 70%;
+    gap: 10px;
+    width: auto;
 }
 
 .input {
     width: 100%;
-    height: 30px;
-    padding: 8px;
-    border: 1px solid #dde1e6;
-    border-radius: 5px;
+    min-height: 38px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
     outline: none;
-    color: var(--dark);
+    color: var(--ink);
     background: var(--white);
     font: inherit;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input:hover {
+    border-color: #c8d0d6;
 }
 
 .input:focus {
     border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(64, 86, 36, 0.15);
 }
 
 .reply-button {
     display: grid;
     flex: 0 0 auto;
     place-items: center;
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
     padding: 0;
-    border: 0;
-    border-radius: 6px;
+    border: 1px solid var(--green);
+    border-radius: 9px;
     color: var(--white);
     background: var(--green);
     cursor: pointer;
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .reply-button:hover {
-    background: #30451b;
+    background: var(--green-dark);
+    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.36);
+    transform: translateY(-2px);
+}
+
+.reply-button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 900px) {
+    .talk-layout {
+        grid-template-columns: 280px minmax(0, 1fr);
+    }
 }
 
 @media (max-width: 760px) {
@@ -319,35 +412,29 @@ nav a.active {
         padding-left: 18px;
     }
 
+    .page-head,
+    .container {
+        width: 100%;
+    }
+
     .page-head {
         padding: 22px 14px 12px;
     }
 
     .container {
-        margin-top: 8px;
         padding: 0 14px;
     }
 
     .contact {
-        grid-template-columns: 1fr;
-    }
-
-    .threads {
-        display: none;
-    }
-
-    .reply {
-        right: 15px;
-        bottom: 14px;
-        left: 15px;
-        width: auto;
+        height: 620px;
+        min-height: 620px;
     }
 
     .talk-layout {
         grid-template-columns: 1fr;
     }
 
-    #conversationChatbox {
+    #conversationList {
         display: none;
     }
 }
@@ -365,5 +452,30 @@ nav a.active {
 
     .account {
         display: none;
+    }
+
+    .page-head h1 {
+        font-size: 22px;
+    }
+
+    .page-head p {
+        font-size: 11px;
+    }
+
+    .contact {
+        height: 560px;
+        min-height: 560px;
+        border-radius: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

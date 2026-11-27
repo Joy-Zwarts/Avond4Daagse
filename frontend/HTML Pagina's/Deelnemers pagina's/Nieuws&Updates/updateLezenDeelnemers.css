@@ -3,23 +3,23 @@
 }
 
 :root {
-    --dark-blue-text: #444647;
-    --dark-green-text: #39481f;
-    --light-green-highlight: #a8bb33;
-    --normal-green-highlight: #5e751c;
-    --cool-background: #d2d3b4;
-    --grey-text: #4b5563;
-    --light-grey-border: #e5e7eb;
-    --light-grey-background: #f8fafc;
-    --highlighted-page-green: #738f20;
-    --green: #587719;
     --dark-green: #102516;
-    --olive: #d1d3b3;
+    --dark-green-text: #39481f;
+    --normal-green: #5e751c;
+    --highlight-green: #738f20;
+    --light-green: #a8bb33;
+    --cool-background: #d2d3b4;
+    --background: #f4f4ee;
+    --white: #ffffff;
     --text: #27302a;
+    --dark-text: #444647;
     --muted: #69716a;
     --line: #edf0e8;
-    --white: #ffffff;
-    --shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
+    --light-border: #e5e7eb;
+    --light-background: #f8fafc;
+    --shadow: 0 10px 28px rgba(38, 60, 37, 0.12);
+    --small-shadow: 0 4px 14px rgba(38, 60, 37, 0.08);
+    --transition: 0.25s ease;
 }
 
 html {
@@ -28,10 +28,11 @@ html {
 
 body {
     margin: 0;
-    background: #f4f4ee;
     color: var(--text);
+    background: var(--background);
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
+    line-height: 1.5;
 }
 
 a {
@@ -40,8 +41,13 @@ a {
 }
 
 img {
+    display: block;
     max-width: 100%;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header {
     padding: 0 64px;
@@ -63,7 +69,6 @@ nav {
 }
 
 .logo img {
-    display: block;
     width: 78px;
     height: auto;
 }
@@ -83,7 +88,7 @@ nav {
     margin-right: 5px;
     border-radius: 6px;
     color: var(--white);
-    background: var(--normal-green-highlight);
+    background: var(--normal-green);
     font-size: 12px;
 }
 
@@ -97,13 +102,18 @@ nav {
 }
 
 .paginas a {
-    transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+        transition: color var(--transition), 
+        transform var(--transition);
 }
 
-.paginas a:hover,
-.paginas a.active:not(.inschrijfButton) {
-    color: var(--highlighted-page-green);
-}
+
+.paginas a:hover { color: var(--highlight-green); transform: translateY(-1px); }
+
 
 .inschrijfButton {
     display: inline-flex;
@@ -113,42 +123,58 @@ nav {
     padding: 10px 14px;
     border-radius: 8px;
     color: var(--white);
-    background: var(--normal-green-highlight);
+    background: var(--normal-green);
     font-weight: 800;
-    box-shadow: var(--shadow);
+    box-shadow: var(--small-shadow);
 }
 
 .inschrijfButton:hover {
     color: var(--white);
     background: var(--dark-green);
-    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
-    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
 }
+
+/* =========================
+   MAIN
+========================= */
 
 main {
     width: 100%;
     margin: 0 auto;
-    padding: 0 64px 70px;
+    padding: 0 64px 80px;
 }
 
 .cover {
     position: relative;
     height: 350px;
     overflow: hidden;
+    border-radius: 0 0 18px 18px;
 }
 
 .coverImage {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+.cover:hover .coverImage {
+    transform: scale(1.03);
 }
 
 .cover::after {
     position: absolute;
     inset: 0;
     content: "";
-    background: linear-gradient(90deg, rgba(16, 37, 22, 0.45), transparent 70%);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(16, 37, 22, 0.68) 0%,
+            rgba(16, 37, 22, 0.32) 45%,
+            rgba(16, 37, 22, 0.04) 100%
+        );
     pointer-events: none;
 }
 
@@ -158,86 +184,143 @@ main {
     bottom: 42px;
     left: 32px;
     margin: 0;
-    color: #fff;
+    color: var(--white);
     font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
     line-height: 1;
 }
 
+/* =========================
+   ARTIKELKAART
+========================= */
+
 .newscard {
-    width: 100%;
-    margin: 32px 0 0;
-    padding: 14px;
-    border-radius: 16px;
+    width: min(100%);
+    margin: 34px auto 0;
+    padding: 24px;
+    border: 1px solid var(--light-border);
+    border-radius: 22px;
     background: var(--white);
-    box-shadow: 0 3px 14px rgba(38, 60, 37, 0.08);
+    box-shadow: var(--shadow);
+    transition:
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.newscard:hover {
+    box-shadow: 0 16px 36px rgba(38, 60, 37, 0.16);
+    transform: translateY(-2px);
 }
 
 #newsDate {
-    display: inline-block;
-    margin: 0 0 8px;
-    padding: 4px 7px;
-    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    margin-bottom: 16px;
+    padding: 5px 10px;
+    border-radius: 7px;
     color: var(--dark-green-text);
     background: var(--cool-background);
-    font-size: 8px;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 800;
 }
 
+/* =========================
+   ARTIKELAFBEELDING
+========================= */
+
 .newsImage {
-    position: relative;
     width: 100%;
-    height: clamp(220px, 36vw, 476px);
+    height: clamp(240px, 42vw, 480px);
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 16px;
+    background: var(--cool-background);
 }
 
 .newsCover {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: transform 0.6s ease;
 }
+
+.newscard:hover .newsCover {
+    transform: scale(1.035);
+}
+
+/* =========================
+   ARTIKELTEKST
+========================= */
 
 .newscard h2 {
-    margin: 12px 0 8px;
-    color: var(--dark-blue-text);
-    font-size: 28px;
+    margin: 26px 0 16px;
+    color: var(--dark-text);
+    font-size: clamp(24px, 3vw, 34px);
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
+#newsContent {
+    max-width: 820px;
+}
+
+#newsContent p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+#newsContent p:last-child {
+    margin-bottom: 0;
+}
+
+#newsContent .tussenkopje,
 .newscard h3 {
-    margin: 24px 0 8px;
-    color: var(--dark-blue-text);
-    font-size: 16px;
+    margin: 30px 0 10px;
+    color: var(--dark-green-text);
+    font-size: 18px;
     font-weight: 800;
     line-height: 1.3;
 }
 
-.newscard p {
-    margin: 0 0 14px;
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.55;
+#newsContent br + br {
+    display: none;
 }
 
-.newscard a {
-    display: flex;
-    justify-content: center;
+/* =========================
+   TERUGLINK
+========================= */
+
+.newscard > a {
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    width: 100%;
-    margin-top: 12px;
-    color: var(--normal-green-highlight);
-    font-size: 9px;
-    font-weight: 700;
-    text-align: center;
+    gap: 8px;
+    margin-top: 30px;
+    padding: 11px 16px;
+    border-radius: 9px;
+    color: var(--white);
+    background: var(--normal-green);
+    font-size: 11px;
+    font-weight: 800;
+    box-shadow: var(--small-shadow);
+    transition:
+        background-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
 }
 
-.newscard a i {
-    font-size: 8px;
+.newscard > a:hover {
+    color: var(--white);
+    background: var(--dark-green);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
 }
+
+/* =========================
+   ICON STYLING
+========================= */
 
 .iconTitle {
     display: flex;
@@ -249,6 +332,10 @@ main {
 .iconTitle h3 {
     margin: 0;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     padding: 45px 64px 25px;
@@ -282,8 +369,13 @@ footer {
     line-height: 1.4;
 }
 
+.footer a {
+    transition: color var(--transition), transform var(--transition);
+}
+
 .footer a:hover {
     color: var(--white);
+    transform: translateX(3px);
 }
 
 .footerBottom {
@@ -293,4 +385,176 @@ footer {
     margin-top: 55px;
     color: #839282;
     font-size: 8px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+    header {
+        padding: 0 32px;
+    }
+
+    main {
+        padding: 0 32px 60px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    .paginas {
+        gap: 12px;
+    }
+
+    .cover {
+        height: 300px;
+    }
+
+    .newscard {
+        padding: 20px;
+    }
+
+    .footer {
+        gap: 40px;
+    }
+
+    footer {
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+}
+
+/* =========================
+   MOBIEL
+========================= */
+
+@media (max-width: 680px) {
+    body {
+        font-size: 11px;
+    }
+
+    header {
+        padding: 0 18px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        padding: 12px 0;
+    }
+
+    .logo img {
+        width: 64px;
+    }
+
+    .regioLabel {
+        font-size: 10px;
+    }
+
+    .paginas {
+        order: 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 8px 14px;
+        padding-bottom: 4px;
+        font-size: 10px;
+    }
+
+    .paginas .inschrijfButton {
+        min-height: 34px;
+        padding: 8px 10px;
+    }
+
+    main {
+        padding: 0 16px 45px;
+    }
+
+    .cover {
+        height: 230px;
+        border-radius: 0 0 14px 14px;
+    }
+
+    .cover h1 {
+        bottom: 26px;
+        left: 20px;
+        font-size: clamp(25px, 8vw, 34px);
+    }
+
+    .newscard {
+        margin-top: 22px;
+        padding: 14px;
+        border-radius: 16px;
+    }
+
+    #newsDate {
+        margin-bottom: 12px;
+        font-size: 9px;
+    }
+
+    .newsImage {
+        height: 230px;
+        border-radius: 12px;
+    }
+
+    .newscard h2 {
+        margin-top: 20px;
+        font-size: 25px;
+    }
+
+    #newsContent p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    #newsContent .tussenkopje,
+    .newscard h3 {
+        margin-top: 25px;
+        font-size: 16px;
+    }
+
+    .newscard > a {
+        width: 100%;
+        justify-content: center;
+        margin-top: 24px;
+    }
+
+    footer {
+        padding: 35px 20px 22px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footerBottom {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 35px;
+    }
+}
+
+@media (max-width: 400px) {
+    .paginas {
+        font-size: 9px;
+    }
+
+    .cover {
+        height: 210px;
+    }
+
+    .newscard {
+        padding: 12px;
+    }
+
+    .newsImage {
+        height: 200px;
+    }
+
+    #newsContent p {
+        font-size: 11px;
+    }
 }

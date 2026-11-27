@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Betaal je inschrijving voor de Avond4Daagse Den Haag.">
+    <title>Betalen | Avond4Daagse Den Haag</title>
+    <link rel="stylesheet" href="inschrijvingBetalingDeelnemers.css">
+    <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="homeDeelnemers.html">
+                <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+            </a>
+            <div class="regioLabel">
+                <span class="pin"><i class="fa-solid fa-location-dot"></i></span>
+                Avond4Daagse Den Haag
+            </div>
+            <div class="paginas">
+                <a href="../homeDeelnemers.html">Home</a>
+                <a href="../routesDeelnemers.html">Routes</a>
+                <a href="../Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html">Nieuws &amp; updates</a>
+                <a href="../contactpaginaDeelnemers.html">Contact</a>
+                <a class="active inschrijfButton" href="inschrijvenDeelnemers.html">Inschrijven</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pageIntro">
+            <span class="stepLabel">Stap 3 van 3</span>
+            <h1>Betaal je inschrijving</h1>
+            <p>Rond je inschrijving af door hieronder een betaalmethode te kiezen.</p>
+        </section>
+
+        <section class="paymentLayout">
+            <div class="paymentCard">
+                <div class="cardHeading">
+                    <div>
+                        <span class="eyebrow">Betaling</span>
+                        <h2>Kies je betaalmethode</h2>
+                    </div>
+                </div>
+
+                <form id="paymentForm">
+                    <fieldset>
+                        <legend>Betaalmethode</legend>
+                        <label class="paymentOption">
+                            <input type="radio" name="paymentMethod" value="ideal" checked>
+                            <span><strong>iDEAL</strong><small>Betaal direct via je eigen bank</small></span>
+                            <i class="fa-solid fa-building-columns"></i>
+                        </label>
+                        <label class="paymentOption">
+                            <input type="radio" name="paymentMethod" value="card">
+                            <span><strong>Creditcard</strong><small>Visa of Mastercard</small></span>
+                            <i class="fa-regular fa-credit-card"></i>
+                        </label>
+                    </fieldset>
+
+                    <label class="agreement">
+                        <input id="agreement" type="checkbox" required>
+                        <span>Ik controleer mijn gegevens en ga akkoord met de privacyverklaring.</span>
+                    </label>
+
+                    <button class="primaryButton" type="submit">
+                        Betaling starten <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <p id="paymentMessage" class="paymentMessage" role="status"></p>
+                </form>
+            </div>
+
+            <aside class="summaryCard">
+                <span class="eyebrow">Samenvatting</span>
+                <h2>Jouw inschrijving</h2>
+                <div class="summaryRow"><span>Contactpersoon</span><strong id="contactSummary">-</strong></div>
+                <div class="summaryRow"><span>Aantal kinderen</span><strong id="participantCount">0</strong></div>
+                <div class="summaryRow totalRow"><span>Totaal</span><strong id="totalPrice">€ 0,00</strong></div>
+                <a class="secondaryButton" href="inschrijfOverzichtDeelnemers.html"><i class="fa-solid fa-arrow-left"></i> Terug naar overzicht</a>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+            <div class="footer">
+                <div>
+                    <strong><i class="fa-solid fa-location-dot"></i> Avond4Daagse Den Haag</strong>
+                    <p>Vier avonden samen wandelen, plezier maken, genieten en elkaar ontmoeten.</p>
+                </div>
+
+                <div>
+                    <strong>Snelkoppelingen</strong>
+                    <a href="../inschrijvenDeelnemers.html">Inschrijven</a>
+                    <a href="../routesDeelnemers.html">Routepagina</a>
+                    <a href="../Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html">Nieuws</a>
+                    <a href="../contactpaginaDeelnemers.html">Contact opnemen</a>
+                    <a href="../../landingspagina.html">Terug naar landingspagina</a>
+                </div>
+
+                <div>
+                    <strong>Neem contact op</strong>
+                    <span class="iconTitle"><i class="fa-regular fa-envelope"></i>Nog te bevestigen</span>
+                    <span class="iconTitle"><i class="fa-solid fa-phone"></i>Nog te bevestigen</span>
+                    <span class="iconTitle"><i class="fa-solid fa-circle-info"></i>Nog te bevestigen</span>
+                </div>
+            </div>
+
+            <div class="footerBottom">
+                <span>© 2026 Avond4Daagse Den Haag. Alle rechten voorbehouden.</span>
+                <span>Privacyverklaring &nbsp; Cookies</span>
+            </div>
+        </footer>
+
+    <script src="inschrijvingBetalingDeelnemers.js"></script>
+</body>
+</html>

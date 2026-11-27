@@ -5,6 +5,7 @@
 :root {
     --dark: #3f4447;
     --green: #405624;
+    --green-dark: #30451b;
     --green-light: #dce2bd;
     --background: #f5f6f8;
     --line: #e5e8eb;
@@ -12,6 +13,10 @@
     --white: #ffffff;
     --tab-background: #f4f6f8;
     --ink: #172033;
+    --danger: #b44b52;
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    --shadow-hover: 0 7px 18px rgba(0, 0, 0, 0.14);
+    --transition: 0.2s ease;
 }
 
 html,
@@ -35,9 +40,26 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
 header {
     padding: 10px 38px 0;
     background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .topbar {
@@ -51,6 +73,12 @@ header {
 .logo {
     display: block;
     width: 73px;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: brightness(0.96);
 }
 
 .logo img {
@@ -77,6 +105,7 @@ header {
     color: var(--white);
     background: var(--green);
     font-size: 13px;
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.25);
 }
 
 .account {
@@ -86,6 +115,12 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.account:hover {
+    color: var(--green-dark);
+    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -96,6 +131,13 @@ header {
     border: 3px solid var(--green);
     border-radius: 50%;
     font-size: 16px;
+    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.account:hover .accountButton {
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
 }
 
 nav {
@@ -113,179 +155,9 @@ nav a {
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    min-width: max-content;
-    min-height: 25px;
-    padding: 7px 11px 6px;
-    border: 1px solid transparent;
-    border-bottom: 4px solid var(--white);
-    border-radius: 9px 9px 0 0;
-    color: #707981;
-    background: var(--tab-background);
-    font-size: 9px;
-    white-space: nowrap;
-}
-
-nav a:hover {
-    color: var(--green);
-    background: var(--tab-background);
-}
-
-nav a.active {
-    z-index: 2;
-    min-height: 32px;
-    border: 1px solid var(--line);
-    border-bottom: 4px solid var(--background);
-    color: var(--dark);
-    background: var(--tab-background);
-    font-weight: 700;
-}
-
-.page-head {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 29px 16px 12px;
-}
-
-.page-head h1 {
-    margin: 0;
-    color: #28323e;
-    font-size: 25px;
-    line-height: 1.15;
-}
-
-.page-head p {
-    margin: 7px 0 0;
-    color: var(--muted);
-    font-size: 10px;
-}
-
-.container {
-    max-width: 1080px;
-    margin: 8px auto 34px;
-    padding: 0 16px;
-}
-
-.card {
-    border: 1px solid #e8ebef;
-    border-radius: 9px;
-    background: var(--white);
-    box-shadow: 0 2px 3px #0002;
-}
-
-.route-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-}
-
-.route {
-    padding: 16px;
-}
-
-.route h2 {
-    margin: 0;
-    color: #28323e;
-    font-size: 17px;
-}
-
-.route > p {
-    margin: 4px 0 8px;
-    color: var(--muted);
-    font-size: 10px;
-}
-
-.route-body {
-    display: grid;
-    grid-template-columns: 145px minmax(0, 1fr);
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.input,
-textarea,
-select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #dde1e6;
-    border-radius: 5px;
-    outline: none;
-    color: var(--ink);
-    background: var(--white);
-    font: inherit;
-}
-
-.route > textarea {
-    min-height: 72px;
-    resize: vertical;
-}
-
-.route-body .input,
-.route-body select {
-    margin-bottom: 7px;
-    font-size: 8px;
-}
-
-label {
-    display: block;
-    margin: 8px 0 4px;
-    color: var(--ink);
-    font-size: 9px;
-    font-weight: 700;
-}
-
-#map1Div,
-#map2Div {
-    width: 100%;
-    height: 100%;
-    min-height: 372px;
-    margin: 0;
-}
-
-#routeButton1,
-#routeButton2 {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 32px;
-    margin-top: 10px;
-    padding: 9px 15px;
-    border: 0;
-    border-radius: 7px;
-    color: var(--white);
-    background: var(--green);
-    font: inherit;
-    font-size: 9px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-#routeButton1:hover,
-#routeButton2:hover {
-    background: #30451b;
-}
-
-/* Definitieve foldernavigatie */
-header > nav {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    width: 100%;
-    height: 36px;
-    min-height: 36px;
-    padding: 0 0 0 4px;
-    overflow-x: auto;
-    border: 0;
-}
-
-header > nav > a {
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
     width: auto;
-    height: 25px !important;
-    min-height: 25px !important;
-    margin: 0;
+    height: 25px;
+    min-height: 25px;
     padding: 7px 11px 6px;
     border: 1px solid transparent;
     border-bottom: 4px solid var(--white);
@@ -295,25 +167,203 @@ header > nav > a {
     font-size: 9px;
     line-height: normal;
     white-space: nowrap;
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition), border-color var(--transition);
 }
 
-header > nav > a:hover {
+nav a:hover {
+    z-index: 3;
     color: var(--green);
     background: var(--tab-background);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
 }
 
-header > nav > a.active {
-    height: 32px !important;
-    min-height: 32px !important;
-    margin: 0;
-    border: 1px solid var(--line);
-    border-bottom: 4px solid var(--background);
+nav a.active {
+    z-index: 2;
+    height: 32px;
+    min-height: 32px;
+    border-color: var(--line);
+    border-bottom-color: var(--background);
     color: var(--dark);
     background: var(--tab-background);
     font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 900px) {
+.page-head {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 29px 0 12px;
+}
+
+.page-head h1 {
+    margin: 0 0 5px;
+    color: var(--green);
+    font-size: 26px;
+    line-height: 1.15;
+}
+
+.page-head p {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+main.container {
+    width: min(1160px, calc(100% - 84px));
+    min-height: calc(100vh - 170px);
+    margin: 0 auto;
+    padding: 0 0 45px;
+}
+
+.route-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+    border-color: #d8dde1;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.route {
+    padding: 22px;
+}
+
+.route h2 {
+    margin: 0 0 8px;
+    color: var(--green);
+    font-size: 18px;
+}
+
+.route > p {
+    margin: 5px 0 16px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.route-body {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+label {
+    display: block;
+    margin: 0 0 7px;
+    color: var(--dark);
+    font-size: 12px;
+}
+
+.route-body label:not(:first-child) {
+    margin-top: 10px;
+}
+
+.input,
+textarea,
+select {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    outline: none;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.input:hover,
+textarea:hover,
+select:hover {
+    border-color: #c8d0d6;
+}
+
+.input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(64, 86, 36, 0.15);
+}
+
+.route > textarea {
+    min-height: 82px;
+    resize: vertical;
+}
+
+.route-body .input,
+.route-body select {
+    margin-bottom: 8px;
+}
+
+textarea {
+    min-height: 92px;
+    resize: vertical;
+}
+
+#map1Div,
+#map2Div {
+    width: 100%;
+    min-height: 372px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #e8edf0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+#routeButton1,
+#routeButton2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 40px;
+    margin-top: 16px;
+    padding: 10px 16px;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--green);
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.28);
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition), filter var(--transition);
+}
+
+#routeButton1:hover,
+#routeButton2:hover {
+    border-color: var(--green-dark);
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.38);
+}
+
+#routeButton1:active,
+#routeButton2:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.22);
+}
+
+#routeButton1:disabled,
+#routeButton2:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 1000px) {
     .route-grid {
         grid-template-columns: 1fr;
     }
@@ -355,17 +405,27 @@ header > nav > a.active {
         padding: 22px 14px 12px;
     }
 
-    .container {
-        margin-top: 8px;
-        padding: 0 14px;
+    main.container {
+        width: auto;
+        margin: 0;
+        padding: 0 14px 35px;
+    }
+
+    .route {
+        padding: 18px;
+    }
+
+    .route-body {
+        grid-template-columns: 1fr;
+    }
+
+    #map1Div,
+    #map2Div {
+        min-height: 280px;
     }
 }
 
-@media (max-width: 520px) {
-    .topbar {
-        grid-template-columns: 58px 1fr;
-    }
-
+@media (max-width: 450px) {
     .regioLabel {
         font-size: 10px;
     }
@@ -384,11 +444,23 @@ header > nav > a.active {
         font-size: 22px;
     }
 
-    .route-body {
-        grid-template-columns: 1fr;
+    .route {
+        padding: 16px;
     }
 
-    .map {
-        min-height: 160px;
+    #map1Div,
+    #map2Div {
+        min-height: 230px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

@@ -5,13 +5,17 @@
 :root {
     --dark: #3f4447;
     --green: #405624;
+    --green-dark: #30451b;
     --green-light: #dce2bd;
     --background: #f5f6f8;
     --line: #e5e8eb;
     --muted: #7b838c;
     --white: #ffffff;
     --tab-background: #f4f6f8;
-    --shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+    --ink: #172033;
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    --shadow-hover: 0 7px 18px rgba(0, 0, 0, 0.14);
+    --transition: 0.2s ease;
 }
 
 html,
@@ -35,9 +39,26 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
 header {
     padding: 10px 38px 0;
     background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .topbar {
@@ -51,6 +72,12 @@ header {
 .logo {
     display: block;
     width: 73px;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: brightness(0.96);
 }
 
 .logo img {
@@ -77,6 +104,7 @@ header {
     color: var(--white);
     background: var(--green);
     font-size: 13px;
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.25);
 }
 
 .account {
@@ -86,6 +114,12 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.account:hover {
+    color: var(--green-dark);
+    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -96,6 +130,13 @@ header {
     border: 3px solid var(--green);
     border-radius: 50%;
     font-size: 16px;
+    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.account:hover .accountButton {
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
 }
 
 nav {
@@ -125,11 +166,15 @@ nav a {
     font-size: 9px;
     line-height: normal;
     white-space: nowrap;
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 nav a:hover {
+    z-index: 3;
     color: var(--green);
     background: var(--tab-background);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
 }
 
 nav a.active {
@@ -141,86 +186,113 @@ nav a.active {
     color: var(--dark);
     background: var(--tab-background);
     font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.page-head,
+.container {
+    width: min(1160px, calc(100% - 84px));
+    margin: 0 auto;
 }
 
 .page-head {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 29px 16px 12px;
+    padding: 29px 0 12px;
 }
 
 .page-head h1 {
     margin: 0;
-    color: #28323e;
-    font-size: 25px;
+    color: var(--green);
+    font-size: 26px;
     line-height: 1.15;
 }
 
 .page-head p {
     margin: 7px 0 0;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .container {
-    max-width: 1080px;
-    margin: 8px auto 34px;
-    padding: 0 16px;
-}
-
-.card {
-    border: 1px solid #e8ebef;
-    border-radius: 9px;
-    background: var(--white);
-    box-shadow: var(--shadow);
+    margin-bottom: 40px;
 }
 
 .toolbar {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 10px;
+    margin: 8px 0 20px;
 }
 
 .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
-    min-height: 32px;
-    padding: 9px 15px;
-    border: 0;
-    border-radius: 7px;
+    gap: 8px;
+    min-height: 38px;
+    padding: 10px 16px;
+    border: 1px solid var(--green);
+    border-radius: 9px;
     color: var(--white);
     background: var(--green);
-    font-size: 9px;
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.24);
+    font-size: 12px;
     font-weight: 700;
-    cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition), filter var(--transition);
 }
 
 .button:hover {
-    background: #30451b;
+    border-color: var(--green-dark);
+    background: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 15px rgba(64, 86, 36, 0.32);
+    filter: brightness(1.02);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 7px rgba(64, 86, 36, 0.22);
 }
 
 .button.full {
-    width: auto;
+    width: 100%;
+}
+
+.card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+    border-color: #d8dde1;
+    box-shadow: var(--shadow-hover);
 }
 
 .post-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    gap: 20px;
 }
 
 .post {
-    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 18px;
+    overflow: hidden;
+}
+
+.post:hover {
+    transform: translateY(-3px);
 }
 
 .post-image {
-    height: 150px;
-    margin-bottom: 12px;
-    border-radius: 7px;
-    background-size: cover;
-    background-position: center;
+    height: 190px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    border-radius: 11px;
+    background: #eef1f3;
 }
 
 .newsCover {
@@ -229,26 +301,101 @@ nav a.active {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.post:hover .newsCover {
+    transform: scale(1.035);
+    filter: brightness(1.02);
 }
 
 .post h2 {
-    margin: 0 0 7px;
-    color: #28323e;
-    font-size: 15px;
+    margin: 0 0 9px;
+    color: var(--green);
+    font-size: 18px;
+    line-height: 1.25;
 }
 
-.post p {
-    min-height: 42px;
-    margin: 0 0 11px;
+.post > p:not(.post-full) {
+    min-height: 52px;
+    margin: 0 0 14px;
     color: #4c5564;
-    font-size: 10px;
-    line-height: 1.5;
+    font-size: 12px;
+    line-height: 1.55;
 }
 
 .read-more {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 6px;
+    margin-top: auto;
+    padding: 7px 0;
     color: var(--green);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
+    transition: color var(--transition), gap var(--transition), transform var(--transition);
+}
+
+.read-more:hover {
+    color: var(--green-dark);
+    gap: 10px;
+    transform: translateX(2px);
+    text-decoration: underline;
+}
+
+.post-full {
+    margin: 0 0 12px;
+    padding: 12px;
+    border-left: 3px solid var(--green-light);
+    border-radius: 6px;
+    color: #4c5564;
+    background: #f8faf4;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.post-full:not([hidden]) {
+    animation: revealPost 0.2s ease-out;
+}
+
+.load-error,
+.post-list > p {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--muted);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.load-error {
+    color: #8a2525;
+    background: #fff0f0;
+    border-color: #eccaca;
+}
+
+code {
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #6f2525;
+    background: #f8dede;
+    font-family: Consolas, monospace;
+    font-size: 0.9em;
+}
+
+@keyframes revealPost {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 760px) {
@@ -283,13 +430,27 @@ nav a.active {
         padding-left: 18px;
     }
 
+    .page-head,
+    .container {
+        width: auto;
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+
     .page-head {
-        padding: 22px 14px 12px;
+        padding: 22px 0 12px;
     }
 
     .container {
-        margin-top: 8px;
-        padding: 0 14px;
+        margin-bottom: 35px;
+    }
+
+    .toolbar {
+        justify-content: stretch;
+    }
+
+    .toolbar .button {
+        width: 100%;
     }
 
     .post-list {
@@ -316,7 +477,26 @@ nav a.active {
         font-size: 22px;
     }
 
+    .post {
+        padding: 14px;
+    }
+
     .post-image {
-        height: 130px;
+        height: 150px;
+    }
+
+    .post h2 {
+        font-size: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

@@ -3,41 +3,42 @@
 }
 
 :root {
-    --green: #3d5423;
-    --dark-green: #19291d;
-    --dark-green-text: #263b2b;
-    --normal-green-highlight: #6d7f32;
-    --highlighted-page-green: #6d7f32;
-    --cream: #fcfbf8;
-    --text: #26313d;
-    --muted: #7f8990;
+    --dark-green: #102516;
+    --dark-green-text: #39481f;
+    --normal-green: #5e751c;
+    --highlight-green: #738f20;
+    --cool-background: #d2d3b4;
+    --background: #f4f4ee;
     --white: #ffffff;
-    --line: #e7e9e1;
-    --shadow: 0 3px 12px rgba(38, 60, 37, 0.12);
-    --delete: #e2a5a8;
+    --text: #27302a;
+    --dark-text: #444647;
+    --muted: #69716a;
+    --line: #edf0e8;
+    --light-border: #e5e7eb;
+    --light-background: #f8fafc;
+    --danger: #8b4b42;
+    --danger-background: #f4e9e6;
+    --shadow: 0 10px 28px rgba(38, 60, 37, 0.12);
+    --small-shadow: 0 4px 14px rgba(38, 60, 37, 0.08);
+    --hover-shadow: 0 14px 34px rgba(38, 60, 37, 0.16);
+    --transition: 0.25s ease;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-html,
 body {
-    width: 100%;
-    min-height: 100%;
-    margin: 0;
-    overflow-x: hidden;
-    background: var(--cream);
-}
-
-body {
+    min-width: 320px;
     min-height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
-
     color: var(--text);
+    background: var(--background);
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
+    line-height: 1.5;
 }
 
 a {
@@ -50,10 +51,18 @@ img {
     max-width: 100%;
 }
 
+button,
+input,
+label,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 header {
     padding: 0 64px;
     background: var(--white);
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 10px rgba(38, 60, 37, 0.04);
 }
 
 nav {
@@ -62,7 +71,6 @@ nav {
     gap: 30px;
     width: 100%;
     min-height: 76px;
-    margin: 0 auto;
 }
 
 .logo {
@@ -89,7 +97,7 @@ nav {
     margin-right: 5px;
     border-radius: 6px;
     color: var(--white);
-    background: var(--normal-green-highlight);
+    background: var(--normal-green);
     font-size: 12px;
 }
 
@@ -103,13 +111,21 @@ nav {
 }
 
 .paginas a {
-    transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     white-space: nowrap;
+    transition: color var(--transition), transform var(--transition);
 }
 
-.paginas a:hover,
-.paginas a.active:not(.accountButton) {
-    color: var(--highlighted-page-green);
+.paginas a:hover {
+    color: var(--highlight-green);
+    transform: translateY(-1px);
+}
+
+.paginas a:focus-visible,
+.accountButton:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(115, 143, 32, 0.35);
+    outline-offset: 3px;
 }
 
 .accountButton {
@@ -118,126 +134,224 @@ nav {
     justify-content: center;
     min-height: 40px;
     padding: 10px 14px;
-    border-radius: 8px;
-    color: var(--dark-green-text);
-    background: var(--white);
+    border-radius: 9px;
+    color: var(--white) !important;
+    background: var(--normal-green);
     font-weight: 800;
-    box-shadow: var(--shadow);
+    box-shadow: var(--small-shadow);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
-.accountButton.active,
-.accountButton:hover {
+.accountButton:hover,
+.accountButton.active {
     color: var(--white) !important;
-    background: var(--normal-green-highlight);
+    background: var(--dark-green);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.accountButton:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
 }
 
 main {
-    display: flex;
     flex: 1;
-    justify-content: center;
     width: 100%;
     margin: 0 auto;
-    padding: 60px 64px 70px;
-    background: var(--cream);
+    padding: 54px 64px 80px;
 }
 
 .account-panel {
-    width: 80%;
-    min-height: 300px;
-    padding: 28px 32px 25px;
-    border: 1px solid #e5e5e1;
-    border-radius: 15px;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px;
+    border: 1px solid var(--light-border);
+    border-radius: 22px;
     background: var(--white);
-    box-shadow: 0 2px 8px rgba(32, 45, 49, 0.12);
+    box-shadow: var(--shadow);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.account-panel:hover {
+    border-color: rgba(94, 117, 28, 0.28);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
 }
 
 .account-panel h1 {
-    margin: 0 0 18px;
-    color: #151b20;
-    font-size: 16px;
-    font-weight: 400;
+    margin: 0 0 26px;
+    color: var(--dark-text);
+    font-size: clamp(26px, 4vw, 34px);
+    font-weight: 800;
+    line-height: 1.15;
 }
 
 .account-form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 22px;
 }
 
 .account-form label {
-    margin: 0 0 4px;
-    color: #4d555b;
-    font-size: 9px;
+    display: block;
+    margin: 0 0 7px;
+    color: var(--dark-text);
+    font-size: 11px;
+    font-weight: 800;
 }
 
 .account-form input {
     width: 100%;
-    height: 20px;
-    margin-bottom: 7px;
-    padding: 3px 8px;
-    border: 1px solid #dfe2e4;
-    border-radius: 4px;
+    min-height: 44px;
+    margin-bottom: 20px;
+    padding: 11px 13px;
+    border: 1px solid var(--light-border);
+    border-radius: 10px;
     outline: none;
     color: var(--text);
-    background: var(--white);
+    background: var(--light-background);
     font: inherit;
-    font-size: 9px;
+    font-size: 11px;
+    transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+.account-form input:hover {
+    border-color: #c9d2be;
+    background: var(--white);
 }
 
 .account-form input:focus {
-    border-color: #9bad62;
-    box-shadow: 0 0 0 2px rgba(109, 127, 50, 0.12);
+    border-color: var(--normal-green);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(94, 117, 28, 0.13);
+}
+
+.account-form input:disabled {
+    color: #89949f;
+    background: #eef1ed;
+    cursor: not-allowed;
 }
 
 .account-form input::placeholder {
-    color: #b4b9bc;
+    color: #89949f;
 }
 
 .birthdate-fields {
     display: grid;
-    grid-template-columns: 82px 82px 82px;
-    gap: 4px;
-    margin-bottom: 1px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 0;
 }
 
 .birthdate-fields input {
-    margin-bottom: 7px;
+    margin-bottom: 20px;
+}
+
+.edit-account,
+.delete-account {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    margin: 4px 0 0;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--small-shadow);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition), color var(--transition);
+}
+
+.edit-account {
+    color: var(--white);
+    background: var(--normal-green);
 }
 
 .delete-account {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    height: 29px;
-    margin-top: 8px;
-    border: 0;
-    border-radius: 11px;
-    color: #3f4547;
-    background: var(--delete);
-    font: inherit;
-    font-size: 10px;
-    cursor: pointer;
+    color: var(--white);
+    background: var(--danger);
+}
+
+.edit-account:hover {
+    color: var(--white);
+    background: var(--dark-green);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
 }
 
 .delete-account:hover {
-    background: #d58f94;
+    color: var(--white);
+    background: #713a33;
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.edit-account:active,
+.delete-account:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
 }
 
 .delete-icon {
-    font-size: 14px;
+    display: inline-grid;
+    place-items: center;
 }
 
+
+.logout-account {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    margin: 4px 0 0;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 10px;
+    color: var(--white);
+    background: var(--dark-green-text);
+    font: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--small-shadow);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.logout-account:hover {
+    background: var(--dark-green);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.logout-account:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
+}
+
+.logout-account:focus-visible {
+    outline: 3px solid rgba(115, 143, 32, 0.35);
+    outline-offset: 3px;
+}
+
+.account-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
 footer {
     flex-shrink: 0;
-    margin-top: auto;
     padding: 45px 64px 25px;
     color: #eef3e7;
-    background-color: var(--dark-green);
-    background-image: url("../Images/footerBackground.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: var(--dark-green) url("../Images/footerBackground.png") center / cover no-repeat;
+    box-shadow: 0 -4px 16px rgba(38, 60, 37, 0.08);
 }
 
 .footer {
@@ -262,8 +376,13 @@ footer {
     line-height: 1.4;
 }
 
+.footer a {
+    transition: color var(--transition), transform var(--transition);
+}
+
 .footer a:hover {
     color: var(--white);
+    transform: translateX(3px);
 }
 
 .footerBottom {
@@ -275,149 +394,121 @@ footer {
     font-size: 8px;
 }
 
-.account-form input {
-    width: 100%;
-    height: 34px;
-    margin-bottom: 10px;
-    padding: 7px 10px;
-    border: 1px solid #dfe2e4;
-    border-radius: 6px;
-    outline: none;
-    color: var(--text);
-    background: var(--white);
-    font: inherit;
-    font-size: 10px;
-}
-
-.account-form input:focus {
-    border-color: #9bad62;
-    box-shadow: 0 0 0 2px rgba(109, 127, 50, 0.12);
-}
-
-.birthdate-fields {
-    display: grid;
-    grid-template-columns: 100px 100px 110px;
-    gap: 6px;
-    margin-bottom: 2px;
-}
-
-.birthdate-fields input {
-    margin-bottom: 10px;
-}
-
-.edit-account {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    width: 100%;
-    height: 34px;
-    margin-top: 10px;
-    margin-bottom: 8px;
-    border: 1px solid rgba(109, 127, 50, 0.45);
-    border-radius: 11px;
-    color: #3f4547;
-    background: rgba(109, 127, 50, 0.62);
-    font: inherit;
-    font-size: 10px;
-    font-weight: 700;
-    cursor: pointer;
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-.edit-account:hover {
-    background: rgba(61, 84, 35, 0.78);
-    transform: translateY(-1px);
-}
-
-.edit-account:active {
-    transform: translateY(0);
-}
-
-.edit-account:focus-visible {
-    outline: 3px solid var(--green-light);
-    outline-offset: 2px;
-}
-
-.account-form input:disabled {
-    color: #8c969c;
-    background: #f5f6f6;
-    cursor: not-allowed;
-}
-
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     header {
-        padding: 0 24px;
+        padding: 0 32px;
+    }
+
+    main {
+        padding: 42px 32px 65px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    .paginas {
+        gap: 13px;
+    }
+
+    .account-panel {
+        padding: 26px;
+    }
+
+    footer {
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+
+    .footer {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 680px) {
+    header {
+        padding: 0 18px;
     }
 
     nav {
         flex-wrap: wrap;
-        gap: 14px 20px;
+        gap: 12px 16px;
         padding: 12px 0;
     }
 
+    .logo img {
+        width: 64px;
+    }
+
     .regioLabel {
-        min-width: calc(100% - 110px);
+        font-size: 10px;
     }
 
     .paginas {
         order: 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 18px;
+        gap: 8px 14px;
+        font-size: 10px;
+    }
+
+    .account-actions {
+        flex-direction: column;
+    }
+
+    .account-actions .edit-account,
+    .account-actions .delete-account,
+    .account-actions .logout-account {
+        width: 100%;
     }
 
     main {
-        padding: 40px 24px 50px;
-    }
-
-    footer {
-        padding: 35px 24px 22px;
-    }
-
-    .footer {
-        gap: 35px;
-    }
-}
-
-@media (max-width: 560px) {
-    nav{
-        align-items: flex-start;
-    }
-
-    .regioLabel {
-        flex: 1;
-    }
-
-    .paginas {
-        justify-content: flex-start;
-        width: 100%;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-    }
-
-    main {
-        padding: 28px 14px 35px;
+        padding: 32px 16px 50px;
     }
 
     .account-panel {
-        padding: 24px 18px 20px;
+        padding: 20px 16px;
+        border-radius: 16px;
     }
 
-    .birthdate-fields {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    .account-panel h1 {
+        margin-bottom: 22px;
+        font-size: 28px;
+    }
+
+    .account-form {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-account,
+    .delete-account {
+        width: 100%;
+    }
+
+    footer {
+        padding: 35px 20px 22px;
     }
 
     .footer {
         grid-template-columns: 1fr;
+        gap: 28px;
     }
 
     .footerBottom {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         margin-top: 35px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

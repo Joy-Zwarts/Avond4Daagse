@@ -3,23 +3,20 @@
 }
 
 :root {
-    --dark-blue-text: #444647;
-    --dark-green-text: #39481f;
-    --light-green-highlight: #a8bb33;
-    --normal-green-highlight: #5e751c;
-    --cool-background: #d2d3b4;
-    --grey-text: #4b5563;
-    --light-grey-border: #e5e7eb;
-    --light-grey-background: #f8fafc;
-    --highlighted-page-green: #738f20;
-    --green: #587719;
     --dark-green: #102516;
-    --olive: #d1d3b3;
+    --dark-green-text: #39481f;
+    --green: #587719;
+    --normal-green: #5e751c;
+    --highlight: #738f20;
+    --cool: #d2d3b4;
     --text: #27302a;
     --muted: #69716a;
-    --line: #edf0e8;
     --white: #ffffff;
-    --shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
+    --line: #e6eadf;
+    --soft: #f7f9f4;
+    --page: #f4f4ee;
+    --shadow: 0 12px 28px rgba(38, 60, 37, 0.12);
+    --shadow-hover: 0 18px 36px rgba(38, 60, 37, 0.19);
 }
 
 html {
@@ -28,8 +25,8 @@ html {
 
 body {
     margin: 0;
-    background: #f4f4ee;
     color: var(--text);
+    background: var(--page);
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
 }
@@ -43,19 +40,19 @@ img {
     max-width: 100%;
 }
 
+/* Header */
+
 header {
     padding: 0 64px;
     background: var(--white);
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid #edf0e8;
 }
 
 nav {
     display: flex;
     align-items: center;
     gap: 30px;
-    width: 100%;
     min-height: 76px;
-    margin: 0 auto;
 }
 
 .logo {
@@ -65,7 +62,6 @@ nav {
 .logo img {
     display: block;
     width: 78px;
-    height: auto;
 }
 
 .regioLabel {
@@ -83,8 +79,7 @@ nav {
     margin-right: 5px;
     border-radius: 6px;
     color: var(--white);
-    background: var(--normal-green-highlight);
-    font-size: 12px;
+    background: var(--normal-green);
 }
 
 .paginas {
@@ -97,13 +92,17 @@ nav {
 }
 
 .paginas a {
-    transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+        transition: color var(--transition), 
+        transform var(--transition);
 }
 
-.paginas a:hover,
-.paginas a.active:not(.inschrijfButton) {
-    color: var(--highlighted-page-green);
-}
+
+.paginas a:hover { color: var(--green); transform: translateY(-1px); }
 
 .inschrijfButton {
     display: inline-flex;
@@ -113,28 +112,31 @@ nav {
     padding: 10px 14px;
     border-radius: 8px;
     color: var(--white);
-    background: var(--normal-green-highlight);
+    background: var(--normal-green);
     font-weight: 800;
-    box-shadow: var(--shadow);
+    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, background-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .inschrijfButton:hover {
     color: var(--white);
     background: var(--dark-green);
-    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
+/* Main */
+
 main {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 64px 70px;
+    padding: 0 64px 80px;
 }
 
 .cover {
     position: relative;
-    height: 350px;
+    height: 390px;
     overflow: hidden;
+    border-radius: 0 0 24px 24px;
+    box-shadow: var(--shadow);
 }
 
 .coverImage {
@@ -142,251 +144,297 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 56%;
+    transition: transform 0.7s ease;
+}
+
+.cover:hover .coverImage {
+    transform: scale(1.025);
 }
 
 .cover::after {
     position: absolute;
     inset: 0;
     content: "";
-    background: linear-gradient(90deg, rgba(16, 37, 22, 0.45), transparent 70%);
-    pointer-events: none;
+    background: linear-gradient(90deg, rgba(16, 37, 22, 0.68), transparent 72%);
 }
 
 .cover h1 {
     position: absolute;
     z-index: 1;
-    bottom: 42px;
-    left: 32px;
+    bottom: 48px;
+    left: 42px;
+    max-width: 650px;
     margin: 0;
-    color: #fff;
-    font-size: clamp(30px, 4vw, 46px);
-    line-height: 1;
+    color: var(--white);
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
 }
 
+/* Route cards */
+
 #cards {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 42px;
+}
+
+#route5km,
+#route2_5km {
+    min-width: 0;
 }
 
 #routecard {
     overflow: hidden;
-    border-radius: 24px;
-    background: var(--cool-background);
-    margin: 32px 0 0;
+    border: 1px solid rgba(57, 72, 31, 0.1);
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#route5km #routecard{
-    max-width: 100%;
-}
-
-#route2_5km #routecard{
-    max-width: 100%;
+#routecard:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
 }
 
 .cardTop {
+    padding: 24px 26px 20px;
+    background: linear-gradient(135deg, var(--cool), #e3e4c9);
+}
+
+.cardTop .iconTitle {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    padding: 16px 24px 14px;
-    background: var(--cool-background);
-    border-radius: 24px 24px 0 0;
+    align-items: center;
+    gap: 13px;
+    margin: 0 0 15px;
+}
+
+.cardTop .iconTitle i {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 18px;
 }
 
 .cardTop h3 {
     margin: 0;
-    color: #1f2937;
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 1.1;
+    color: var(--dark-green);
+    font-size: 24px;
 }
 
 .cardTop p {
-    max-width: 760px;
+    min-height: 52px;
     margin: 0;
-    color: #27302a;
+    color: #4f5b4e;
     font-size: 11px;
-    line-height: 1.45;
+    line-height: 1.55;
 }
+
 #cardMiddle {
     display: grid;
-    grid-template-columns: 180px minmax(0, 1fr);
-    width: 100%;
-    min-height: 372px;
-    background: #fff;
+    grid-template-columns: 190px minmax(0, 1fr);
+    min-height: 380px;
+    background: var(--white);
 }
 
 #informatieBlok {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-width: 0;
-    padding: 10px;
-    background: #fff;
+    gap: 9px;
+    padding: 14px;
+}
+
+#informatieBlok section {
+    flex: 1;
+    padding: 11px 9px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: var(--soft);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+#informatieBlok section:hover {
+    background: #eef3e5;
+    transform: translateX(3px);
+}
+
+#informatieBlok .iconTitle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 7px;
+}
+
+#informatieBlok .iconTitle i {
+    color: var(--green);
+}
+
+#informatieBlok h4 {
+    margin: 0;
+    color: var(--dark-green);
+    font-size: 10px;
+}
+
+#informatieBlok p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.45;
 }
 
 #map1Div,
 #map2Div {
     width: 100%;
-    height: 100%;
-    min-height: 372px;
-    margin: 0;
-}
-
-#informatieBlok section {
-    flex: 1;
-    padding: 12px 10px;
-    overflow: hidden;
-    border-radius: 12px;
-    background: var(--light-grey-background);
-}
-
-#informatieBlok h4 {
-    margin: 0 0 6px;
-    color: #27302a;
-    font-size: 11px;
-    font-weight: 800;
-    line-height: 1.15;
-}
-
-#informatieBlok p {
-    margin: 0;
-    color: #27302a;
-    font-size: 9px;
-    line-height: 1.35;
-}
-
-.datumTijd{
-    min-height: 125px
-}
-
-#map {
-    width: 90%;
-    height: 100%;
-    min-height: 372px;
-    margin: 0;
+    min-height: 380px;
+    background: #dfe5d7;
 }
 
 .cardBottom {
-    padding: 14px 24px 16px;
-    background: var(--cool-background);
-    border-radius: 0 0 24px 24px;
+    padding: 16px 26px;
+    background: var(--cool);
 }
 
 .cardBottom p {
-    margin: 0 0 8px;
-    color: #39481f;
-    font-size: 9px;
+    margin: 0;
+    color: var(--dark-green-text);
+    font-size: 10px;
     line-height: 1.5;
 }
 
-.cardBottom p:last-child {
-    margin-bottom: 0;
+button[id^="routeButton"] {
+    display: block;
+    width: calc(100% - 52px);
+    margin: 18px 26px 0;
+    padding: 13px 16px;
+    border: 0;
+    border-radius: 11px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(88, 119, 25, 0.2);
+    transition: transform 0.25s ease, background-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-button{
-    margin-top: 18px;
-    border: 0;
-    border-radius: 8px;
-    color: var(--dark-blue-text);
-    background-color: var(--light-grey-background);
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 10px;
-    width: 100%;
-    box-shadow: var(--shadow);
+button[id^="routeButton"]:hover:not(:disabled) {
+    background: var(--dark-green);
+    transform: translateY(-2px);
 }
+
+button[id^="routeButton"]:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+/* Bottom cards */
 
 .aanmeldCard,
 .informationCards {
-    margin-top: 14px;
-    padding: 16px;
-    border: 1px solid var(--light-grey-border);
-    border-radius: 12px;
+    margin-top: 42px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
     background: var(--white);
-    box-shadow: 0 3px 12px rgba(38, 60, 37, 0.06);
+    box-shadow: var(--shadow);
 }
 
 .aanmeldCard {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
 }
 
 .aanmeldCard h2 {
-    margin-bottom: 4px;
+    margin: 0 0 8px;
+    font-size: 24px;
 }
 
 .aanmeldCard p {
+    max-width: 650px;
     margin: 0;
     color: var(--muted);
-    font-size: 9px;
-    line-height: 1.35;
-}
-
-.informationCards h3{
-    font-size: 14px;
-}
-
-.infoItem small {
     font-size: 11px;
+    line-height: 1.6;
+}
+
+.informationCards > .iconTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 20px;
+}
+
+.informationCards > .iconTitle i {
+    color: var(--green);
+}
+
+.informationCards h3 {
+    margin: 0;
+    font-size: 21px;
 }
 
 .informationGrid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 55px;
+    gap: 14px;
 }
 
 .infoItem {
     display: flex;
     align-items: flex-start;
-    gap: 8px;
-    min-height: 82px;
-    padding: 12px;
+    gap: 11px;
+    min-height: 108px;
+    padding: 16px;
+    border: 1px solid rgba(57, 72, 31, 0.08);
+    border-radius: 15px;
+    background: var(--cool);
+    transition: transform 0.25s ease, box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.infoItem:hover {
+    background: #e1e4c7;
+    box-shadow: 0 10px 20px rgba(57, 72, 31, 0.1);
+    transform: translateY(-4px);
+}
+
+.infoItem .icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
     border-radius: 10px;
-    color: var(--dark-green-text);
-    background: var(--cool-background);
+    color: var(--white);
+    background: var(--green);
 }
 
 .infoItem div {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
 }
 
 .infoItem strong {
-    font-size: 12px;
-    line-height: 1.25;
+    font-size: 11px;
 }
 
-.icon {
-    flex: 0 0 auto;
-    display: grid;
-    place-items: center;
-    width: 32px;
-    min-height: 28px;
-    border-radius: 5px;
-    color: var(--white);
-    background: var(--green);
+.infoItem small {
+    color: #59634e;
     font-size: 10px;
-    font-weight: 800;
+    line-height: 1.4;
 }
 
-.iconTitle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 10px;
-}
-
-.iconTitle h3 {
-    margin: 0;
-}
+/* Footer */
 
 footer {
     padding: 45px 64px 25px;
@@ -395,7 +443,6 @@ footer {
     background-image: url("../Images/footerBackground.png");
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .footer {
@@ -420,8 +467,13 @@ footer {
     line-height: 1.4;
 }
 
+.footer a {
+    transition: color var(--transition), transform var(--transition);
+}
+
 .footer a:hover {
     color: var(--white);
+    transform: translateX(3px);
 }
 
 .footerBottom {
@@ -431,4 +483,114 @@ footer {
     margin-top: 55px;
     color: #839282;
     font-size: 8px;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+    #cards {
+        grid-template-columns: 1fr;
+    }
+
+    .informationGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    header,
+    footer {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    main {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: 650px) {
+    .regioLabel {
+        display: none;
+    }
+
+    .paginas {
+        margin-left: auto;
+        gap: 10px;
+        font-size: 10px;
+    }
+
+    .paginas a:not(.inschrijfButton) {
+        display: none;
+    }
+
+    .cover {
+        height: 300px;
+        border-radius: 0 0 18px 18px;
+    }
+
+    .cover h1 {
+        right: 24px;
+        bottom: 28px;
+        left: 24px;
+        font-size: 32px;
+    }
+
+    #cardMiddle {
+        grid-template-columns: 1fr;
+    }
+
+    #informatieBlok {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #map1Div,
+    #map2Div {
+        min-height: 280px;
+    }
+
+    .aanmeldCard {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+    }
+
+    .informationCards {
+        padding: 22px;
+    }
+
+    .informationGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footerBottom {
+        flex-direction: column;
+        gap: 4px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 430px) {
+    #informatieBlok {
+        grid-template-columns: 1fr;
+    }
+
+    .cardTop,
+    .cardBottom {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    button[id^="routeButton"] {
+        width: calc(100% - 36px);
+        margin-right: 18px;
+        margin-left: 18px;
+    }
 }

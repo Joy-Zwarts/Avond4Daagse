@@ -5,29 +5,32 @@
 :root {
     --dark: #3f4447;
     --green: #405624;
+    --green-dark: #30451b;
     --green-light: #dce2bd;
     --background: #f5f6f8;
     --line: #e5e8eb;
     --muted: #7b838c;
     --white: #ffffff;
     --tab-background: #f4f6f8;
+    --shadow-small: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 16px rgba(0, 0, 0, 0.13);
+    --transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-html {
+html,
+body {
     width: 100%;
     min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
     background: var(--background);
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
     color: var(--dark);
-    background: var(--background);
     font-family: Arial, sans-serif;
     font-size: 12px;
+    line-height: 1.45;
 }
 
 a {
@@ -35,9 +38,21 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+select {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
 header {
     padding: 10px 38px 0;
     background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .topbar {
@@ -51,6 +66,12 @@ header {
 .logo {
     display: block;
     width: 73px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: brightness(0.96);
 }
 
 .logo img {
@@ -77,6 +98,7 @@ header {
     color: var(--white);
     background: var(--green);
     font-size: 13px;
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.25);
 }
 
 .account {
@@ -86,6 +108,12 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
+    transition: var(--transition);
+}
+
+.account:hover {
+    color: var(--green-dark);
+    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -96,6 +124,13 @@ header {
     border: 3px solid var(--green);
     border-radius: 50%;
     font-size: 16px;
+    transition: var(--transition);
+}
+
+.account:hover .accountButton {
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
 }
 
 nav {
@@ -112,6 +147,9 @@ nav a {
     z-index: 1;
     display: flex;
     align-items: center;
+    flex: 0 0 auto;
+    min-width: max-content;
+    height: 25px;
     min-height: 25px;
     padding: 7px 11px 6px;
     border: 1px solid transparent;
@@ -120,159 +158,244 @@ nav a {
     color: #707981;
     background: var(--tab-background);
     font-size: 9px;
+    line-height: normal;
     white-space: nowrap;
+    transition: var(--transition);
 }
 
 nav a:hover {
+    z-index: 3;
     color: var(--green);
     background: var(--tab-background);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav a.active {
     z-index: 2;
+    height: 32px;
     min-height: 32px;
-    border: 1px solid var(--line);
-    border-bottom: 4px solid var(--background);
+    border-color: var(--line);
+    border-bottom-color: var(--background);
     color: var(--dark);
     background: var(--tab-background);
     font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.page-head,
+.container {
+    width: min(1160px, calc(100% - 84px));
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .page-head {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 29px 16px 12px;
+    padding: 29px 0 12px;
 }
 
 .page-head h1 {
-    margin: 0;
-    color: #28323e;
-    font-size: 25px;
+    margin: 0 0 5px;
+    color: var(--green);
+    font-size: 26px;
     line-height: 1.15;
 }
 
 .page-head p {
-    margin: 7px 0 0;
+    margin: 5px 0 16px;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .container {
-    max-width: 1080px;
-    margin: 8px auto 34px;
-    padding: 0 16px;
-}
-
-.card {
-    border: 1px solid #e8ebef;
-    border-radius: 9px;
-    background: var(--white);
-    box-shadow: 0 2px 3px #0002;
+    margin-bottom: 45px;
 }
 
 .grid {
     display: grid;
-    gap: 9px;
+    gap: 18px;
 }
 
 .stats {
     grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 20px;
+}
+
+.card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: var(--shadow-small);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    border-color: #d8dde1;
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
 }
 
 .stat {
-    min-height: 62px;
-    padding: 11px;
+    min-height: 132px;
+    padding: 22px;
 }
 
 .stat b {
     display: block;
-    margin-top: 4px;
-    font-size: 22px;
+    margin: 0 0 12px;
+    color: var(--green);
+    font-size: 30px;
+    line-height: 1;
+}
+
+.stat:not(:has(b)) {
+    color: var(--green);
 }
 
 .muted {
     color: var(--muted);
-    font-size: 8px;
 }
 
-.panel-title {
-    margin: 0 0 8px;
-    font-size: 11px;
-    font-weight: bold;
+.stat .muted {
+    margin-top: 6px;
+    font-size: 12px;
 }
 
 .table-card {
-    margin-top: 9px;
-    padding: 10px;
+    margin-top: 20px;
+    padding: 22px;
+}
+
+.panel-title {
+    margin: 0 0 14px;
+    color: var(--green);
+    font-size: 18px;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 8px;
+    font-size: 12px;
 }
 
 .table th {
     color: var(--muted);
-    font-weight: normal;
+    font-weight: 700;
     text-align: left;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .table td,
 .table th {
-    padding: 6px;
-    border-bottom: 1px solid #eef0f2;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+}
+
+.table tbody tr,
+.table tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tr:hover td {
+    background: #fafbf8;
 }
 
 .triple {
     grid-template-columns: 1fr 1.15fr 1.2fr;
-    margin-top: 9px;
+    margin-top: 20px;
 }
 
 .small-panel {
-    min-height: 130px;
-    padding: 11px;
+    min-height: 180px;
+    padding: 22px;
 }
 
 .person-row {
     display: flex;
     align-items: center;
-    gap: 7px;
-    margin: 9px 0;
+    gap: 10px;
+    margin: 14px 0;
 }
 
 .initial {
     display: grid;
     place-items: center;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    color: #415bd2;
-    background: #e8eafe;
-    font-size: 7px;
+    color: var(--green);
+    background: var(--green-light);
+    font-size: 10px;
     font-style: normal;
-}
-
-.check {
-    color: #6a871d;
-    font-size: 15px;
+    font-weight: 700;
 }
 
 .task {
-    margin: 8px 0;
-    padding: 7px 8px;
-    border: 1px solid #ccd2b9;
-    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 10px 0;
+    padding: 11px 12px;
+    border: 1px solid #d8dec7;
+    border-radius: 8px;
     background: #fafbf6;
+    transition: var(--transition);
+}
+
+.task:hover {
+    border-color: #bfcba5;
+    background: #f5f8ed;
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.08);
+}
+
+.task-checkbox {
+    flex: 0 0 auto;
+    width: 15px;
+    height: 15px;
+    margin: 2px 0 0;
+    accent-color: var(--green);
+    cursor: pointer;
+}
+
+.task label {
+    margin: 0;
+    cursor: pointer;
 }
 
 .money {
-    font-size: 21px;
+    display: block;
+    margin: 12px 0 6px;
+    color: var(--green);
+    font-size: 30px;
 }
 
 .small-panel p {
     line-height: 1.6;
+}
+
+#open-invoices {
+    margin-top: 14px;
+    line-height: 1.8;
+}
+
+#open-invoices a {
+    color: var(--green);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#open-invoices a:hover {
+    color: var(--green-dark);
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .triple {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 760px) {
@@ -281,37 +404,9 @@ nav a.active {
     }
 
     .topbar {
-        grid-template-columns: 75px 1fr auto;
+        grid-template-columns: 70px 1fr;
+        min-height: 58px;
         gap: 16px;
-    }
-
-    .regioLabel {
-        font-size: 11px;
-    }
-
-    .stats,
-    .triple {
-        grid-template-columns: 1fr;
-    }
-
-    .account {
-        font-size: 0;
-    }
-
-    .accountButton {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 520px) {
-    header {
-        padding: 10px 14px 0;
-    }
-
-    .topbar {
-        grid-template-columns: 58px 1fr;
-        min-height: 68px;
-        gap: 12px;
     }
 
     .logo,
@@ -319,122 +414,83 @@ nav a.active {
         width: 58px;
     }
 
-    .account {
-        display: none;
+    .regioLabel {
+        font-size: 11px;
     }
 
-    .regioLabel {
-        font-size: 10px;
+    .account {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+        margin-bottom: 8px;
     }
 
     nav {
-        margin: 0 -14px;
+        margin: 0 -18px;
+        padding-left: 18px;
+    }
+
+    .page-head,
+    .container {
+        width: auto;
+        margin-right: 0;
+        margin-left: 0;
+        padding-right: 14px;
         padding-left: 14px;
     }
 
     .page-head {
-        padding: 22px 14px 12px;
+        padding-top: 22px;
     }
 
-    .container {
-        margin-top: 8px;
-        padding: 0 14px;
+    .stats {
+        grid-template-columns: 1fr;
     }
 
-    .page-head h1 {
-        font-size: 22px;
+    .heading {
+        align-items: flex-start;
+    }
+
+    .card:hover {
+        transform: none;
     }
 }
 
-/* Definitieve headerstijl zoals op het aanmeldingenoverzicht */
-header {
-    padding: 10px 38px 0;
-    background: var(--white);
+@media (max-width: 450px) {
+    .regioLabel {
+        font-size: 10px;
+    }
+
+    .icon {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .account {
+        display: none;
+    }
+
+    .table-card,
+    .small-panel,
+    .stat {
+        padding: 18px;
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }
 
-.topbar {
-    display: grid;
-    grid-template-columns: 230px 1fr auto;
-    align-items: center;
-    min-height: 58px;
-    gap: 30px;
-}
-
-.topbar .logo {
-    display: block;
-    width: 73px;
-}
-
-.topbar .logo img {
-    display: block;
-    width: 73px;
-    height: auto;
-}
-
-.topbar .regioLabel {
-    display: flex;
-    align-items: center;
-    justify-self: start;
-    gap: 9px;
-    color: var(--green);
-    font-size: 14px;
-}
-
-.topbar .account {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--green);
-    font-size: 10px;
-    font-weight: 700;
-}
-
-.topbar .accountButton {
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border: 3px solid var(--green);
-    border-radius: 50%;
-    font-size: 16px;
-}
-
-header nav {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    min-height: 36px;
-    overflow-x: auto;
-    padding: 0 0 0 4px;
-}
-
-header nav a {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 7px 11px 6px;
-    border: 1px solid transparent;
-    border-bottom: 4px solid var(--white);
-    border-radius: 9px 9px 0 0;
-    color: #707981;
-    background: var(--tab-background);
-    font-size: 9px;
-    white-space: nowrap;
-}
-
-header nav a:hover {
-    color: var(--green);
-    background: var(--tab-background);
-}
-
-header nav a.active {
-    z-index: 2;
-    min-height: 32px;
-    border: 1px solid var(--line);
-    border-bottom: 4px solid var(--background);
-    color: var(--dark);
-    background: var(--tab-background);
-    font-weight: 700;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }

@@ -42,4 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
         // Hier kun je later een fetch naar je backend toevoegen.
         console.log("Accountgegevens opgeslagen.");
     });
+
+    const logoutButton = document.getElementById("logout-account");
+
+    logoutButton.addEventListener("click", () => {
+        const confirmed = window.confirm("Weet je zeker dat je wilt uitloggen?");
+
+        if (!confirmed) {
+            return;
+        }
+
+        sessionStorage.clear();
+        localStorage.removeItem("currentUser");
+
+        window.location.href = "inlogpaginaScholen.html";
+    });
 });

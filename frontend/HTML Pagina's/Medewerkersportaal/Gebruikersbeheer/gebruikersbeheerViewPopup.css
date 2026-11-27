@@ -5,11 +5,18 @@
 :root {
     --dark: #3f4447;
     --green: #405624;
+    --green-dark: #30451b;
+    --green-light: #dce2bd;
     --background: #f5f6f8;
     --line: #e5e8eb;
     --muted: #7b838c;
     --white: #ffffff;
     --tab-background: #f4f6f8;
+    --ink: #172033;
+    --danger: #e3aaad;
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    --shadow-hover: 0 7px 18px rgba(0, 0, 0, 0.14);
+    --transition: 0.2s ease;
 }
 
 html,
@@ -39,10 +46,19 @@ select {
     font: inherit;
 }
 
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
 header {
-    width: 100%;
     padding: 10px 38px 0;
     background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .topbar {
@@ -56,6 +72,12 @@ header {
 .logo {
     display: block;
     width: 73px;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: brightness(0.96);
 }
 
 .logo img {
@@ -82,6 +104,7 @@ header {
     color: var(--white);
     background: var(--green);
     font-size: 13px;
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.25);
 }
 
 .account {
@@ -91,6 +114,12 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.account:hover {
+    color: var(--green-dark);
+    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -101,6 +130,13 @@ header {
     border: 3px solid var(--green);
     border-radius: 50%;
     font-size: 16px;
+    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.account:hover .accountButton {
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
 }
 
 nav {
@@ -130,40 +166,49 @@ nav a {
     font-size: 9px;
     line-height: normal;
     white-space: nowrap;
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 nav a:hover {
+    z-index: 3;
     color: var(--green);
-    background: var(--tab-background);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
 }
 
 nav a.active {
     z-index: 2;
     height: 32px;
     min-height: 32px;
-    border: 1px solid var(--line);
-    border-bottom: 4px solid var(--background);
+    border-color: var(--line);
+    border-bottom-color: var(--background);
     color: var(--dark);
-    background: var(--tab-background);
     font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
 main {
-    width: 100%;
+    width: min(1160px, calc(100% - 84px));
     min-height: calc(100vh - 99px);
-    margin: 0;
-    padding: 29px 42px 45px;
-    background: var(--background);
+    margin: 0 auto;
+    padding: 29px 0 45px;
 }
 
 .card {
     border: 1px solid var(--line);
     border-radius: 16px;
     background: var(--white);
+    box-shadow: var(--shadow);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+    border-color: #d8dde1;
+    box-shadow: var(--shadow-hover);
 }
 
 .shadow {
-    box-shadow: 1px 3px 6px #0003;
+    box-shadow: var(--shadow);
 }
 
 .profile {
@@ -183,17 +228,19 @@ main {
     place-items: center;
     width: 155px;
     height: 155px;
+    border: 4px solid var(--green-light);
     border-radius: 50%;
-    color: #494b48;
-    background: #edeef0;
+    color: var(--green);
+    background: #f1f3eb;
     font-size: 70px;
+    box-shadow: 0 3px 10px rgba(64, 86, 36, 0.16);
 }
 
 .profile h1 {
     margin: 8px 0 22px;
-    color: #111111;
+    color: var(--green);
     font-size: 26px;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .form-grid {
@@ -207,23 +254,28 @@ label {
     margin-bottom: 7px;
     color: var(--dark);
     font-size: 12px;
+    font-weight: 700;
 }
 
 input,
 select {
     width: 100%;
     min-width: 0;
+    margin-top: 6px;
     padding: 10px;
     border: 1px solid var(--line);
-    border-radius: 6px;
-    color: #777777;
-    background: #d9d9d9;
+    border-radius: 8px;
+    color: #777;
+    background: #eef0f1;
+    cursor: not-allowed;
+    opacity: 1;
 }
 
-.date-parts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+input:disabled,
+select:disabled {
+    color: #777;
+    background: #eef0f1;
+    opacity: 1;
 }
 
 .certificates {
@@ -236,18 +288,17 @@ select {
     gap: 20px;
     min-height: 86px;
     padding: 24px 0;
-    border-top: 1px solid #d5d1dc;
+    border-top: 1px solid var(--line);
 }
 
 .certificate button {
     margin-left: auto;
-    padding: 4px 22px;
+    padding: 7px 18px;
     border: 1px solid var(--line);
-    border-radius: 6px;
-    color: var(--dark);
-    background: #d9d9d9;
-    cursor: pointer;
-    font-size: 12px;
+    border-radius: 8px;
+    color: var(--muted);
+    background: #eef0f1;
+    cursor: not-allowed;
 }
 
 .badge {
@@ -265,7 +316,7 @@ select {
 }
 
 .pending {
-    color: #555555;
+    color: #555;
     background: #eeeeee;
 }
 
@@ -292,19 +343,41 @@ select {
     gap: 10px;
     min-height: 44px;
     padding: 10px 16px;
-    border-radius: 25px;
+    border: 1px solid transparent;
+    border-radius: 12px;
     font-size: 12px;
     font-weight: 700;
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .edit-button {
+    border-color: var(--green);
     color: var(--white);
     background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
+}
+
+.edit-button:hover {
+    border-color: var(--green-dark);
+    color: var(--white);
+    background: var(--green-dark);
+    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.36);
+    transform: translateY(-2px);
 }
 
 .delete-button {
+    border-color: #d49a9e;
     color: #51383a;
-    background: #e3aaad;
+    background: var(--danger);
+    box-shadow: 0 3px 8px rgba(150, 55, 60, 0.16);
+}
+
+.delete-button:hover {
+    border-color: #c8868b;
+    color: #4d292b;
+    background: #d99599;
+    box-shadow: 0 6px 14px rgba(150, 55, 60, 0.26);
+    transform: translateY(-2px);
 }
 
 .back-button {
@@ -316,11 +389,20 @@ select {
     min-height: 44px;
     margin: 20px auto 0;
     padding: 10px 16px;
-    border-radius: 8px;
+    border: 1px solid var(--green);
+    border-radius: 12px;
     color: var(--white);
     background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
     font-size: 12px;
     font-weight: 700;
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.back-button:hover {
+    background: var(--green-dark);
+    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.36);
+    transform: translateY(-2px);
 }
 
 .status-message {
@@ -334,10 +416,11 @@ dialog {
     padding: 28px;
     border: 1px solid var(--line);
     border-radius: 16px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
 }
 
 dialog::backdrop {
-    background: #0005;
+    background: rgba(0, 0, 0, 0.33);
 }
 
 .dialog-close {
@@ -348,6 +431,17 @@ dialog::backdrop {
     color: var(--dark);
     background: var(--white);
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.dialog-close:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--green-light);
+}
+
+[hidden] {
+    display: none !important;
 }
 
 @media (max-width: 760px) {
@@ -383,6 +477,8 @@ dialog::backdrop {
     }
 
     main {
+        width: auto;
+        margin: 0;
         padding: 22px 14px 35px;
     }
 
@@ -437,5 +533,22 @@ dialog::backdrop {
 
     .profile h1 {
         font-size: 22px;
+    }
+
+    .profile-avatar {
+        width: 76px;
+        height: 76px;
+        font-size: 34px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

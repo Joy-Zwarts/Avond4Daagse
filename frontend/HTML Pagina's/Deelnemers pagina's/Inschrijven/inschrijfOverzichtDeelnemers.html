@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Controleer je inschrijving voor de Avond4Daagse Den Haag.">
+        <title>Inschrijving controleren | Avond4Daagse Den Haag</title>
+
+        <link rel="stylesheet" href="inschrijfOverzichtDeelnemers.css">
+        <script src="https://kit.fontawesome.com/ac06c0bab5.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <a class="logo" href="homeDeelnemers.html">
+                    <img src="../../Images/avond4daagseLogo.png" alt="Avond4Daagse logo">
+                </a>
+
+                <div class="regioLabel">
+                    <span class="pin"><i class="fa-solid fa-location-dot"></i></span>
+                    Avond4Daagse Den Haag
+                </div>
+
+                <div class="paginas">
+                    <a href="../homeDeelnemers.html">Home</a>
+                    <a href="../routesDeelnemers.html">Routes</a>
+                    <a href="../Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html">Nieuws &amp; updates</a>
+                    <a href="../contactpaginaDeelnemers.html">Contact</a>
+                    <a class="active inschrijfButton" href="inschrijvenDeelnemers.html">Inschrijven</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="pageIntro">
+                <span class="stepLabel">Stap 2 van 3</span>
+                <h1>Controleer je inschrijving</h1>
+                <p>Controleer de gegevens hieronder. Klopt alles? Ga dan door naar betalen.</p>
+            </section>
+
+            <section class="overviewCard" aria-labelledby="overviewTitle">
+                <div class="cardHeading">
+                    <div>
+                        <span class="eyebrow">Overzicht</span>
+                        <h2 id="overviewTitle">Jouw inschrijving</h2>
+                    </div>
+                </div>
+
+                <div class="contactSummary">
+                    <h3><i class="fa-regular fa-user"></i> Contactpersoon</h3>
+                    <p id="contactSummary">Nog geen gegevens geladen.</p>
+                </div>
+
+                <div class="participantsHeader">
+                    <h3><i class="fa-solid fa-children"></i> Deelnemers</h3>
+                    <span id="participantCount">0 kinderen</span>
+                </div>
+
+                <div id="participantsOverview" class="participantsOverview"></div>
+
+                <div class="priceSummary">
+                    <div>
+                        <span>Inschrijfgeld</span>
+                        <small>€ 8,50 per kind</small>
+                    </div>
+                    <strong id="totalPrice">€ 0,00</strong>
+                </div>
+
+                <div class="actionButtons">
+                    <a class="secondaryButton" href="inschrijvenDeelnemers.html">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Inschrijving aanpassen
+                    </a>
+                    <button id="continueButton" class="primaryButton" type="button">
+                        Doorgaan naar betalen
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer">
+                <div>
+                    <strong><i class="fa-solid fa-location-dot"></i> Avond4Daagse Den Haag</strong>
+                    <p>Vier avonden samen wandelen, plezier maken, genieten en elkaar ontmoeten.</p>
+                </div>
+
+                <div>
+                    <strong>Snelkoppelingen</strong>
+                    <a href="../inschrijvenDeelnemers.html">Inschrijven</a>
+                    <a href="../routesDeelnemers.html">Routepagina</a>
+                    <a href="../Nieuws&Updates/nieuwsEnUpdatesDeelnemers.html">Nieuws</a>
+                    <a href="../contactpaginaDeelnemers.html">Contact opnemen</a>
+                    <a href="../../landingspagina.html">Terug naar landingspagina</a>
+                </div>
+
+                <div>
+                    <strong>Neem contact op</strong>
+                    <span class="iconTitle"><i class="fa-regular fa-envelope"></i>Nog te bevestigen</span>
+                    <span class="iconTitle"><i class="fa-solid fa-phone"></i>Nog te bevestigen</span>
+                    <span class="iconTitle"><i class="fa-solid fa-circle-info"></i>Nog te bevestigen</span>
+                </div>
+            </div>
+
+            <div class="footerBottom">
+                <span>© 2026 Avond4Daagse Den Haag. Alle rechten voorbehouden.</span>
+                <span>Privacyverklaring &nbsp; Cookies</span>
+            </div>
+        </footer>
+
+        <script src="inschrijfOverzichtDeelnemers.js"></script>
+    </body>
+</html>

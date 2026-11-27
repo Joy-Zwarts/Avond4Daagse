@@ -5,12 +5,17 @@
 :root {
     --dark: #3f4447;
     --green: #405624;
+    --green-dark: #30451b;
+    --green-light: #dce2bd;
     --background: #f5f6f8;
     --line: #e5e8eb;
     --muted: #7b838c;
     --white: #ffffff;
     --tab-background: #f4f6f8;
-    --shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+    --ink: #172033;
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    --shadow-hover: 0 7px 18px rgba(0, 0, 0, 0.14);
+    --transition: 0.2s ease;
 }
 
 html,
@@ -34,9 +39,25 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
 header {
     padding: 10px 38px 0;
     background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .topbar {
@@ -50,6 +71,12 @@ header {
 .logo {
     display: block;
     width: 73px;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: brightness(0.96);
 }
 
 .logo img {
@@ -76,6 +103,7 @@ header {
     color: var(--white);
     background: var(--green);
     font-size: 13px;
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.25);
 }
 
 .account {
@@ -85,6 +113,12 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.account:hover {
+    color: var(--green-dark);
+    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -95,6 +129,13 @@ header {
     border: 3px solid var(--green);
     border-radius: 50%;
     font-size: 16px;
+    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.account:hover .accountButton {
+    color: var(--white);
+    background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
 }
 
 nav {
@@ -124,11 +165,15 @@ nav a {
     font-size: 9px;
     line-height: normal;
     white-space: nowrap;
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 nav a:hover {
+    z-index: 3;
     color: var(--green);
     background: var(--tab-background);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
 }
 
 nav a.active {
@@ -140,120 +185,152 @@ nav a.active {
     color: var(--dark);
     background: var(--tab-background);
     font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.page-head,
+.container {
+    width: min(1160px, calc(100% - 84px));
+    margin: 0 auto;
 }
 
 .page-head {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 29px 16px 12px;
+    padding: 29px 0 12px;
 }
 
 .page-head h1 {
     margin: 0;
-    color: #28323e;
-    font-size: 25px;
+    color: var(--green);
+    font-size: 26px;
     line-height: 1.15;
 }
 
 .page-head p {
     margin: 7px 0 0;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .container {
-    max-width: 1080px;
-    margin: 8px auto 34px;
-    padding: 0 16px;
+    margin-bottom: 40px;
 }
 
 .card {
-    border: 1px solid #e8ebef;
-    border-radius: 9px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
     background: var(--white);
     box-shadow: var(--shadow);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+    border-color: #d8dde1;
+    box-shadow: var(--shadow-hover);
 }
 
 .post-form {
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     padding: 22px;
 }
 
 .panel-title {
-    margin: 0 0 16px;
-    color: #28323e;
-    font-size: 17px;
+    margin: 0 0 18px;
+    color: var(--green);
+    font-size: 18px;
 }
 
 .upload {
     display: grid;
-    min-height: 150px;
+    min-height: 170px;
     place-items: center;
     align-content: center;
-    gap: 8px;
-    margin-bottom: 18px;
-    padding: 22px;
-    border: 1px dashed #cbd2d9;
-    border-radius: 8px;
+    gap: 9px;
+    margin-bottom: 22px;
+    padding: 24px;
+    border: 2px dashed #cbd2d9;
+    border-radius: 12px;
     color: var(--muted);
-    background: #f6f7f9;
+    background: #f8fafb;
     text-align: center;
+    cursor: pointer;
+    transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.upload:hover,
+.upload:focus-within {
+    border-color: var(--green);
+    background: #f1f5e8;
+    box-shadow: 0 4px 12px rgba(64, 86, 36, 0.12);
+    transform: translateY(-1px);
 }
 
 .upload b {
     color: var(--green);
-    font-size: 27px;
+    font-size: 30px;
+}
+
+.upload span {
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .upload small {
     color: var(--muted);
-    font-size: 10px;
+    font-size: 11px;
 }
 
 label {
     display: block;
-    margin: 12px 0 6px;
+    margin: 15px 0 7px;
     color: var(--dark);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
 }
 
 .input,
 textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #dde1e6;
-    border-radius: 6px;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
     outline: none;
-    color: var(--dark);
+    color: var(--ink);
     background: var(--white);
     font: inherit;
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
-textarea {
-    min-height: 150px;
-    resize: vertical;
+.input:hover,
+textarea:hover {
+    border-color: #c8d0d6;
 }
 
 .input:focus,
 textarea:focus {
-    border-color: #8ba64f;
-    box-shadow: 0 0 0 2px rgba(139, 166, 79, 0.18);
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(64, 86, 36, 0.15);
+}
+
+textarea {
+    min-height: 170px;
+    resize: vertical;
 }
 
 .checkbox-label {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin: 16px 0;
+    gap: 9px;
+    margin: 18px 0 20px;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .checkbox-label input {
-    width: auto;
+    width: 16px;
+    height: 16px;
     margin: 0;
     accent-color: var(--green);
 }
@@ -262,25 +339,50 @@ textarea:focus {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
-    min-height: 36px;
-    padding: 9px 15px;
-    border: 0;
-    border-radius: 7px;
+    gap: 8px;
+    min-height: 40px;
+    padding: 10px 18px;
+    border: 1px solid var(--green);
+    border-radius: 9px;
     color: var(--white);
     background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
     font: inherit;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition), filter var(--transition);
+}
+
+.button:hover {
+    border-color: var(--green-dark);
+    color: var(--white);
+    background: var(--green-dark);
+    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.36);
+    transform: translateY(-2px);
+}
+
+.button:active {
+    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.22);
+    transform: translateY(0);
 }
 
 .button.full {
     width: 100%;
 }
 
-.button:hover {
-    background: #30451b;
+.load-error {
+    padding: 12px;
+    border-radius: 8px;
+    color: #8a2525;
+    background: #ffe8e8;
+}
+
+code {
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: var(--green-dark);
+    background: var(--green-light);
 }
 
 @media (max-width: 760px) {
@@ -315,17 +417,21 @@ textarea:focus {
         padding-left: 18px;
     }
 
+    .page-head,
+    .container {
+        width: 100%;
+    }
+
     .page-head {
         padding: 22px 14px 12px;
     }
 
     .container {
-        margin-top: 8px;
         padding: 0 14px;
     }
 
     .post-form {
-        padding: 18px;
+        padding: 22px;
     }
 }
 
@@ -342,5 +448,37 @@ textarea:focus {
 
     .account {
         display: none;
+    }
+
+    .page-head h1 {
+        font-size: 22px;
+    }
+
+    .page-head p {
+        font-size: 11px;
+    }
+
+    .post-form {
+        padding: 18px;
+    }
+
+    .upload {
+        min-height: 145px;
+        padding: 18px;
+    }
+
+    textarea {
+        min-height: 145px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

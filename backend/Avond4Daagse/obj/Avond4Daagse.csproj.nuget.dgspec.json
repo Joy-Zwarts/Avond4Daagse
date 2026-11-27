@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jelle1710\\.vscode\\avond4daagse project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj": {}
+    "C:\\Users\\joyzw\\SE3Project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jelle1710\\.vscode\\avond4daagse project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj": {
+    "C:\\Users\\joyzw\\SE3Project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jelle1710\\.vscode\\avond4daagse project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj",
+        "projectUniqueName": "C:\\Users\\joyzw\\SE3Project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj",
         "projectName": "Avond4Daagse",
-        "projectPath": "C:\\Users\\jelle1710\\.vscode\\avond4daagse project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj",
-        "packagesPath": "C:\\Users\\jelle1710\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jelle1710\\.vscode\\avond4daagse project\\Avond4Daagse\\backend\\Avond4Daagse\\obj\\",
+        "projectPath": "C:\\Users\\joyzw\\SE3Project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj",
+        "packagesPath": "C:\\Users\\joyzw\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joyzw\\SE3Project\\Avond4Daagse\\backend\\Avond4Daagse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jelle1710\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\joyzw\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.404/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-green: #102516;
+    --dark-green-text: #39481f;
+    --normal-green: #5e751c;
+    --highlight-green: #738f20;
+    --cool-background: #d2d3b4;
+    --background: #f4f4ee;
+    --white: #ffffff;
+    --text: #27302a;
+    --dark-text: #444647;
+    --muted: #69716a;
+    --line: #edf0e8;
+    --shadow: 0 10px 28px rgba(38, 60, 37, 0.12);
+    --small-shadow: 0 4px 14px rgba(38, 60, 37, 0.08);
+    --hover-shadow: 0 14px 34px rgba(38, 60, 37, 0.16);
+    --transition: 0.25s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    background: var(--background);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+button,
+input,
+label,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+header {
+    padding: 0 64px;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    min-height: 76px;
+    margin: 0 auto;
+}
+
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo img {
+    display: block;
+    width: 78px;
+    height: auto;
+}
+
+.regioLabel {
+    flex: 1;
+    color: var(--dark-green-text);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.pin {
+    display: inline-grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 6px;
+    color: var(--white);
+    background: var(--normal-green);
+    font-size: 12px;
+}
+
+.paginas {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    color: var(--dark-green-text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.paginas a {
+    transition: color var(--transition), transform var(--transition);
+}
+
+.paginas a:hover {
+    color: var(--highlight-green);
+    transform: translateY(-1px);
+}
+
+.paginas a:focus-visible,
+.inschrijfButton:focus-visible {
+    outline: 3px solid rgba(115, 143, 32, 0.35);
+    outline-offset: 3px;
+}
+
+.paginas a.active.inschrijfButton {
+    color: var(--white);
+    background: var(--dark-green-text);
+}
+
+.inschrijfButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--normal-green);
+    font-weight: 800;
+    box-shadow: var(--small-shadow);
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.inschrijfButton:hover {
+    color: var(--white);
+    background: var(--dark-green);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.inschrijfButton:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
+}
+
+main {
+    flex: 1;
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: 70px 32px 90px;
+    display: grid;
+    place-items: center;
+}
+
+.confirmationCard {
+    width: min(100%, 620px);
+    padding: 48px 42px;
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.successIcon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 22px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--white);
+    background: var(--normal-green);
+    font-size: 28px;
+}
+
+.stepLabel {
+    color: var(--normal-green);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.confirmationCard h1 {
+    margin: 10px 0 14px;
+    color: var(--dark-text);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+}
+
+.confirmationCard p {
+    max-width: 470px;
+    margin: 0 auto 28px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.primaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 10px;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--normal-green), var(--highlight-green));
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--small-shadow);
+    transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.primaryButton:hover {
+    color: var(--white);    
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.primaryButton:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
+}
+
+.primaryButton:focus-visible {
+    outline: 3px solid rgba(115, 143, 32, 0.35);
+    outline-offset: 3px;
+}
+
+footer {
+    padding: 25px 64px;
+    color: #839282;
+    background: var(--dark-green);
+    background-image: url("../../Images/footerBackground.png");
+    box-shadow: 0 -4px 16px rgba(38, 60, 37, 0.08);
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 90px;
+    color: #eef3e7;
+}
+
+.footer strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 11px;
+}
+
+.footer p,
+.footer a,
+.footer span {
+    display: block;
+    margin: 7px 0;
+    color: #c4d0be;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.footer a {
+    transition: color var(--transition), transform var(--transition);
+}
+
+.footer a:hover {
+    color: var(--white);
+    transform: translateX(3px);
+}
+
+.footerBottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 55px;
+    color: #839282;
+    font-size: 8px;
+}
+
+@media (max-width: 760px) {
+    header {
+        padding: 0 18px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        padding: 12px 0;
+    }
+
+    .logo img {
+        width: 64px;
+    }
+
+    .regioLabel {
+        font-size: 10px;
+    }
+
+    .paginas {
+        order: 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 8px 14px;
+        font-size: 10px;
+    }
+
+    .paginas .inschrijfButton {
+        min-height: 34px;
+        padding: 8px 10px;
+    }
+
+    main {
+        padding: 42px 16px 60px;
+    }
+
+    .confirmationCard {
+        padding: 36px 22px;
+        border-radius: 16px;
+    }
+
+    footer {
+        padding: 35px 20px 22px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footerBottom {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 35px;
+    }
+}

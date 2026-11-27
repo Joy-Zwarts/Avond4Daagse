@@ -5,12 +5,22 @@
 :root {
     --dark: #3f4447;
     --green: #405624;
+    --green-dark: #30451b;
+    --green-light: #dce2bd;
     --background: #f5f6f8;
     --line: #e5e8eb;
     --muted: #7b838c;
     --white: #ffffff;
     --tab-background: #f4f6f8;
-    --CoolBackground: #d2d3b4;
+    --ink: #172033;
+    --danger: #e3aaad;
+    --danger-dark: #d99599;
+
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 7px 18px rgba(0, 0, 0, 0.14);
+    --green-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
+
+    --transition: 0.2s ease;
 }
 
 html,
@@ -35,14 +45,27 @@ a {
 }
 
 button,
-input {
+input,
+select {
     font: inherit;
 }
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid #8ba64f;
+    outline-offset: 3px;
+}
+
+/* Header */
 
 header {
     width: 100%;
     padding: 10px 38px 0;
     background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .topbar {
@@ -56,6 +79,14 @@ header {
 .logo {
     display: block;
     width: 73px;
+    transition:
+        transform var(--transition),
+        filter var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: brightness(0.96);
 }
 
 .logo img {
@@ -82,6 +113,7 @@ header {
     color: var(--white);
     background: var(--green);
     font-size: 13px;
+    box-shadow: var(--green-shadow);
 }
 
 .account {
@@ -91,6 +123,14 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
+    transition:
+        color var(--transition),
+        transform var(--transition);
+}
+
+.account:hover {
+    color: var(--green-dark);
+    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -100,7 +140,19 @@ header {
     height: 32px;
     border: 3px solid var(--green);
     border-radius: 50%;
+    color: var(--green);
+    background: var(--green-light);
     font-size: 16px;
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.account:hover .accountButton {
+    color: var(--white);
+    background: var(--green);
+    box-shadow: var(--green-shadow);
 }
 
 nav {
@@ -130,63 +182,76 @@ nav a {
     font-size: 9px;
     line-height: normal;
     white-space: nowrap;
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
 }
 
 nav a:hover {
+    z-index: 3;
     color: var(--green);
     background: var(--tab-background);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav a.active {
     z-index: 2;
     height: 32px;
     min-height: 32px;
-    border: 1px solid #e5e8eb;
-    border-bottom: 4px solid var(--background);
+    border-color: var(--line);
+    border-bottom-color: var(--background);
     color: var(--dark);
     background: var(--tab-background);
     font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-.accountButton {
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    background-color: var(--CoolBackground);
-    border: 3px solid var(--green);
-    border-radius: 50%;
-    font-size: 16px;
-}
+/* Main content */
 
 main {
-    width: 100%;
+    width: min(1160px, calc(100% - 84px));
     min-height: calc(100vh - 99px);
-    margin: 0;
-    padding: 29px 42px 45px;
+    margin: 0 auto;
+    padding: 29px 0 45px;
     background: var(--background);
 }
 
 .card {
-    border: 1px solid #e8ebef;
+    border: 1px solid var(--line);
     border-radius: 16px;
     background: var(--white);
+    box-shadow: var(--shadow);
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.card:hover {
+    border-color: #d8dde1;
+    box-shadow: var(--shadow-hover);
 }
 
 .shadow {
-    box-shadow: 1px 3px 6px #0003;
+    box-shadow: var(--shadow);
 }
 
+/* Account card */
+
 .account-profile {
-    width: min(850px, 100%);
+    width: min(1000px, 100%);
     margin: 0 auto;
-    padding: 36px 28px 24px;
+    padding: 30px;
 }
 
 .profile-body {
     display: grid;
-    grid-template-columns: 135px minmax(0, 1fr);
-    gap: 20px;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 30px;
 }
 
 .profile-photo {
@@ -200,9 +265,11 @@ main {
     place-items: center;
     width: 125px;
     height: 125px;
+    border: 3px solid var(--green-light);
     border-radius: 50%;
-    color: #494b48;
-    background: #edeef0;
+    color: var(--green);
+    background: #eef1e7;
+    box-shadow: var(--shadow);
     font-size: 58px;
 }
 
@@ -212,29 +279,25 @@ main {
     font-size: 11px;
     font-weight: 700;
     cursor: pointer;
+    transition: color var(--transition);
 }
 
-input[type="file"] {
-    width: 100%;
-    margin-top: 7px;
-    padding: 6px;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: var(--white);
-    font-size: 10px;
+.upload-label:hover {
+    color: var(--green-dark);
 }
 
 .profile-content h1 {
-    margin: 8px 0 22px;
-    color: #111111;
+    margin: 4px 0 22px;
+    color: var(--green);
     font-size: 26px;
-    font-weight: 400;
+    font-weight: 700;
+    line-height: 1.15;
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 20px 30px;
+    gap: 18px 24px;
 }
 
 .span-2 {
@@ -246,32 +309,52 @@ label {
     margin-bottom: 7px;
     color: var(--dark);
     font-size: 12px;
+    font-weight: 700;
 }
 
 input:not([type="file"]),
 .form-grid select {
     width: 100%;
     min-width: 0;
+    min-height: 40px;
     padding: 10px;
     border: 1px solid var(--line);
-    border-radius: 6px;
-    color: #333333;
+    border-radius: 8px;
+    color: var(--ink);
     background: var(--white);
-}
-
-input:focus {
-    border-color: var(--green);
     outline: none;
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
 }
 
-.date-parts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+input:not([type="file"]):hover,
+.form-grid select:hover {
+    border-color: #c8d0d6;
 }
+
+input:not([type="file"]):focus,
+.form-grid select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(64, 86, 36, 0.15);
+}
+
+input[type="file"] {
+    width: 100%;
+    margin-top: 7px;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--dark);
+    background: var(--white);
+    font-size: 10px;
+}
+
+/* Certificaten */
 
 .certificates {
-    margin-top: 34px;
+    margin-top: 30px;
 }
 
 .certificate {
@@ -280,31 +363,43 @@ input:focus {
     gap: 12px;
     min-height: 72px;
     padding: 18px 0;
-    border-top: 1px solid #d5d1dc;
+    border-top: 1px solid var(--line);
     font-size: 11px;
 }
 
 .certificate button {
-    padding: 5px 10px;
+    margin-left: auto;
+    padding: 7px 12px;
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: 8px;
     color: var(--dark);
-    background: #d9d9d9;
+    background: var(--white);
     cursor: pointer;
-    font-size: 10px;
+    font-size: 11px;
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
 }
 
-.certificate button:first-of-type {
-    margin-left: auto;
+.certificate button:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--green-light);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
 }
 
 .badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 9px;
+    padding: 6px 10px;
     border-radius: 18px;
     font-size: 10px;
+    font-weight: 700;
 }
 
 .approved {
@@ -322,72 +417,109 @@ input:focus {
     background: #f1e1e1;
 }
 
-.upload-button {
-    border: 0;
+/* Buttons */
+
+.upload-button,
+.save-button {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     width: 100%;
-    margin-top: 18px;
+    min-height: 42px;
     padding: 10px 16px;
-    border-radius: 8px;
+    border: 1px solid var(--green);
+    border-radius: 9px;
     color: var(--white);
     background: var(--green);
     cursor: pointer;
     font-size: 12px;
     font-weight: 700;
+    box-shadow: var(--green-shadow);
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.upload-button {
+    margin-top: 18px;
+}
+
+.save-button {
+    margin-top: 12px;
+}
+
+.upload-button:hover,
+.save-button:hover {
+    border-color: var(--green-dark);
+    color: var(--white);
+    background: var(--green-dark);
+    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.34);
+    transform: translateY(-2px);
+}
+
+.upload-button:active,
+.save-button:active {
+    box-shadow: var(--shadow);
+    transform: translateY(0);
 }
 
 #certificate-upload {
     display: none;
 }
 
-.save-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    min-height: 44px;
-    margin-top: 12px;
-    padding: 10px 16px;
-    border: 0;
-    border-radius: 8px;
-    color: var(--white);
-    background: var(--green);
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.save-button:hover,
-.upload-button:hover {
-    background: #30451b;
-}
+/* Accountacties */
 
 .account-actions {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 12px;
     margin-top: 16px;
 }
 
 .account-actions button,
 #delete-dialog button {
-    padding: 8px 12px;
+    min-height: 38px;
+    padding: 9px 14px;
     border: 1px solid var(--line);
-    border-radius: 6px;
-    background: white;
+    border-radius: 8px;
+    color: var(--dark);
+    background: var(--white);
     cursor: pointer;
     font: inherit;
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
 }
 
-#delete-account,
-#delete-dialog button[value="delete"] {
-    color: #922b24;
+.account-actions button:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--green-light);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
 }
+
+#delete-account {
+    border-color: #d49a9e;
+    color: #654848;
+    background: #f1e1e1;
+}
+
+#delete-account:hover {
+    border-color: var(--danger-dark);
+    color: #4d292b;
+    background: var(--danger);
+}
+
+/* Statusmelding */
 
 .status-message {
     min-height: 20px;
@@ -396,15 +528,28 @@ input:focus {
     text-align: center;
 }
 
+#message:empty {
+    display: none;
+}
+
+/* Dialog */
+
 dialog {
+    width: min(480px, calc(100% - 28px));
     max-width: 480px;
     padding: 28px;
     border: 1px solid var(--line);
     border-radius: 16px;
+    background: var(--white);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+
+dialog h2 {
+    margin-top: 0;
 }
 
 dialog::backdrop {
-    background: #0005;
+    background: rgba(0, 0, 0, 0.33);
 }
 
 .dialog-close {
@@ -416,6 +561,14 @@ dialog::backdrop {
     background: var(--white);
     cursor: pointer;
 }
+
+/* Verborgen elementen */
+
+[hidden] {
+    display: none !important;
+}
+
+/* Tablet */
 
 @media (max-width: 760px) {
     header {
@@ -450,6 +603,8 @@ dialog::backdrop {
     }
 
     main {
+        width: auto;
+        margin: 0;
         padding: 22px 14px 35px;
     }
 
@@ -459,6 +614,7 @@ dialog::backdrop {
 
     .profile-body {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .avatar {
@@ -480,10 +636,12 @@ dialog::backdrop {
         gap: 8px;
     }
 
-    .certificate button:first-of-type {
+    .certificate button {
         margin-left: 0;
     }
 }
+
+/* Mobiel */
 
 @media (max-width: 450px) {
     .regioLabel {
@@ -500,6 +658,10 @@ dialog::backdrop {
         display: none;
     }
 
+    .profile-content h1 {
+        font-size: 22px;
+    }
+
     .certificate {
         align-items: flex-start;
         flex-direction: column;
@@ -509,7 +671,24 @@ dialog::backdrop {
         margin-left: 0;
     }
 
-    .profile-content h1 {
-        font-size: 22px;
+    .account-actions {
+        flex-direction: column;
+    }
+
+    .account-actions button {
+        width: 100%;
+    }
+}
+
+/* Minder animaties indien door gebruiker ingesteld */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

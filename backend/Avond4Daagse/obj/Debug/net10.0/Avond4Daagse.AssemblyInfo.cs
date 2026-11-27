@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Avond4Daagse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb00cb0bc8fcdbbf1bfd3c0c928c725afb5b86a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+058737249ec15cf864c5c734c22e79ed66acebab")]
 [assembly: System.Reflection.AssemblyProductAttribute("Avond4Daagse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Avond4Daagse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

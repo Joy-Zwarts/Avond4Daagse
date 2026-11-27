@@ -1,3 +1,6 @@
+const storageKey = "avond4daagseInschrijving";
+
+const form = document.querySelector("form");
 const participantsContainer = document.getElementById("participantsContainer");
 const addParticipantButton = document.getElementById("kindToevoegen");
 const removeParticipantButton = document.getElementById("kindVerwijderen");
@@ -11,7 +14,6 @@ function updateSchoolSection(participant) {
     }
 
     const enabled = schoolToggle.checked;
-
     schoolSection.hidden = !enabled;
 
     schoolSection.querySelectorAll("input").forEach((input) => {
@@ -21,12 +23,10 @@ function updateSchoolSection(participant) {
 }
 
 function updateParticipantNumbers() {
-    const participants =
-        participantsContainer.querySelectorAll(".participantForm");
+    const participants = participantsContainer.querySelectorAll(".participantForm");
 
     participants.forEach((participant, index) => {
-        const number =
-            participant.querySelector(".participantNumber");
+        const number = participant.querySelector(".participantNumber");
 
         if (number) {
             number.textContent = `Kind ${index + 1}`;
@@ -51,26 +51,11 @@ function createParticipant(number) {
         <section class="formTop">
             <div>
                 <label for="deelnemerNaam${number}">Naam</label>
-                <input
-                    id="deelnemerNaam${number}"
-                    name="deelnemerNaam[]"
-                    type="text"
-                    required
-                    minlength="2"
-                    placeholder="Naam deelnemer"
-                >
+                <input id="deelnemerNaam${number}" name="deelnemerNaam[]" type="text" required minlength="2" placeholder="Naam deelnemer">
             </div>
-
             <div>
                 <label for="deelnemerAchternaam${number}">Achternaam</label>
-                <input
-                    id="deelnemerAchternaam${number}"
-                    name="deelnemerAchternaam[]"
-                    type="text"
-                    required
-                    minlength="2"
-                    placeholder="Achternaam deelnemer"
-                >
+                <input id="deelnemerAchternaam${number}" name="deelnemerAchternaam[]" type="text" required minlength="2" placeholder="Achternaam deelnemer">
             </div>
         </section>
 
@@ -98,55 +83,51 @@ function createParticipant(number) {
             <p>keer deelnemen</p>
         </div>
 
-        <label for="accessability${number}">
-            Toegankelijkheid/ondersteuning
-        </label>
-        <textarea
-            id="accessability${number}"
-            name="accessability[]"
-            class="accessability"
-            minlength="20"
-            placeholder="Vertel ons optionele ondersteuningseisen zodat uw kind deel kan nemen"
-        ></textarea>
+        <label for="accessability${number}">Toegankelijkheid/ondersteuning</label>
+        <textarea id="accessability${number}" name="accessability[]" class="accessability" placeholder="Vertel ons optionele ondersteuningseisen zodat uw kind deel kan nemen"></textarea>
 
         <label for="schooldeelname${number}">Meedoen via school</label>
         <small>Schuif de slider naar “aan” als uw kind meedoet via school.</small>
         <label class="switch">
-            <input
-                type="checkbox"
-                id="schooldeelname${number}"
-                class="schooldeelname-toggle"
-                name="schooldeelname[]"
-                value="viaschool"
-            >
+            <input type="checkbox" id="schooldeelname${number}" class="schooldeelname-toggle" name="schooldeelname[]" value="viaschool">
             <span class="slider round"></span>
         </label>
 
         <section class="schooldeelname" hidden>
             <label for="school${number}">School</label>
-            <input
-                id="school${number}"
-                name="school[]"
-                placeholder="Naam school"
-            >
-
+            <input id="school${number}" name="school[]" placeholder="Naam school">
             <label for="klas${number}">Klas</label>
-            <input
-                id="klas${number}"
-                name="klas[]"
-                placeholder="Bijv. 1a"
-            >
-
+            <input id="klas${number}" name="klas[]" placeholder="Bijv. 1a">
             <label for="leerjaar${number}">Leerjaar</label>
-            <input
-                id="leerjaar${number}"
-                name="leerjaar[]"
-                placeholder="Bijv. groep 2"
-            >
+            <input id="leerjaar${number}" name="leerjaar[]" placeholder="Bijv. groep 2">
         </section>
     `;
 
     return participant;
+}
+
+function collectRegistrationData() {
+    return {
+        contactName: document.getElementById("contactNaam")?.value.trim() || "",
+        contactLastName: document.getElementById("contactAchternaam")?.value.trim() || "",
+        email: document.getElementById("email")?.value.trim() || "",
+        phone: document.getElementById("telefoonnummer")?.value.trim() || "",
+        postcode: document.getElementById("postcode")?.value.trim() || "",
+        newsletter: document.getElementById("nieuwsbrief")?.checked || false,
+        participants: Array.from(
+            participantsContainer.querySelectorAll(".participantForm")
+        ).map((participant) => ({
+            firstName: participant.querySelector('[name="deelnemerNaam[]"]')?.value.trim() || "",
+            lastName: participant.querySelector('[name="deelnemerAchternaam[]"]')?.value.trim() || "",
+            distance: participant.querySelector('[name="afstand[]"]')?.value || "",
+            previousParticipation: participant.querySelector('[name="eerdereDeelname[]"]')?.value || "",
+            accessibility: participant.querySelector('[name="accessability[]"]')?.value.trim() || "",
+            schoolParticipation: participant.querySelector('.schooldeelname-toggle')?.checked || false,
+            school: participant.querySelector('[name="school[]"]')?.value.trim() || "",
+            className: participant.querySelector('[name="klas[]"]')?.value.trim() || "",
+            schoolYear: participant.querySelector('[name="leerjaar[]"]')?.value.trim() || ""
+        }))
+    };
 }
 
 addParticipantButton.addEventListener("click", () => {
@@ -159,23 +140,30 @@ addParticipantButton.addEventListener("click", () => {
 });
 
 removeParticipantButton.addEventListener("click", () => {
-    const participants =
-        participantsContainer.querySelectorAll(".participantForm");
+    const participants = participantsContainer.querySelectorAll(".participantForm");
 
-    if (participants.length <= 1) {
-        return;
+    if (participants.length > 1) {
+        participants[participants.length - 1].remove();
+        updateParticipantNumbers();
     }
-
-    participants[participants.length - 1].remove();
-    updateParticipantNumbers();
 });
 
 participantsContainer.addEventListener("change", (event) => {
-    if (!event.target.classList.contains("schooldeelname-toggle")) {
+    if (event.target.classList.contains("schooldeelname-toggle")) {
+        updateSchoolSection(event.target.closest(".participantForm"));
+    }
+});
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+        form.reportValidity();
         return;
     }
 
-    updateSchoolSection(event.target.closest(".participantForm"));
+    sessionStorage.setItem(storageKey, JSON.stringify(collectRegistrationData()));
+    window.location.href = "inschrijfOverzichtDeelnemers.html";
 });
 
 participantsContainer

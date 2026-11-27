@@ -3,20 +3,24 @@
 }
 
 :root {
-    --green: #3d5423;
-    --dark-green: #19291d;
-    --dark-green-text: #263b2b;
-    --normal-green-highlight: #6d7f32;
-    --highlighted-page-green: #6d7f32;
-    --olive: #d5d7b5;
-    --olive-dark: #6d7f32;
-    --cream: #fcfbf8;
-    --text: #26313d;
-    --muted: #7f8990;
-    --white: #fff;
-    --line: #e7e9e1;
-    --light-grey-border: #e9e9e6;
-    --shadow: 0 3px 12px rgba(38, 60, 37, .12);
+    --dark-green: #102516;
+    --dark-green-text: #39481f;
+    --normal-green: #5e751c;
+    --highlight-green: #738f20;
+    --cool-background: #d2d3b4;
+    --background: #f4f4ee;
+    --white: #ffffff;
+    --text: #27302a;
+    --dark-text: #444647;
+    --muted: #69716a;
+    --line: #edf0e8;
+    --border: #e5e7eb;
+    --light-border: #e5e7eb;
+    --light-background: #f8fafc;
+    --shadow: 0 10px 28px rgba(38, 60, 37, 0.12);
+    --small-shadow: 0 4px 14px rgba(38, 60, 37, 0.08);
+    --hover-shadow: 0 14px 34px rgba(38, 60, 37, 0.16);
+    --transition: 0.25s ease;
 }
 
 html {
@@ -24,13 +28,17 @@ html {
 }
 
 body {
-    margin: 0;
     min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
-    background: #f4f4ee;
     color: var(--text);
+    background: var(--background);
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
+    line-height: 1.5;
 }
 
 a {
@@ -43,16 +51,28 @@ img {
     max-width: 100%;
 }
 
+button,
+input,
+label,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   HEADER EN NAVIGATIE
+========================= */
+
 header {
     padding: 0 64px;
     background: var(--white);
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 10px rgba(38, 60, 37, 0.04);
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    gap: 310px;
+    gap: 30px;
     width: 100%;
     min-height: 76px;
     margin: 0 auto;
@@ -82,7 +102,7 @@ header {
     margin-right: 5px;
     border-radius: 6px;
     color: var(--white);
-    background: var(--normal-green-highlight);
+    background: var(--normal-green);
     font-size: 12px;
 }
 
@@ -96,12 +116,25 @@ header {
 }
 
 .paginas a {
-    transition: color .2s ease, background-color .2s ease, box-shadow .2s ease;
+    position: relative;
+    transition: color var(--transition), transform var(--transition);
 }
 
-.paginas a:hover,
+.paginas a:hover {
+    color: var(--highlight-green);
+    transform: translateY(-1px);
+}
+
+.paginas a:focus-visible,
+.accountButton:focus-visible,
+.primary-button:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(115, 143, 32, 0.35);
+    outline-offset: 3px;
+}
+
 .paginas a.active:not(.accountButton) {
-    color: var(--highlighted-page-green);
+    color: var(--highlight-green);
 }
 
 .accountButton {
@@ -110,34 +143,52 @@ header {
     justify-content: center;
     min-height: 40px;
     padding: 10px 14px;
-    border-radius: 8px;
-    color: var(--dark-green-text);
-    background: var(--white);
+    border-radius: 9px;
+    color: var(--white) !important;
+    background: var(--normal-green);
     font-weight: 800;
-    box-shadow: var(--shadow);
+    box-shadow: var(--small-shadow);
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
 }
 
 .accountButton:hover {
-    color: #ffffff !important;
-    background: var(--normal-green-highlight);
-    transform: translateY(-1px);
+    color: var(--white) !important;
+    background: var(--dark-green);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
 }
 
+.accountButton:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
+}
+
+/* =========================
+   MAIN
+========================= */
+
 main {
+    flex: 1;
     width: 100%;
+    max-width: none;
     margin: 0 auto;
-    padding: 0 64px 70px;
+    padding: 54px 64px 80px;
 }
 
 .schoolHeader {
-    padding: 28px 0 18px;
+    padding: 0 0 30px;
     text-align: center;
 }
 
 .schoolHeader h1 {
-    margin: 0 0 5px;
-    font-size: 31px;
-    line-height: 1.1;
+    margin: 0 0 7px;
+    color: var(--dark-text);
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.15;
 }
 
 .schoolHeader p {
@@ -160,30 +211,41 @@ main {
 
 .route-card,
 .registration-section,
-.sponsors-section,
-.informationCards {
-    border: 1px solid var(--light-grey-border);
-    border-radius: 15px;
+.informationCards,
+.sponsorCards {
+    border: 1px solid var(--light-border);
+    border-radius: 22px;
     background: var(--white);
-    box-shadow: 0 2px 8px rgba(32, 45, 49, .06);
+    box-shadow: var(--shadow);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.route-card:hover,
+.registration-section:hover,
+.informationCards:hover,
+.sponsorCards:hover {
+    border-color: rgba(94, 117, 28, 0.3);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
 }
 
 .route-card {
-    margin-bottom: 20px;
-    padding: 18px 15px 21px;
+    margin-bottom: 26px;
+    padding: 30px 28px 32px;
 }
 
 .route-card h2 {
     margin: 0 0 20px;
+    color: var(--dark-text);
     font-size: 21px;
     text-align: center;
 }
 
 .route-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 250px;
-    gap: 26px;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.9fr);
+    gap: 32px;
+    align-items: stretch;
 }
 
 .route-fields {
@@ -193,15 +255,23 @@ main {
 }
 
 .route-field,
-.sponsor-card {
-    border: 1px solid #c2c59f;
+.sponsorCard {
+    border: 1px solid rgba(94, 117, 28, 0.24);
     border-radius: 12px;
-    background: var(--olive);
+    background: var(--cool-background);
 }
 
 .route-field {
-    min-height: 67px;
-    padding: 13px 12px;
+    min-height: 88px;
+    padding: 18px 16px;
+    transition: background-color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.route-field:hover {
+    border-color: rgba(94, 117, 28, 0.45);
+    background: #cdd0ad;
+    box-shadow: var(--small-shadow);
+    transform: translateY(-1px);
 }
 
 .route-field.full {
@@ -216,7 +286,7 @@ main {
     min-height: 28px;
     border-radius: 5px;
     color: var(--white);
-    background: var(--green);
+    background: var(--normal-green);
     font-size: 10px;
     font-weight: 800;
 }
@@ -226,7 +296,7 @@ main {
 }
 
 .route-field strong {
-    color: #252d2b;
+    color: var(--dark-text);
     font-size: 15px;
 }
 
@@ -238,32 +308,51 @@ main {
 #map2Div {
     width: 100%;
     height: 100%;
-    min-height: 250px;
+    min-height: 330px;
     margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--light-background);
+    box-shadow: inset 0 0 0 1px var(--light-border);
 }
 
 button {
     grid-column: 1 / -1;
     width: 100%;
     margin-top: 18px;
-    padding: 10px;
+    padding: 11px 14px;
     border: 0;
-    border-radius: 8px;
-    color: var(--dark-green-text);
-    background-color: var(--cream);
-    font-size: 12px;
-    font-weight: 600;
+    border-radius: 9px;
+    color: var(--white);
+    background: var(--normal-green);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
     cursor: pointer;
-    box-shadow: var(--shadow);
+    box-shadow: var(--small-shadow);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+button:hover {
+    background: var(--dark-green);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
 }
 
 .informationCards {
     margin-top: 14px;
-    padding: 16px;
+    padding: 18px;
 }
 
-.informationCards h2 {
-    font-size: 14px;
+.informationCards h2,
+.sponsorCards > h2 {
+    color: var(--dark-text);
+    font-size: 16px;
 }
 
 .informationGrid {
@@ -279,7 +368,14 @@ button {
     min-height: 82px;
     padding: 12px;
     border-radius: 10px;
-    background: var(--olive);
+    background: var(--cool-background);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.infoItem:hover {
+    background: #cdd0ad;
+    box-shadow: var(--small-shadow);
+    transform: translateY(-2px);
 }
 
 .infoItem div {
@@ -302,101 +398,123 @@ button {
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    padding: 20px 15px;
+    padding: 22px 18px;
 }
 
 .registration-section h2 {
     margin: 0 0 7px;
+    color: var(--dark-text);
     font-size: 25px;
 }
 
 .registration-section p {
     margin: 0;
-    color: #7d858b;
+    color: var(--muted);
     font-size: 10px;
 }
 
 .primary-button {
-    padding: 14px 28px;
-    border-radius: 12px;
-    background: var(--green);
-    box-shadow: 0 5px 12px #2d401d40;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 25px;
+    border-radius: 10px;
     color: var(--white);
-    font-size: 14px;
-    font-weight: 700;
+    background: var(--normal-green);
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: var(--small-shadow);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .primary-button:hover {
+    color: var(--white);
     background: var(--dark-green);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+    box-shadow: var(--small-shadow);
+}
+
+.sponsorCards {
+    margin-top: 20px;
+    padding: 18px;
+}
+
+.sponsorCards > h2 {
+    margin: 0 0 14px;
 }
 
 .sponsorGrid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 55px;
+    gap: 28px;
 }
 
 .sponsorCard {
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    min-height: 82px;
-    padding: 12px;
-    border-radius: 10px;
-    color: var(--dark-green);
-    background: var(--olive);
+    flex-direction: column;
+    min-height: 190px;
+    padding: 24px;
+    color: var(--dark-green-text);
+    background: var(--white);
+    box-shadow: var(--small-shadow);
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.sponsorCard:hover {
+    border-color: rgba(94, 117, 28, 0.42);
+    background: var(--white);
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-5px);
 }
 
 .sponsorLogo {
-    flex: 0 0 auto;
     display: grid;
     place-items: center;
-    width: 32px;
-    min-height: 28px;
-    border-radius: 5px;
-    color: var(--cream);
-    background: var(--green);
-    font-size: 10px;
-    font-weight: 800;
-}
-
-.sponsorLogo {
+    width: 58px;
+    height: 48px;
     overflow: hidden;
-    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--light-background);
 }
 
 .sponsorLogo img {
     display: block;
     width: 100%;
-    height: 28px;
+    height: 100%;
+    padding: 7px;
     object-fit: contain;
+}
+
+.sponsorCard h3 {
+    margin: 18px 0 8px;
+    color: var(--dark-green-text);
+    font-size: 15px;
+    line-height: 1.25;
 }
 
 .sponsorCard p {
     margin: 0;
     color: var(--muted);
-    font-size: 9px;
-    line-height: 1.35;
+    font-size: 10px;
+    line-height: 1.5;
 }
 
-.sponsorCard {
-    display: block;
-    min-height: 100px;
-}
-
-.sponsorCard h3 {
-    margin: 8px 0 5px;
-    font-size: 13px;
-}
-
-.sponsorCard small {
-    font-size: 11px;
-}
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     padding: 45px 64px 25px;
     color: #eef3e7;
     background: var(--dark-green) url("../Images/footerBackground.png") center / cover no-repeat;
+    box-shadow: 0 -4px 16px rgba(38, 60, 37, 0.08);
 }
 
 .footer {
@@ -421,8 +539,13 @@ footer {
     line-height: 1.4;
 }
 
+.footer a {
+    transition: color var(--transition), transform var(--transition);
+}
+
 .footer a:hover {
     color: var(--white);
+    transform: translateX(3px);
 }
 
 .footerBottom {
@@ -434,39 +557,35 @@ footer {
     font-size: 8px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     header {
-        padding: 0 24px;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-        gap: 14px 20px;
-        padding: 12px 0;
-    }
-
-    .regioLabel {
-        min-width: calc(100% - 110px);
-    }
-
-    .paginas {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 18px;
+        padding: 0 32px;
     }
 
     main {
-        padding: 0 24px 50px;
+        width: min(100%, 1120px);
+        padding: 38px 32px 65px;
+    }
+
+    .navbar {
+        gap: 20px;
+    }
+
+    .paginas {
+        gap: 13px;
     }
 
     .route-layout {
         grid-template-columns: 1fr;
     }
 
-    .route-map {
-        height: 190px;
+    #map1Div,
+    #map2Div {
+        min-height: 260px;
+    }
+
+    .route-card {
+        padding: 24px 22px 26px;
     }
 
     .informationGrid {
@@ -474,23 +593,80 @@ footer {
     }
 
     footer {
-        padding: 35px 24px 22px;
+        padding-right: 32px;
+        padding-left: 32px;
     }
 
     .footer {
-        gap: 35px;
+        gap: 40px;
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 680px) {
+    header {
+        padding: 0 18px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        padding: 12px 0;
+    }
+
+    .logo img {
+        width: 64px;
+    }
+
+    .regioLabel {
+        font-size: 10px;
+    }
+
+    .paginas {
+        order: 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 8px 14px;
+        padding-bottom: 4px;
+        font-size: 10px;
+    }
+
+    main {
+        padding: 0 16px 48px;
+    }
+
+    .schoolHeader {
+        padding: 30px 0 20px;
+    }
+
     .schoolHeader h1 {
-        font-size: 25px;
+        font-size: 27px;
+    }
+
+    .route-card,
+    .informationCards,
+    .registration-section,
+    .sponsorCards {
+        border-radius: 16px;
+    }
+
+    .route-card {
+        padding: 22px 16px 24px;
+    }
+
+    #map1Div,
+    #map2Div {
+        min-height: 220px;
+    }
+
+    .sponsorCard {
+        min-height: 170px;
+        padding: 20px;
     }
 
     .route-fields,
-    .sponsors-grid,
-    .informationGrid,
-    .footer {
+    .sponsorGrid,
+    .informationGrid {
         grid-template-columns: 1fr;
     }
 
@@ -504,9 +680,33 @@ footer {
         gap: 18px;
     }
 
+    .primary-button {
+        width: 100%;
+    }
+
+    footer {
+        padding: 35px 20px 22px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
     .footerBottom {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         margin-top: 35px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

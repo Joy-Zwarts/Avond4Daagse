@@ -19,12 +19,11 @@
     --muted: #69716a;
     --line: #edf0e8;
     --white: #ffffff;
-    --shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
+    --shadow: 0 12px 28px rgba(38, 60, 37, 0.12);
+    --shadow-hover: 0 18px 36px rgba(38, 60, 37, 0.19);
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
@@ -34,107 +33,46 @@ body {
     font-size: 12px;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
 
-img {
-    max-width: 100%;
-}
-
-header {
-    padding: 0 64px;
-    background: var(--white);
-    border-bottom: 1px solid var(--line);
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-    min-height: 76px;
-    margin: 0 auto;
-}
-
-.logo {
-    flex: 0 0 auto;
-}
-
-.logo img {
-    display: block;
-    width: 78px;
-    height: auto;
-}
-
-.regioLabel {
-    flex: 1;
-    color: var(--dark-green-text);
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.pin {
-    display: inline-grid;
-    place-items: center;
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    border-radius: 6px;
-    color: var(--white);
-    background: var(--normal-green-highlight);
-    font-size: 12px;
-}
-
-.paginas {
-    display: flex;
-    align-items: center;
-    gap: 19px;
-    color: var(--dark-green-text);
-    font-size: 12px;
-    font-weight: 600;
-}
-
+/* HEADER — ongewijzigd */
+header { padding: 0 64px; background: var(--white); border-bottom: 1px solid var(--line); }
+nav { display: flex; align-items: center; gap: 30px; width: 100%; min-height: 76px; margin: 0 auto; }
+.logo { flex: 0 0 auto; }
+.logo img { display: block; width: 78px; height: auto; }
+.regioLabel { flex: 1; color: var(--dark-green-text); font-size: 11px; font-weight: 800; }
+.pin { display: inline-grid; place-items: center; width: 20px; height: 20px; margin-right: 5px; border-radius: 6px; color: var(--white); background: var(--normal-green-highlight); font-size: 12px; }
+.paginas { display: flex; align-items: center; gap: 19px; color: var(--dark-green-text); font-size: 12px; font-weight: 600; }
 .paginas a {
-    transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+        transition: color var(--transition), 
+        transform var(--transition);
 }
 
-.paginas a:hover,
-.paginas a.active:not(.inschrijfButton) {
-    color: var(--highlighted-page-green);
-}
 
-.inschrijfButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    color: var(--white);
-    background: var(--normal-green-highlight);
-    font-weight: 800;
-    box-shadow: var(--shadow);
-}
+.paginas a:hover { color: var(--highlighted-page-green); transform: translateY(-1px); }
 
-.inschrijfButton:hover {
-    color: var(--white);
-    background: var(--dark-green);
-    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
-    transform: translateY(-1px);
-}
+.inschrijfButton { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 10px 14px; border-radius: 8px; color: var(--white); background: var(--normal-green-highlight); font-weight: 800; box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.2); transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease; }
+.inschrijfButton:hover { color: var(--white); background: var(--dark-green); box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3); transform: translateY(-1px); }
 
+/* MAIN BODY */
 main {
     width: 100%;
     margin: 0 auto;
-    padding: 0 64px 70px;
+    padding: 0 64px 80px;
 }
 
 .cover {
     position: relative;
-    height: 350px;
+    height: 390px;
     overflow: hidden;
+    border-radius: 0 0 24px 24px;
+    box-shadow: var(--shadow);
 }
 
 .coverImage {
@@ -142,261 +80,103 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 56%;
+    transition: transform .7s ease;
 }
 
-.cover::after {
-    position: absolute;
-    inset: 0;
-    content: "";
-    background: linear-gradient(90deg, rgba(16, 37, 22, 0.45), transparent 70%);
-    pointer-events: none;
-}
-
-.cover h1 {
-    position: absolute;
-    z-index: 1;
-    bottom: 42px;
-    left: 32px;
-    margin: 0;
-    color: var(--white);
-    font-size: clamp(30px, 4vw, 46px);
-    line-height: 1;
-}
+.cover:hover .coverImage { transform: scale(1.025); }
+.cover::after { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, rgba(16, 37, 22, .68), rgba(16, 37, 22, .08) 72%); pointer-events: none; }
+.cover h1 { position: absolute; z-index: 1; bottom: 48px; left: 42px; max-width: 620px; margin: 0; color: var(--white); font-size: clamp(32px, 4vw, 52px); line-height: 1.05; letter-spacing: -.03em; }
 
 .detailCards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 55px;
-    padding: 20px 15px;
+    gap: 24px;
+    max-width: 1050px;
+    margin: -42px auto 0;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.detail,
+.infoItem,
+.newsCard,
+.sponsorCard {
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
 
 .detail {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 4px;
-    min-height: 76px;
-    padding: 13px 14px;
-    border-radius: 10px;
+    gap: 10px;
+    min-height: 112px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 16px;
     color: var(--dark-green-text);
-    background: var(--cool-background);
+    background: rgba(210, 211, 180, .96);
+    box-shadow: var(--shadow);
 }
 
-.detail span,
-.infoItem small,
-.sponsorCard small {
-    font-size: 11px;
-}
+.detail:hover, .infoItem:hover, .sponsorCard:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.detail span, .infoItem small, .sponsorCard small { font-size: 11px; }
+.detail strong, .detail b { font-size: 14px; }
+.detail small { color: #5d664e; line-height: 1.5; }
 
-.detail strong,
-.detail b {
-    font-size: 12px;
-}
-
-.informationCards,
-.aanmeldCard {
-    margin-top: 14px;
-    padding: 16px;
+.informationCards, .aanmeldCard {
+    margin-top: 42px;
+    padding: 28px;
     border: 1px solid var(--light-grey-border);
-    border-radius: 12px;
+    border-radius: 20px;
     background: var(--white);
-    box-shadow: 0 3px 12px rgba(38, 60, 37, 0.06);
+    box-shadow: var(--shadow);
 }
 
-h2 {
-    margin: 0 0 12px;
-    color: #26312a;
-    font-size: 17px;
-}
+h2 { margin: 0 0 20px; color: #26312a; font-size: 21px; letter-spacing: -.02em; }
+.informationGrid, .sponsorGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.infoItem { display: flex; align-items: flex-start; gap: 15px; min-height: 126px; padding: 22px; border: 1px solid transparent; border-radius: 16px; color: var(--dark-green-text); background: var(--cool-background); }
+.infoItem div { display: flex; flex-direction: column; gap: 10px; }
+.infoItem strong { font-size: 14px; line-height: 1.25; }
+.infoItem small { color: #5d664e; line-height: 1.5; }
+.icon, .sponsorLogo { flex: 0 0 auto; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--white); background: var(--green); font-size: 14px; font-weight: 800; }
+.sponsorLogo { overflow: hidden; background: var(--white); border: 1px solid var(--line); }
+.sponsorLogo img { display: block; width: 100%; height: 42px; padding: 6px; object-fit: contain; }
 
-.informationGrid,
-.sponsorGrid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 55px;
-}
+.aanmeldCard { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 30px 34px; background: linear-gradient(135deg, #ffffff, #eef1df); }
+.aanmeldCard h2 { margin-bottom: 8px; }
+.aanmeldCard p, .newsGrid p, .sponsorCard p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
 
-.infoItem,
-.sponsorCard {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    min-height: 82px;
-    padding: 12px;
-    border-radius: 10px;
-    color: var(--dark-green-text);
-    background: var(--cool-background);
-}
+.newsCards, .sponsorCards { margin-top: 48px; }
+.newsGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 1050px; margin: 0 auto; }
+.newsCard { display: block; overflow: hidden; border: 1px solid var(--light-grey-border); border-radius: 18px; background: var(--white); box-shadow: var(--shadow); }
+.newsCard:hover { transform: translateY(-7px); box-shadow: var(--shadow-hover); }
+.newsImage { height: 190px; overflow: hidden; background: var(--olive); }
+.newsCard img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .55s ease; }
+.newsCard:hover img { transform: scale(1.06); }
+.newsContent { padding: 20px 22px 24px; }
+.newsCard h3 { margin: 12px 0 8px; font-size: 16px; line-height: 1.25; }
+.tag { display: inline-block; padding: 5px 9px; border-radius: 999px; color: var(--white); background: #8ca52c; font-size: 9px; font-weight: 800; }
 
-.infoItem div {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+.sponsorGrid { gap: 22px; }
+.sponsorCard { display: block; min-height: 180px; padding: 24px; border: 1px solid var(--light-grey-border); border-radius: 16px; background: var(--white); box-shadow: 0 8px 20px rgba(38, 60, 37, .08); }
+.sponsorCard h3 { margin: 16px 0 8px; font-size: 15px; }
+.iconTitle { display: flex; align-items: center; gap: 8px; margin: 0; }
+.iconTitle h3 { margin: 0; }
 
-.infoItem strong {
-    font-size: 12px;
-    line-height: 1.25;
-}
-
-.icon,
-.sponsorLogo {
-    flex: 0 0 auto;
-    display: grid;
-    place-items: center;
-    width: 32px;
-    min-height: 28px;
-    border-radius: 5px;
-    color: var(--white);
-    background: var(--green);
-    font-size: 10px;
-    font-weight: 800;
-}
-
-.sponsorLogo {
-    overflow: hidden;
-    background: var(--white);
-}
-
-.sponsorLogo img {
-    display: block;
-    width: 100%;
-    height: 28px;
-    object-fit: contain;
-}
-
-.aanmeldCard {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.aanmeldCard h2 {
-    margin-bottom: 4px;
-}
-
-.aanmeldCard p,
-.newsGrid p,
-.sponsorCard p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 9px;
-    line-height: 1.35;
-}
-
-.newsCards{
-    margin-top: 20px;
-}
-
-.newsGrid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    width: 74%;
-    margin: 0 auto;
-}
-
-.newsCard {
-    overflow: hidden;
-    padding-bottom: 13px;
-    border-radius: 10px;
-    color: inherit;
-    background: var(--olive);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.newsCard:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
-}
-
-.newsCard img {
-    display: block;
-    width: 100%;
-    height: 112px;
-    object-fit: cover;
-}
-
-.newsCard h3,
-.newsCard p,
-.newsCard .tag {
-    margin-right: 12px;
-    margin-left: 12px;
-}
-
-.newsCard h3 {
-    margin-top: 7px;
-    margin-bottom: 4px;
-    font-size: 13px;
-}
-
-.tag {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 3px 6px;
-    border-radius: 5px;
-    color: var(--white);
-    background: #8ca52c;
-    font-size: 7px;
-    font-weight: 800;
-}
-
-.sponsorCard {
-    display: block;
-    min-height: 100px;
-}
-
-.sponsorCard h3 {
-    margin: 8px 0 5px;
-    font-size: 13px;
-}
-
-.iconTitle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 10px;
-}
-
-.iconTitle h3 {
-    margin: 0;
-}
-
-footer {
-    padding: 45px 64px 25px;
-    color: #eef3e7;
-    background-color: var(--dark-green);
-    background-image: url("../Images/footerBackground.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.footer {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 90px;
-}
-
-.footer strong {
-    display: block;
-    margin-bottom: 12px;
-    font-size: 11px;
-}
-
-.footer p,
-.footer a,
-.footer span {
-    display: block;
-    margin: 7px 0;
-    color: #c4d0be;
-    font-size: 9px;
-    line-height: 1.4;
+/* FOOTER — ongewijzigd */
+footer { padding: 45px 64px 25px; color: #eef3e7; background-color: var(--dark-green); background-image: url("../Images/footerBackground.png"); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.footer { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 90px; }
+.footer strong { display: block; margin-bottom: 12px; font-size: 11px; }
+.footer p, .footer a, .footer span { display: block; margin: 7px 0; color: #c4d0be; font-size: 9px; line-height: 1.4; }
+.footer a {
+    transition: color var(--transition), transform var(--transition);
 }
 
 .footer a:hover {
     color: var(--white);
+    transform: translateX(3px);
 }
 
 .footerBottom {
@@ -406,4 +186,28 @@ footer {
     margin-top: 55px;
     color: #839282;
     font-size: 8px;
+}
+
+@media (max-width: 850px) {
+    header, footer { padding-right: 24px; padding-left: 24px; }
+    main { padding-right: 24px; padding-left: 24px; }
+    nav { gap: 16px; }
+    .paginas { gap: 10px; }
+    .detailCards, .informationGrid, .sponsorGrid { grid-template-columns: 1fr; }
+    .detailCards { margin-top: 24px; padding: 0; }
+    .newsGrid { width: 100%; }
+    .detail { min-height: 96px; }
+}
+
+@media (max-width: 600px) {
+    .regioLabel { display: none; }
+    .paginas { margin-left: auto; font-size: 10px; }
+    .paginas a:not(.inschrijfButton) { display: none; }
+    .cover { height: 300px; border-radius: 0 0 18px 18px; }
+    .cover h1 { bottom: 28px; left: 24px; right: 24px; font-size: 32px; }
+    .informationCards, .aanmeldCard { padding: 22px; }
+    .aanmeldCard { align-items: flex-start; flex-direction: column; }
+    .newsGrid { grid-template-columns: 1fr; }
+    .footer { grid-template-columns: 1fr; gap: 28px; }
+    .footerBottom { flex-direction: column; gap: 4px; margin-top: 30px; }
 }
