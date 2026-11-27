@@ -16,16 +16,13 @@
     --line: #edf0e8;
     --light-border: #e5e7eb;
     --light-background: #f8fafc;
-    --danger: #8b4b42;
-    --shadow: 0 10px 28px rgba(38, 60, 37, 0.12);
-    --small-shadow: 0 4px 14px rgba(38, 60, 37, 0.08);
-    --hover-shadow: 0 14px 34px rgba(38, 60, 37, 0.16);
-    --transition: 0.25s ease;
+    --shadow: 0 10px 28px rgba(38, 60, 37, .12);
+    --small-shadow: 0 4px 14px rgba(38, 60, 37, .08);
+    --hover-shadow: 0 14px 34px rgba(38, 60, 37, .16);
+    --transition: .25s ease;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     min-width: 320px;
@@ -38,29 +35,26 @@ body {
     line-height: 1.5;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button, input, select { font-family: inherit; }
+button { cursor: pointer; }
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(115, 143, 32, .35);
+    outline-offset: 3px;
 }
 
-img {
-    display: block;
-    max-width: 100%;
-}
-
-button,
-a,
-input,
-select {
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* Header en navigatie */
+/* Header */
 header {
     padding: 0 64px;
     background: var(--white);
     border-bottom: 1px solid var(--line);
-    box-shadow: 0 2px 10px rgba(38, 60, 37, 0.04);
+    box-shadow: 0 2px 10px rgba(38, 60, 37, .04);
 }
 
 nav {
@@ -71,14 +65,8 @@ nav {
     min-height: 76px;
 }
 
-.logo {
-    flex: 0 0 auto;
-}
-
-.logo img {
-    width: 78px;
-    height: auto;
-}
+.logo { flex: 0 0 auto; }
+.logo img { width: 78px; height: auto; }
 
 .regioLabel {
     flex: 1;
@@ -96,7 +84,6 @@ nav {
     border-radius: 6px;
     color: var(--white);
     background: var(--normal-green);
-    font-size: 12px;
 }
 
 .paginas {
@@ -108,23 +95,27 @@ nav {
     font-weight: 600;
 }
 
-.paginas a {
-    transition: color var(--transition), transform var(--transition);
-}
-
+.paginas a { transition: color var(--transition), transform var(--transition); }
 .paginas a:hover,
 .paginas a.active:not(.accountButton) {
     color: var(--highlight-green);
     transform: translateY(-1px);
 }
 
-.paginas a:focus-visible,
-.accountButton:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
-    outline: 3px solid rgba(115, 143, 32, 0.35);
-    outline-offset: 3px;
+.accountButton,
+.action-button,
+.save-button,
+.add-student,
+.add-class-button,
+.edit-button,
+.delete-button,
+.cancel-button,
+.class-actions button {
+    border: 0;
+    border-radius: 9px;
+    font-weight: 800;
+    box-shadow: var(--small-shadow);
+    transition: background-color var(--transition), box-shadow var(--transition), color var(--transition), transform var(--transition);
 }
 
 .accountButton {
@@ -133,24 +124,23 @@ select:focus-visible {
     justify-content: center;
     min-height: 40px;
     padding: 10px 14px;
-    border-radius: 9px;
     color: var(--white);
     background: var(--normal-green);
-    font-weight: 800;
-    box-shadow: var(--small-shadow);
-    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
-.accountButton:hover {
-    color: var(--white) !important;
+.accountButton:hover,
+.action-button:hover,
+.save-button:hover,
+.add-student:hover,
+.add-class-button:hover,
+.edit-button:hover,
+.delete-button:hover,
+.cancel-button:hover,
+.class-actions button:hover {
+    color: var(--white);
     background: var(--dark-green);
     box-shadow: var(--hover-shadow);
     transform: translateY(-2px);
-}
-
-.accountButton:active {
-    transform: translateY(0);
-    box-shadow: var(--small-shadow);
 }
 
 /* Main */
@@ -173,17 +163,8 @@ main {
     line-height: 1.15;
 }
 
-.page-intro p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.classes {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-}
+.page-intro p { margin: 0; color: var(--muted); }
+.classes { width: 100%; }
 
 .class-card {
     overflow: hidden;
@@ -192,13 +173,6 @@ main {
     border-radius: 18px;
     background: var(--white);
     box-shadow: var(--shadow);
-    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
-}
-
-.class-card:hover {
-    border-color: rgba(94, 117, 28, 0.28);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-2px);
 }
 
 .class-header {
@@ -208,11 +182,6 @@ main {
     min-height: 70px;
     padding: 16px 22px;
     cursor: pointer;
-    transition: background-color var(--transition);
-}
-
-.class-header:hover {
-    background: var(--light-background);
 }
 
 .class-title {
@@ -224,598 +193,23 @@ main {
     font-weight: 800;
 }
 
-.class-icon {
+.class-icon,
+.student-avatar {
     display: grid;
     place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
     color: var(--white);
     background: var(--normal-green);
-    font-size: 15px;
     box-shadow: var(--small-shadow);
 }
 
-.chevron {
-    color: var(--normal-green);
-    font-size: 25px;
-    line-height: 1;
-    transition: transform var(--transition), color var(--transition);
-}
-
-.class-header:hover .chevron {
-    color: var(--highlight-green);
-}
-
-.class-card.collapsed .chevron {
-    transform: rotate(-90deg);
-}
-
-.class-body {
-    padding: 0 22px 22px;
-}
-
-.class-card.collapsed .class-body {
-    display: none;
-}
-
-.table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--light-border);
-    border-radius: 12px;
-}
-
-table {
-    width: 100%;
-    min-width: 760px;
-    border-collapse: collapse;
-    table-layout: fixed;
-    background: var(--white);
-    font-size: 10px;
-}
-
-th {
-    padding: 11px 10px;
-    border-bottom: 1px solid var(--line);
-    color: var(--muted);
-    background: var(--light-background);
-    font-size: 9px;
-    font-weight: 800;
-    text-align: left;
-    text-transform: uppercase;
-}
-
-td {
-    min-height: 42px;
-    padding: 10px;
-    border-bottom: 1px solid var(--line);
-    color: var(--muted);
-    vertical-align: middle;
-}
-
-tbody tr:last-child td {
-    border-bottom: 0;
-}
-
-tbody tr {
-    transition: background-color var(--transition);
-}
-
-tbody tr:hover {
-    background: #fbfcf9;
-}
-
-td:first-child {
-    color: var(--dark-text);
-    font-weight: 800;
-}
-
-th:nth-child(1), td:nth-child(1) { width: 15%; }
-th:nth-child(2), td:nth-child(2) { width: 14%; }
-th:nth-child(3), td:nth-child(3) { width: 8%; }
-th:nth-child(4), td:nth-child(4) { width: 13%; }
-th:nth-child(5), td:nth-child(5) { width: 13%; }
-th:nth-child(6), td:nth-child(6) { width: 28%; }
-th:nth-child(7), td:nth-child(7) { width: 9%; text-align: right; }
-
-.distance {
-    display: inline-block;
-    min-width: 48px;
-    padding: 4px 8px;
-    border-radius: 999px;
-    color: var(--dark-green-text);
-    background: var(--cool-background);
-    text-align: center;
-    font-weight: 800;
-}
-
-.action-button,
-.save-button,
-.add-student {
-    border: 0;
-    border-radius: 9px;
-    color: var(--white);
-    background: var(--normal-green);
-    font-family: inherit;
-    font-weight: 800;
-    cursor: pointer;
-    box-shadow: var(--small-shadow);
-    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition), color var(--transition);
-}
-
-.action-button,
-.save-button {
-    min-width: 76px;
-    padding: 8px 10px;
-    font-size: 9px;
-}
-
-.action-button:hover,
-.save-button:hover,
-.add-student:hover {
-    color: var(--white);
-    background: var(--dark-green);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-2px);
-}
-
-.action-button:active,
-.save-button:active,
-.add-student:active {
-    transform: translateY(0);
-    box-shadow: var(--small-shadow);
-}
-
-.action-button.enrolled {
-    color: var(--dark-green-text);
-    background: var(--cool-background);
-}
-
-.add-student {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    width: 100%;
-    margin-top: 14px;
-    padding: 11px 14px;
-    font-size: 11px;
-}
-
-.add-student span {
-    font-size: 16px;
-}
-
-.add-row input,
-.add-row select {
-    width: 100%;
-    min-height: 34px;
-    padding: 7px 8px;
-    border: 1px solid var(--light-border);
-    border-radius: 8px;
-    outline: none;
-    color: var(--text);
-    background: var(--light-background);
-    font: inherit;
-    font-size: 10px;
-    transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
-}
-
-.add-row input:hover,
-.add-row select:hover,
-.add-row input:focus,
-.add-row select:focus {
-    border-color: var(--normal-green);
-    background: var(--white);
-}
-
-.add-row input:focus,
-.add-row select:focus {
-    box-shadow: 0 0 0 4px rgba(94, 117, 28, 0.13);
-}
-
-.add-row strong {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--dark-text);
-    font-size: 9px;
-}
-
-.add-row td {
-    height: auto;
-    padding: 12px 10px;
-}
-
-.add-row td:last-child {
-    width: 9%;
-    padding-right: 10px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.add-row .save-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 84px;
-    min-width: 84px;
-    height: 34px;
-    margin: 0 auto;
-    padding: 0 12px;
-    font-size: 9px;
-}
-
-.add-row td:nth-child(1) {
-    width: 35%;
-}
-
-.add-row td:nth-child(2) {
-    width: 35%;
-}
-
-.add-row td:nth-child(3) {
-    width: 20%;
-}
-
-.add-row td:nth-child(4) {
-    width: 10%;
-}
-
-.add-row td:last-child {
-    width: 10%;
-    padding-right: 10px;
-    text-align: center;
-}
-
-.status-message {
-    padding: 24px;
-    border: 1px solid var(--light-border);
-    border-radius: 16px;
-    color: var(--muted);
-    background: var(--white);
-    box-shadow: var(--shadow);
-    text-align: center;
-}
-
-/* Footer */
-footer {
-    padding: 45px 64px 25px;
-    color: #eef3e7;
-    background: var(--dark-green) url("../Images/footerBackground.png") center / cover no-repeat;
-    box-shadow: 0 -4px 16px rgba(38, 60, 37, 0.08);
-}
-
-.footer {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 90px;
-}
-
-.footer strong {
-    display: block;
-    margin-bottom: 12px;
-    font-size: 11px;
-}
-
-.footer p,
-.footer a,
-.footer span {
-    display: block;
-    margin: 7px 0;
-    color: #c4d0be;
-    font-size: 9px;
-    line-height: 1.4;
-}
-
-.footer a {
-    transition: color var(--transition), transform var(--transition);
-}
-
-.footer a:hover {
-    color: var(--white);
-    transform: translateX(3px);
-}
-
-.footerBottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 55px;
-    color: #839282;
-    font-size: 8px;
-}
-
-@media (max-width: 900px) {
-    header {
-        padding: 0 32px;
-    }
-
-    main {
-        padding: 42px 32px 65px;
-    }
-
-    nav {
-        gap: 20px;
-    }
-
-    .paginas {
-        gap: 13px;
-    }
-
-    .class-body {
-        padding-right: 16px;
-        padding-left: 16px;
-    }
-
-    footer {
-        padding-right: 32px;
-        padding-left: 32px;
-    }
-
-    .footer {
-        gap: 40px;
-    }
-}
-
-@media (max-width: 680px) {
-    header {
-        padding: 0 18px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        gap: 12px 16px;
-        padding: 12px 0;
-    }
-
-    .logo img {
-        width: 64px;
-    }
-
-    .regioLabel {
-        font-size: 10px;
-    }
-
-    .paginas {
-        order: 3;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
-        gap: 8px 14px;
-        font-size: 10px;
-    }
-
-    main {
-        padding: 32px 16px 50px;
-    }
-
-    .page-intro {
-        margin-bottom: 22px;
-    }
-
-    .page-intro h1 {
-        font-size: 28px;
-    }
-
-    .class-card {
-        border-radius: 15px;
-    }
-
-    .class-header {
-        min-height: 60px;
-        padding: 13px 16px;
-    }
-
-    .class-title {
-        gap: 10px;
-        font-size: 17px;
-    }
-
-    .class-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 13px;
-    }
-
-    .class-body {
-        padding: 0 12px 14px;
-    }
-
-    table {
-        min-width: 760px;
-    }
-
-    footer {
-        padding: 35px 20px 22px;
-    }
-
-    .footer {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .footerBottom {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 35px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-    }
-}
-
-/* Acties per leerling */
-.row-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-}
-
-.edit-button,
-.delete-button,
-.cancel-button {
-    min-width: 76px;
-    padding: 8px 10px;
-    border: 0;
-    border-radius: 9px;
-    color: var(--white);
-    background: var(--cool-background);
-    font-family: inherit;
-    font-size: 9px;
-    font-weight: 800;
-    cursor: pointer;
-    box-shadow: var(--small-shadow);
-    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition), color var(--transition);
-}
-
-.edit-button { color: var(--dark-green-text); }
-
-.delete-button { color: var(--white); background: var(--dark-green-text); }
-
-.cancel-button {
-    color: var(--dark-green-text);
-    background: var(--light-background);
-    border: 1px solid var(--light-border);
-}
-
-.edit-button:hover,
-.cancel-button:hover {
-    color: var(--white);
-    background: var(--normal-green);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-2px);
-}
-
-.delete-button:hover {
-    color: var(--white);
-    background: var(--dark-green);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-2px);
-}
-
-.edit-row input {
-    width: 100%;
-    min-height: 34px;
-    padding: 7px 8px;
-    border: 1px solid var(--light-border);
-    border-radius: 8px;
-    outline: none;
-    color: var(--text);
-    background: var(--light-background);
-    font: inherit;
-    font-size: 10px;
-}
-
-.edit-row input:focus {
-    border-color: var(--normal-green);
-    background: var(--white);
-    box-shadow: 0 0 0 4px rgba(94, 117, 28, 0.13);
-}
-
-.empty-class {
-    margin: 0 0 14px;
-    padding: 18px;
-    border: 1px dashed var(--light-border);
-    border-radius: 12px;
-    color: var(--muted);
-    background: var(--light-background);
-    text-align: center;
-}
-
-
-/* Aanmeldformulier per leerling */
-.enrollment-row td {
-    padding: 0;
-    background: #fbfcf9;
-}
-
-.enrollment-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.4fr auto;
-    align-items: end;
-    gap: 12px;
-    padding: 16px;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-}
-
-.enrollment-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    color: var(--dark-text);
-    font-size: 9px;
-    font-weight: 800;
-}
-
-.enrollment-form select,
-.enrollment-form input {
-    width: 100%;
-    min-height: 34px;
-    padding: 7px 8px;
-    border: 1px solid var(--light-border);
-    border-radius: 8px;
-    outline: none;
-    color: var(--text);
-    background: var(--white);
-    font: inherit;
-    font-size: 10px;
-    transition: border-color var(--transition), box-shadow var(--transition);
-}
-
-.enrollment-form select:focus,
-.enrollment-form input:focus {
-    border-color: var(--normal-green);
-    box-shadow: 0 0 0 4px rgba(94, 117, 28, 0.13);
-}
-
-.enrollment-actions {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-
-.enrollment-actions .save-button,
-.enrollment-actions .cancel-button {
-    min-height: 34px;
-    white-space: nowrap;
-}
-
-@media (max-width: 900px) {
-    .enrollment-form {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .enrollment-comments {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (max-width: 680px) {
-    .enrollment-form {
-        grid-template-columns: 1fr;
-    }
-
-    .enrollment-comments {
-        grid-column: auto;
-    }
-
-    .enrollment-actions {
-        justify-content: flex-start;
-    }
-}
-
-/* Overzichtelijke leerlingkaarten */
+.class-icon { width: 38px; height: 38px; border-radius: 10px; }
+.student-avatar { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; }
+.chevron { color: var(--normal-green); font-size: 25px; transition: transform var(--transition); }
+.class-card.collapsed .chevron { transform: rotate(-90deg); }
+.class-card.collapsed .class-body { display: none; }
+.class-body { padding: 0 22px 22px; }
+
+/* Leerlingkaarten */
 .student-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -831,13 +225,6 @@ footer {
     border-radius: 16px;
     background: var(--white);
     box-shadow: var(--small-shadow);
-    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
-}
-
-.student-card:hover {
-    border-color: rgba(94, 117, 28, 0.35);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-3px);
 }
 
 .student-card-heading {
@@ -849,57 +236,24 @@ footer {
     border-bottom: 1px solid var(--line);
 }
 
-.student-identity {
+.student-identity { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.student-identity h3 { overflow: hidden; margin: 0; color: var(--dark-text); font-size: 15px; text-overflow: ellipsis; white-space: nowrap; }
+.student-identity p { margin: 3px 0 0; color: var(--muted); font-size: 10px; }
+
+.student-card-status-actions,
+.enrollment-actions,
+.row-actions,
+.class-header-actions,
+.class-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
-    min-width: 0;
-}
-
-.student-avatar {
-    display: grid;
-    flex: 0 0 auto;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    color: var(--white);
-    background: var(--normal-green);
-    box-shadow: var(--small-shadow);
-}
-
-.student-identity h3 {
-    overflow: hidden;
-    margin: 0;
-    color: var(--dark-text);
-    font-size: 15px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.student-identity p {
-    margin: 3px 0 0;
-    color: var(--muted);
-    font-size: 10px;
-}
-
-.student-card-status-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     gap: 8px;
-    flex-wrap: wrap;
 }
 
-.student-card-status-actions .action-button {
-    min-width: 0;
-    padding: 7px 10px;
-    font-size: 9px;
-}
+.student-card-status-actions { justify-content: flex-end; flex-wrap: nowrap; }
 
 .enrollment-status {
     display: inline-flex;
-    flex: 0 0 auto;
     align-items: center;
     gap: 5px;
     padding: 6px 8px;
@@ -911,10 +265,28 @@ footer {
     white-space: nowrap;
 }
 
-.enrollment-status.is-enrolled {
-    color: var(--dark-green-text);
-    background: var(--cool-background);
+.enrollment-status.is-enrolled { color: var(--dark-green-text); background: var(--cool-background); }
+
+.action-button,
+.save-button,
+.add-student,
+.add-class-button,
+.edit-button,
+.delete-button,
+.cancel-button {
+    min-height: 36px;
+    padding: 9px 14px;
+    font-size: 10px;
 }
+
+.action-button,
+.save-button,
+.add-student,
+.add-class-button { color: var(--white); background: var(--normal-green); }
+.action-button.enrolled { background: var(--dark-green-text); }
+.edit-button { color: var(--dark-green-text); background: var(--cool-background); }
+.delete-button { color: var(--white); background: var(--dark-green-text); }
+.cancel-button { color: var(--dark-green-text); background: var(--light-background); border: 1px solid var(--light-border); }
 
 .student-details {
     display: grid;
@@ -923,231 +295,158 @@ footer {
     padding: 16px 0;
 }
 
-.student-detail {
-    min-width: 0;
+.student-detail { min-width: 0; }
+.student-detail-wide { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid var(--line); }
+.student-detail span:first-child { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; font-weight: 700; text-transform: uppercase; }
+.student-detail strong { display: block; overflow-wrap: anywhere; color: var(--dark-text); font-size: 11px; }
+
+.distance {
+    display: inline-block;
+    min-width: 48px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: var(--dark-green-text);
+    background: var(--cool-background);
+    text-align: center;
+    font-weight: 800;
 }
 
-.student-detail-wide {
-    grid-column: 1 / -1;
-    padding-top: 12px;
-    border-top: 1px solid var(--line);
-}
-
-.student-detail span:first-child {
-    display: block;
-    margin-bottom: 4px;
-    color: var(--muted);
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.student-detail strong {
-    display: block;
-    overflow-wrap: anywhere;
-    color: var(--dark-text);
-    font-size: 11px;
-}
-
-.student-detail strong .distance {
-    font-size: 10px;
-}
-
-.student-card .row-actions {
-    justify-content: flex-start;
-    margin-top: auto;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-}
-
-.student-card .action-button,
-.student-card .edit-button,
-.student-card .delete-button {
-    min-width: 0;
-    padding: 8px 10px;
-}
-
-@media (max-width: 900px) {
-    .student-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 680px) {
-    .student-card {
-        padding: 16px;
-    }
-
-    .student-card-heading {
-        flex-direction: column;
-    }
-
-    .student-card-status-actions {
-        width: 100%;
-        justify-content: flex-start;
-    }
-
-    .student-details {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .student-card .row-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .student-card .row-actions button {
-        width: 100%;
-    }
-}
-
-@media (max-width: 420px) {
-    .student-details {
-        grid-template-columns: 1fr;
-    }
-
-    .student-detail-wide {
-        grid-column: auto;
-    }
-}
-
-/* Definitieve leerlingkaart-acties */
 .student-card .row-actions {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
     width: 100%;
     margin-top: auto;
     padding-top: 14px;
     border-top: 1px solid var(--line);
 }
 
-.student-card .row-actions button {
+.student-card .row-actions button { width: 100%; }
+
+/* Formulier leerling toevoegen en bewerken */
+.add-student-form,
+.edit-card-form {
     width: 100%;
-    min-width: 0;
-    min-height: 36px;
-    margin: 0;
-    padding: 8px 10px;
-}
-
-.student-card-status-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    flex-wrap: nowrap;
-}
-
-.student-card-status-actions .action-button {
-    min-width: 92px;
-    min-height: 32px;
-    margin: 0;
-    padding: 7px 10px;
-}
-
-.student-card-status-actions .action-button.enrolled {
-    color: var(--white);
-    background: var(--dark-green-text);
-}
-
-.student-card-status-actions .action-button.enrolled:hover {
-    color: var(--white);
-    background: var(--dark-green);
-}
-
-@media (max-width: 680px) {
-    .student-card-status-actions {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    .student-card .row-actions {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 420px) {
-    .student-card .row-actions {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* Groepen beheren */
-.class-header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.class-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.class-actions button,
-.add-class-button,
-.add-class-form button,
-.edit-class-form button {
-    min-height: 34px;
-    padding: 8px 12px;
-    border: 0;
-    border-radius: 9px;
-    font-family: inherit;
-    font-size: 9px;
-    font-weight: 800;
-    cursor: pointer;
+    margin-top: 16px;
+    padding: 18px;
+    border: 1px solid var(--light-border);
+    border-radius: 14px;
+    background: #fbfcf9;
     box-shadow: var(--small-shadow);
-    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition), color var(--transition);
 }
 
-.edit-class-button,
-.add-class-button,
-.add-class-form .save-button,
-.edit-class-form .save-button {
-    color: var(--white);
-    background: var(--normal-green);
+.add-student-form,
+.edit-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
 }
 
-.delete-class-button {
-    color: var(--white);
-    background: var(--dark-green-text);
+.edit-card-form { display: block; }
+.edit-card-form .edit-card-grid { margin-bottom: 14px; }
+
+.add-student-form label,
+.edit-card-form label,
+.enrollment-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    color: var(--dark-text);
+    font-size: 10px;
+    font-weight: 800;
 }
 
-.class-actions button:hover,
-.add-class-button:hover,
-.add-class-form button:hover,
-.edit-class-form button:hover {
-    color: var(--white);
-    background: var(--dark-green);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-2px);
+.add-student-form input,
+.edit-card-form input,
+.enrollment-form input,
+.enrollment-form select,
+.add-class-form input,
+.edit-class-form input {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #d8dfd2;
+    border-radius: 10px;
+    outline: none;
+    color: var(--text);
+    background: var(--white);
+    font: inherit;
+    font-size: 11px;
+    box-shadow: 0 2px 6px rgba(38, 60, 37, .04);
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
-.delete-class-button:hover {
-    background: var(--dark-green);
+.add-student-form input::placeholder,
+.edit-card-form input::placeholder,
+.enrollment-form input::placeholder { color: #9aa39a; }
+
+.add-student-form input:hover,
+.edit-card-form input:hover,
+.enrollment-form input:hover,
+.enrollment-form select:hover { border-color: #b8c99b; background: #fefffd; }
+
+.add-student-form input:focus,
+.edit-card-form input:focus,
+.enrollment-form input:focus,
+.enrollment-form select:focus {
+    border-color: var(--normal-green);
+    box-shadow: 0 0 0 4px rgba(94, 117, 28, .14);
 }
 
-.class-management {
-    width: min(100%, 1120px);
-    margin: 4px auto 0;
+.add-student-form .row-actions,
+.edit-card-form .row-actions {
+    justify-content: flex-end;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
 }
 
-.add-class-button {
-    display: inline-flex;
+.add-student-form .row-actions button,
+.edit-card-form .row-actions button { min-width: 112px; }
+
+.add-student {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 9px;
     width: 100%;
+    margin-top: 16px;
     min-height: 46px;
-    font-size: 11px;
+    border-radius: 11px;
 }
 
-.add-class-container {
-    margin-top: 12px;
+/* Aanmeldformulier */
+.enrollment-panel {
+    width: 100%;
+    margin-top: 18px;
+    padding: 16px 0 0;
+    border-top: 1px solid var(--line);
 }
+
+.enrollment-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr) auto;
+    align-items: end;
+    gap: 14px;
+    padding-bottom: 16px;
+}
+
+.enrollment-actions { justify-content: flex-end; }
+.enrollment-actions button { min-width: 96px; white-space: nowrap; }
+
+/* Groepen beheren */
+.class-actions button {
+    min-height: 34px;
+    padding: 8px 12px;
+    color: var(--white);
+    background: var(--dark-green-text);
+    font-size: 9px;
+}
+
+.add-class-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; }
+.group-management, .class-management { width: min(100%, 1120px); margin: 4px auto 0; }
+.add-class-container { margin-top: 12px; }
 
 .add-class-form,
 .edit-class-form {
@@ -1172,40 +471,78 @@ footer {
     font-weight: 800;
 }
 
-.add-class-form input,
-.edit-class-form input {
-    min-height: 36px;
-    padding: 8px 10px;
-    border: 1px solid var(--light-border);
-    border-radius: 8px;
-    color: var(--text);
+.empty-class,
+.status-message {
+    padding: 18px;
+    border-radius: 12px;
+    color: var(--muted);
     background: var(--light-background);
-    font: inherit;
-    font-size: 10px;
+    text-align: center;
 }
 
-.add-class-form .cancel-button,
-.edit-class-form .cancel-button {
-    color: var(--dark-green-text);
-    background: var(--cool-background);
+.empty-class { border: 1px dashed var(--light-border); }
+.status-message { border: 1px solid var(--light-border); box-shadow: var(--shadow); }
+
+/* Footer */
+footer {
+    padding: 45px 64px 25px;
+    color: #eef3e7;
+    background: var(--dark-green) url('../Images/footerBackground.png') center / cover no-repeat;
+}
+
+.footer { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 90px; }
+.footer strong { display: block; margin-bottom: 12px; font-size: 11px; }
+.footer p, .footer a, .footer span { display: block; margin: 7px 0; color: #c4d0be; font-size: 9px; line-height: 1.4; }
+.footerBottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 55px; color: #839282; font-size: 8px; }
+
+@media (max-width: 900px) {
+    header, footer { padding-right: 32px; padding-left: 32px; }
+    main { padding: 42px 32px 65px; }
+    nav { gap: 20px; }
+    .paginas { gap: 13px; }
+    .student-grid { grid-template-columns: 1fr; }
+    .add-student-form, .edit-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .enrollment-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .enrollment-comments, .enrollment-actions { grid-column: 1 / -1; }
+    .enrollment-actions { justify-content: flex-end; }
+    .footer { gap: 40px; }
 }
 
 @media (max-width: 680px) {
-    .class-header-actions {
-        gap: 6px;
-    }
+    header { padding: 0 18px; }
+    nav { flex-wrap: wrap; gap: 12px 16px; padding: 12px 0; }
+    .logo img { width: 64px; }
+    .regioLabel { font-size: 10px; }
+    .paginas { order: 3; display: grid; grid-template-columns: repeat(2, 1fr); width: 100%; gap: 8px 14px; font-size: 10px; }
+    main { padding: 32px 16px 50px; }
+    .class-header { min-height: 60px; padding: 13px 16px; }
+    .class-title { gap: 10px; font-size: 17px; }
+    .class-icon { width: 32px; height: 32px; }
+    .class-body { padding: 0 12px 14px; }
+    .student-card { padding: 16px; }
+    .student-card-heading { flex-direction: column; }
+    .student-card-status-actions { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
+    .student-details { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .add-student-form, .edit-card-grid, .enrollment-form, .add-class-form, .edit-class-form { grid-template-columns: 1fr; }
+    .enrollment-comments, .enrollment-actions { grid-column: auto; }
+    .add-student-form .row-actions, .edit-card-form .row-actions, .enrollment-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+    .add-student-form .row-actions button, .edit-card-form .row-actions button, .enrollment-actions button, .add-class-form button, .edit-class-form button { width: 100%; min-width: 0; }
+    footer { padding: 35px 20px 22px; }
+    .footer { grid-template-columns: 1fr; gap: 28px; }
+    .footerBottom { flex-direction: column; gap: 8px; margin-top: 35px; }
+}
 
-    .class-actions {
-        display: none;
-    }
+@media (max-width: 420px) {
+    .student-details { grid-template-columns: 1fr; }
+    .student-detail-wide { grid-column: auto; }
+    .student-card .row-actions, .add-student-form .row-actions, .edit-card-form .row-actions, .enrollment-actions { grid-template-columns: 1fr; }
+}
 
-    .add-class-form,
-    .edit-class-form {
-        grid-template-columns: 1fr;
-    }
-
-    .add-class-form button,
-    .edit-class-form button {
-        width: 100%;
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
