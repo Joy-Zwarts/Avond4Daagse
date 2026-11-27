@@ -3,23 +3,24 @@
 }
 
 :root {
-    --dark-green: #102516;
+    --dark-blue-text: #444647;
     --dark-green-text: #39481f;
-    --normal-green: #5e751c;
-    --highlight-green: #738f20;
+    --light-green-highlight: #a8bb33;
+    --normal-green-highlight: #5e751c;
     --cool-background: #d2d3b4;
-    --background: #f4f4ee;
-    --white: #ffffff;
+    --grey-text: #4b5563;
+    --light-grey-border: #e5e7eb;
+    --light-grey-background: #f8fafc;
+    --highlighted-page-green: #738f20;
+    --green: #587719;
+    --dark-green: #102516;
+    --olive: #d1d3b3;
     --text: #27302a;
-    --dark-text: #444647;
     --muted: #69716a;
     --line: #edf0e8;
-    --border: #e5e7eb;
-    --light-border: #e5e7eb;
-    --light-background: #f8fafc;
-    --shadow: 0 10px 28px rgba(38, 60, 37, 0.12);
-    --small-shadow: 0 4px 14px rgba(38, 60, 37, 0.08);
-    --hover-shadow: 0 14px 34px rgba(38, 60, 37, 0.16);
+    --white: #ffffff;
+    --shadow: 5px 5px 24px rgba(0, 0, 0, 0.16);
+    --shadow-soft: 0 3px 12px rgba(38, 60, 37, 0.08);
     --transition: 0.25s ease;
 }
 
@@ -31,14 +32,23 @@ body {
     min-width: 320px;
     min-height: 100vh;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
     color: var(--text);
-    background: var(--background);
+    background: #f4f4ee;
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
     line-height: 1.5;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 a {
@@ -51,21 +61,17 @@ img {
     max-width: 100%;
 }
 
-button,
-input,
-label,
-a {
-    -webkit-tap-highlight-color: transparent;
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(115, 143, 32, 0.38);
+    outline-offset: 3px;
 }
 
-/* =========================
-   HEADER EN NAVIGATIE
-========================= */
+/* Header */
 
 header {
-    padding: 0 64px;
-    background: var(--white);
     border-bottom: 1px solid var(--line);
+    background: var(--white);
     box-shadow: 0 2px 10px rgba(38, 60, 37, 0.04);
 }
 
@@ -73,9 +79,8 @@ header {
     display: flex;
     align-items: center;
     gap: 30px;
-    width: 100%;
     min-height: 76px;
-    margin: 0 auto;
+    padding: 0 64px;
 }
 
 .logo {
@@ -88,7 +93,10 @@ header {
 }
 
 .regioLabel {
+    display: flex;
+    align-items: center;
     flex: 1;
+    gap: 6px;
     color: var(--dark-green-text);
     font-size: 11px;
     font-weight: 800;
@@ -99,11 +107,11 @@ header {
     place-items: center;
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+    margin-right: 2px;
     border-radius: 6px;
     color: var(--white);
-    background: var(--normal-green);
-    font-size: 12px;
+    background: var(--normal-green-highlight);
+    font-size: 11px;
 }
 
 .paginas {
@@ -116,79 +124,52 @@ header {
 }
 
 .paginas a {
-    position: relative;
     transition: color var(--transition), transform var(--transition);
 }
 
-.paginas a:hover {
-    color: var(--highlight-green);
+.paginas a:hover,
+.paginas a.active:not(.accountButton) {
+    color: var(--highlighted-page-green);
     transform: translateY(-1px);
 }
 
-.paginas a:focus-visible,
-.accountButton:focus-visible,
-.primary-button:focus-visible,
-button:focus-visible {
-    outline: 3px solid rgba(115, 143, 32, 0.35);
-    outline-offset: 3px;
-}
-
-.paginas a.active:not(.accountButton) {
-    color: var(--highlight-green);
-}
-
-.accountButton {
+.paginas .accountButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 40px;
     padding: 10px 14px;
     border-radius: 9px;
-    color: var(--white) !important;
-    background: var(--normal-green);
+    color: var(--white);
+    background: var(--normal-green-highlight);
     font-weight: 800;
-    box-shadow: var(--small-shadow);
-    transition:
-        color var(--transition),
-        background-color var(--transition),
-        box-shadow var(--transition),
-        transform var(--transition);
+    box-shadow: var(--shadow);
 }
 
-.accountButton:hover {
-    color: var(--white) !important;
+.paginas .accountButton:hover {
+    color: var(--white);
     background: var(--dark-green);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
-.accountButton:active {
-    transform: translateY(0);
-    box-shadow: var(--small-shadow);
-}
-
-/* =========================
-   MAIN
-========================= */
+/* Main */
 
 main {
-    flex: 1;
-    width: 100%;
-    max-width: none;
+    width: min(1180px, calc(100% - 128px));
     margin: 0 auto;
-    padding: 54px 64px 80px;
+    padding: 52px 0 76px;
 }
 
 .schoolHeader {
-    padding: 0 0 30px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .schoolHeader h1 {
-    margin: 0 0 7px;
-    color: var(--dark-text);
-    font-size: clamp(28px, 4vw, 36px);
-    line-height: 1.15;
+    margin: 0 0 8px;
+    color: var(--dark-green-text);
+    font-size: clamp(29px, 4vw, 40px);
+    line-height: 1.1;
 }
 
 .schoolHeader p {
@@ -197,11 +178,166 @@ main {
     font-size: 12px;
 }
 
+/* Avondselector */
+
+#route-grid {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.evening-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    margin: 0 auto 28px;
+    padding: 12px 16px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 14px;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+}
+
+.evening-selector-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.evening-selector-content strong {
+    color: var(--dark-green-text);
+    font-size: 15px;
+}
+
+.evening-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    color: var(--white);
+    background: var(--normal-green-highlight);
+    font-size: 21px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition), opacity var(--transition);
+}
+
+.evening-arrow:hover:not(:disabled) {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.evening-arrow:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+}
+
+/* Avondcontainer */
+
+.school-evening {
+    padding: 28px;
+    border-radius: 22px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.school-evening-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.school-evening-header h2 {
+    margin: 0 0 5px;
+    color: var(--dark-green-text);
+    font-size: 23px;
+}
+
+.school-evening-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.evening-badge {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: var(--dark-green-text);
+    background: var(--cool-background);
+    font-weight: 800;
+}
+
+/* Routekaarten */
+
+.school-route-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.school-route-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--cool-background);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.school-route-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.school-route-card > .iconTitle {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 0;
+    padding: 16px 24px 14px;
+    background: var(--white);
+}
+
+.school-route-card > .iconTitle .icon {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 8px;
+    border-radius: 13px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.school-route-card > .iconTitle h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 20px;
+    line-height: 1.1;
+}
+
 .iconTitle {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 10px;
 }
 
 .iconTitle h2,
@@ -209,208 +345,231 @@ main {
     margin: 0;
 }
 
-.route-card,
-.registration-section,
-.informationCards,
-.sponsorCards {
-    border: 1px solid var(--light-border);
-    border-radius: 22px;
-    background: var(--white);
-    box-shadow: var(--shadow);
-    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
-}
-
-.route-card:hover,
-.registration-section:hover,
-.informationCards:hover,
-.sponsorCards:hover {
-    border-color: rgba(94, 117, 28, 0.3);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-2px);
-}
-
-.route-card {
-    margin-bottom: 26px;
-    padding: 30px 28px 32px;
-}
-
-.route-card h2 {
-    margin: 0 0 20px;
-    color: var(--dark-text);
-    font-size: 21px;
-    text-align: center;
-}
-
-.route-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.9fr);
-    gap: 32px;
-    align-items: stretch;
+.icon {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+    min-width: 30px;
+    height: 28px;
+    padding: 0 6px;
+    border-radius: 7px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1;
 }
 
 .route-fields {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 50px;
-}
-
-.route-field,
-.sponsorCard {
-    border: 1px solid rgba(94, 117, 28, 0.24);
-    border-radius: 12px;
-    background: var(--cool-background);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    background: #dfe5d7;
 }
 
 .route-field {
-    min-height: 88px;
-    padding: 18px 16px;
-    transition: background-color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    min-width: 0;
+    min-height: 94px;
+    padding: 12px 10px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--white);
+    transition: background-color var(--transition), transform var(--transition);
 }
 
 .route-field:hover {
-    border-color: rgba(94, 117, 28, 0.45);
-    background: #cdd0ad;
-    box-shadow: var(--small-shadow);
-    transform: translateY(-1px);
+    background: #eef3e5;
+    transform: translateX(2px);
 }
 
 .route-field.full {
     grid-column: 1 / -1;
-}
-
-.icon {
-    flex: 0 0 auto;
-    display: grid;
-    place-items: center;
-    width: 32px;
-    min-height: 28px;
-    border-radius: 5px;
-    color: var(--white);
-    background: var(--normal-green);
-    font-size: 10px;
-    font-weight: 800;
+    min-height: 84px;
 }
 
 .route-field .iconTitle {
-    margin: 0 0 7px;
+    align-items: flex-start;
+    gap: 7px;
+    margin-bottom: 7px;
+}
+
+.route-field .iconTitle .icon {
+    min-width: 25px;
+    height: 23px;
+    padding: 0 4px;
+    border-radius: 5px;
+    color: var(--green);
+    background: transparent;
+    font-size: 14px;
 }
 
 .route-field strong {
-    color: var(--dark-text);
-    font-size: 15px;
+    color: var(--dark-green-text);
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.15;
 }
 
 .route-field small {
+    display: block;
     color: #4b5549;
+    font-size: 10px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
-#map1Div,
-#map2Div {
-    width: 100%;
-    height: 100%;
-    min-height: 330px;
-    margin: 0;
+.school-route-map {
+    width: calc(100% - 20px);
+    min-height: 300px;
+    margin: 0 10px;
     overflow: hidden;
     border-radius: 12px;
-    background: var(--light-background);
-    box-shadow: inset 0 0 0 1px var(--light-border);
+    background: #dfe5d7;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
 }
 
-button {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-top: 18px;
-    padding: 11px 14px;
+.route-map-button {
+    display: block;
+    width: calc(100% - 52px);
+    min-height: 42px;
+    margin: 18px 26px 24px;
+    padding: 12px 16px;
     border: 0;
     border-radius: 9px;
     color: var(--white);
-    background: var(--normal-green);
-    font-family: inherit;
+    background: var(--green);
     font-size: 11px;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: var(--small-shadow);
-    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    box-shadow: 0 8px 18px rgba(88, 119, 25, 0.2);
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition), opacity var(--transition);
 }
 
-button:hover {
+.route-map-button:hover:not(:disabled) {
     background: var(--dark-green);
-    box-shadow: var(--hover-shadow);
+    box-shadow: 0 10px 22px rgba(38, 60, 37, 0.24);
     transform: translateY(-2px);
 }
 
-button:active {
+.route-map-button:active {
     transform: translateY(0);
-    box-shadow: var(--small-shadow);
+}
+
+.route-map-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+/* Informatie, aanmelden en sponsoren */
+
+.informationCards,
+.registration-section,
+.sponsorCards {
+    border: 1px solid var(--light-grey-border);
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
 }
 
 .informationCards {
-    margin-top: 14px;
-    padding: 18px;
+    margin-top: 42px;
+    padding: 28px;
+}
+
+.informationCards > .iconTitle {
+    margin-bottom: 20px;
+}
+
+.informationCards > .iconTitle i {
+    color: var(--green);
 }
 
 .informationCards h2,
 .sponsorCards > h2 {
-    color: var(--dark-text);
-    font-size: 16px;
+    margin-top: 0;
+    color: var(--dark-green-text);
+    font-size: 21px;
+}
+
+.informationGrid,
+.sponsorGrid {
+    display: grid;
+    gap: 14px;
 }
 
 .informationGrid {
-    display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
 }
 
 .infoItem {
     display: flex;
     align-items: flex-start;
-    gap: 8px;
-    min-height: 82px;
-    padding: 12px;
-    border-radius: 10px;
+    gap: 11px;
+    min-height: 108px;
+    padding: 16px;
+    border: 1px solid rgba(57, 72, 31, 0.08);
+    border-radius: 15px;
+    color: var(--dark-green-text);
     background: var(--cool-background);
-    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
 .infoItem:hover {
-    background: #cdd0ad;
-    box-shadow: var(--small-shadow);
-    transform: translateY(-2px);
+    background: #e1e4c7;
+    box-shadow: 0 10px 20px rgba(57, 72, 31, 0.1);
+    transform: translateY(-4px);
+}
+
+.infoItem .icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    min-height: 34px;
+    padding: 0;
+    border-radius: 10px;
+    background: var(--green);
 }
 
 .infoItem div {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
 }
 
 .infoItem strong {
-    font-size: 12px;
-    line-height: 1.25;
+    font-size: 11px;
 }
 
 .infoItem small {
-    font-size: 11px;
+    color: #59634e;
+    font-size: 10px;
+    line-height: 1.4;
 }
 
 .registration-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
-    padding: 22px 18px;
+    gap: 30px;
+    margin-top: 22px;
+    padding: 28px;
 }
 
 .registration-section h2 {
-    margin: 0 0 7px;
-    color: var(--dark-text);
-    font-size: 25px;
+    margin: 0 0 8px;
+    color: var(--dark-green-text);
+    font-size: 24px;
 }
 
 .registration-section p {
+    max-width: 650px;
     margin: 0;
     color: var(--muted);
-    font-size: 10px;
+    font-size: 11px;
+    line-height: 1.6;
 }
 
 .primary-button {
@@ -421,56 +580,46 @@ button:active {
     padding: 12px 25px;
     border-radius: 10px;
     color: var(--white);
-    background: var(--normal-green);
+    background: var(--green);
     font-size: 12px;
     font-weight: 800;
-    box-shadow: var(--small-shadow);
+    box-shadow: var(--shadow-soft);
     transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .primary-button:hover {
     color: var(--white);
     background: var(--dark-green);
-    box-shadow: var(--hover-shadow);
+    box-shadow: var(--shadow);
     transform: translateY(-2px);
-}
-
-.primary-button:active {
-    transform: translateY(0);
-    box-shadow: var(--small-shadow);
 }
 
 .sponsorCards {
     margin-top: 20px;
-    padding: 18px;
+    padding: 28px;
 }
 
 .sponsorCards > h2 {
-    margin: 0 0 14px;
+    margin: 0 0 18px;
 }
 
 .sponsorGrid {
-    display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
 }
 
 .sponsorCard {
-    display: flex;
-    flex-direction: column;
     min-height: 190px;
     padding: 24px;
-    color: var(--dark-green-text);
-    background: var(--white);
-    box-shadow: var(--small-shadow);
-    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    border: 1px solid rgba(57, 72, 31, 0.12);
+    border-radius: 15px;
+    background: var(--cool-background);
+    transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
 .sponsorCard:hover {
-    border-color: rgba(94, 117, 28, 0.42);
-    background: var(--white);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-5px);
+    background: #e1e4c7;
+    box-shadow: 0 10px 20px rgba(57, 72, 31, 0.1);
+    transform: translateY(-4px);
 }
 
 .sponsorLogo {
@@ -481,11 +630,10 @@ button:active {
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 12px;
-    background: var(--light-background);
+    background: var(--white);
 }
 
 .sponsorLogo img {
-    display: block;
     width: 100%;
     height: 100%;
     padding: 7px;
@@ -506,21 +654,24 @@ button:active {
     line-height: 1.5;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* Footer */
 
 footer {
     padding: 45px 64px 25px;
     color: #eef3e7;
-    background: var(--dark-green) url("../Images/footerBackground.png") center / cover no-repeat;
-    box-shadow: 0 -4px 16px rgba(38, 60, 37, 0.08);
+    background-color: var(--dark-green);
+    background-image: url("../Images/footerBackground.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .footer {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 90px;
+    max-width: 1180px;
+    margin: 0 auto;
 }
 
 .footer strong {
@@ -552,65 +703,51 @@ footer {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin-top: 55px;
+    max-width: 1180px;
+    margin: 55px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(233, 240, 229, 0.16);
     color: #839282;
     font-size: 8px;
 }
 
-@media (max-width: 900px) {
-    header {
-        padding: 0 32px;
-    }
+/* Responsive */
 
-    main {
-        width: min(100%, 1120px);
-        padding: 38px 32px 65px;
-    }
-
-    .navbar {
-        gap: 20px;
-    }
-
-    .paginas {
-        gap: 13px;
-    }
-
-    .route-layout {
+@media (max-width: 1100px) {
+    .school-route-grid {
         grid-template-columns: 1fr;
     }
 
-    #map1Div,
-    #map2Div {
-        min-height: 260px;
-    }
-
-    .route-card {
-        padding: 24px 22px 26px;
-    }
-
     .informationGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    footer {
-        padding-right: 32px;
-        padding-left: 32px;
-    }
-
-    .footer {
-        gap: 40px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 680px) {
-    header {
-        padding: 0 18px;
+@media (max-width: 850px) {
+    .navbar {
+        padding-right: 24px;
+        padding-left: 24px;
     }
 
+    main {
+        width: min(100% - 48px, 760px);
+    }
+
+    footer {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .footer {
+        gap: 45px;
+    }
+}
+
+@media (max-width: 650px) {
     .navbar {
         flex-wrap: wrap;
         gap: 12px 16px;
-        padding: 12px 0;
+        padding: 12px 18px;
     }
 
     .logo img {
@@ -624,7 +761,7 @@ footer {
     .paginas {
         order: 3;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
         gap: 8px 14px;
         padding-bottom: 4px;
@@ -632,41 +769,36 @@ footer {
     }
 
     main {
-        padding: 0 16px 48px;
-    }
-
-    .schoolHeader {
-        padding: 30px 0 20px;
+        width: calc(100% - 28px);
+        padding: 34px 0 52px;
     }
 
     .schoolHeader h1 {
-        font-size: 27px;
+        font-size: 29px;
     }
 
-    .route-card,
-    .informationCards,
-    .registration-section,
-    .sponsorCards {
-        border-radius: 16px;
+    .evening-selector {
+        width: 100%;
     }
 
-    .route-card {
-        padding: 22px 16px 24px;
+    .school-evening {
+        padding: 20px 14px;
+        border-radius: 17px;
     }
 
-    #map1Div,
-    #map2Div {
-        min-height: 220px;
+    .school-evening-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    .sponsorCard {
-        min-height: 170px;
-        padding: 20px;
+    .school-route-card > .iconTitle {
+        padding-right: 18px;
+        padding-left: 18px;
     }
 
     .route-fields,
-    .sponsorGrid,
-    .informationGrid {
+    .informationGrid,
+    .sponsorGrid {
         grid-template-columns: 1fr;
     }
 
@@ -674,10 +806,14 @@ footer {
         grid-column: auto;
     }
 
+    .school-route-map {
+        min-height: 260px;
+    }
+
     .registration-section {
         align-items: flex-start;
         flex-direction: column;
-        gap: 18px;
+        padding: 22px;
     }
 
     .primary-button {
@@ -700,13 +836,298 @@ footer {
     }
 }
 
+@media (max-width: 430px) {
+    .regioLabel {
+        display: none;
+    }
+
+    .paginas {
+        margin-left: auto;
+    }
+
+    .paginas a:not(.accountButton) {
+        display: none;
+    }
+
+    .school-route-card > .iconTitle h2 {
+        font-size: 18px;
+    }
+
+    .route-map-button {
+        width: calc(100% - 36px);
+        margin-right: 18px;
+        margin-left: 18px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
         scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* Routeweergave: eerst routebeschrijving, daarna kaart na klikken */
+.school-evening {
+    margin-top: 22px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.school-evening-header {
+    display: none;
+}
+
+.school-route-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.school-route-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--white);
+    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.18);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.school-route-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 8px 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.school-route-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 30px 12px;
+}
+
+.route-title-icon {
+    display: grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    color: var(--dark-green);
+    font-size: 17px;
+}
+
+.school-route-title h2 {
+    margin: 0;
+    color: var(--dark-green-text);
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.school-route-summary {
+    min-height: 77px;
+    margin: 0;
+    padding: 12px 30px 28px;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.school-route-body {
+    display: grid;
+    grid-template-columns: 225px minmax(0, 1fr);
+    min-height: 400px;
+    background: #dfe5d7;
+}
+
+.school-route-details {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding: 13px 12px;
+    background: #dfe5d7;
+}
+
+.route-detail-box {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 14px;
+    min-height: 92px;
+    padding: 15px 14px;
+    border-radius: 15px;
+    background: var(--white);
+}
+
+.route-detail-box strong {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #1e293b;
+    font-size: 13px;
+}
+
+.route-detail-box strong i {
+    width: 16px;
+    color: var(--dark-green);
+    text-align: center;
+}
+
+.route-detail-box small {
+    color: #243247;
+    font-size: 11px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.route-content {
+    min-width: 0;
+    background: var(--white);
+}
+
+.route-preview {
+    min-height: 400px;
+    padding: 30px;
+    background: var(--white);
+}
+
+.route-preview h3 {
+    margin: 0 0 20px;
+    color: #111827;
+    font-size: 20px;
+}
+
+.route-steps {
+    margin: 0;
+    padding-left: 1.8rem;
+}
+
+.route-steps li {
+    margin: 0 0 14px;
+    padding-left: 5px;
+    color: #263241;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.route-steps li::marker {
+    color: var(--normal-green-highlight);
+    font-weight: 800;
+}
+
+.route-legend {
+    margin: 22px 0 0;
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+    color: #3d4651;
+    font-size: 12px;
+}
+
+.route-legend strong {
+    color: #1f2937;
+}
+
+.school-route-map {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    margin: 0;
+    border-radius: 0;
+    background: #dfe5d7;
+    box-shadow: none;
+}
+
+.school-route-map[hidden],
+.route-preview[hidden] {
+    display: none !important;
+}
+
+.route-map-button {
+    display: block;
+    width: calc(100% - 24px);
+    min-height: 52px;
+    margin: 18px 12px 12px;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 10px;
+    color: var(--white);
+    background: var(--normal-green-highlight);
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(88, 119, 25, 0.2);
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.route-map-button:hover:not(:disabled) {
+    background: var(--dark-green);
+    box-shadow: 0 10px 22px rgba(38, 60, 37, 0.24);
+    transform: translateY(-2px);
+}
+
+.route-map-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+@media (max-width: 1100px) {
+    .school-route-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .school-route-title {
+        padding: 20px 20px 10px;
+    }
+
+    .school-route-title h2 {
+        font-size: 23px;
+    }
+
+    .school-route-summary {
+        min-height: auto;
+        padding: 10px 20px 22px;
+    }
+
+    .school-route-body {
+        grid-template-columns: 1fr;
+    }
+
+    .school-route-details {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .route-detail-box {
+        min-height: 105px;
+    }
+
+    .route-preview {
+        min-height: 350px;
+        padding: 24px 20px;
+    }
+
+    .school-route-map {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 430px) {
+    .school-route-details {
+        grid-template-columns: 1fr;
+    }
+
+    .route-map-button {
+        width: calc(100% - 24px);
+        margin-right: 12px;
+        margin-left: 12px;
     }
 }

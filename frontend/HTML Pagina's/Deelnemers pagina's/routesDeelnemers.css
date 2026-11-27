@@ -3,20 +3,24 @@
 }
 
 :root {
-    --dark-green: #102516;
+    --dark-blue-text: #444647;
     --dark-green-text: #39481f;
+    --light-green-highlight: #a8bb33;
+    --normal-green-highlight: #5e751c;
+    --cool-background: #d2d3b4;
+    --grey-text: #4b5563;
+    --light-grey-border: #e5e7eb;
+    --light-grey-background: #f8fafc;
+    --highlighted-page-green: #738f20;
     --green: #587719;
-    --normal-green: #5e751c;
-    --highlight: #738f20;
-    --cool: #d2d3b4;
+    --dark-green: #102516;
+    --olive: #d1d3b3;
     --text: #27302a;
     --muted: #69716a;
+    --line: #edf0e8;
     --white: #ffffff;
-    --line: #e6eadf;
-    --soft: #f7f9f4;
-    --page: #f4f4ee;
-    --shadow: 0 12px 28px rgba(38, 60, 37, 0.12);
-    --shadow-hover: 0 18px 36px rgba(38, 60, 37, 0.19);
+    --shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
+    --shadow-soft: 0 3px 12px rgba(38, 60, 37, 0.08);
 }
 
 html {
@@ -26,7 +30,7 @@ html {
 body {
     margin: 0;
     color: var(--text);
-    background: var(--page);
+    background: #f4f4ee;
     font-family: Inter, Arial, sans-serif;
     font-size: 12px;
 }
@@ -44,14 +48,15 @@ img {
 
 header {
     padding: 0 64px;
+    border-bottom: 1px solid var(--line);
     background: var(--white);
-    border-bottom: 1px solid #edf0e8;
 }
 
 nav {
     display: flex;
     align-items: center;
     gap: 30px;
+    width: 100%;
     min-height: 76px;
 }
 
@@ -62,6 +67,7 @@ nav {
 .logo img {
     display: block;
     width: 78px;
+    height: auto;
 }
 
 .regioLabel {
@@ -79,7 +85,8 @@ nav {
     margin-right: 5px;
     border-radius: 6px;
     color: var(--white);
-    background: var(--normal-green);
+    background: var(--normal-green-highlight);
+    font-size: 12px;
 }
 
 .paginas {
@@ -93,16 +100,16 @@ nav {
 
 .paginas a {
     transition:
-        color var(--transition),
-        background-color var(--transition),
-        box-shadow var(--transition),
-        transform var(--transition);
-        transition: color var(--transition), 
-        transform var(--transition);
+        color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
-
-.paginas a:hover { color: var(--green); transform: translateY(-1px); }
+.paginas a:hover,
+.paginas a.active:not(.inschrijfButton) {
+    color: var(--highlighted-page-green);
+}
 
 .inschrijfButton {
     display: inline-flex;
@@ -112,31 +119,33 @@ nav {
     padding: 10px 14px;
     border-radius: 8px;
     color: var(--white);
-    background: var(--normal-green);
+    background: var(--normal-green-highlight);
     font-weight: 800;
-    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.2);
-    transition: transform 0.25s ease, background-color 0.25s ease,
-        box-shadow 0.25s ease;
+    box-shadow: var(--shadow);
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
 .inschrijfButton:hover {
     color: var(--white);
     background: var(--dark-green);
-    transform: translateY(-2px);
+    box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
 }
 
 /* Main */
 
 main {
-    padding: 0 64px 80px;
+    padding: 0 64px 70px;
 }
 
 .cover {
     position: relative;
-    height: 390px;
+    height: 350px;
     overflow: hidden;
-    border-radius: 0 0 24px 24px;
-    box-shadow: var(--shadow);
 }
 
 .coverImage {
@@ -144,31 +153,29 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 56%;
-    transition: transform 0.7s ease;
-}
-
-.cover:hover .coverImage {
-    transform: scale(1.025);
 }
 
 .cover::after {
     position: absolute;
     inset: 0;
     content: "";
-    background: linear-gradient(90deg, rgba(16, 37, 22, 0.68), transparent 72%);
+    background: linear-gradient(
+        90deg,
+        rgba(16, 37, 22, 0.45),
+        transparent 70%
+    );
+    pointer-events: none;
 }
 
 .cover h1 {
     position: absolute;
     z-index: 1;
-    bottom: 48px;
-    left: 42px;
-    max-width: 650px;
+    bottom: 42px;
+    left: 32px;
     margin: 0;
     color: var(--white);
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.05;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1;
 }
 
 /* Route cards */
@@ -176,32 +183,34 @@ main {
 #cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 42px;
+    gap: 32px;
+    margin-top: 32px;
 }
 
-#route5km,
-#route2_5km {
+.routeCard {
     min-width: 0;
-}
-
-#routecard {
     overflow: hidden;
-    border: 1px solid rgba(57, 72, 31, 0.1);
-    border-radius: 20px;
-    background: var(--white);
+    border-radius: 24px;
+    background: var(--cool-background);
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-#routecard:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
+.routeCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 10px 30px rgba(0, 0, 0, 0.23);
 }
 
 .cardTop {
-    padding: 24px 26px 20px;
-    background: linear-gradient(135deg, var(--cool), #e3e4c9);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 16px 24px 14px;
+    border-radius: 24px 24px 0 0;
+    background: var(--white);
 }
 
 .cardTop .iconTitle {
@@ -224,90 +233,89 @@ main {
 
 .cardTop h3 {
     margin: 0;
-    color: var(--dark-green);
-    font-size: 24px;
+    color: #1f2937;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.1;
 }
 
 .cardTop p {
     min-height: 52px;
+    max-width: 760px;
     margin: 0;
-    color: #4f5b4e;
+    color: #27302a;
     font-size: 11px;
-    line-height: 1.55;
+    line-height: 1.45;
 }
 
-#cardMiddle {
+.cardMiddle {
     display: grid;
-    grid-template-columns: 190px minmax(0, 1fr);
-    min-height: 380px;
-    background: var(--white);
+    grid-template-columns: 180px minmax(0, 1fr);
+    width: 100%;
+    min-height: 372px;
+    background: #dfe5d7;
 }
 
-#informatieBlok {
+.informatieBlok {
     display: flex;
     flex-direction: column;
-    gap: 9px;
-    padding: 14px;
+    gap: 10px;
+    min-width: 0;
+    padding: 10px;
+    background: #dfe5d7;
 }
 
-#informatieBlok section {
+.informatieBlok section {
     flex: 1;
-    padding: 11px 9px;
-    border: 1px solid var(--line);
-    border-radius: 13px;
-    background: var(--soft);
-    transition: transform 0.25s ease, background-color 0.25s ease;
+    min-width: 0;
+    padding: 12px 10px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #ffffff;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-#informatieBlok section:hover {
+.informatieBlok section:hover {
     background: #eef3e5;
     transform: translateX(3px);
 }
 
-#informatieBlok .iconTitle {
+.informatieBlok .iconTitle {
     display: flex;
     align-items: center;
     gap: 7px;
     margin: 0 0 7px;
 }
 
-#informatieBlok .iconTitle i {
+.informatieBlok .iconTitle i {
     color: var(--green);
 }
 
-#informatieBlok h4 {
-    margin: 0;
-    color: var(--dark-green);
+.informatieBlok h4 {
+    margin: 0 0 6px;
+    color: #27302a;
     font-size: 10px;
+    font-weight: 800;
+    line-height: 1.15;
 }
 
-#informatieBlok p {
+.informatieBlok p {
     margin: 0;
-    color: var(--muted);
+    color: #27302a;
     font-size: 9px;
-    line-height: 1.45;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
 }
 
-#map1Div,
-#map2Div {
+.routeMap {
     width: 100%;
-    min-height: 380px;
+    min-height: 372px;
     background: #dfe5d7;
 }
 
-.cardBottom {
-    padding: 16px 26px;
-    background: var(--cool);
-}
-
-.cardBottom p {
-    margin: 0;
-    color: var(--dark-green-text);
-    font-size: 10px;
-    line-height: 1.5;
-}
-
-button[id^="routeButton"] {
+.routeButton {
     display: block;
     width: calc(100% - 52px);
     margin: 18px 26px 0;
@@ -320,30 +328,33 @@ button[id^="routeButton"] {
     font-weight: 800;
     cursor: pointer;
     box-shadow: 0 8px 18px rgba(88, 119, 25, 0.2);
-    transition: transform 0.25s ease, background-color 0.25s ease,
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
         box-shadow 0.25s ease;
 }
 
-button[id^="routeButton"]:hover:not(:disabled) {
+.routeButton:hover:not(:disabled) {
     background: var(--dark-green);
+    box-shadow: 0 10px 22px rgba(38, 60, 37, 0.24);
     transform: translateY(-2px);
 }
 
-button[id^="routeButton"]:disabled {
-    opacity: 0.65;
+.routeButton:disabled {
     cursor: wait;
+    opacity: 0.65;
 }
 
-/* Bottom cards */
+/* Aanmelden en informatie */
 
 .aanmeldCard,
 .informationCards {
     margin-top: 42px;
     padding: 28px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--light-grey-border);
     border-radius: 20px;
     background: var(--white);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-soft);
 }
 
 .aanmeldCard {
@@ -396,8 +407,11 @@ button[id^="routeButton"]:disabled {
     padding: 16px;
     border: 1px solid rgba(57, 72, 31, 0.08);
     border-radius: 15px;
-    background: var(--cool);
-    transition: transform 0.25s ease, box-shadow 0.25s ease,
+    color: var(--dark-green-text);
+    background: var(--cool-background);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
         background-color 0.25s ease;
 }
 
@@ -413,6 +427,7 @@ button[id^="routeButton"]:disabled {
     flex: 0 0 auto;
     width: 34px;
     height: 34px;
+    min-height: 34px;
     border-radius: 10px;
     color: var(--white);
     background: var(--green);
@@ -443,6 +458,7 @@ footer {
     background-image: url("../Images/footerBackground.png");
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .footer {
@@ -468,7 +484,9 @@ footer {
 }
 
 .footer a {
-    transition: color var(--transition), transform var(--transition);
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .footer a:hover {
@@ -483,6 +501,103 @@ footer {
     margin-top: 55px;
     color: #839282;
     font-size: 8px;
+}
+
+/* Avonden groeperen per twee */
+#cards {
+    display: block;
+    margin-top: 32px;
+}
+
+/* Eén avondgroep bevat de 5 km- en 2,5 km-route */
+.eveningGroup {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    margin-bottom: 36px;
+}
+
+/* De route-card bevat geen button meer */
+.routeEntry {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.routeEntry .routeCard {
+    flex: 1;
+}
+
+/* Button staat buiten de card */
+.routeEntry .routeButton {
+    width: 100%;
+    min-height: 42px;
+    margin: 14px 0 0;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.routeEntry .routeButton:hover:not(:disabled) {
+    background: var(--dark-green);
+    box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.24);
+    transform: translateY(-2px);
+}
+
+.routeEntry .routeButton:active {
+    transform: translateY(0);
+}
+
+.routeEntry .routeButton:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+/* Scheidingslijn na iedere twee avonden */
+.routeDivider {
+    width: 100%;
+    height: 1px;
+    margin: 12px 0 40px;
+    background: var(--normal-green-highlight);
+    opacity: 0.45;
+}
+
+/* Zorg dat hover alleen de card beïnvloedt */
+.routeEntry .routeCard:hover {
+    transform: translateY(-5px);
+}
+
+.routeEntry .routeButton:hover {
+    transform: translateY(-2px);
+}
+
+/* Tablet en mobiel */
+@media (max-width: 1100px) {
+    .eveningGroup {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 650px) {
+    .eveningGroup {
+        gap: 24px;
+        margin-bottom: 28px;
+    }
+
+    .routeDivider {
+        margin: 4px 0 30px;
+    }
 }
 
 /* Responsive */
@@ -527,7 +642,6 @@ footer {
 
     .cover {
         height: 300px;
-        border-radius: 0 0 18px 18px;
     }
 
     .cover h1 {
@@ -537,17 +651,16 @@ footer {
         font-size: 32px;
     }
 
-    #cardMiddle {
+    .cardMiddle {
         grid-template-columns: 1fr;
     }
 
-    #informatieBlok {
+    .informatieBlok {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    #map1Div,
-    #map2Div {
+    .routeMap {
         min-height: 280px;
     }
 
@@ -578,19 +691,247 @@ footer {
 }
 
 @media (max-width: 430px) {
-    #informatieBlok {
+    .informatieBlok {
         grid-template-columns: 1fr;
     }
 
-    .cardTop,
-    .cardBottom {
+    .cardTop
+    {
         padding-right: 18px;
         padding-left: 18px;
     }
 
-    button[id^="routeButton"] {
+    .routeButton {
         width: calc(100% - 36px);
         margin-right: 18px;
         margin-left: 18px;
+    }
+}
+
+/* Definitieve route-indeling */
+#cards {
+    display: block;
+    margin-top: 32px;
+}
+
+.eveningGroup {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    margin-bottom: 36px;
+}
+
+.routeEntry {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.routeEntry .routeCard {
+    flex: 1;
+}
+
+/* Inhoud van de kaart */
+.routeContent {
+    min-width: 0;
+    background: var(--white);
+}
+
+.routePreview {
+    min-height: 372px;
+    padding: 22px 24px;
+    overflow-y: auto;
+    color: var(--dark-green-text);
+    background: var(--white);
+}
+
+.routePreview h4 {
+    margin: 0 0 14px;
+    color: var(--dark-green);
+    font-size: 15px;
+}
+
+.routePreview ol {
+    margin: 0;
+    padding-left: 1.4rem;
+}
+
+.routePreview li {
+    margin-bottom: 9px;
+    padding-left: 4px;
+    color: var(--text);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.routePreview li::marker {
+    color: var(--green);
+    font-weight: 800;
+}
+
+.routeLegend {
+    margin: 18px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.routeLegend strong {
+    color: var(--dark-green-text);
+}
+
+.routeMap {
+    width: 100%;
+    min-height: 372px;
+    background: #dfe5d7;
+}
+
+.routeMap[hidden],
+.routePreview[hidden] {
+    display: none !important;
+}
+
+/* Knop buiten de card */
+.routeEntry .routeButton {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+    margin: 14px 0 0;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.routeEntry .routeButton:hover:not(:disabled) {
+    color: var(--white);
+    background: var(--dark-green);
+    box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.24);
+    transform: translateY(-2px);
+}
+
+.routeEntry .routeButton:active {
+    transform: translateY(0);
+}
+
+.routeEntry .routeButton:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+/* Lijn tussen avond 1-2, 2-3 en 3-4 */
+.routeDivider {
+    width: 100%;
+    height: 2px;
+    margin: 4px 0 42px;
+    border-radius: 999px;
+    background: var(--normal-green-highlight);
+    opacity: 0.5;
+}
+
+/* Avondselector */
+.eveningSelector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    margin: 32px auto 26px;
+    padding: 12px 16px;
+    border: 1px solid var(--light-grey-border);
+    border-radius: 16px;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+}
+
+.eveningSelectorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.eveningSelectorContent strong {
+    color: var(--dark-green-text);
+    font-size: 16px;
+}
+
+.eveningSelectorContent small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.eveningArrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.eveningArrow:hover:not(:disabled) {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.eveningArrow:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+}
+
+@media (max-width: 650px) {
+    .eveningSelector {
+        width: 100%;
+        margin-top: 24px;
+    }
+
+    .eveningSelectorContent strong {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .eveningGroup {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 650px) {
+    .eveningGroup {
+        gap: 24px;
+        margin-bottom: 30px;
+    }
+
+    .routePreview {
+        min-height: 280px;
+        padding: 18px;
+    }
+
+    .routeDivider {
+        margin: 0 0 30px;
     }
 }

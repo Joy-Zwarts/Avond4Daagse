@@ -13,8 +13,7 @@
     --white: #ffffff;
     --tab-background: #f4f6f8;
     --ink: #172033;
-    --danger: #b44b52;
-    --shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 7px 18px rgba(0, 0, 0, 0.14);
     --transition: 0.2s ease;
 }
@@ -30,9 +29,7 @@ body {
 
 body {
     color: var(--dark);
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    line-height: 1.45;
+    font: 12px/1.45 Arial, sans-serif;
 }
 
 a {
@@ -42,7 +39,6 @@ a {
 
 button,
 input,
-select,
 textarea {
     font: inherit;
 }
@@ -55,6 +51,8 @@ button {
     outline: 3px solid #8ba64f;
     outline-offset: 3px;
 }
+
+/* Header */
 
 header {
     padding: 10px 38px 0;
@@ -90,7 +88,6 @@ header {
 .regioLabel {
     display: flex;
     align-items: center;
-    justify-self: start;
     gap: 9px;
     color: var(--green);
     font-size: 14px;
@@ -115,12 +112,6 @@ header {
     color: var(--green);
     font-size: 10px;
     font-weight: 700;
-    transition: color var(--transition), transform var(--transition);
-}
-
-.account:hover {
-    color: var(--green-dark);
-    transform: translateY(-1px);
 }
 
 .accountButton {
@@ -131,13 +122,6 @@ header {
     border: 3px solid var(--green);
     border-radius: 50%;
     font-size: 16px;
-    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
-}
-
-.account:hover .accountButton {
-    color: var(--white);
-    background: var(--green);
-    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
 }
 
 nav {
@@ -146,18 +130,14 @@ nav {
     gap: 4px;
     min-height: 36px;
     overflow-x: auto;
-    padding: 0 0 0 4px;
+    padding-left: 4px;
 }
 
 nav a {
-    position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    width: auto;
     height: 25px;
-    min-height: 25px;
     padding: 7px 11px 6px;
     border: 1px solid transparent;
     border-bottom: 4px solid var(--white);
@@ -165,206 +145,313 @@ nav a {
     color: #707981;
     background: var(--tab-background);
     font-size: 9px;
-    line-height: normal;
     white-space: nowrap;
-    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 nav a:hover {
-    z-index: 3;
     color: var(--green);
-    background: var(--tab-background);
     transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav a.active {
-    z-index: 2;
     height: 32px;
-    min-height: 32px;
     border-color: var(--line);
     border-bottom-color: var(--background);
     color: var(--dark);
-    background: var(--tab-background);
     font-weight: 700;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Page */
+
+.page-head,
+.container {
+    width: min(1160px, calc(100% - 84px));
+    margin: 0 auto;
 }
 
 .page-head {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 29px 0 12px;
+    padding: 29px 0 18px;
 }
 
 .page-head h1 {
     margin: 0 0 5px;
     color: var(--green);
     font-size: 26px;
-    line-height: 1.15;
 }
 
 .page-head p {
-    margin: 5px 0 0;
+    margin: 0;
     color: var(--muted);
     font-size: 12px;
 }
 
-main.container {
-    width: min(1160px, calc(100% - 84px));
-    min-height: calc(100vh - 170px);
-    margin: 0 auto;
-    padding: 0 0 45px;
+.container {
+    margin-bottom: 45px;
 }
 
+/* Selector staat boven de routekaarten */
+
 .route-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    display: block;
 }
+
+.eveningSelector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    margin: 0 auto 24px;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.eveningSelectorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.eveningSelectorContent span,
+.eveningSelectorContent small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.eveningSelectorContent strong {
+    color: var(--green);
+    font-size: 16px;
+}
+
+.eveningArrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 15px;
+    transition: background-color var(--transition), transform var(--transition), opacity var(--transition);
+}
+
+.eveningArrow:hover:not(:disabled) {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+.eveningArrow:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+}
+
+/* Avondkaart */
 
 .card {
     border: 1px solid var(--line);
     border-radius: 16px;
     background: var(--white);
     box-shadow: var(--shadow);
-    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
 }
 
-.card:hover {
-    border-color: #d8dde1;
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-2px);
-}
-
-.route {
+.evening-card {
     padding: 22px;
 }
 
-.route h2 {
-    margin: 0 0 8px;
+.route-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.day-number {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: var(--white);
+    background: var(--green);
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
+}
+
+.route-header h2 {
+    margin: 0;
     color: var(--green);
     font-size: 18px;
 }
 
-.route > p {
-    margin: 5px 0 16px;
+.route-header p {
+    margin: 3px 0 0;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 11px;
 }
 
-.route-body {
+.evening-settings {
     display: grid;
-    grid-template-columns: 190px minmax(0, 1fr);
-    gap: 16px;
-    margin-top: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
 }
 
-label {
+.evening-settings label,
+.route-option label {
     display: block;
-    margin: 0 0 7px;
     color: var(--dark);
     font-size: 12px;
+    font-weight: 700;
 }
 
-.route-body label:not(:first-child) {
-    margin-top: 10px;
-}
-
-.input,
-textarea,
-select {
+.evening-settings input,
+.route-option input,
+.route-option textarea {
     width: 100%;
     min-width: 0;
+    margin-top: 6px;
     padding: 10px;
     border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: 8px;
     outline: none;
     color: var(--ink);
     background: var(--white);
-    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-.input:hover,
-textarea:hover,
-select:hover {
-    border-color: #c8d0d6;
-}
-
-.input:focus,
-textarea:focus,
-select:focus {
+.evening-settings input:focus,
+.route-option input:focus,
+.route-option textarea:focus {
     border-color: var(--green);
     box-shadow: 0 0 0 3px rgba(64, 86, 36, 0.15);
 }
 
-.route > textarea {
-    min-height: 82px;
-    resize: vertical;
+/* 2,5 km en 5 km naast elkaar */
+
+.route-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
 }
 
-.route-body .input,
-.route-body select {
-    margin-bottom: 8px;
+.route-option {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fbfcfd;
 }
 
-textarea {
+/* 2,5 km links en 5 km rechts, ongeacht de JS-volgorde */
+.route-option[data-distance="2.5"] {
+    order: 1;
+}
+
+.route-option[data-distance="5"] {
+    order: 2;
+}
+
+.route-option-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.route-option-header h3 {
+    margin: 0;
+    color: var(--green);
+    font-size: 15px;
+}
+
+.route-distance-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    color: var(--green);
+    background: var(--green-light);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.route-option-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.route-option textarea {
     min-height: 92px;
     resize: vertical;
 }
 
-#map1Div,
-#map2Div {
+.route-map {
     width: 100%;
-    min-height: 372px;
+    min-height: 260px;
+    margin-top: 16px;
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 10px;
     background: #e8edf0;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 
-#routeButton1,
-#routeButton2 {
-    display: inline-flex;
+.route-option-button {
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     min-height: 40px;
-    margin-top: 16px;
+    margin-top: 12px;
     padding: 10px 16px;
     border: 1px solid var(--green);
     border-radius: 8px;
     color: var(--white);
     background: var(--green);
+    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.25);
     font-weight: 700;
-    box-shadow: 0 3px 8px rgba(64, 86, 36, 0.28);
-    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition), filter var(--transition);
+    transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
-#routeButton1:hover,
-#routeButton2:hover {
+.route-option-button:hover:not(:disabled) {
     border-color: var(--green-dark);
     background: var(--green-dark);
+    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.35);
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(64, 86, 36, 0.38);
 }
 
-#routeButton1:active,
-#routeButton2:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(64, 86, 36, 0.22);
-}
-
-#routeButton1:disabled,
-#routeButton2:disabled {
+.route-option-button:disabled {
     cursor: wait;
     opacity: 0.7;
     transform: none;
     box-shadow: none;
 }
 
+/* Responsive */
+
 @media (max-width: 1000px) {
-    .route-grid {
+    .route-options {
         grid-template-columns: 1fr;
     }
 }
@@ -376,7 +463,6 @@ textarea {
 
     .topbar {
         grid-template-columns: 70px 1fr;
-        min-height: 58px;
         gap: 16px;
     }
 
@@ -401,27 +487,41 @@ textarea {
         padding-left: 18px;
     }
 
+    .page-head,
+    .container {
+        width: 100%;
+    }
+
     .page-head {
         padding: 22px 14px 12px;
     }
 
-    main.container {
-        width: auto;
-        margin: 0;
-        padding: 0 14px 35px;
+    .container {
+        padding: 0 14px;
     }
 
-    .route {
+    .eveningSelector {
+        width: 100%;
+    }
+
+    .eveningSelectorContent strong {
+        font-size: 14px;
+    }
+
+    .evening-card {
         padding: 18px;
     }
 
-    .route-body {
+    .evening-settings {
         grid-template-columns: 1fr;
     }
 
-    #map1Div,
-    #map2Div {
-        min-height: 280px;
+    .route-option {
+        padding: 14px;
+    }
+
+    .route-map {
+        min-height: 240px;
     }
 }
 
@@ -444,13 +544,17 @@ textarea {
         font-size: 22px;
     }
 
-    .route {
+    .evening-card {
         padding: 16px;
     }
 
-    #map1Div,
-    #map2Div {
-        min-height: 230px;
+    .route-option-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .route-map {
+        min-height: 220px;
     }
 }
 
@@ -460,7 +564,6 @@ textarea {
     *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
 }
