@@ -1,11 +1,20 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Y1cd+oQ2dpU=",
   "success": true,
   "projectFilePath": "C:\\Users\\joyzw\\SE3Project\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joyzw\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.15\\microsoft.aspnetcore.openapi.10.0.15.nupkg.sha512",
     "C:\\Users\\joyzw\\.nuget\\packages\\microsoft.openapi\\2.13.0\\microsoft.openapi.2.13.0.nupkg.sha512"
+=======
+  "dgSpecHash": "xmcvvivw0Mk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\24104256\\stanhtmlcss\\Avond4Daagse\\backend\\Avond4Daagse\\Avond4Daagse.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\24104256\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.15\\microsoft.aspnetcore.openapi.10.0.15.nupkg.sha512",
+    "C:\\Users\\24104256\\.nuget\\packages\\microsoft.openapi\\2.13.0\\microsoft.openapi.2.13.0.nupkg.sha512"
+>>>>>>> a0e1650 (Nuget package install probs)
   ],
   "logs": []
 }
