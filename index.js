@@ -3,9 +3,9 @@ const locaties = [
         naam: "Avond4Daagse Den Haag",
         zoektermen: "den haag zuid-holland",
         pagina: {
-            deelnemer: "Deelnemers pagina's/homeDeelnemers.html",
-            school: "Pagina's voor scholen/inlogpaginaScholen.html",
-            organisator: "Medewerkersportaal/inlogpaginaMedewerkers.html"
+            deelnemer: "frontend/HTML Pagina's/Deelnemers pagina's/homeDeelnemers.html",
+            school: "frontend/HTML Pagina's/Pagina's voor scholen/inlogpaginaScholen.html",
+            organisator: "frontend/HTML Pagina's/Medewerkersportaal/inlogpaginaMedewerkers.html"
         }
     },
     {
