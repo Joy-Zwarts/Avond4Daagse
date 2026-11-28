@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const posts = JSON.parse(localStorage.getItem(POSTS_KEY) || '[]');
             posts.unshift(post);
             localStorage.setItem(POSTS_KEY, JSON.stringify(posts));
-            window.location.href = 'communicatiebeheerMedewerkers_v2.html';
+            window.location.href = 'communicatiebeheerMedewerkers.html';
         };
 
         if (selectedImage) {
