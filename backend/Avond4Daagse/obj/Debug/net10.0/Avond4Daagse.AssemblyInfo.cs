@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Avond4Daagse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+058737249ec15cf864c5c734c22e79ed66acebab")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f5b2206dac1233663549fc97cccd20de94780d2")]
+>>>>>>> a0e1650 (Nuget package install probs)
 [assembly: System.Reflection.AssemblyProductAttribute("Avond4Daagse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Avond4Daagse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
